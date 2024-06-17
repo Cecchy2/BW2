@@ -11745,4 +11745,12 @@ textarea.form-control-lg {
 
 #albumPage {
   background-color: rgb(204, 176, 73);
+}
+
+#playBtn {
+  background-color: rgb(30, 215, 95);
+}
+
+#tabella {
+  background-color: rgba(33, 37, 41, 0.705);
 }/*# sourceMappingURL=style.css.map */
