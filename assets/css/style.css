@@ -11744,7 +11744,8 @@ textarea.form-control-lg {
 }
 
 #albumPage {
-  background-color: rgb(204, 176, 73);
+  background-color: #030303;
+  background-image: linear-gradient(0deg, #030303 0%, #ffcc70 46%, #ffcc70 100%);
 }
 
 #playBtn {
@@ -11752,5 +11753,5 @@ textarea.form-control-lg {
 }
 
 #tabella {
-  background-color: rgba(33, 37, 41, 0.705);
+  background-color: rgba(33, 37, 41, 0.626);
 }/*# sourceMappingURL=style.css.map */
