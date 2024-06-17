@@ -22,6 +22,27 @@ window.addEventListener("DOMContentLoaded", function () {
       imgCurrentAlbum.src = albumObj.cover;
       titleAlbum.innerText = albumObj.title;
       artistAlbum.innerText = albumObj.artist.name;
+
+      const tracksTable = document.getElementById("tracksTable").querySelector("tbody");
+      albumObj.tracks.data.forEach((track) => {
+        const trackRow = document.createElement("tr");
+
+        const trackNameCell = document.createElement("td");
+        trackNameCell.innerText = track.title;
+
+        const trackDurationCell = document.createElement("td");
+        const minutes = Math.floor(track.duration / 60);
+        const seconds = track.duration % 60;
+        trackDurationCell.innerText = `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+
+        const trackPlaysCell = document.createElement("td");
+        trackPlaysCell.innerText = track.rank;
+        trackRow.appendChild(trackNameCell);
+        trackRow.appendChild(trackDurationCell);
+        trackRow.appendChild(trackPlaysCell);
+
+        tracksTable.appendChild(trackRow);
+      });
     })
     .catch((err) => console.log(err));
 });
