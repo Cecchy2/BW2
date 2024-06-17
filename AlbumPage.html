@@ -9,57 +9,141 @@
   <body class="d-flex" id="albumPage">
     <aside class="aside">trdhrt</aside>
     <main id="main">
-      <div class="container mt-5">
-        <div class="row">
-          <div class="col">
-            <div class="d-flex">
-              <div>
-                <button>1</button>
-                <button class="mb-2">2</button>
+      <div>
+        <div class="container mt-2">
+          <div class="row">
+            <div class="col">
+              <div class="d-flex">
+                <div>
+                  <button class="rounded-circle bg-dark">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="15"
+                      height="20"
+                      fill="white"
+                      class="bi bi-chevron-left pb-1"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"
+                      />
+                    </svg>
+                  </button>
+                  <button class="mb-2 rounded-circle bg-dark">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="15"
+                      height="20"
+                      fill="white"
+                      class="bi bi-chevron-right pb-1"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"
+                      />
+                    </svg>
+                  </button>
+                </div>
+                <div class="ms-auto">
+                  <button
+                    class="btn border rounded-pill dropdown-toggle rounded-pills text-white bg-dark p-1"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <img
+                      src="./assets/imgs/main/image-5.jpg"
+                      alt=""
+                      style="width: 25px; height: 25px"
+                      class="rounded-circle"
+                    />
+                    Lidia Nautilus
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  </ul>
+                </div>
               </div>
-              <div class="ms-auto">
-                <button
-                  class="btn border rounded-pill dropdown-toggle rounded-pills text-white"
-                  type="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  <img
-                    src="./assets/imgs/main/image-5.jpg"
-                    alt=""
-                    style="width: 25px; height: 25px"
-                    class="rounded-circle"
-                  />
-                  Lidia Nautilus
-                </button>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="row text-white">
-              <div class="col-3 mt-3"><img src="./assets/imgs/main/image-1.jpg" alt="" style="height: 250px" /></div>
-              <div class="col-8 mt-5 p-0">
-                <h6 class="mt-4">Album</h6>
-                <h1 class="display-1 fw-bold mb-3">Gioventu bruciata</h1>
-                <div class="d-flex">
-                  <img
-                    src="./assets/imgs/main/image-1.jpg"
-                    alt=""
-                    class="rounded-circle"
-                    style="width: 25px; height: 25px"
-                  />
-                  <h5><span> pinguini tattici nucleari</span> <span>2017</span></h5>
+              <div class="row text-white">
+                <div class="col-3 mt-3"><img src="./assets/imgs/main/image-1.jpg" alt="" style="height: 250px" /></div>
+                <div class="col-8 mt-5 p-0">
+                  <h6 class="mt-4">Album</h6>
+                  <h1 class="display-1 fw-bold mb-3">Gioventu bruciata</h1>
+                  <div class="d-flex">
+                    <img
+                      src="./assets/imgs/main/image-1.jpg"
+                      alt=""
+                      class="rounded-circle"
+                      style="width: 25px; height: 25px"
+                    />
+                    <h6><span> pinguini tattici nucleari</span> <span>2017</span></h6>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col"></div>
+      <div class="container">
+        <div class="row bg-dark mt-2">
+          <div class="col d-flex mt-4">
+            <button class="rounded-circle border border-dark bg-success me-3 p-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="25"
+                height="25"
+                fill="currentColor"
+                class="bi bi-play-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"
+                />
+              </svg>
+            </button>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="25"
+              height="25"
+              fill="white"
+              class="bi bi-heart me-4 mt-2"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"
+              />
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="25"
+              height="25"
+              fill="white"
+              class="bi bi-arrow-down-circle me-4 mt-2"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293z"
+              />
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="25"
+              height="25"
+              fill="white"
+              class="bi bi-three-dots me-4 mt-2"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"
+              />
+            </svg>
+          </div>
+        </div>
       </div>
     </main>
     <aside class="aside">dthdfth</aside>
