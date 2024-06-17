@@ -11732,4 +11732,13 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
+}
+.aside {
+  width: 15%;
+  background-color: black;
+  min-height: 100%;
+}
+
+#main {
+  width: 70%;
 }/*# sourceMappingURL=style.css.map */

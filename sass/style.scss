@@ -1,1 +1,10 @@
-@import "./partials/bootstrap-overrides"
+@import "./partials/bootstrap-overrides";
+
+.aside {
+  width: 15%;
+  background-color: black;
+  min-height: 100%;
+}
+#main {
+  width: 70%;
+}
