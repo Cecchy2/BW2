@@ -70,6 +70,23 @@ const creaCards = (songs, container) => {
   cards[parseInt(cards.length) - 4].classList.add("d-none", "d-md-block");
 };
 
+// funzione che crea le colonne di cards (cambiando i parametri cambio canzoni e container dove appenderle)
+const colCards = (url, container) => {
+  fetch(url, options)
+    .then(resp => {
+      if (resp.ok) {
+        // restituiamo il dato convertito in array da JSON
+        return resp.json();
+      } else {
+        throw `Errore ${resp.status} : ${resp.statusText} `;
+      }
+    })
+    .then(songs => {
+      // creo cards con le canzoni del url inserito e le appendo al container dato come parametro
+      creaCards(songs, container);
+    })
+    .catch(err => alert(err));
+};
 // all caricamento del DOM creo la card di annuncio
 window.addEventListener("DOMContentLoaded", function () {
   // array di artisti presi in modo casuale e messi come estensione del url per accedere alle top 50 canzoni
@@ -126,26 +143,8 @@ window.addEventListener("DOMContentLoaded", function () {
       annunci.appendChild(infoAnnunci);
     })
     .catch(err => alert(err));
+  colCards(urlFabriFibra, "#perTe");
+  colCards(urlEminem, "#perOggi");
+  colCards(urlPopolari, "#popolari");
+  colCards(urltImagineDragons, "#mixPref");
 });
-
-// funzione che crea le colonne di cards (cambiando i parametri cambio canzoni e container dove appenderle)
-const colCards = (url, container) => {
-  fetch(url, options)
-    .then(resp => {
-      if (resp.ok) {
-        // restituiamo il dato convertito in array da JSON
-        return resp.json();
-      } else {
-        throw `Errore ${resp.status} : ${resp.statusText} `;
-      }
-    })
-    .then(songs => {
-      // creo cards con le canzoni del url inserito e le appendo al container dato come parametro
-      creaCards(songs, container);
-    })
-    .catch(err => alert(err));
-};
-colCards(urlFabriFibra, "#perTe");
-colCards(urlEminem, "#perOggi");
-colCards(urlPopolari, "#popolari");
-colCards(urltImagineDragons, "#mixPref");
