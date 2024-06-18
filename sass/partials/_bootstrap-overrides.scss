@@ -6,7 +6,6 @@
 
 // 2. Include any default variable overrides here
 
-
 // 3. Include remainder of required Bootstrap stylesheets (including any separate color mode stylesheets)
 @import "../../bootstrap/scss/variables";
 @import "../../bootstrap/scss/variables-dark";
@@ -14,13 +13,10 @@
 // 4. Include any default map overrides here
 $darkness: #121212;
 
-$add-colors:(
-  "darkness": $darkness
-
+$add-colors: (
+  "darkness": $darkness,
 );
 $theme-colors: map-merge($theme-colors, $add-colors);
-
-
 
 // 5. Include remainder of required parts
 @import "../../bootstrap/scss/maps";
@@ -64,26 +60,55 @@ $theme-colors: map-merge($theme-colors, $add-colors);
 @import "../../bootstrap/scss/utilities/api";
 
 // 8. Add additional custom code here
-.scrollbar{
-    height: 100vh;
-    overflow-y: auto;
-     }
+.scrollbar {
+  height: 100vh;
+  overflow-y: auto;
+}
 
-  /* Nascondi le frecce e personalizza il thumb */
-  .scrollbar::-webkit-scrollbar {
-    width: 10px; /* Larghezza della scrollbar */
-  }
-  
-  .scrollbar::-webkit-scrollbar-button {
-    display: none; /* Nasconde le frecce della scrollbar */
-  }
-  
-  .scrollbar:hover::-webkit-scrollbar-thumb {
-    background-color: #888; /* Colore del thumb */
-    border-radius: 10px; /* Bordo arrotondato */
-    border: 3px solid transparent; /* Crea uno spazio tra il thumb e la track */
-  }
-  
-  .scrollbar::-webkit-scrollbar-thumb:hover {
-    background-color: #555; /* Colore del thumb al passaggio del mouse */
-  }
+/* Nascondi le frecce e personalizza il thumb */
+.scrollbar::-webkit-scrollbar {
+  width: 10px; /* Larghezza della scrollbar */
+}
+
+.scrollbar::-webkit-scrollbar-button {
+  display: none; /* Nasconde le frecce della scrollbar */
+}
+
+.scrollbar:hover::-webkit-scrollbar-thumb {
+  background-color: #888; /* Colore del thumb */
+  border-radius: 10px; /* Bordo arrotondato */
+  border: 3px solid transparent; /* Crea uno spazio tra il thumb e la track */
+}
+
+.scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Colore del thumb al passaggio del mouse */
+}
+.aside {
+  width: 15%;
+  background-color: black;
+}
+#main {
+  width: 70%;
+  height: 100vh;
+  overflow: scroll;
+
+  background-image: linear-gradient(0deg, #000000c4 0%, #000000 46%, #ffcc70 100%);
+}
+#albumPage {
+  /* background-color: #030303;
+    background-image: linear-gradient(0deg, #030303 0%, #ffcc70 46%, #ffcc70 100%); */
+}
+#playBtn {
+  background-color: rgb(30, 215, 95);
+}
+#tabella {
+  background-color: rgba(33, 37, 41, 0.626);
+  height: 100%;
+}
+#tracksTable {
+  width: 90%;
+  height: 100vh;
+}
+#BtnDropdown {
+  background-color: rgba(66, 57, 24, 0.581);
+}
