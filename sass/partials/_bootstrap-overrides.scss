@@ -12,7 +12,13 @@
 @import "../../bootstrap/scss/variables-dark";
 
 // 4. Include any default map overrides here
+$darkness: #121212;
 
+$add-colors:(
+  "darkness": $darkness
+
+);
+$theme-colors: map-merge($theme-colors, $add-colors);
 
 
 
