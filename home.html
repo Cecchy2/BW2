@@ -10,7 +10,7 @@
     <div class="">
       <div class="row justify-content-center p-2">
         <header class="col-2 rounded p-0">
-          <div class="rounded bg-dark p-4 mb-2">
+          <div class="rounded bg-darkness p-4 mb-2">
             <ul class="list-unstyled d-flex flex-column gap-3 m-0">
               <li class="align-middle">
                 <svg
@@ -64,10 +64,10 @@
               </li>
             </ul>
           </div>
-          <div class="bg-dark rounded p-4">
-            <div class="bg-dark">
+          <div class="bg-darkness rounded p-4">
+            <div class="bg-darkness">
               <div class="d-flex">
-                <button class="btn text-white me-auto bg-dark mb-2 p-1" style="width: 150px">
+                <button class="btn text-white me-auto bg-darkness mb-2 p-1" style="width: 150px">
                   <span
                     ><svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 24 24" style="width: 30px">
                       <path
@@ -77,7 +77,7 @@
                     </svg> </span
                   >La tua Libreria
                 </button>
-                <button class="btn text-white mx-2 bg-dark" style="width: 40px; height: 40px">
+                <button class="btn text-white mx-2 bg-darkness" style="width: 40px; height: 40px">
                   <span style="display: block"
                     ><svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16">
                       <path
@@ -87,7 +87,7 @@
                     </svg>
                   </span>
                 </button>
-                <button class="btn text-white mx-2 bg-dark" style="width: 40px; height: 40px">
+                <button class="btn text-white mx-2 bg-darkness" style="width: 40px; height: 40px">
                   <span style="display: block"
                     ><svg
                       data-encore-id="icon"
@@ -122,7 +122,7 @@
                 </div>
               </div>
             </div>
-            <div class="scrollbar">
+            <div class="scrollbar" style="height: 91vh">
               <div class="d-flex justify-content-between">
                 <button class="btn">
                   <svg data-encore-id="icon" role="img" aria-hidden="true" style="width: 15px" viewBox="0 0 16 16">
@@ -149,19 +149,25 @@
           </div>
         </header>
 
-        <main class="col-8 rounded" data-bs-theme="dark">
-          <div class="bg-dark p-0 rounded">
-            <div class="d-flex align-items-center pt-3 px-2 mb-3">
-              <div class="d-flex me-auto">
-                <button class="btn rounded-circle bg-black" style="width: 40px; height: 40px">
-                  <svg data-encore-id="icon" role="img" aria-hidden="true" style="width: 21px" viewBox="0 0 20 20">
+        <main class="col-8 rounded" data-bs-theme="dark" style="height: 100vh">
+          <div class="bg-darkness rounded">
+            <div class="d-flex align-items-center pt-3 mx-3">
+              <div class="me-auto d-flex">
+                <button
+                  class="btn rounded-circle bg-black d-flex justify-content-center align-items-center me-3"
+                  style="width: 40px; height: 40px"
+                >
+                  <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 20 20">
                     <path
                       fill="#B3B3B3"
                       d="M11.03.47a.75.75 0 0 1 0 1.06L4.56 8l6.47 6.47a.75.75 0 1 1-1.06 1.06L2.44 8 9.97.47a.75.75 0 0 1 1.06 0z"
                     ></path>
                   </svg>
                 </button>
-                <button class="btn rounded-circle bg-black" style="width: 40px; height: 40px">
+                <button
+                  class="btn rounded-circle bg-black d-flex justify-content-center align-items-center"
+                  style="width: 40px; height: 40px"
+                >
                   <svg data-encore-id="icon" role="img" aria-hidden="true" style="width: 21px" viewBox="0 0 20 20">
                     <path
                       fill="#B3B3B3"
@@ -185,29 +191,31 @@
                   />
                 </form>
               </div>
-              <div class="d-flex gap-2">
-                <button class="btn bg-white rounded-pill text-black"><b>Esplora Premium</b></button>
+              <div class="d-flex mb-3">
+                <button class="btn bg-white rounded-pill text-black me-2"><b>Esplora Premium</b></button>
                 <a
-                  class="btn rounded-pill bg-black rounded-pill text-white"
+                  class="btn rounded-pill bg-black rounded-pill text-white me-2"
                   draggable="false"
                   data-encore-id="buttonPrimary"
                   href="#"
-                  ><span
-                    ><span
-                      ><svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16" style="width: 20px">
-                        <path
-                          fill="#FFFFFF"
-                          d="M4.995 8.745a.75.75 0 0 1 1.06 0L7.25 9.939V4a.75.75 0 0 1 1.5 0v5.94l1.195-1.195a.75.75 0 1 1 1.06 1.06L8 12.811l-.528-.528a.945.945 0 0 1-.005-.005L4.995 9.805a.75.75 0 0 1 0-1.06z"
-                        ></path>
-                        <path
-                          fill="#FFFFFF"
-                          d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13z"
-                        ></path></svg></span
-                    ><span> Installa app</span></span
-                  ></a
                 >
-                <button class="btn bg-black rounded-circle d-flex align-items-center" style="width: 40px; height: 40px">
-                  <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16" style="width: 100">
+                  <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16" style="width: 20px">
+                    <path
+                      fill="#FFFFFF"
+                      d="M4.995 8.745a.75.75 0 0 1 1.06 0L7.25 9.939V4a.75.75 0 0 1 1.5 0v5.94l1.195-1.195a.75.75 0 1 1 1.06 1.06L8 12.811l-.528-.528a.945.945 0 0 1-.005-.005L4.995 9.805a.75.75 0 0 1 0-1.06z"
+                    ></path>
+                    <path
+                      fill="#FFFFFF"
+                      d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13z"
+                    ></path>
+                  </svg>
+                  <span class="ms-1 fw-bold">Installa app</span>
+                </a>
+                <button
+                  class="btn bg-black rounded-circle d-flex justify-content-center align-items-center me-2"
+                  style="width: 40px; height: 40px"
+                >
+                  <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16" style="width: 20px">
                     <path
                       fill="#FFFFFF"
                       d="M8 1.5a4 4 0 0 0-4 4v3.27a.75.75 0 0 1-.1.373L2.255 12h11.49L12.1 9.142a.75.75 0 0 1-.1-.374V5.5a4 4 0 0 0-4-4zm-5.5 4a5.5 5.5 0 0 1 11 0v3.067l2.193 3.809a.75.75 0 0 1-.65 1.124H10.5a2.5 2.5 0 0 1-5 0H.957a.75.75 0 0 1-.65-1.124L2.5 8.569V5.5zm4.5 8a1 1 0 1 0 2 0H7z"
@@ -215,56 +223,59 @@
                   </svg>
                 </button>
                 <button
-                  class="rounded-circle overflow-hidden border border-3 border-black d-flex justify-content-center align-items-center"
+                  class="rounded-circle border-2 border-black overflow-hidden d-flex justify-content-center align-items-center"
                   style="width: 40px; height: 40px"
                 >
-                  <span>
-                    <img
-                      aria-hidden="false"
-                      draggable="false"
-                      loading="eager"
-                      src="https://scontent-ams2-1.xx.fbcdn.net/v/t31.18172-1/1978321_10204826862142538_3572043705028761540_o.jpg?stp=c7.0.50.50a_cp0_dst-jpg_p50x50&amp;_nc_cat=100&amp;ccb=1-7&amp;_nc_sid=5f2048&amp;_nc_ohc=3EXQkOaMuqAQ7kNvgGIYftH&amp;_nc_ht=scontent-ams2-1.xx&amp;edm=AP4hL3IEAAAA&amp;oh=00_AYAQyhoOxZJwFpHicZsjjeBJECz_paY_XwpRpyp-Xd-tFw&amp;oe=66977B1B"
-                      alt="Eddy Turpo"
-                      class=""
-                  /></span>
+                  <img
+                    aria-hidden="false"
+                    draggable="false"
+                    loading="eager"
+                    src="https://scontent-ams2-1.xx.fbcdn.net/v/t31.18172-1/1978321_10204826862142538_3572043705028761540_o.jpg?stp=c7.0.50.50a_cp0_dst-jpg_p50x50&amp;_nc_cat=100&amp;ccb=1-7&amp;_nc_sid=5f2048&amp;_nc_ohc=3EXQkOaMuqAQ7kNvgGIYftH&amp;_nc_ht=scontent-ams2-1.xx&amp;edm=AP4hL3IEAAAA&amp;oh=00_AYAQyhoOxZJwFpHicZsjjeBJECz_paY_XwpRpyp-Xd-tFw&amp;oe=66977B1B"
+                    alt="Eddy Turpo"
+                    class="mMx2LUixlnN_Fu45JpFB Xz3tlahv16UpqKBW5HdK Yn2Ei5QZn19gria6LjZj"
+                  />
                 </button>
               </div>
             </div>
-            <div class="scrollbar px-3" style="height: 87vh">
-              <div
-                class="col-12 my-3 bg-dark"
-                style="
-                  background: rgb(0, 0, 0);
-                  background: linear-gradient(17deg, rgba(0, 0, 0, 1) 50%, rgba(32, 32, 32, 0.644782913165266) 100%);
-                "
-              >
-                <div id="annunci" class="d-flex p-3">
-                  <img
-                    src=""
-                    id="imgAnnunci"
-                    class="me-5 object-fit-cover"
-                    width="200"
-                    height="200"
-                    alt="cover album"
-                  />
+            <div class="scrollbar p-3">
+              <div>
+                <div
+                  class="my-3 mx-3"
+                  style="background: linear-gradient(13deg, rgba(0, 0, 0, 1) 0%, rgba(18, 18, 18, 1) 90%)"
+                >
+                  <div id="annunci" class="d-flex align-items-center flex-column flex-lg-row p-3">
+                    <img
+                      src=""
+                      id="imgAnnunci"
+                      class="me-5 object-fit-cover"
+                      width="200"
+                      height="200"
+                      alt="cover album"
+                    />
+                  </div>
                 </div>
               </div>
-              <div id="perTe" class="row g-0 bg-dark">
+              <div id="perTe" class="row g-0 bg-darkness">
                 <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover fs-3 py-4 ms-3" href="#"
                   >Create per te</a
                 >
               </div>
-              <div id="perOggi" class="row g-0 bg-dark">
+              <div id="artisti" class="row g-0 bg-darkness">
+                <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover fs-3 py-4 ms-3" href="#"
+                  >Artista preferito</a
+                >
+              </div>
+              <div id="perOggi" class="row g-0 bg-darkness">
                 <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover fs-3 py-4 ms-3" href="#"
                   >Consigliata per oggi</a
                 >
               </div>
-              <div id="popolari" class="row g-0 bg-dark">
+              <div id="popolari" class="row g-0 bg-darkness">
                 <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover fs-3 py-4 ms-3" href="#"
                   >Album più popolari</a
                 >
               </div>
-              <div id="mixPref" class="row g-0 bg-dark">
+              <div id="mixPref" class="row g-0 bg-darkness">
                 <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover fs-3 py-4 ms-3" href="#"
                   >I tuoi mix preferiti</a
                 >
@@ -272,7 +283,7 @@
             </div>
           </div>
         </main>
-        <aside class="col-2 rounded bg-dark"></aside>
+        <aside class="col-2 rounded bg-darkness"></aside>
       </div>
       <footer class="fixed-bottom bg-black p-0 m-0 container-fluid" style="height: 90px; width: 100wh">
         <div class="row p-2">
