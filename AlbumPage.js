@@ -1,9 +1,11 @@
 const params = new URLSearchParams(window.location.search);
 
-const id = params.get("....id");
+const id = params.get("albumId");
+
+console.log(id);
 
 window.addEventListener("DOMContentLoaded", function () {
-  fetch("https://deezerdevs-deezer.p.rapidapi.com/album/44941731", {
+  fetch("https://deezerdevs-deezer.p.rapidapi.com/album/" + id, {
     method: "GET",
     headers: {
       "x-rapidapi-key": "163c72cf37msh7fb90cec4c02a73p1390b4jsn4594dd70494e",
@@ -18,6 +20,8 @@ window.addEventListener("DOMContentLoaded", function () {
       }
     })
     .then((albumObj) => {
+      console.log(albumObj);
+
       const date = albumObj.release_date;
       const newDate = new Date(date);
       const year = newDate.getFullYear();
@@ -59,7 +63,9 @@ window.addEventListener("DOMContentLoaded", function () {
         trackDurationCell.innerText = `${minutes}:${seconds}`;
         trackRow.appendChild(trackDurationCell);
 
-        trackRow.addEventListener("click", () => {});
+        trackRow.addEventListener("click", (event) => {
+          console.log(event);
+        });
 
         trackRow.style.cursor = "pointer";
 
