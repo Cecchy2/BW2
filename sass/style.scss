@@ -3,10 +3,10 @@
 .aside {
   width: 15%;
   background-color: black;
-  min-height: 100%;
 }
 #main {
   width: 70%;
+  height: 100vh;
 }
 #albumPage {
   background-color: #030303;
@@ -17,7 +17,9 @@
 }
 #tabella {
   background-color: rgba(33, 37, 41, 0.626);
+  height: 100%;
 }
 #tracksTable {
   width: 90%;
+  height: 100%;
 }

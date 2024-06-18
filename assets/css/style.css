@@ -11736,11 +11736,11 @@ textarea.form-control-lg {
 .aside {
   width: 15%;
   background-color: black;
-  min-height: 100%;
 }
 
 #main {
   width: 70%;
+  height: 100vh;
 }
 
 #albumPage {
@@ -11754,8 +11754,10 @@ textarea.form-control-lg {
 
 #tabella {
   background-color: rgba(33, 37, 41, 0.626);
+  height: 100%;
 }
 
 #tracksTable {
   width: 90%;
+  height: 100%;
 }/*# sourceMappingURL=style.css.map */
