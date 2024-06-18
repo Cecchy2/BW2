@@ -24,12 +24,13 @@ const createBanner = () => {
       const artistTitle = document.getElementById("artistTitle");
       const artistName = document.createElement("h1");
       artistBanner.classList.add("d-flex", "flex-column", "justify-content-start", "align-items-end");
-      artistName.className = "h1 opacity-100";
+      artistName.className = "h1 opacity-100 mt-auto";
       artistName.setAttribute("style", "font-size: 80px;");
       artistName.innerText = artist.name;
       artistTitle.appendChild(artistName);
       artistBanner.style.minHeight = "40vh";
       artistBanner.style.backgroundImage = `url(${artist.picture_xl})`;
+      artistBanner.style.backgroundPosition = `75% 25%`;
       artistBanner.style.backgroundSize = `cover`;
       const verifiedArtist = document.getElementById("verifiedArtist");
       verifiedArtist.classList.add("d-block", "align-middle", "opacity-100");
