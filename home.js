@@ -61,8 +61,10 @@ const creaCards = (songs, container) => {
     row.append(col);
   }
   const cards = [...document.querySelectorAll(".conteniroteCard")];
-  cards[5].classList.add("d-lg-none", "d-xl-block");
-  cards[4].classList.add("d-lg-none", "d-xl-block");
+  cards[5].classList.add("d-none", "d-xl-block");
+  cards[4].classList.add("d-none", "d-xl-block");
+  cards[3].classList.add("d-none", "d-lg-block");
+  cards[2].classList.add("d-none", "d-md-block");
 };
 window.addEventListener("DOMContentLoaded", function () {
   const indexArtists = [1, 2, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 19, 25, 21, 22, 24, 26, 27, 28, 29, 30];
