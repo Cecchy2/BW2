@@ -10,9 +10,11 @@ const options = {
     "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
   },
 };
+
+// funzione che crea le cards e viene chiamata nel fetch da dove prende come parametri la lista songs e il container dove verranno appese
 const creaCards = (songs, container) => {
   const row = document.querySelector(container);
-
+  // decido di creare 6 cards
   for (let i = 0; i < 6; i++) {
     const col = this.document.createElement("div");
     col.className = "col-sm-6 col-md-4 col-lg-3 col-xl-2  border border-0 conteniroteCard ";
@@ -61,14 +63,17 @@ const creaCards = (songs, container) => {
     row.append(col);
   }
   const cards = [...document.querySelectorAll(".conteniroteCard")];
-  cards[5].classList.add("d-none", "d-xl-block");
-  cards[4].classList.add("d-none", "d-xl-block");
-  cards[3].classList.add("d-none", "d-lg-block");
-  cards[2].classList.add("d-none", "d-md-block");
+  // cards.length mi ritorna una stringa
+  cards[parseInt(cards.length) - 1].classList.add("d-none", "d-xl-block");
+  cards[parseInt(cards.length) - 2].classList.add("d-none", "d-xl-block");
+  cards[parseInt(cards.length) - 3].classList.add("d-none", "d-lg-block");
+  cards[parseInt(cards.length) - 4].classList.add("d-none", "d-md-block");
 };
-window.addEventListener("DOMContentLoaded", function () {
-  const indexArtists = [1, 2, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 19, 25, 21, 22, 24, 26, 27, 28, 29, 30];
 
+// all caricamento del DOM creo la card di annuncio
+window.addEventListener("DOMContentLoaded", function () {
+  // array di artisti presi in modo casuale e messi come estensione del url per accedere alle top 50 canzoni
+  const indexArtists = [1, 2, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 19, 25, 21, 22, 24, 26, 27, 28, 29, 30];
   randomArtist = Math.round(Math.random() * indexArtists.length);
 
   fetch("https://striveschool-api.herokuapp.com/api/deezer/artist/" + indexArtists[randomArtist] + "/top?limit=50", {
@@ -84,8 +89,8 @@ window.addEventListener("DOMContentLoaded", function () {
     })
     .then(artist => {
       const annunci = document.getElementById("annunci");
-
-      const random = Math.round(Math.random() * 1);
+      // dal array di canzoni prendo una a caso tra le prime 3 (non sappiamo se le top 50 canzoni sono veramente 50)
+      const random = Math.round(Math.random() * 2);
       const song = artist.data[random];
 
       const imgAnnunci = document.getElementById("imgAnnunci");
@@ -122,55 +127,25 @@ window.addEventListener("DOMContentLoaded", function () {
     })
     .catch(err => alert(err));
 });
-fetch(urlFabriFibra, options)
-  .then(resp => {
-    if (resp.ok) {
-      // restituiamo il dato convertito in array da JSON
-      return resp.json();
-    } else {
-      throw `Errore ${resp.status} : ${resp.statusText} `;
-    }
-  })
-  .then(songs => {
-    creaCards(songs, "#perTe");
-  })
-  .catch(err => alert(err));
-fetch(urlEminem, options)
-  .then(resp => {
-    if (resp.ok) {
-      // restituiamo il dato convertito in array da JSON
-      return resp.json();
-    } else {
-      throw `Errore ${resp.status} : ${resp.statusText} `;
-    }
-  })
-  .then(songs => {
-    creaCards(songs, "#perOggi");
-  })
-  .catch(err => alert(err));
-fetch(urlPopolari, options)
-  .then(resp => {
-    if (resp.ok) {
-      // restituiamo il dato convertito in array da JSON
-      return resp.json();
-    } else {
-      throw `Errore ${resp.status} : ${resp.statusText} `;
-    }
-  })
-  .then(songs => {
-    creaCards(songs, "#popolari");
-  })
-  .catch(err => alert(err));
-fetch(urltImagineDragons, options)
-  .then(resp => {
-    if (resp.ok) {
-      // restituiamo il dato convertito in array da JSON
-      return resp.json();
-    } else {
-      throw `Errore ${resp.status} : ${resp.statusText} `;
-    }
-  })
-  .then(songs => {
-    creaCards(songs, "#mixPref");
-  })
-  .catch(err => alert(err));
+
+// funzione che crea le colonne di cards (cambiando i parametri cambio canzoni e container dove appenderle)
+const colCards = (url, container) => {
+  fetch(url, options)
+    .then(resp => {
+      if (resp.ok) {
+        // restituiamo il dato convertito in array da JSON
+        return resp.json();
+      } else {
+        throw `Errore ${resp.status} : ${resp.statusText} `;
+      }
+    })
+    .then(songs => {
+      // creo cards con le canzoni del url inserito e le appendo al container dato come parametro
+      creaCards(songs, container);
+    })
+    .catch(err => alert(err));
+};
+colCards(urlFabriFibra, "#perTe");
+colCards(urlEminem, "#perOggi");
+colCards(urlPopolari, "#popolari");
+colCards(urltImagineDragons, "#mixPref");
