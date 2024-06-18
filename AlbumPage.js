@@ -25,9 +25,9 @@ window.addEventListener("DOMContentLoaded", function () {
       const titleAlbum = document.getElementById("albumTitle");
       const artistAlbum = document.getElementById("albumArtist");
 
-      imgCurrentAlbum.src = albumObj.cover;
+      imgCurrentAlbum.src = albumObj.cover_big;
       titleAlbum.innerText = albumObj.title;
-      artistAlbum.innerText = `${albumObj.artist.name} ${year} ${albumObj.nb_tracks} brani`;
+      artistAlbum.innerText = `${albumObj.artist.name}   · ${year} ·   ${albumObj.nb_tracks} brani`;
 
       const tracksTable = document.getElementById("tracksTable").querySelector("tbody");
       tracksTable.innerHTML = "";
