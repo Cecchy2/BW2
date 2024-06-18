@@ -6,7 +6,7 @@
     <title>Bootstrap demo</title>
     <link rel="stylesheet" href="./assets/dist/css/style.min.css" />
   </head>
-  <body class="bg-black text-white container-fluid m-0">
+  <body class="bg-black text-white container-fluid m-0" style="max-height: 100vh">
     <div class="">
       <div class="row justify-content-center p-2">
         <header class="col-2 rounded p-0">
@@ -112,7 +112,7 @@
           </div>
         </header>
 
-        <main class="col-8 rounded" data-bs-theme="dark" style="margin-bottom: 90px">
+        <main class="col-8 rounded" data-bs-theme="dark">
           <div class="bg-darkness rounded">
             <div class="d-flex align-items-center pt-3 mx-3">
               <div class="me-auto d-flex">
@@ -159,31 +159,33 @@
                 </button>
               </div>
             </div>
-            <div>
-              <div class="my-3 mx-3" style="background: linear-gradient(13deg, rgba(0, 0, 0, 1) 0%, rgba(18, 18, 18, 1) 90%)">
-                <div id="annunci" class="d-flex align-items-center flex-column flex-lg-row p-3">
-                  <img src="" id="imgAnnunci" class="me-5 object-fit-cover" width="200" height="200" alt="cover album" />
+            <div class="scrollbar px-3">
+              <div>
+                <div class="my-3 mx-3" style="background: linear-gradient(13deg, rgba(0, 0, 0, 1) 0%, rgba(18, 18, 18, 1) 90%)">
+                  <div id="annunci" class="d-flex align-items-center flex-column flex-lg-row p-3">
+                    <img src="" id="imgAnnunci" class="me-5 object-fit-cover" width="200" height="200" alt="cover album" />
+                  </div>
                 </div>
               </div>
-            </div>
-            <div id="perTe" class="row g-0 bg-darkness">
-              <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover fs-3 py-4 ms-3" href="#">Create per te</a>
-            </div>
-            <div id="artisti" class="row g-0 bg-darkness">
-              <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover fs-3 py-4 ms-3" href="#">Artista preferito</a>
-            </div>
-            <div id="perOggi" class="row g-0 bg-darkness">
-              <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover fs-3 py-4 ms-3" href="#">Consigliata per oggi</a>
-            </div>
-            <div id="popolari" class="row g-0 bg-darkness">
-              <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover fs-3 py-4 ms-3" href="#">Album più popolari</a>
-            </div>
-            <div id="mixPref" class="row g-0 bg-darkness">
-              <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover fs-3 py-4 ms-3" href="#">I tuoi mix preferiti</a>
+              <div id="perTe" class="row g-0 bg-darkness">
+                <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover fs-3 py-4 ms-3" href="#">Create per te</a>
+              </div>
+              <div id="artisti" class="row g-0 bg-darkness">
+                <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover fs-3 py-4 ms-3" href="#">Artista preferito</a>
+              </div>
+              <div id="perOggi" class="row g-0 bg-darkness">
+                <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover fs-3 py-4 ms-3" href="#">Consigliata per oggi</a>
+              </div>
+              <div id="popolari" class="row g-0 bg-darkness">
+                <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover fs-3 py-4 ms-3" href="#">Album più popolari</a>
+              </div>
+              <div id="mixPref" class="row g-0 bg-darkness">
+                <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover fs-3 py-4 ms-3" href="#">Uno sguardo al passato</a>
+              </div>
             </div>
           </div>
         </main>
-        <aside class="col-2 rounded bg-darkness"></aside>
+        <aside class="col-2 rounded bg-darkness scrollbar"></aside>
       </div>
       <footer class="fixed-bottom bg-black p-0 m-0 container-fluid" style="height: 90px; width: 100wh">
         <div class="row p-2">
