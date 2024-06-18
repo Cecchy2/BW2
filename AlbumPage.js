@@ -19,23 +19,20 @@ window.addEventListener("DOMContentLoaded", function () {
     })
     .then((albumObj) => {
       const date = albumObj.release_date;
-      console.log(date);
       const newDate = new Date(date);
-      console.log(newDate);
-
       const year = newDate.getFullYear();
-      console.log(year);
 
-      console.log(albumObj);
       const imgCurrentAlbum = document.getElementById("albumImg");
       const titleAlbum = document.getElementById("albumTitle");
       const artistAlbum = document.getElementById("albumArtist");
+
       imgCurrentAlbum.src = albumObj.cover;
       titleAlbum.innerText = albumObj.title;
-      artistAlbum.innerText = albumObj.artist.name + " " + year + " " + albumObj.nb_tracks + " brani,";
+      artistAlbum.innerText = `${albumObj.artist.name} ${year} ${albumObj.nb_tracks} brani`;
 
       const tracksTable = document.getElementById("tracksTable").querySelector("tbody");
       tracksTable.innerHTML = "";
+
       albumObj.tracks.data.forEach((track, index) => {
         const trackRow = document.createElement("tr");
 
@@ -45,15 +42,15 @@ window.addEventListener("DOMContentLoaded", function () {
         trackNumberCell.innerText = index + 1;
         trackRow.appendChild(trackNumberCell);
 
-        // Titolo
+        // Titolo e Artista
         const trackTitleCell = document.createElement("td");
         trackTitleCell.innerHTML = `${track.title}<br><span style="font-size: 0.9em; color: rgb(159, 159, 159);">${track.artist.name}</span>`;
         trackRow.appendChild(trackTitleCell);
 
-        // Track Play
-        const trackPlaysCell = document.createElement("td");
-        trackPlaysCell.innerText = track.rank;
-        trackRow.appendChild(trackPlaysCell);
+        // Riproduzioni
+        const riproduzioni = document.createElement("td");
+        riproduzioni.innerText = track.rank;
+        trackRow.appendChild(riproduzioni);
 
         // Durata
         const trackDurationCell = document.createElement("td");
@@ -61,6 +58,10 @@ window.addEventListener("DOMContentLoaded", function () {
         const seconds = track.duration % 60;
         trackDurationCell.innerText = `${minutes}:${seconds}`;
         trackRow.appendChild(trackDurationCell);
+
+        trackRow.addEventListener("click", () => {});
+
+        trackRow.style.cursor = "pointer";
 
         tracksTable.appendChild(trackRow);
       });
