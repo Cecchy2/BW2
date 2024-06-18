@@ -97,7 +97,7 @@
                 </div>
               </div>
             </div>
-            <div class="" style="height: 100vh">
+            <div class="scrollbar">
               <div class="d-flex justify-content-between">
                 <button class="btn">
                   <svg data-encore-id="icon" role="img" aria-hidden="true" style="width: 15px" viewBox="0 0 16 16">
@@ -117,13 +117,15 @@
                   </svg>
                 </button>
               </div>
-              <div></div>
+              <div>
+                <ul id="listaBraniArtistiAlbum" class="p-0"></ul>
+              </div>
             </div>
           </div>
         </header>
 
         <main class="col-8 rounded" data-bs-theme="dark">
-          <div class="bg-dark p-0 rounded" style="height: 100vh">
+          <div class="bg-dark p-0 rounded">
             <div class="d-flex align-items-center pt-3 px-2">
               <div class="me-auto">
                 <button class="btn rounded-circle bg-black" style="width: 40px; height: 40px">
@@ -143,7 +145,7 @@
                   </svg>
                 </button>
               </div>
-              <div class="d-flex">
+              <div class="d-flex gap-2">
                 <button class="btn bg-white rounded-pill text-black"><b>Esplora Premium</b></button>
                 <a
                   class="btn rounded-pill bg-black rounded-pill text-white"
@@ -161,26 +163,29 @@
                           fill="#FFFFFF"
                           d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13z"
                         ></path></svg></span
-                    ><span>Installa app</span></span
+                    ><span> Installa app</span></span
                   ></a
                 >
-                <button class="btn bg-black rounded-circle" style="width: 40px; height: 40px">
-                  <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16" style="width: 20px">
+                <button class="btn bg-black rounded-circle d-flex align-items-center" style="width: 40px; height: 40px">
+                  <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16" style="width: 100">
                     <path
                       fill="#FFFFFF"
                       d="M8 1.5a4 4 0 0 0-4 4v3.27a.75.75 0 0 1-.1.373L2.255 12h11.49L12.1 9.142a.75.75 0 0 1-.1-.374V5.5a4 4 0 0 0-4-4zm-5.5 4a5.5 5.5 0 0 1 11 0v3.067l2.193 3.809a.75.75 0 0 1-.65 1.124H10.5a2.5 2.5 0 0 1-5 0H.957a.75.75 0 0 1-.65-1.124L2.5 8.569V5.5zm4.5 8a1 1 0 1 0 2 0H7z"
                     ></path>
                   </svg>
                 </button>
-                <button class="rounded-circle overflow-hidden" style="width: 40px; height: 40px">
-                  <span class="d-flex justify-content-center align-items-center">
+                <button
+                  class="rounded-circle overflow-hidden border border-3 border-black d-flex justify-content-center align-items-center"
+                  style="width: 40px; height: 40px"
+                >
+                  <span>
                     <img
                       aria-hidden="false"
                       draggable="false"
                       loading="eager"
                       src="https://scontent-ams2-1.xx.fbcdn.net/v/t31.18172-1/1978321_10204826862142538_3572043705028761540_o.jpg?stp=c7.0.50.50a_cp0_dst-jpg_p50x50&amp;_nc_cat=100&amp;ccb=1-7&amp;_nc_sid=5f2048&amp;_nc_ohc=3EXQkOaMuqAQ7kNvgGIYftH&amp;_nc_ht=scontent-ams2-1.xx&amp;edm=AP4hL3IEAAAA&amp;oh=00_AYAQyhoOxZJwFpHicZsjjeBJECz_paY_XwpRpyp-Xd-tFw&amp;oe=66977B1B"
                       alt="Eddy Turpo"
-                      class="mMx2LUixlnN_Fu45JpFB Xz3tlahv16UpqKBW5HdK Yn2Ei5QZn19gria6LjZj"
+                      class=""
                   /></span>
                 </button>
               </div>
@@ -224,7 +229,7 @@
         <div class="row p-2">
           <div class="row px-3 d-flex justify-content-center">
             <div class="d-flex align-items-center">
-              <div>
+              <div id="imgArtistaAlbum">
                 <img src="./assets/imgs/main/image-1.jpg" style="width: 50px" />
               </div>
               <div class="d-flex flex-column me-auto">
@@ -374,5 +379,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="home.js"></script>
+    <script src="./lista.js"></script>
   </body>
 </html>

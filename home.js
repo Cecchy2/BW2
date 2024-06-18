@@ -31,7 +31,8 @@ const creaCards = (songs, container) => {
     btnPlay.type = "button";
     btnPlay.setAttribute("style", "width: 50px; height:50px");
     // btnPlay.href = "./back-office.html?productId=" + songs.data[i]._id;
-    btnPlay.className = "btn btn-success rounded-circle  position-absolute  bottom-0 end-0 me-2 mb-2 d-flex align-items-center justify-content-center d-none ";
+    btnPlay.className =
+      "btn btn-success rounded-circle  position-absolute  bottom-0 end-0 me-2 mb-2 d-flex align-items-center justify-content-center d-none ";
     btnPlay.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="black" class="bi bi-play-fill" viewBox="0 0 16 16">
   <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"/></svg>`;
 
@@ -70,7 +71,7 @@ window.addEventListener("DOMContentLoaded", function () {
   fetch("https://striveschool-api.herokuapp.com/api/deezer/artist/" + indexArtists[randomArtist] + "/top?limit=50", {
     method: "GET",
   })
-    .then(resp => {
+    .then((resp) => {
       if (resp.ok) {
         // restituiamo il dato convertito in array da JSON
         return resp.json();
@@ -78,7 +79,7 @@ window.addEventListener("DOMContentLoaded", function () {
         throw `Errore ${resp.status} : ${resp.statusText} `;
       }
     })
-    .then(artist => {
+    .then((artist) => {
       const annunci = document.getElementById("annunci");
 
       const random = Math.round(Math.random() * 1);
@@ -116,10 +117,10 @@ window.addEventListener("DOMContentLoaded", function () {
       infoAnnunci.append(spanAnnunci, h2, p1, p2, containerBtn);
       annunci.appendChild(infoAnnunci);
     })
-    .catch(err => alert(err));
+    .catch((err) => alert(err));
 });
 fetch(urlFabriFibra, options)
-  .then(resp => {
+  .then((resp) => {
     if (resp.ok) {
       // restituiamo il dato convertito in array da JSON
       return resp.json();
@@ -127,12 +128,12 @@ fetch(urlFabriFibra, options)
       throw `Errore ${resp.status} : ${resp.statusText} `;
     }
   })
-  .then(songs => {
+  .then((songs) => {
     creaCards(songs, "#perTe");
   })
-  .catch(err => alert(err));
+  .catch((err) => alert(err));
 fetch(urlEminem, options)
-  .then(resp => {
+  .then((resp) => {
     if (resp.ok) {
       // restituiamo il dato convertito in array da JSON
       return resp.json();
@@ -140,12 +141,12 @@ fetch(urlEminem, options)
       throw `Errore ${resp.status} : ${resp.statusText} `;
     }
   })
-  .then(songs => {
+  .then((songs) => {
     creaCards(songs, "#perOggi");
   })
-  .catch(err => alert(err));
+  .catch((err) => alert(err));
 fetch(urlPopolari, options)
-  .then(resp => {
+  .then((resp) => {
     if (resp.ok) {
       // restituiamo il dato convertito in array da JSON
       return resp.json();
@@ -153,12 +154,12 @@ fetch(urlPopolari, options)
       throw `Errore ${resp.status} : ${resp.statusText} `;
     }
   })
-  .then(songs => {
+  .then((songs) => {
     creaCards(songs, "#popolari");
   })
-  .catch(err => alert(err));
+  .catch((err) => alert(err));
 fetch(urltImagineDragons, options)
-  .then(resp => {
+  .then((resp) => {
     if (resp.ok) {
       // restituiamo il dato convertito in array da JSON
       return resp.json();
@@ -166,7 +167,7 @@ fetch(urltImagineDragons, options)
       throw `Errore ${resp.status} : ${resp.statusText} `;
     }
   })
-  .then(songs => {
+  .then((songs) => {
     creaCards(songs, "#mixPref");
   })
-  .catch(err => alert(err));
+  .catch((err) => alert(err));
