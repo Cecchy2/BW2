@@ -11732,4 +11732,9 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
+}
+@media screen and (max-width: 1200px) {
+  #perTe:nth-last-child(-n+2) {
+    display: none;
+  }
 }/*# sourceMappingURL=style.css.map */
