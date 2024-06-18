@@ -111,7 +111,7 @@ const cardsAlbum = (arrAlbums, container) => {
       })
       .then(album => {
         // creo album con l'url inserito e le appendo al container dato come parametro
-
+        console.log(album);
         const row = document.querySelector(container);
 
         const col = this.document.createElement("div");
