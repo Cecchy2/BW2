@@ -1,7 +1,7 @@
 const authKey = "1bf979bf4cmsh3a580f854a77993p1355dajsn876a815ada14";
 const searchBar = document.getElementById("searchBar");
 const artistBanner = document.getElementById("artistBanner");
-const id = new URLSearchParams(window.location.search).get("./home.html");
+const id = new URLSearchParams(window.location.search).get("artist");
 const songsList = document.getElementById("songsList");
 const containerList = document.getElementById("containerList");
 
@@ -12,6 +12,12 @@ const options = {
     "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
   },
 };
+
+function getMinutes(duration) {
+  seconds = duration % 60;
+  minutes = ((duration - seconds) / 60) % 60;
+  return minutes + ":" + seconds;
+}
 
 const createBanner = () => {
   fetch("https://deezerdevs-deezer.p.rapidapi.com/artist/412", options)
@@ -24,11 +30,12 @@ const createBanner = () => {
       const artistTitle = document.getElementById("artistTitle");
       const artistName = document.createElement("h1");
       artistBanner.classList.add("d-flex", "flex-column", "justify-content-start", "align-items-end");
-      artistName.className = "h1 opacity-100 mt-auto";
+      artistName.className = "h1 mt-auto";
       artistName.setAttribute("style", "font-size: 80px;");
       artistName.innerText = artist.name;
       artistTitle.appendChild(artistName);
       artistBanner.style.minHeight = "40vh";
+      artistBanner.style.opacity = "0.5";
       artistBanner.style.backgroundImage = `url(${artist.picture_xl})`;
       artistBanner.style.backgroundPosition = `75% 25%`;
       artistBanner.style.backgroundSize = `cover`;
@@ -41,7 +48,7 @@ const createBanner = () => {
 };
 
 const createSongList = () => {
-  fetch("https://deezerdevs-deezer.p.rapidapi.com/search?q=queen", options)
+  fetch("https://striveschool-api.herokuapp.com/api/deezer/artist/412/top?limit=5", options)
     .then(resp => {
       if (resp.ok) {
         return resp.json();
@@ -50,12 +57,13 @@ const createSongList = () => {
     .then(artists => {
       artists.data.forEach((art, index) => {
         const songsList = document.getElementById("songsList");
-        const songItem = document.createElement("div");
-        songItem.className = "list-unstyled";
-        songsList.appendChild(songItem);
+        const col = document.createElement("div");
+        col.className = "col-6";
+
+        songsList.appendChild(col);
         const songRow = document.createElement("div");
         songRow.className = "d-flex align-items-center mb-4";
-        songItem.appendChild(songRow);
+        col.appendChild(songRow);
         const songNumber = document.createElement("p");
         songNumber.className = "text-secondary p-2 decoration-none px-2 m-0";
 
@@ -64,14 +72,30 @@ const createSongList = () => {
         const songImg = document.createElement("img");
         songImg.className = "ms-3";
         songImg.style = "width: 50px; heigth: 50px";
-        songImg.src = art.artist.picture;
+        songImg.src = art.album.cover;
         songRow.appendChild(songImg);
 
         const songTitle = document.createElement("h6");
         songTitle.className = "ps-3";
-        songTitle.style = "font-size: 0.8rem";
+        songTitle.style = "font-size: 0.9rem";
         songTitle.innerText = art.title;
         songRow.appendChild(songTitle);
+
+        const col2 = document.createElement("div");
+        col2.className = "col-2 ms-auto";
+        songsList.appendChild(col2);
+        const views = document.createElement("p");
+        views.className = "text-secondary p-2 ms-auto";
+        views.innerText = "3.476.989.876";
+        col2.appendChild(views);
+
+        const col3 = document.createElement("div");
+        col3.className = "col-2 ms-auto";
+        songsList.appendChild(col3);
+        const minutes = document.createElement("p");
+        minutes.className = "text-secondary p-2 ms-auto";
+        minutes.innerText = getMinutes(art.duration);
+        col3.appendChild(minutes);
 
         const viewsCont = document.getElementById("viewsCont");
       });
