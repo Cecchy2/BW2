@@ -1,8 +1,5 @@
 const params = new URLSearchParams(window.location.search);
-
 const id = params.get("albumId");
-
-console.log(id);
 
 window.addEventListener("DOMContentLoaded", function () {
   fetch("https://deezerdevs-deezer.p.rapidapi.com/album/" + id, {
@@ -20,8 +17,6 @@ window.addEventListener("DOMContentLoaded", function () {
       }
     })
     .then((albumObj) => {
-      console.log(albumObj);
-
       const date = albumObj.release_date;
       const newDate = new Date(date);
       const year = newDate.getFullYear();
