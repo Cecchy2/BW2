@@ -11848,7 +11848,7 @@ textarea.form-control-lg {
 }
 
 .scrollbar::-webkit-scrollbar-thumb:hover {
-  background-color: #555; /* Colore del thumb al passaggio del mouse */
+  background-color: #555;} /* Colore del thumb al passaggio del mouse */
 .aside {
   width: 15%;
   background-color: black;
