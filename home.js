@@ -15,12 +15,12 @@ const creaCards = (songs, container) => {
 
   for (let i = 0; i < 6; i++) {
     const col = this.document.createElement("div");
-    col.className = "col-sm-6 col-md-4 col-lg-3 col-xl-2 bg-dark border border-0 conteniroteCard";
+    col.className = "col-sm-6 col-md-4 col-lg-3 col-xl-2  border border-0 conteniroteCard ";
     // col.addEventListener("click", () => {
     //   window.location.assign("./dettaglio.html?productId=" + songs[i]._id);
     // });
     const card = document.createElement("div");
-    card.className = "btn btn-secondary card mb-4  border border-0";
+    card.className = "btn btn-secondary card mb-4 border border-0 bg-darkness";
     const imgContainer = document.createElement("div");
     imgContainer.className = "position-relative ";
 
@@ -40,12 +40,14 @@ const creaCards = (songs, container) => {
     card.addEventListener("mouseout", out, false);
     function ins() {
       btnPlay.classList.remove("d-none");
+      card.classList.remove("bg-darkness");
     }
     function out() {
       btnPlay.classList.add("d-none");
+      card.classList.add("bg-darkness");
     }
     const cardBody = document.createElement("div");
-    cardBody.className = "card-body text-start px-0";
+    cardBody.className = "card-body text-start px-0 pb-0";
     const h5 = document.createElement("h5");
     h5.innerText = songs.data[i].title;
     h5.className = "fs-5 text-truncate ";
