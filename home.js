@@ -25,7 +25,7 @@ const creaCards = (songs, container) => {
   // decido di creare 6 cards
   for (let i = 0; i < 6; i++) {
     const col = this.document.createElement("div");
-    col.className = "col-sm-6 col-md-4 col-lg-3 col-xl-2  border border-0 conteniroteCard ";
+    col.className = "col-sm-6 col-md-4 col-lg-3 col-xl-2  border border-0 contenitoreCard ";
     // col.addEventListener("click", () => {
     //   window.location.assign("./dettaglio.html?productId=" + songs[i]._id);
     // });
@@ -70,8 +70,8 @@ const creaCards = (songs, container) => {
     col.append(card);
     row.append(col);
   }
-  const cards = [...document.querySelectorAll(container + " .conteniroteCard")];
-  console.log(parseInt(cards.lengt));
+  const cards = [...document.querySelectorAll(container + " .contenitoreCard")];
+  // console.log(parseInt(cards.lengt));
   // cards.length mi ritorna una stringa
   cards[parseInt(cards.length) - 1].classList.add("d-none", "d-xl-block");
   cards[parseInt(cards.length) - 2].classList.add("d-none", "d-xl-block");
@@ -115,7 +115,7 @@ const cardsAlbum = (arrAlbums, container) => {
         const row = document.querySelector(container);
 
         const col = this.document.createElement("div");
-        col.className = "col-sm-6 col-md-4  col-lg-2  border border-0 albumCard ";
+        col.className = "col-sm-6 col-md-4  col-lg-2  border border-0 albumCard contenitoreCard";
 
         // col.addEventListener("click", () => {
         //   window.location.assign("./dettaglio.html?productId=" + songs[i]._id);
@@ -163,6 +163,8 @@ const cardsAlbum = (arrAlbums, container) => {
       })
       .catch(err => alert(err));
   });
+  // const albums = [...document.querySelectorAll(".contenitoreCard")];
+  // console.log(albums);
 };
 // all caricamento del DOM creo la card di annuncio
 window.addEventListener("DOMContentLoaded", function () {
