@@ -11740,10 +11740,9 @@ textarea.form-control-lg {
 
 #main {
   width: 70%;
-  height: 110vh;
+  height: 100vh;
   overflow: scroll;
-  background-color: #030303;
-  background-image: linear-gradient(0deg, #030303 0%, #ffcc70 46%, #ffcc70 100%);
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.768627451) 0%, #000000 46%, #ffcc70 100%);
 }
 
 #albumPage {
@@ -11763,4 +11762,8 @@ textarea.form-control-lg {
 #tracksTable {
   width: 90%;
   height: 100vh;
+}
+
+#BtnDropdown {
+  background-color: rgba(66, 57, 24, 0.581);
 }/*# sourceMappingURL=style.css.map */

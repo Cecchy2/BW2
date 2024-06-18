@@ -47,7 +47,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
         // Titolo
         const trackTitleCell = document.createElement("td");
-        trackTitleCell.innerHTML = `${track.title}<br><span style="font-size: 0.9em; color: grey;">${track.artist.name}</span>`;
+        trackTitleCell.innerHTML = `${track.title}<br><span style="font-size: 0.9em; color: rgb(159, 159, 159);">${track.artist.name}</span>`;
         trackRow.appendChild(trackTitleCell);
 
         // Track Play

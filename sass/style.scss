@@ -6,10 +6,10 @@
 }
 #main {
   width: 70%;
-  height: 110vh;
+  height: 100vh;
   overflow: scroll;
-  background-color: #030303;
-  background-image: linear-gradient(0deg, #030303 0%, #ffcc70 46%, #ffcc70 100%);
+
+  background-image: linear-gradient(0deg, #000000c4 0%, #000000 46%, #ffcc70 100%);
 }
 #albumPage {
   /* background-color: #030303;
@@ -25,4 +25,7 @@
 #tracksTable {
   width: 90%;
   height: 100vh;
+}
+#BtnDropdown {
+  background-color: rgba(66, 57, 24, 0.581);
 }
