@@ -11911,7 +11911,7 @@ textarea.form-control-lg {
   width: 500px;
   height: 5px;
   margin-top: 5px;
-  background-color: #4D4D4D;
+  background-color: #4d4d4d;
   border-radius: 10px;
   position: relative;
   cursor: pointer;
@@ -11922,7 +11922,7 @@ textarea.form-control-lg {
   cursor: pointer;
   position: absolute;
   border-radius: 10px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   width: 50%;
   height: 100%;
   transition: width 0.1s;
@@ -11930,4 +11930,13 @@ textarea.form-control-lg {
 
 .contenitoreCard:hover {
   background-color: #1b1b1b !important;
+}
+
+tr {
+  border-radius: 10px;
+}
+
+tr:hover {
+  cursor: pointer;
+  background-color: rgb(69, 69, 69);
 }/*# sourceMappingURL=style.css.map */
