@@ -33,8 +33,8 @@ const creaCards = (artist, container, index) => {
   // });
   const card = document.createElement("div");
   card.className = "btn card mb-4 border border-0 bg-darkness contenitoreCard";
-  card.addEventListener("click", (event) => {
-    // window.location.assign("./ArtistaPage.html?artistId=" + artist.id);
+  card.addEventListener("click", event => {
+    window.location.assign("./artists.html?artistId=" + artist.id);
   });
   const imgContainer = document.createElement("div");
   imgContainer.className = "position-relative ";
@@ -96,7 +96,7 @@ const creaCards = (artist, container, index) => {
 const cardsArtist = (arrArtists, container) => {
   arrArtists.forEach((artist, index) => {
     fetch("https://deezerdevs-deezer.p.rapidapi.com/artist/" + artist, options)
-      .then((resp) => {
+      .then(resp => {
         if (resp.ok) {
           // restituiamo il dato convertito in array da JSON
           return resp.json();
@@ -104,11 +104,11 @@ const cardsArtist = (arrArtists, container) => {
           throw `Errore ${resp.status} : ${resp.statusText} `;
         }
       })
-      .then((artistResp) => {
+      .then(artistResp => {
         // creo cards con le canzoni del url inserito e le appendo al container dato come parametro
         creaCards(artistResp, container, index);
       })
-      .catch((err) => alert(err));
+      .catch(err => alert(err));
   });
 };
 
@@ -116,7 +116,7 @@ const cardsArtist = (arrArtists, container) => {
 const cardsAlbum = (arrAlbums, container) => {
   arrAlbums.forEach((album, index) => {
     fetch("https://deezerdevs-deezer.p.rapidapi.com/album/" + album, options)
-      .then((resp) => {
+      .then(resp => {
         if (resp.ok) {
           // restituiamo il dato convertito in array da JSON
           return resp.json();
@@ -124,7 +124,7 @@ const cardsAlbum = (arrAlbums, container) => {
           throw `Errore ${resp.status} : ${resp.statusText} `;
         }
       })
-      .then((album) => {
+      .then(album => {
         // creo album con l'url inserito e le appendo al container dato come parametro
 
         const row = document.querySelector(container);
@@ -135,7 +135,7 @@ const cardsAlbum = (arrAlbums, container) => {
         const card = document.createElement("div");
 
         card.className = "btn card mb-4 border border-0 bg-darkness contenitoreCard ";
-        card.addEventListener("click", (event) => {
+        card.addEventListener("click", event => {
           window.location.assign("./AlbumPage.html?albumId=" + album.id);
         });
 
@@ -162,7 +162,7 @@ const cardsAlbum = (arrAlbums, container) => {
         function out() {
           btnPlay.classList.add("d-none");
         }
-        btnPlay.addEventListener("click", (event) => {
+        btnPlay.addEventListener("click", event => {
           window.location.assign("./home.html");
 
           // on click prende le informazioni del album o del artista e fa partire la prima canzone sulla barra play
@@ -205,7 +205,7 @@ const cardsAlbum = (arrAlbums, container) => {
             break;
         }
       })
-      .catch((err) => alert(err));
+      .catch(err => alert(err));
   });
 };
 // all caricamento del DOM creo la card di annuncio
@@ -215,7 +215,7 @@ window.addEventListener("DOMContentLoaded", function () {
   fetch("https://striveschool-api.herokuapp.com/api/deezer/artist/" + indexArtists[randomArtist] + "/top?limit=50", {
     method: "GET",
   })
-    .then((resp) => {
+    .then(resp => {
       if (resp.ok) {
         // restituiamo il dato convertito in array da JSON
         return resp.json();
@@ -223,7 +223,7 @@ window.addEventListener("DOMContentLoaded", function () {
         throw `Errore ${resp.status} : ${resp.statusText} `;
       }
     })
-    .then((artist) => {
+    .then(artist => {
       const annunci = document.getElementById("annunci");
       // dal array di canzoni prendo una a caso tra le prime 3 (non sappiamo se le top 50 canzoni sono veramente 50)
       const random = Math.round(Math.random() * 2);
@@ -261,7 +261,7 @@ window.addEventListener("DOMContentLoaded", function () {
       infoAnnunci.append(spanAnnunci, h2, p1, p2, containerBtn);
       annunci.appendChild(infoAnnunci);
     })
-    .catch((err) => alert(err));
+    .catch(err => alert(err));
 
   cardsArtist(artistiPopolari, "#perTe");
   cardsAlbum(albumsArtistaPref, "#artistaPref");

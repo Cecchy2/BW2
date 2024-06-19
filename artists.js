@@ -1,7 +1,7 @@
 const authKey = "1bf979bf4cmsh3a580f854a77993p1355dajsn876a815ada14";
 const searchBar = document.getElementById("searchBar");
 const artistBanner = document.getElementById("artistBanner");
-const id = new URLSearchParams(window.location.search).get("artist");
+const id = new URLSearchParams(window.location.search).get("artistId");
 const songsList = document.getElementById("songsList");
 const containerList = document.getElementById("containerList");
 const likedSongs = document.getElementById("likedSongs");
@@ -17,11 +17,12 @@ const options = {
 const getMinutes = duration => {
   seconds = duration % 60;
   minutes = ((duration - seconds) / 60) % 60;
-  return minutes + ":" + seconds;
+  if (seconds < 10) return `${minutes}:0${seconds}`;
+  else return minutes + ":" + seconds;
 };
 
 const handlelikedSongs = () => {
-  fetch("https://deezerdevs-deezer.p.rapidapi.com/artist/412", options)
+  fetch("https://deezerdevs-deezer.p.rapidapi.com/artist/" + id, options)
     .then(resp => {
       if (resp.ok) {
         return resp.json();
@@ -56,7 +57,7 @@ const handlelikedSongs = () => {
 };
 
 const createBanner = () => {
-  fetch("https://deezerdevs-deezer.p.rapidapi.com/artist/412", options)
+  fetch("https://deezerdevs-deezer.p.rapidapi.com/artist/" + id, options)
     .then(resp => {
       if (resp.ok) {
         return resp.json();
@@ -100,7 +101,7 @@ const createBanner = () => {
 };
 
 const createSongList = () => {
-  fetch("https://striveschool-api.herokuapp.com/api/deezer/artist/412/top?limit=5", options)
+  fetch("https://striveschool-api.herokuapp.com/api/deezer/artist/" + id + "/top?limit=5", options)
     .then(resp => {
       if (resp.ok) {
         return resp.json();

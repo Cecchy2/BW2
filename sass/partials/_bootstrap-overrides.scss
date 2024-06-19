@@ -111,43 +111,45 @@ $theme-colors: map-merge($theme-colors, $add-colors);
 #BtnDropdown {
   background-color: rgba(66, 57, 24, 0.581);
 }
-.pedro{
+.pedro {
   scale: 1.1;
 }
-@keyframes bounce{
-  to{translate: 0 20px;}
+@keyframes bounce {
+  to {
+    translate: 0 20px;
+  }
 }
 .pedro {
   animation: bounce 200ms linear infinite alternate;
 }
-@keyframes spin{
-  to{rotate:-1turn;}
+@keyframes spin {
+  to {
+    rotate: -1turn;
+  }
 }
-.wrapper{
+.wrapper {
   animation: spin 10s linear infinite;
 }
-.line{
- width: 500px;
- height: 5px;
- margin-top: 5px;
- background-color:#4D4D4D;
- border-radius: 10px;
- position: relative;
- cursor: pointer;
- margin-inline: 5px;
+.line {
+  width: 500px;
+  height: 5px;
+  margin-top: 5px;
+  background-color: #4d4d4d;
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+  margin-inline: 5px;
 }
-.lineChild{
+.lineChild {
   cursor: pointer;
   position: absolute;
   border-radius: 10px;
-  background-color:#FFFFFF;
+  background-color: #ffffff;
   width: 50%;
   height: 100%;
   transition: width 0.1s;
-
 }
 
-.contenitoreCard:hover{
-background-color: #1b1b1b !important;
-  
+.contenitoreCard:hover {
+  background-color: #1b1b1b !important;
 }
