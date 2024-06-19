@@ -11,7 +11,7 @@
     <!-- style="max-height: 100vh" -->
     <div class="">
       <div class="row justify-content-center p-2">
-        <header class="col-2 rounded p-0">
+        <header class="col-2 rounded p-0" style="min-width: 300px">
           <div class="rounded bg-darkness p-4 mb-2" style="height: 15vh">
             <ul class="list-unstyled d-flex flex-column gap-3 m-0">
               <li class="align-middle pointer" id="homeBtn">
@@ -41,12 +41,12 @@
               </li>
             </ul>
           </div>
-          <div class="bg-darkness rounded p-4">
+          <div class="bg-darkness rounded p-3">
             <div class="bg-darkness" style="height: 10vh">
               <div class="d-flex">
-                <button class="btn text-white me-auto bg-darkness mb-2 p-1" style="width: 150px">
-                  <span
-                    ><svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 24 24" style="width: 30px">
+                <button class="btn text-white me-auto bg-darkness mb-2 p-1 d-flex align-items-center" style="width: 150px">
+                  <span>
+                    <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 24 24" style="width: 30px">
                       <path
                         fill="#B3B3B3"
                         d="M3 22a1 1 0 0 1-1-1V3a1 1 0 0 1 2 0v18a1 1 0 0 1-1 1zM15.5 2.134A1 1 0 0 0 14 3v18a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V6.464a1 1 0 0 0-.5-.866l-6-3.464zM9 2a1 1 0 0 0-1 1v18a1 1 0 1 0 2 0V3a1 1 0 0 0-1-1z"
@@ -54,14 +54,14 @@
                     </svg> </span
                   >La tua Libreria
                 </button>
-                <button class="btn text-white mx-2 bg-darkness" style="width: 40px; height: 40px">
+                <button class="btn text-white mx-1 bg-darkness" style="width: 40px; height: 40px">
                   <span style="display: block"
                     ><svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16">
                       <path fill="#B3B3B3" d="M15.25 8a.75.75 0 0 1-.75.75H8.75v5.75a.75.75 0 0 1-1.5 0V8.75H1.5a.75.75 0 0 1 0-1.5h5.75V1.5a.75.75 0 0 1 1.5 0v5.75h5.75a.75.75 0 0 1 .75.75z"></path>
                     </svg>
                   </span>
                 </button>
-                <button class="btn text-white mx-2 bg-darkness" style="width: 40px; height: 40px">
+                <button class="btn text-white mx-1 bg-darkness" style="width: 40px; height: 40px">
                   <span style="display: block"
                     ><svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16" class="Svg-sc-ytk21e-0 cAMMLk">
                       <path
@@ -72,7 +72,7 @@
                   </span>
                 </button>
               </div>
-              <div>
+              <!-- <div>
                 <div>
                   <div>
                     <div class="mb-2">
@@ -88,9 +88,7 @@
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-            <div class="scrollbar text-truncate" style="height: 60vh">
+              </div> -->
               <div class="d-flex justify-content-between">
                 <button class="btn">
                   <svg data-encore-id="icon" role="img" aria-hidden="true" style="width: 15px" viewBox="0 0 16 16">
@@ -107,6 +105,8 @@
                   </svg>
                 </button>
               </div>
+            </div>
+            <div class="scrollbar text-truncate mt-2" style="height: 60vh">
               <div>
                 <ul id="listaBraniArtistiAlbum" class="p-0"></ul>
               </div>
@@ -114,7 +114,7 @@
           </div>
         </header>
 
-        <main class="col-8 rounded" data-bs-theme="dark">
+        <main class="col rounded" data-bs-theme="dark">
           <div class="bg-darkness rounded" style="height: 90vh">
             <div class="d-flex align-items-center pt-3 mx-3">
               <div class="me-auto d-flex">
@@ -123,7 +123,7 @@
                     <path fill="#B3B3B3" d="M11.03.47a.75.75 0 0 1 0 1.06L4.56 8l6.47 6.47a.75.75 0 1 1-1.06 1.06L2.44 8 9.97.47a.75.75 0 0 1 1.06 0z"></path>
                   </svg>
                 </button>
-                <button class="btn rounded-circle bg-black d-flex justify-content-center align-items-center" style="width: 40px; height: 40px">
+                <button class="btn rounded-circle bg-black d-flex justify-content-center align-items-center d-none d-lg-inline" style="width: 40px; height: 40px">
                   <svg data-encore-id="icon" role="img" aria-hidden="true" style="width: 21px" viewBox="0 0 20 20">
                     <path fill="#B3B3B3" d="M4.97.47a.75.75 0 0 0 0 1.06L11.44 8l-6.47 6.47a.75.75 0 1 0 1.06 1.06L13.56 8 6.03.47a.75.75 0 0 0-1.06 0z"></path>
                   </svg>
@@ -157,7 +157,7 @@
                 </div>
               </div>
               <div class="d-flex mb-3">
-                <button class="btn bg-white rounded-pill text-black me-2"><b>Esplora Premium</b></button>
+                <button class="btn bg-white rounded-pill text-black me-2 d-none d-lg-inline"><b>Esplora Premium</b></button>
                 <a class="btn rounded-pill bg-black rounded-pill text-white me-2" draggable="false" data-encore-id="buttonPrimary" href="#">
                   <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16" style="width: 20px">
                     <path
@@ -204,10 +204,22 @@
               <div id="mixPref" class="row g-0 bg-darkness">
                 <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover fs-3 py-4 ms-3" href="#">Uno sguardo al passato</a>
               </div>
+              <section>
+                <div class="row">
+                  <div class="col-2">
+                    <h5>Azienda</h5>
+                    <ul>
+                      <li>Chi siamo</li>
+                      <li>Opportunità di lavoro</li>
+                      <li>For the Record</li>
+                    </ul>
+                  </div>
+                </div>
+              </section>
             </div>
           </div>
         </main>
-        <aside class="col-2 rounded bg-darkness scrollbar" style="height: 90vh"></aside>
+        <aside class="col-2 rounded bg-darkness scrollbar d-none d-xl-block" style="height: 90vh"></aside>
       </div>
       <footer class="fixed-bottom bg-black p-0 m-0 container-fluid" style="height: 10vh; width: 100wh">
         <div class="row p-2">
