@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Bootstrap demo</title>
     <link rel="stylesheet" href="./assets/dist/css/style.min.css" />
+    <link rel="stylesheet" href="assets/css/circular-font.css" />
   </head>
   <body class="bg-black text-white container-fluid m-0">
+    <!-- style="max-height: 100vh" -->
     <div class="">
       <div class="row justify-content-center p-2">
-        <header class="col-2 rounded p-0">
-          <div class="rounded bg-dark p-4 mb-2">
+        <header class="col-2 rounded p-0" style="height: 90vh">
+          <div class="rounded bg-darkness p-4 mb-2">
             <ul class="list-unstyled d-flex flex-column gap-3 m-0">
               <li class="align-middle">
                 <svg
@@ -29,20 +31,45 @@
                 <span>Home</span>
               </li>
               <li class="align-middle">
-                <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 24 24" style="width: 30">
+                <svg
+                  id="search"
+                  data-encore-id="icon"
+                  role="img"
+                  aria-hidden="true"
+                  viewBox="0 0 24 24"
+                  style="width: 30"
+                >
                   <path
                     fill="#B3B3B3"
                     d="M10.533 1.27893C5.35215 1.27893 1.12598 5.41887 1.12598 10.5579C1.12598 15.697 5.35215 19.8369 10.533 19.8369C12.767 19.8369 14.8235 19.0671 16.4402 17.7794L20.7929 22.132C21.1834 22.5226 21.8166 22.5226 22.2071 22.132C22.5976 21.7415 22.5976 21.1083 22.2071 20.7178L17.8634 16.3741C19.1616 14.7849 19.94 12.7634 19.94 10.5579C19.94 5.41887 15.7138 1.27893 10.533 1.27893ZM3.12598 10.5579C3.12598 6.55226 6.42768 3.27893 10.533 3.27893C14.6383 3.27893 17.94 6.55226 17.94 10.5579C17.94 14.5636 14.6383 17.8369 10.533 17.8369C6.42768 17.8369 3.12598 14.5636 3.12598 10.5579Z"
+                  ></path>
+                </svg>
+                <svg
+                  id="searchActivate"
+                  class="d-none"
+                  data-encore-id="icon"
+                  role="img"
+                  aria-hidden="true"
+                  style="width: 30"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="#B3B3B3"
+                    d="M15.356 10.558c0 2.623-2.16 4.75-4.823 4.75-2.664 0-4.824-2.127-4.824-4.75s2.16-4.75 4.824-4.75c2.664 0 4.823 2.127 4.823 4.75z"
+                  ></path>
+                  <path
+                    fill="#B3B3B3"
+                    d="M1.126 10.558c0-5.14 4.226-9.28 9.407-9.28 5.18 0 9.407 4.14 9.407 9.28a9.157 9.157 0 0 1-2.077 5.816l4.344 4.344a1 1 0 0 1-1.414 1.414l-4.353-4.353a9.454 9.454 0 0 1-5.907 2.058c-5.18 0-9.407-4.14-9.407-9.28zm9.407-7.28c-4.105 0-7.407 3.274-7.407 7.28s3.302 7.279 7.407 7.279 7.407-3.273 7.407-7.28c0-4.005-3.302-7.278-7.407-7.278z"
                   ></path>
                 </svg>
                 <span>Cerca</span>
               </li>
             </ul>
           </div>
-          <div class="bg-dark rounded p-4">
-            <div class="bg-dark">
+          <div class="bg-darkness rounded p-4">
+            <div class="bg-darkness">
               <div class="d-flex">
-                <button class="btn text-white me-auto bg-dark mb-2 p-1" style="width: 150px">
+                <button class="btn text-white me-auto bg-darkness mb-2 p-1" style="width: 150px">
                   <span
                     ><svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 24 24" style="width: 30px">
                       <path
@@ -52,7 +79,7 @@
                     </svg> </span
                   >La tua Libreria
                 </button>
-                <button class="btn text-white mx-2 bg-dark" style="width: 40px; height: 40px">
+                <button class="btn text-white mx-2 bg-darkness" style="width: 40px; height: 40px">
                   <span style="display: block"
                     ><svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16">
                       <path
@@ -62,7 +89,7 @@
                     </svg>
                   </span>
                 </button>
-                <button class="btn text-white mx-2 bg-dark" style="width: 40px; height: 40px">
+                <button class="btn text-white mx-2 bg-darkness" style="width: 40px; height: 40px">
                   <span style="display: block"
                     ><svg
                       data-encore-id="icon"
@@ -97,82 +124,204 @@
                 </div>
               </div>
             </div>
-            <div class="" style="height: 100vh">Qui ci vanno i Brani</div>
+            <div class="scrollbar text-truncate">
+              <div class="d-flex justify-content-between">
+                <button class="btn">
+                  <svg data-encore-id="icon" role="img" aria-hidden="true" style="width: 15px" viewBox="0 0 16 16">
+                    <path
+                      fill="#B3B3B3"
+                      d="M7 1.75a5.25 5.25 0 1 0 0 10.5 5.25 5.25 0 0 0 0-10.5zM.25 7a6.75 6.75 0 1 1 12.096 4.12l3.184 3.185a.75.75 0 1 1-1.06 1.06L11.304 12.2A6.75 6.75 0 0 1 .25 7z"
+                    ></path>
+                  </svg>
+                </button>
+                <button class="btn text-white d-flex align-items-center">
+                  <span class="pe-2">Recenti</span>
+                  <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16" style="width: 15px">
+                    <path
+                      fill="#B3B3B3"
+                      d="M15 14.5H5V13h10v1.5zm0-5.75H5v-1.5h10v1.5zM15 3H5V1.5h10V3zM3 3H1V1.5h2V3zm0 11.5H1V13h2v1.5zm0-5.75H1v-1.5h2v1.5z"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+              <div>
+                <ul id="listaBraniArtistiAlbum" class="p-0"></ul>
+              </div>
+            </div>
           </div>
         </header>
 
-        <main class="col-8 p-0 pt-1">
-          <div id="artistBanner" class="bg-dark p-0 position-relative">
-            <!-- <div id="artistTitle" class="container-fluid px-3 mt-auto"></div>
-            <div id="verifiedArtist" class="container-fluid px-3 mb-0 mt-auto"></div> -->
-            <div id=""></div>
-          </div>
-          <div class="container-fluid">
-            <div id="containerList" class="d-flex align-items-center">
-              <button
-                class="btn btn-success rounded-circle m-4 d-flex align-items-center justify-content-center"
-                style="width: 50px; height: 50px"
-              >
-                <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16" style="width: 20px">
-                  <path
-                    fill="#000000"
-                    d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"
-                  ></path>
-                </svg>
-              </button>
-              <button
-                class="btn btn-transparent border border-light text-white text-center"
-                height="fit-content"
-                font-size="0.8rem"
-              >
-                FOLLOWING
-              </button>
-              <div class="mx-4">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="30"
-                  height="30"
-                  fill="currentColor"
-                  class="bi bi-three-dots"
-                  viewBox="0 0 16 16"
+        <main class="col-8 rounded" data-bs-theme="dark" style="height: 90vh">
+          <div class="bg-darkness rounded">
+            <div class="d-flex align-items-center pt-3 mx-3">
+              <div class="me-auto d-flex">
+                <button
+                  class="btn rounded-circle bg-black d-flex justify-content-center align-items-center me-3"
+                  style="width: 40px; height: 40px"
                 >
-                  <path
-                    d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"
+                  <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 20 20">
+                    <path
+                      fill="#B3B3B3"
+                      d="M11.03.47a.75.75 0 0 1 0 1.06L4.56 8l6.47 6.47a.75.75 0 1 1-1.06 1.06L2.44 8 9.97.47a.75.75 0 0 1 1.06 0z"
+                    ></path>
+                  </svg>
+                </button>
+                <button
+                  class="btn rounded-circle bg-black d-flex justify-content-center align-items-center"
+                  style="width: 40px; height: 40px"
+                >
+                  <svg data-encore-id="icon" role="img" aria-hidden="true" style="width: 21px" viewBox="0 0 20 20">
+                    <path
+                      fill="#B3B3B3"
+                      d="M4.97.47a.75.75 0 0 0 0 1.06L11.44 8l-6.47 6.47a.75.75 0 1 0 1.06 1.06L13.56 8 6.03.47a.75.75 0 0 0-1.06 0z"
+                    ></path>
+                  </svg>
+                </button>
+                <div class="position-relative">
+                  <form role="search" class="d-flex justify-content-center align-items-center mx-3">
+                    <input
+                      class="rounded-pill border-0 py-1 px-4 z-1 bg-transparent text-white"
+                      data-encore-id="text"
+                      maxlength="800"
+                      autocorrect="off"
+                      autocapitalize="off"
+                      spellcheck="false"
+                      placeholder="  Cosa vuoi ascoltare?"
+                      data-testid="search-input"
+                      value=""
+                      style="color: rgb(0, 0, 0)"
+                    />
+                  </form>
+                  <div class="position-absolute top-50 start-50 translate-middle" style="width: 220px; height: 35px">
+                    <span>
+                      <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16" style="width: 15px">
+                        <path
+                          fill="#B3B3B3"
+                          d="M7 1.75a5.25 5.25 0 1 0 0 10.5 5.25 5.25 0 0 0 0-10.5zM.25 7a6.75 6.75 0 1 1 12.096 4.12l3.184 3.185a.75.75 0 1 1-1.06 1.06L11.304 12.2A6.75 6.75 0 0 1 .25 7z"
+                        ></path>
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex mb-3">
+                <button class="btn bg-white rounded-pill text-black me-2"><b>Esplora Premium</b></button>
+                <a
+                  class="btn rounded-pill bg-black rounded-pill text-white me-2"
+                  draggable="false"
+                  data-encore-id="buttonPrimary"
+                  href="#"
+                >
+                  <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16" style="width: 20px">
+                    <path
+                      fill="#FFFFFF"
+                      d="M4.995 8.745a.75.75 0 0 1 1.06 0L7.25 9.939V4a.75.75 0 0 1 1.5 0v5.94l1.195-1.195a.75.75 0 1 1 1.06 1.06L8 12.811l-.528-.528a.945.945 0 0 1-.005-.005L4.995 9.805a.75.75 0 0 1 0-1.06z"
+                    ></path>
+                    <path
+                      fill="#FFFFFF"
+                      d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13z"
+                    ></path>
+                  </svg>
+                  <span class="ms-1 fw-bold">Installa app</span>
+                </a>
+                <button
+                  class="btn bg-black rounded-circle d-flex justify-content-center align-items-center me-2"
+                  style="width: 40px; height: 40px"
+                >
+                  <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16" style="width: 20px">
+                    <path
+                      fill="#FFFFFF"
+                      d="M8 1.5a4 4 0 0 0-4 4v3.27a.75.75 0 0 1-.1.373L2.255 12h11.49L12.1 9.142a.75.75 0 0 1-.1-.374V5.5a4 4 0 0 0-4-4zm-5.5 4a5.5 5.5 0 0 1 11 0v3.067l2.193 3.809a.75.75 0 0 1-.65 1.124H10.5a2.5 2.5 0 0 1-5 0H.957a.75.75 0 0 1-.65-1.124L2.5 8.569V5.5zm4.5 8a1 1 0 1 0 2 0H7z"
+                    ></path>
+                  </svg>
+                </button>
+                <button
+                  class="rounded-circle border-2 border-black overflow-hidden d-flex justify-content-center align-items-center wrapper"
+                  style="width: 40px; height: 40px"
+                >
+                  <img
+                    style="width: 45px"
+                    class="pedro"
+                    draggable="false"
+                    loading="eager"
+                    src="https://tr.rbxcdn.com/f91b198cd1c9b5daa1e67b1b673119e9/420/420/Hat/Webp"
+                    alt="Pedro"
                   />
-                </svg>
+                </button>
               </div>
             </div>
-            <div class="row d-flex justify-content-between pe-2 ps-4 mb-4 me-0">
-              <div class="container">
-                <div class="row">
-                  <div class="col-12 col-md-8 d-flex me-0 justify-content-between g-0 align-items-center">
-                    <!-- <div class="d-flex align-items-center"> -->
-                    <div id="songsList" class="row">
-                      <h5 class="col-12 mb-4">Popolari</h5>
-                    </div>
-                    <!-- </div> -->
+            <div class="scrollbar p-3" style="height: 90vh">
+              <div id="artistBanner" class="bg-dark p-0 position-relative">
+                <!-- <div id="artistTitle" class="container-fluid px-3 mt-auto"></div>
+                    <div id="verifiedArtist" class="container-fluid px-3 mb-0 mt-auto"></div> -->
+                <div id=""></div>
+              </div>
+              <div class="container-fluid">
+                <div id="containerList" class="d-flex align-items-center">
+                  <button
+                    class="btn btn-success rounded-circle m-4 d-flex align-items-center justify-content-center"
+                    style="width: 50px; height: 50px"
+                  >
+                    <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16" style="width: 20px">
+                      <path
+                        fill="#000000"
+                        d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"
+                      ></path>
+                    </svg>
+                  </button>
+                  <button
+                    class="btn btn-transparent border border-light text-white text-center"
+                    height="fit-content"
+                    font-size="0.8rem"
+                  >
+                    FOLLOWING
+                  </button>
+                  <div class="mx-4">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="30"
+                      height="30"
+                      fill="currentColor"
+                      class="bi bi-three-dots"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"
+                      />
+                    </svg>
                   </div>
+                </div>
+                <div class="row d-flex justify-content-between pe-2 ps-4 mb-4 me-0">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-12 col-md-8 d-flex me-0 justify-content-between g-0 align-items-center">
+                        <!-- <div class="d-flex align-items-center"> -->
+                        <div id="songsList" class="row">
+                          <h5 class="col-12 mb-4">Popolari</h5>
+                        </div>
+                        <!-- </div> -->
+                      </div>
 
-                  <div id="likedSongs" class="col-12 col-md-4 mb-3">
-                    <h5 class="mb-4 col-12 w-100">Brani che ti piacciono</h5>
+                      <div id="likedSongs" class="col-12 col-md-4 mb-3">
+                        <h5 class="mb-4 col-12 w-100">Brani che ti piacciono</h5>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </main>
-        <aside class="col-2 rounded bg-dark"></aside>
+        <aside class="col-2 rounded bg-darkness scrollbar" style="height: 100vh"></aside>
       </div>
-      <footer class="fixed-bottom bg-black p-0 m-0 container-fluid" style="height: 90px; width: 100wh">
+      <footer class="fixed-bottom bg-black p-0 m-0 container-fluid" style="height: 10vh; width: 100wh">
         <div class="row p-2">
           <div class="row px-3 d-flex justify-content-center">
             <div class="d-flex align-items-center">
-              <div>
-                <img src="./assets/imgs/main/image-1.jpg" style="width: 50px" />
-              </div>
+              <div id="imgArtistaAlbum"></div>
               <div class="d-flex flex-column me-auto">
-                <div>qui ci va il titolo del brano</div>
-                <div>qui l'artista</div>
+                <div id="footerTitolo"></div>
+                <div id="footerArtista"></div>
               </div>
               <div class="d-flex flex-column me-auto">
                 <div class="d-flex justify-content-center align-items-center">
@@ -230,7 +379,13 @@
                     </button>
                   </div>
                 </div>
-                <div>qui vi va 1div per il tempo, 1 div per la barra e 1 div per la durata del brano</div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div id="currentTime">0:00</div>
+                  <div class="line">
+                    <div class="lineChild"></div>
+                  </div>
+                  <div id="totalDuration">0:00</div>
+                </div>
               </div>
               <div class="d-flex align-items-center">
                 <button class="btn">
@@ -306,10 +461,6 @@
       </footer>
     </div>
 
-    <script src="./artists.js"></script>
-    <!-- <script src="./lista.js"></script>
-    <script src="./footer.js"></script> -->
-
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
       integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
@@ -320,5 +471,9 @@
       integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
       crossorigin="anonymous"
     ></script>
+    <!-- <script src="home.js"></script> -->
+    <script src="./artists.js"></script>
+    <script src="./lista.js"></script>
+    <script src="./footer.js"></script>
   </body>
 </html>
