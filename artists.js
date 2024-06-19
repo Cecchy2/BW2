@@ -22,14 +22,13 @@ const getMinutes = duration => {
 };
 
 const handlelikedSongs = () => {
-  fetch("https://deezerdevs-deezer.p.rapidapi.com/artist/" + id, options)
+  fetch("https://striveschool-api.herokuapp.com/api/deezer/artist/" + id, options)
     .then(resp => {
       if (resp.ok) {
         return resp.json();
       } else console.log(`Error ${resp.status}`);
     })
     .then(artist => {
-      console.log(artist);
       const row = document.createElement("div");
       row.className = "row";
       likedSongs.appendChild(row);
@@ -57,7 +56,7 @@ const handlelikedSongs = () => {
 };
 
 const createBanner = () => {
-  fetch("https://deezerdevs-deezer.p.rapidapi.com/artist/" + id, options)
+  fetch("https://striveschool-api.herokuapp.com/api/deezer/artist/" + id, options)
     .then(resp => {
       if (resp.ok) {
         return resp.json();
