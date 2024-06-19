@@ -93,17 +93,4 @@ window.addEventListener("DOMContentLoaded", () => {
       creaList(songs.data);
     })
     .catch((err) => alert(err));
-  fetch(urlEminem, options2)
-    .then((resp) => {
-      if (resp.ok) {
-        return resp.json();
-      } else {
-        throw `Errore ${resp.status} : ${resp.statusText} `;
-      }
-    })
-    .then((songs) => {
-      console.log(songs);
-      creaList(songs.data);
-    })
-    .catch((err) => alert(err));
 });
