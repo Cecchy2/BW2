@@ -14,7 +14,7 @@ const options = {
   },
 };
 
-const getMinutes = duration => {
+const getMinutes = (duration) => {
   seconds = duration % 60;
   minutes = ((duration - seconds) / 60) % 60;
   if (seconds < 10) return `${minutes}:0${seconds}`;
@@ -23,12 +23,12 @@ const getMinutes = duration => {
 
 const handlelikedSongs = () => {
   fetch("https://deezerdevs-deezer.p.rapidapi.com/artist/" + id, options)
-    .then(resp => {
+    .then((resp) => {
       if (resp.ok) {
         return resp.json();
       } else console.log(`Error ${resp.status}`);
     })
-    .then(artist => {
+    .then((artist) => {
       console.log(artist);
       const row = document.createElement("div");
       row.className = "row";
@@ -53,17 +53,17 @@ const handlelikedSongs = () => {
       artistTag.innerText = `Di ${artist.name}`;
       colDescritpion.appendChild(artistTag);
     })
-    .catch(err => console.log(err));
+    .catch((err) => console.log(err));
 };
 
 const createBanner = () => {
   fetch("https://deezerdevs-deezer.p.rapidapi.com/artist/" + id, options)
-    .then(resp => {
+    .then((resp) => {
       if (resp.ok) {
         return resp.json();
       } else console.log("Errore nel caricamento dei dati");
     })
-    .then(artist => {
+    .then((artist) => {
       const artistTitle = document.getElementById("artistTitle");
       const artistName = document.createElement("h1");
       artistBanner.classList.add(
@@ -102,12 +102,12 @@ const createBanner = () => {
 
 const createSongList = () => {
   fetch("https://striveschool-api.herokuapp.com/api/deezer/artist/" + id + "/top?limit=5", options)
-    .then(resp => {
+    .then((resp) => {
       if (resp.ok) {
         return resp.json();
       } else console.log("Errore nel caricamento dei dati");
     })
-    .then(artists => {
+    .then((artists) => {
       artists.data.forEach((art, index) => {
         const songsList = document.getElementById("songsList");
         const col = document.createElement("div");
@@ -153,7 +153,7 @@ const createSongList = () => {
         const viewsCont = document.getElementById("viewsCont");
       });
     })
-    .catch(err => console.log(err));
+    .catch((err) => console.log(err));
 };
 
 window.addEventListener("DOMContentLoaded", function () {

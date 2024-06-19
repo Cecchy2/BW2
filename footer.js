@@ -16,13 +16,13 @@ window.addEventListener("DOMContentLoaded", () => {
 
       const image = document.createElement("img");
       const h5 = document.createElement("h5");
-      image.src = `${songs.data[index].album.cover_small}`;
+      image.src = `${songs.data[0].album.cover_small}`;
       imgArtistaAlbum.appendChild(image);
       footerTitolo.appendChild(h5);
       imgArtistaAlbum.classList.add("me-2");
 
-      h5.innerText = `${songs.data[index].title}`;
-      footerArtista.innerText = `${songs.data[index].artist.name}`;
+      h5.innerText = `${songs.data[0].title}`;
+      footerArtista.innerText = `${songs.data[0].artist.name}`;
     })
     .catch((err) => alert(err));
 });

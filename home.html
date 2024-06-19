@@ -32,7 +32,7 @@
               </li>
               <li class="align-middle pointer" id="searchBtn">
                 <svg
-                  id="search"
+                  id="searchDisable"
                   data-encore-id="icon"
                   role="img"
                   aria-hidden="true"
@@ -177,9 +177,10 @@
                     ></path>
                   </svg>
                 </button>
-                <div class="position-relative">
+                <div class="position-relative d-none" id="formSearch">
                   <form role="search" class="d-flex justify-content-center align-items-center mx-3">
                     <input
+                      id="searchInput"
                       class="rounded-pill border-0 py-1 px-4 z-1 bg-transparent text-white"
                       data-encore-id="text"
                       maxlength="800"
@@ -455,7 +456,7 @@
       integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
       crossorigin="anonymous"
     ></script>
-    <script src="home.js"></script>
+    <script src="./home.js"></script>
     <script src="./lista.js"></script>
     <script src="./footer.js"></script>
   </body>
