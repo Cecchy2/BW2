@@ -61,7 +61,12 @@ window.addEventListener("DOMContentLoaded", function () {
         // Track duration cell
         const trackDurationCell = document.createElement("td");
         const minutes = Math.floor(track.duration / 60);
-        const seconds = track.duration % 60;
+        let seconds = track.duration % 60;
+
+        if (seconds < 10) {
+          seconds = "0" + seconds;
+        }
+
         trackDurationCell.innerText = `${minutes} : ${seconds}`;
         trackRow.appendChild(trackDurationCell);
 
@@ -81,8 +86,18 @@ window.addEventListener("DOMContentLoaded", function () {
       const altriAlbums = document.getElementById("altriAlbums");
       altriAlbums.innerHTML = "";
 
+      console.log(artistTop);
+
+      /* const titleAlbumB = document.getElementById("titleAlbumBottom");
+      titleAlbumB.innerText = "altri album di:" + artistTop.data.artist.name; */
+
+      let albumTop = "";
+
+      /* const titleAlbumB = document.getElementById("titleAlbumBottom");
+      titleAlbumB.innerText = "Altri album di:" + albumTop.artist.name; */
+
       for (let i = 0; i < 4; i++) {
-        const albumTop = artistTop.data[i];
+        albumTop = artistTop.data[i];
         console.log(albumTop);
 
         const colonna = document.createElement("div");
@@ -134,6 +149,8 @@ window.addEventListener("DOMContentLoaded", function () {
         colonna.append(cardAlbumTop);
         altriAlbums.appendChild(colonna);
       }
+      const titleAlbumB = document.getElementById("titleAlbumBottom");
+      titleAlbumB.innerText = "Altri album di  " + albumTop.artist.name;
     })
     .catch((error) => {
       console.error("Fetch error:", error);

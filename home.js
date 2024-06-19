@@ -15,7 +15,8 @@ const albumsStorici = [96126, 47131362, 12047952, 104660202, 96001912, 1262014];
 const options = {
   method: "GET",
   headers: {
-    "x-rapidapi-key": "0f032eb218mshe7b959267e60906p1d3878jsnde7092ae2254",
+    "x-rapidapi-key": "c1be13bc83msh01ed86504ac789ap14b677jsn4a8378e3cb43",
+    /* "x-rapidapi-key": "c1be13bc83msh01ed86504ac789ap14b677jsn4a8378e3cb43", */
     "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
   },
 };
