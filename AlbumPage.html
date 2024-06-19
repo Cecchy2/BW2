@@ -27,7 +27,40 @@
               </svg>
               <span>Home</span>
             </li>
-            <li class="align-middle pointer" id="searchBtn"></li>
+            <li class="align-middle pointer" id="searchBtn">
+              <svg
+                id="searchDisable"
+                data-encore-id="icon"
+                role="img"
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                style="width: 30"
+              >
+                <path
+                  fill="#B3B3B3"
+                  d="M10.533 1.27893C5.35215 1.27893 1.12598 5.41887 1.12598 10.5579C1.12598 15.697 5.35215 19.8369 10.533 19.8369C12.767 19.8369 14.8235 19.0671 16.4402 17.7794L20.7929 22.132C21.1834 22.5226 21.8166 22.5226 22.2071 22.132C22.5976 21.7415 22.5976 21.1083 22.2071 20.7178L17.8634 16.3741C19.1616 14.7849 19.94 12.7634 19.94 10.5579C19.94 5.41887 15.7138 1.27893 10.533 1.27893ZM3.12598 10.5579C3.12598 6.55226 6.42768 3.27893 10.533 3.27893C14.6383 3.27893 17.94 6.55226 17.94 10.5579C17.94 14.5636 14.6383 17.8369 10.533 17.8369C6.42768 17.8369 3.12598 14.5636 3.12598 10.5579Z"
+                ></path>
+              </svg>
+              <svg
+                id="searchActivate"
+                class="d-none"
+                data-encore-id="icon"
+                role="img"
+                aria-hidden="true"
+                style="width: 30"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="#B3B3B3"
+                  d="M15.356 10.558c0 2.623-2.16 4.75-4.823 4.75-2.664 0-4.824-2.127-4.824-4.75s2.16-4.75 4.824-4.75c2.664 0 4.823 2.127 4.823 4.75z"
+                ></path>
+                <path
+                  fill="#B3B3B3"
+                  d="M1.126 10.558c0-5.14 4.226-9.28 9.407-9.28 5.18 0 9.407 4.14 9.407 9.28a9.157 9.157 0 0 1-2.077 5.816l4.344 4.344a1 1 0 0 1-1.414 1.414l-4.353-4.353a9.454 9.454 0 0 1-5.907 2.058c-5.18 0-9.407-4.14-9.407-9.28zm9.407-7.28c-4.105 0-7.407 3.274-7.407 7.28s3.302 7.279 7.407 7.279 7.407-3.273 7.407-7.28c0-4.005-3.302-7.278-7.407-7.278z"
+                ></path>
+              </svg>
+              <span>Cerca</span>
+            </li>
           </ul>
         </div>
         <div class="bg-darkness rounded p-4">
@@ -116,97 +149,107 @@
       </header>
 
       <main class="col-8 rounded position-relative p-3" data-bs-theme="dark" id="main">
+        <div class="d-flex align-items-center pt-3 mx-3">
+          <div class="me-auto d-flex">
+            <button
+              class="btn rounded-circle bg-black d-flex justify-content-center align-items-center me-3"
+              style="width: 40px; height: 40px"
+            >
+              <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 20 20">
+                <path
+                  fill="#B3B3B3"
+                  d="M11.03.47a.75.75 0 0 1 0 1.06L4.56 8l6.47 6.47a.75.75 0 1 1-1.06 1.06L2.44 8 9.97.47a.75.75 0 0 1 1.06 0z"
+                ></path>
+              </svg>
+            </button>
+            <button
+              class="btn rounded-circle bg-black d-flex justify-content-center align-items-center"
+              style="width: 40px; height: 40px"
+            >
+              <svg data-encore-id="icon" role="img" aria-hidden="true" style="width: 21px" viewBox="0 0 20 20">
+                <path
+                  fill="#B3B3B3"
+                  d="M4.97.47a.75.75 0 0 0 0 1.06L11.44 8l-6.47 6.47a.75.75 0 1 0 1.06 1.06L13.56 8 6.03.47a.75.75 0 0 0-1.06 0z"
+                ></path>
+              </svg>
+            </button>
+            <div class="position-relative d-none" id="formSearch">
+              <form role="search" class="d-flex justify-content-center align-items-center mx-3">
+                <input
+                  id="searchInput"
+                  class="rounded-pill border-0 py-1 px-4 z-1 bg-transparent text-white"
+                  data-encore-id="text"
+                  maxlength="800"
+                  autocorrect="off"
+                  autocapitalize="off"
+                  spellcheck="false"
+                  placeholder="  Cosa vuoi ascoltare?"
+                  data-testid="search-input"
+                  value=""
+                  style="color: rgb(0, 0, 0)"
+                />
+              </form>
+              <div class="position-absolute top-50 start-50 translate-middle" style="width: 220px; height: 35px">
+                <span>
+                  <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16" style="width: 15px">
+                    <path
+                      fill="#B3B3B3"
+                      d="M7 1.75a5.25 5.25 0 1 0 0 10.5 5.25 5.25 0 0 0 0-10.5zM.25 7a6.75 6.75 0 1 1 12.096 4.12l3.184 3.185a.75.75 0 1 1-1.06 1.06L11.304 12.2A6.75 6.75 0 0 1 .25 7z"
+                    ></path>
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex mb-3">
+            <button class="btn bg-white rounded-pill text-black me-2"><b>Esplora Premium</b></button>
+            <a
+              class="btn rounded-pill bg-black rounded-pill text-white me-2"
+              draggable="false"
+              data-encore-id="buttonPrimary"
+              href="#"
+            >
+              <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16" style="width: 20px">
+                <path
+                  fill="#FFFFFF"
+                  d="M4.995 8.745a.75.75 0 0 1 1.06 0L7.25 9.939V4a.75.75 0 0 1 1.5 0v5.94l1.195-1.195a.75.75 0 1 1 1.06 1.06L8 12.811l-.528-.528a.945.945 0 0 1-.005-.005L4.995 9.805a.75.75 0 0 1 0-1.06z"
+                ></path>
+                <path
+                  fill="#FFFFFF"
+                  d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13z"
+                ></path>
+              </svg>
+              <span class="ms-1 fw-bold">Installa app</span>
+            </a>
+            <button
+              class="btn bg-black rounded-circle d-flex justify-content-center align-items-center me-2"
+              style="width: 40px; height: 40px"
+            >
+              <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16" style="width: 20px">
+                <path
+                  fill="#FFFFFF"
+                  d="M8 1.5a4 4 0 0 0-4 4v3.27a.75.75 0 0 1-.1.373L2.255 12h11.49L12.1 9.142a.75.75 0 0 1-.1-.374V5.5a4 4 0 0 0-4-4zm-5.5 4a5.5 5.5 0 0 1 11 0v3.067l2.193 3.809a.75.75 0 0 1-.65 1.124H10.5a2.5 2.5 0 0 1-5 0H.957a.75.75 0 0 1-.65-1.124L2.5 8.569V5.5zm4.5 8a1 1 0 1 0 2 0H7z"
+                ></path>
+              </svg>
+            </button>
+            <button
+              class="rounded-circle border-2 border-black overflow-hidden d-flex justify-content-center align-items-center wrapper"
+              style="width: 40px; height: 40px"
+            >
+              <img
+                style="width: 45px"
+                class="pedro"
+                draggable="false"
+                loading="eager"
+                src="https://tr.rbxcdn.com/f91b198cd1c9b5daa1e67b1b673119e9/420/420/Hat/Webp"
+                alt="Pedro"
+              />
+            </button>
+          </div>
+        </div>
         <div>
           <div class="container mt-2">
-            <div class="row">
-              <div class="col">
-                <div class="d-flex sticky-top">
-                  <div>
-                    <button class="rounded-circle bg-dark border border-0 p-2">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="25"
-                        height="25"
-                        fill="white"
-                        class="bi bi-chevron-left pb-1"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"
-                        />
-                      </svg>
-                    </button>
-                    <button class="mb-2 rounded-circle bg-dark border border-0 p-2">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="25"
-                        height="25"
-                        fill="white"
-                        class="bi bi-chevron-right pb-1"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                  <div class="ms-auto">
-                    <button
-                      class="btn border border-0 rounded-pill rounded-pills text-white bg-dark p-2"
-                      type="button"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                      id="BtnDropdown"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="25"
-                        height="25"
-                        fill="white"
-                        class="bi bi-arrow-down-circle"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293z"
-                        ></path>
-                      </svg>
-                      Installa App
-                    </button>
-                    <button class="rounded-circle bg-dark border border-0 p-2">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="25"
-                        height="25"
-                        fill="currentColor"
-                        class="bi bi-bell"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2M8 1.918l-.797.161A4 4 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4 4 0 0 0-3.203-3.92zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5 5 0 0 1 13 6c0 .88.32 4.2 1.22 6"
-                        />
-                      </svg>
-                    </button>
-                    <button class="rounded-circle bg-dark border border-0 p-2">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="25"
-                        height="25"
-                        fill="white"
-                        class="bi bi-chevron-left pb-1"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
+            
                 <div class="row text-white">
                   <div class="col-3 mt-3">
                     <img id="albumImg" src="./assets/imgs/main/image-1.jpg" alt="" style="height: 230px" />
