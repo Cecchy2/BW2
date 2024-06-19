@@ -24,12 +24,12 @@ const creaList = (song) => {
     imgBranoArtista.setAttribute("src", `${element.album.cover_small}`);
     imgBranoArtista.classList.add("object-fit-contain");
     titolo.innerText = `${element.title}`;
-    titolo.classList.add("text-truncate", "d-none", "d-lg-block");
+    titolo.classList.add("text-truncate", "d-none", "d-xl-block");
     divImg.classList.add("d-flex", "alig-items-center", "mb-3");
     branoArtistaAlbum.classList.add("list-unstyled");
     nomeArtista.innerText = `${element.artist.name}`;
     nomeArtista.classList.add("m-0");
-    divTitolo.classList.add("d-flex", "flex-column", "ms-3", "justify-content-center", "d-none", "d-lg-block");
+    divTitolo.classList.add("d-flex", "flex-column", "ms-3", "justify-content-center", "d-none", "d-xl-block");
 
     divImg.appendChild(imgBranoArtista);
 
