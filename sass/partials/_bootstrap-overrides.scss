@@ -60,10 +60,10 @@ $theme-colors: map-merge($theme-colors, $add-colors);
 @import "../../bootstrap/scss/utilities/api";
 
 // 8. Add additional custom code here
-.scrollbar {
-  height: 100vh;
-  overflow-y: auto;
-}
+.scrollbar{
+    height: 74vh;
+    overflow-y: auto;
+     }
 
 /* Nascondi le frecce e personalizza il thumb */
 .scrollbar::-webkit-scrollbar {
