@@ -6,7 +6,8 @@
     <title>Bootstrap demo</title>
     <link rel="stylesheet" href="./assets/dist/css/style.min.css" />
   </head>
-  <body class="bg-black text-white container-fluid m-0" style="max-height: 100vh">
+  <body class="bg-black text-white container-fluid m-0">
+    <!-- style="max-height: 100vh" -->
     <div class="">
       <div class="row justify-content-center p-2">
         <header class="col-2 rounded p-0">
@@ -122,7 +123,7 @@
                 </div>
               </div>
             </div>
-            <div class="scrollbar" style="height: 91vh">
+            <div class="scrollbar text-truncate">
               <div class="d-flex justify-content-between">
                 <button class="btn">
                   <svg data-encore-id="icon" role="img" aria-hidden="true" style="width: 15px" viewBox="0 0 16 16">
@@ -149,7 +150,7 @@
           </div>
         </header>
 
-        <main class="col-8 rounded" data-bs-theme="dark" style="height: 100vh">
+        <main class="col-8 rounded" data-bs-theme="dark">
           <div class="bg-darkness rounded">
             <div class="d-flex align-items-center pt-3 mx-3">
               <div class="me-auto d-flex">
@@ -175,21 +176,31 @@
                     ></path>
                   </svg>
                 </button>
-
-                <form role="search" class="d-flex justify-content-center align-items-center p-1">
-                  <input
-                    class="rounded-pill border-0 p-1"
-                    data-encore-id="text"
-                    maxlength="800"
-                    autocorrect="off"
-                    autocapitalize="off"
-                    spellcheck="false"
-                    placeholder="     Cosa vuoi ascoltare?"
-                    data-testid="search-input"
-                    value=""
-                    style="color: rgb(0, 0, 0)"
-                  />
-                </form>
+                <div class="position-relative">
+                  <form role="search" class="d-flex justify-content-center align-items-center mx-3">
+                    <input
+                      class="rounded-pill border-0 py-1 px-4 z-1 bg-transparent text-white"
+                      data-encore-id="text"
+                      maxlength="800"
+                      autocorrect="off"
+                      autocapitalize="off"
+                      spellcheck="false"
+                      placeholder="  Cosa vuoi ascoltare?"
+                      data-testid="search-input"
+                      value=""
+                      style="color: rgb(0, 0, 0)"
+                    />
+                  </form>
+                  <div class="position-absolute top-50 start-50 translate-middle" style="width: 220px; height: 35px">
+                    <span
+                      ><svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16" style="width: 15px">
+                        <path
+                          fill="#B3B3B3"
+                          d="M7 1.75a5.25 5.25 0 1 0 0 10.5 5.25 5.25 0 0 0 0-10.5zM.25 7a6.75 6.75 0 1 1 12.096 4.12l3.184 3.185a.75.75 0 1 1-1.06 1.06L11.304 12.2A6.75 6.75 0 0 1 .25 7z"
+                        ></path></svg
+                    ></span>
+                  </div>
+                </div>
               </div>
               <div class="d-flex mb-3">
                 <button class="btn bg-white rounded-pill text-black me-2"><b>Esplora Premium</b></button>
@@ -223,21 +234,21 @@
                   </svg>
                 </button>
                 <button
-                  class="rounded-circle border-2 border-black overflow-hidden d-flex justify-content-center align-items-center"
+                  class="rounded-circle border-2 border-black overflow-hidden d-flex justify-content-center align-items-center wrapper"
                   style="width: 40px; height: 40px"
                 >
                   <img
-                    aria-hidden="false"
+                    style="width: 45px"
+                    class="pedro"
                     draggable="false"
                     loading="eager"
-                    src="https://scontent-ams2-1.xx.fbcdn.net/v/t31.18172-1/1978321_10204826862142538_3572043705028761540_o.jpg?stp=c7.0.50.50a_cp0_dst-jpg_p50x50&amp;_nc_cat=100&amp;ccb=1-7&amp;_nc_sid=5f2048&amp;_nc_ohc=3EXQkOaMuqAQ7kNvgGIYftH&amp;_nc_ht=scontent-ams2-1.xx&amp;edm=AP4hL3IEAAAA&amp;oh=00_AYAQyhoOxZJwFpHicZsjjeBJECz_paY_XwpRpyp-Xd-tFw&amp;oe=66977B1B"
-                    alt="Eddy Turpo"
-                    class="mMx2LUixlnN_Fu45JpFB Xz3tlahv16UpqKBW5HdK Yn2Ei5QZn19gria6LjZj"
+                    src="https://tr.rbxcdn.com/f91b198cd1c9b5daa1e67b1b673119e9/420/420/Hat/Webp"
+                    alt="Pedro"
                   />
                 </button>
               </div>
             </div>
-            <div class="scrollbar p-3">
+            <div class="scrollbar p-3" style="height: 90vh">
               <div>
                 <div
                   class="my-3 mx-3"
@@ -289,12 +300,10 @@
         <div class="row p-2">
           <div class="row px-3 d-flex justify-content-center">
             <div class="d-flex align-items-center">
-              <div id="imgArtistaAlbum">
-                <img src="./assets/imgs/main/image-1.jpg" style="width: 50px" />
-              </div>
+              <div id="imgArtistaAlbum"></div>
               <div class="d-flex flex-column me-auto">
-                <div>qui ci va il titolo del brano</div>
-                <div>qui l'artista</div>
+                <div id="footerTitolo"></div>
+                <div id="footerArtista"></div>
               </div>
               <div class="d-flex flex-column me-auto">
                 <div class="d-flex justify-content-center align-items-center">
@@ -352,7 +361,13 @@
                     </button>
                   </div>
                 </div>
-                <div>qui vi va 1div per il tempo, 1 div per la barra e 1 div per la durata del brano</div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div id="currentTime">0:00</div>
+                  <div class="line">
+                    <div class="lineChild"></div>
+                  </div>
+                  <div id="totalDuration">0:00</div>
+                </div>
               </div>
               <div class="d-flex align-items-center">
                 <button class="btn">
@@ -440,5 +455,6 @@
     ></script>
     <script src="home.js"></script>
     <script src="./lista.js"></script>
+    <script src="./footer.js"></script>
   </body>
 </html>
