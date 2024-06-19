@@ -24,12 +24,12 @@ const creaList = (song) => {
     imgBranoArtista.setAttribute("src", `${element.album.cover_small}`);
     imgBranoArtista.classList.add("object-fit-contain");
     titolo.innerText = `${element.title}`;
-    titolo.classList.add("text-truncate");
+    titolo.classList.add("text-truncate", "d-none", "d-lg-block");
     divImg.classList.add("d-flex", "alig-items-center", "mb-3");
     branoArtistaAlbum.classList.add("list-unstyled");
     nomeArtista.innerText = `${element.artist.name}`;
     nomeArtista.classList.add("m-0");
-    divTitolo.classList.add("d-flex", "flex-column", "ms-3", "justify-content-center");
+    divTitolo.classList.add("d-flex", "flex-column", "ms-3", "justify-content-center", "d-none", "d-lg-block");
 
     divImg.appendChild(imgBranoArtista);
 
@@ -93,6 +93,19 @@ window.addEventListener("DOMContentLoaded", () => {
       creaList(songs.data);
     })
     .catch((err) => alert(err));
+  fetch(urlEminem, options2)
+    .then((resp) => {
+      if (resp.ok) {
+        return resp.json();
+      } else {
+        throw `Errore ${resp.status} : ${resp.statusText} `;
+      }
+    })
+    .then((songs) => {
+      console.log(songs);
+      creaList(songs.data);
+    })
+    .catch((err) => alert(err));
 });
 
 const homeBtn = document.getElementById("homeBtn");
@@ -104,6 +117,7 @@ searchBtn.addEventListener("click", () => {
   const searchDisable = document.getElementById("searchDisable");
   const searchActivate = document.getElementById("searchActivate");
   const formSearch = document.getElementById("formSearch");
+  const searchInput = document.getElementById("searchInput");
   if (formSearch.classList.contains("d-none")) {
     searchDisable.classList.add("d-none");
     searchActivate.classList.remove("d-none");
