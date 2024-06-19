@@ -153,3 +153,6 @@ $theme-colors: map-merge($theme-colors, $add-colors);
 .contenitoreCard:hover {
   background-color: #1b1b1b !important;
 }
+.pointer{
+  cursor: pointer;
+}

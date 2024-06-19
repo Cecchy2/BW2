@@ -107,3 +107,8 @@ window.addEventListener("DOMContentLoaded", () => {
     })
     .catch((err) => alert(err));
 });
+
+const home = document.getElementById("homeBtn");
+home.addEventListener("click", () => {
+  window.location.assign("./home.html");
+});
