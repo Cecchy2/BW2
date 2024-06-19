@@ -108,3 +108,8 @@ $theme-colors: map-merge($theme-colors, $add-colors);
 #BtnDropdown {
   background-color: rgba(66, 57, 24, 0.581);
 }
+
+.contenitoreCard:hover{
+background-color: #1b1b1b !important;
+  
+}
