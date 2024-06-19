@@ -177,11 +177,7 @@ const cardsAlbum = (arrAlbums, container) => {
         name.innerText = album.artist.name;
         name.className =
           "z-2 link-underline-secondary link-underline-opacity-0 link-underline-opacity-75-hover text-secondary fw-bold";
-        name.href = "./home.html?artistId=";
-        // name.addEventListener("click", event => {
-        //   console.log(event.target);
-        //   // window.location.assign("./ArtistaPage.html?artistId=" + artist.id);
-        // });
+        name.href = "./artists.html?artistId=" + album.artist.id;
 
         imgContainer.append(img, btnPlay);
         cardBody.append(h5, name);
