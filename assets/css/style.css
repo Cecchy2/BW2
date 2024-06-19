@@ -11932,6 +11932,10 @@ textarea.form-control-lg {
   background-color: #1b1b1b !important;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
 tr {
   border-radius: 10px;
 }
@@ -11939,8 +11943,4 @@ tr {
 tr:hover {
   cursor: pointer;
   background-color: rgb(69, 69, 69);
-}
-
-.pointer {
-  cursor: pointer;
 }/*# sourceMappingURL=style.css.map */
