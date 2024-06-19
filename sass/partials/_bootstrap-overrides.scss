@@ -60,10 +60,14 @@ $theme-colors: map-merge($theme-colors, $add-colors);
 @import "../../bootstrap/scss/utilities/api";
 
 // 8. Add additional custom code here
-.scrollbar{
-    height: 74vh;
-    overflow-y: auto;
-     }
+.scrollbar {
+  height: 74vh;
+  overflow-y: auto;
+}
+#albumPage {
+  overflow: scroll;
+  height: 100vh;
+}
 
 /* Nascondi le frecce e personalizza il thumb */
 .scrollbar::-webkit-scrollbar {
@@ -88,8 +92,6 @@ $theme-colors: map-merge($theme-colors, $add-colors);
   background-color: black;
 }
 #main {
-  width: 70%;
-  height: 100vh;
   overflow: scroll;
 
   background-image: linear-gradient(0deg, #000000c4 0%, #000000 46%, #ffcc70 100%);

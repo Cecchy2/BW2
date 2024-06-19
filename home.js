@@ -17,7 +17,7 @@ const albumsStorici = [96126, 47131362, 12047952, 104660202, 96001912, 1262014];
 const options = {
   method: "GET",
   headers: {
-    "x-rapidapi-key": "c1be13bc83msh01ed86504ac789ap14b677jsn4a8378e3cb43",
+    "x-rapidapi-key": "163c72cf37msh7fb90cec4c02a73p1390b4jsn4594dd70494e",
     "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
   },
 };
@@ -44,7 +44,8 @@ const creaCards = (songs, container) => {
     btnPlay.type = "button";
     btnPlay.setAttribute("style", "width: 50px; height:50px");
     // btnPlay.href = "./back-office.html?productId=" + songs.data[i]._id;
-    btnPlay.className = "btn btn-success rounded-circle  position-absolute  bottom-0 end-0 me-2 mb-2 d-flex align-items-center justify-content-center d-none ";
+    btnPlay.className =
+      "btn btn-success rounded-circle  position-absolute  bottom-0 end-0 me-2 mb-2 d-flex align-items-center justify-content-center d-none ";
     btnPlay.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="black" class="bi bi-play-fill" viewBox="0 0 16 16">
   <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"/></svg>`;
 
@@ -94,7 +95,7 @@ const creaCards = (songs, container) => {
 // funzione che crea le colonne di cards (cambiando i parametri cambio canzoni e container dove appenderle)
 const colCards = (url, container) => {
   fetch(url, options)
-    .then(resp => {
+    .then((resp) => {
       if (resp.ok) {
         // restituiamo il dato convertito in array da JSON
         return resp.json();
@@ -102,18 +103,18 @@ const colCards = (url, container) => {
         throw `Errore ${resp.status} : ${resp.statusText} `;
       }
     })
-    .then(songs => {
+    .then((songs) => {
       // creo cards con le canzoni del url inserito e le appendo al container dato come parametro
       creaCards(songs, container);
     })
-    .catch(err => alert(err));
+    .catch((err) => alert(err));
 };
 
 // funzione che crea gli album grazie ad un array di album dato come parametro e un contenitore dove appendere tutto
 const cardsAlbum = (arrAlbums, container) => {
   arrAlbums.forEach((album, index) => {
     fetch("https://deezerdevs-deezer.p.rapidapi.com/album/" + album, options)
-      .then(resp => {
+      .then((resp) => {
         if (resp.ok) {
           // restituiamo il dato convertito in array da JSON
           return resp.json();
@@ -121,7 +122,7 @@ const cardsAlbum = (arrAlbums, container) => {
           throw `Errore ${resp.status} : ${resp.statusText} `;
         }
       })
-      .then(album => {
+      .then((album) => {
         // creo album con l'url inserito e le appendo al container dato come parametro
         console.log(album);
         const row = document.querySelector(container);
@@ -129,7 +130,7 @@ const cardsAlbum = (arrAlbums, container) => {
         const col = this.document.createElement("div");
         col.className = "col-sm-6 col-md-4 col-lg-3 col-xl-2   border border-0 albumCard contenitoreCard";
 
-        col.addEventListener("click", event => {
+        col.addEventListener("click", (event) => {
           window.location.assign("./AlbumPage.html?albumId=" + album.id);
         });
 
@@ -145,7 +146,8 @@ const cardsAlbum = (arrAlbums, container) => {
         btnPlay.type = "button";
         btnPlay.setAttribute("style", "width: 50px; height:50px");
         // btnPlay.href = "./back-office.html?productId=" + songs.data[i]._id;
-        btnPlay.className = "btn btn-success rounded-circle  position-absolute  bottom-0 end-0 me-2 mb-2 d-flex align-items-center justify-content-center d-none ";
+        btnPlay.className =
+          "btn btn-success rounded-circle  position-absolute  bottom-0 end-0 me-2 mb-2 d-flex align-items-center justify-content-center d-none ";
         btnPlay.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="black" class="bi bi-play-fill" viewBox="0 0 16 16">
           <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"/></svg>`;
 
@@ -190,7 +192,7 @@ const cardsAlbum = (arrAlbums, container) => {
             break;
         }
       })
-      .catch(err => alert(err));
+      .catch((err) => alert(err));
   });
 };
 // all caricamento del DOM creo la card di annuncio
@@ -200,7 +202,7 @@ window.addEventListener("DOMContentLoaded", function () {
   fetch("https://striveschool-api.herokuapp.com/api/deezer/artist/" + indexArtists[randomArtist] + "/top?limit=50", {
     method: "GET",
   })
-    .then(resp => {
+    .then((resp) => {
       if (resp.ok) {
         // restituiamo il dato convertito in array da JSON
         return resp.json();
@@ -208,7 +210,7 @@ window.addEventListener("DOMContentLoaded", function () {
         throw `Errore ${resp.status} : ${resp.statusText} `;
       }
     })
-    .then(artist => {
+    .then((artist) => {
       const annunci = document.getElementById("annunci");
       // dal array di canzoni prendo una a caso tra le prime 3 (non sappiamo se le top 50 canzoni sono veramente 50)
       const random = Math.round(Math.random() * 2);
@@ -246,7 +248,7 @@ window.addEventListener("DOMContentLoaded", function () {
       infoAnnunci.append(spanAnnunci, h2, p1, p2, containerBtn);
       annunci.appendChild(infoAnnunci);
     })
-    .catch(err => alert(err));
+    .catch((err) => alert(err));
 
   colCards(urlFabriFibra, "#perTe");
   cardsAlbum(albumsArtistaPref, "#artisti");
