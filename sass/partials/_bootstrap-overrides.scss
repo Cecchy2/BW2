@@ -93,6 +93,7 @@ $theme-colors: map-merge($theme-colors, $add-colors);
 }
 #main {
   overflow: scroll;
+  overflow-x: hidden;
 
   background-image: linear-gradient(0deg, #000000c4 0%, #000000 46%, #ffcc70 100%);
 }
