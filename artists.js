@@ -155,8 +155,21 @@ const createSongList = () => {
     .catch(err => console.log(err));
 };
 
+const related = () => {
+  fetch("https://striveschool-api.herokuapp.com/api/deezer/artist/" + id + "/top?limit=5", options)
+    .then(resp => {
+      if (resp.ok) return resp.json();
+      else console.log(`Errore ${resp.status}`);
+    })
+    .then(realetedItem => {
+      console.log(realetedItem);
+    })
+    .catch(err => console.log(err));
+};
+
 window.addEventListener("DOMContentLoaded", function () {
   createBanner();
   createSongList();
   handlelikedSongs();
+  related();
 });
