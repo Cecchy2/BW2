@@ -61,7 +61,12 @@ window.addEventListener("DOMContentLoaded", function () {
         // Track duration cell
         const trackDurationCell = document.createElement("td");
         const minutes = Math.floor(track.duration / 60);
-        const seconds = track.duration % 60;
+        let seconds = track.duration % 60;
+
+        if (seconds < 10) {
+          seconds = "0" + seconds;
+        }
+
         trackDurationCell.innerText = `${minutes} : ${seconds}`;
         trackRow.appendChild(trackDurationCell);
 
