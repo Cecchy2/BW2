@@ -6,7 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="./assets/dist/css/style.min.css" />
   </head>
-  <body>
+  <body class="bg-black text-white">
     <div class="d-flex" id="albumPage">
       <header class="col-2 rounded p-0">
         <div class="rounded bg-darkness p-4 mb-2">
@@ -132,18 +132,18 @@
         </div>
       </header>
 
-      <main class="col-8 rounded" data-bs-theme="dark" id="main">
+      <main class="col-8 rounded position-relative" data-bs-theme="dark" id="main">
         <div>
           <div class="container mt-2">
             <div class="row">
               <div class="col">
-                <div class="d-flex">
+                <div class="d-flex sticky-top">
                   <div>
-                    <button class="rounded-circle bg-dark border border-0">
+                    <button class="rounded-circle bg-dark border border-0 p-2">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        width="15"
-                        height="20"
+                        width="25"
+                        height="25"
                         fill="white"
                         class="bi bi-chevron-left pb-1"
                         viewBox="0 0 16 16"
@@ -154,11 +154,11 @@
                         />
                       </svg>
                     </button>
-                    <button class="mb-2 rounded-circle bg-dark border border-0">
+                    <button class="mb-2 rounded-circle bg-dark border border-0 p-2">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        width="15"
-                        height="20"
+                        width="25"
+                        height="25"
                         fill="white"
                         class="bi bi-chevron-right pb-1"
                         viewBox="0 0 16 16"
@@ -172,25 +172,56 @@
                   </div>
                   <div class="ms-auto">
                     <button
-                      class="btn border border-0 rounded-pill dropdown-toggle rounded-pills text-white bg-dark p-1"
+                      class="btn border border-0 rounded-pill rounded-pills text-white bg-dark p-2"
                       type="button"
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
                       id="BtnDropdown"
                     >
-                      <img
-                        src="./assets/imgs/main/image-5.jpg"
-                        alt=""
-                        style="width: 25px; height: 25px"
-                        class="rounded-circle"
-                      />
-                      Lidia Nautilus
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="25"
+                        height="25"
+                        fill="white"
+                        class="bi bi-arrow-down-circle"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293z"
+                        ></path>
+                      </svg>
+                      Installa App
                     </button>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Action</a></li>
-                      <li><a class="dropdown-item" href="#">Another action</a></li>
-                      <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
+                    <button class="rounded-circle bg-dark border border-0 p-2">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="25"
+                        height="25"
+                        fill="currentColor"
+                        class="bi bi-bell"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2M8 1.918l-.797.161A4 4 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4 4 0 0 0-3.203-3.92zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5 5 0 0 1 13 6c0 .88.32 4.2 1.22 6"
+                        />
+                      </svg>
+                    </button>
+                    <button class="rounded-circle bg-dark border border-0 p-2">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="25"
+                        height="25"
+                        fill="white"
+                        class="bi bi-chevron-left pb-1"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"
+                        />
+                      </svg>
+                    </button>
                   </div>
                 </div>
                 <div class="row text-white">
@@ -316,10 +347,16 @@
                 </tr> -->
               </tbody>
             </table>
+            <div class="row">
+              <h4></h4>
+              <div class="col-3"></div>
+              <div class="col-3"></div>
+              <div class="col-3"></div>
+            </div>
           </div>
         </div>
       </main>
-      <aside class="aside">dthdfth</aside>
+      <aside class="col-2 rounded bg-darkness"></aside>
     </div>
     <footer class="fixed-bottom bg-black p-0 m-0 container-fluid" style="height: 90px; width: 100wh">
       <div class="row p-2">
