@@ -86,8 +86,18 @@ window.addEventListener("DOMContentLoaded", function () {
       const altriAlbums = document.getElementById("altriAlbums");
       altriAlbums.innerHTML = "";
 
+      console.log(artistTop);
+
+      /* const titleAlbumB = document.getElementById("titleAlbumBottom");
+      titleAlbumB.innerText = "altri album di:" + artistTop.data.artist.name; */
+
+      let albumTop = "";
+
+      /* const titleAlbumB = document.getElementById("titleAlbumBottom");
+      titleAlbumB.innerText = "Altri album di:" + albumTop.artist.name; */
+
       for (let i = 0; i < 4; i++) {
-        const albumTop = artistTop.data[i];
+        albumTop = artistTop.data[i];
         console.log(albumTop);
 
         const colonna = document.createElement("div");
@@ -139,6 +149,8 @@ window.addEventListener("DOMContentLoaded", function () {
         colonna.append(cardAlbumTop);
         altriAlbums.appendChild(colonna);
       }
+      const titleAlbumB = document.getElementById("titleAlbumBottom");
+      titleAlbumB.innerText = "Altri album di  " + albumTop.artist.name;
     })
     .catch((error) => {
       console.error("Fetch error:", error);
