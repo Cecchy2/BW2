@@ -33,18 +33,18 @@ const handlelikedSongs = () => {
       row.className = "row";
       likedSongs.appendChild(row);
       const colImg = document.createElement("div");
-      colImg.className = "col-12 col-xl-2 px-0";
+      colImg.className = "col-3 px-0";
       row.appendChild(colImg);
       const artistImg = document.createElement("img");
       artistImg.className = "rounded-circle img-fluid";
       artistImg.src = artist.picture_big;
-      artistImg.style = "width: 70px; heigth: 70px;";
+      artistImg.style = "width: 80px; heigth: 80px;";
       colImg.appendChild(artistImg);
       const colDescritpion = document.createElement("div");
-      colDescritpion.className = "col-12 col-xl-10 pe-0";
+      colDescritpion.className = "col-9 pe-0";
       row.appendChild(colDescritpion);
       const likeCounter = document.createElement("p");
-      likeCounter.className = "mb-0";
+      likeCounter.className = "mb-0 ps-0";
       likeCounter.innerText = "Hai messo Mi piace a 11 brani";
       colDescritpion.appendChild(likeCounter);
       const artistTag = document.createElement("small");
@@ -75,8 +75,8 @@ const createBanner = () => {
       const banner = document.createElement("img");
       banner.src = artist.picture_xl;
       banner.className = " img-fluid w-100 opacity-25 overflow-hidden";
-      banner.setAttribute("style", "object-fit: fill;");
-      banner.style.maxHeight = "40vh";
+      banner.setAttribute("style", "object-fit: cover;");
+      banner.style.maxHeight = "45vh";
       artistBanner.appendChild(banner);
       artistName.className = "h1 mb-0 ms-3 position-absolute z-1 top-50 start-0"; // da capire
       artistName.setAttribute("style", "font-size: 80px;");
