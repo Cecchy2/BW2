@@ -143,3 +143,8 @@ $theme-colors: map-merge($theme-colors, $add-colors);
   transition: width 0.1s;
 
 }
+
+.contenitoreCard:hover{
+background-color: #1b1b1b !important;
+  
+}
