@@ -24,6 +24,7 @@ const creaList = (song) => {
     imgBranoArtista.setAttribute("src", `${element.album.cover_small}`);
     imgBranoArtista.classList.add("object-fit-contain");
     titolo.innerText = `${element.title}`;
+    titolo.classList.add("text-truncate");
     divImg.classList.add("d-flex", "alig-items-center", "mb-3");
     branoArtistaAlbum.classList.add("list-unstyled");
     nomeArtista.innerText = `${element.artist.name}`;
