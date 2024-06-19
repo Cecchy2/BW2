@@ -155,4 +155,10 @@ $theme-colors: map-merge($theme-colors, $add-colors);
 }
 .pointer{
   cursor: pointer;
+tr {
+  border-radius: 10px;
+}
+tr:hover {
+  cursor: pointer;
+  background-color: rgb(69, 69, 69);
 }
