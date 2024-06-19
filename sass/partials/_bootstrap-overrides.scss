@@ -92,9 +92,6 @@ $theme-colors: map-merge($theme-colors, $add-colors);
   background-color: black;
 }
 #main {
-  overflow: scroll;
-  overflow-x: hidden;
-
   background-image: linear-gradient(0deg, #000000c4 0%, #000000 46%, #ffcc70 100%);
 }
 #playBtn {
@@ -153,8 +150,9 @@ $theme-colors: map-merge($theme-colors, $add-colors);
 .contenitoreCard:hover {
   background-color: #1b1b1b !important;
 }
-.pointer{
-  cursor: pointer;}
+.pointer {
+  cursor: pointer;
+}
 tr {
   border-radius: 10px;
 }
