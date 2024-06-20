@@ -182,13 +182,15 @@ window.addEventListener("DOMContentLoaded", function () {
       console.error("Fetch error:", error);
     });
 
-  window.addEventListener("scroll", function (event) {
+  /* window.addEventListener("scroll", function (event) {
     console.log(event);
     const table = document.getElementById("theadTable");
-    if (window.scrollY > 60) {
+    if (window.scrollTop > 60) {
       table.classList.remove("d-none");
     } else {
       table.classList.add("d-none");
     }
-  });
+  }); */
+
+  /* non e il window e non e scrolly ma scrolltop */
 });
