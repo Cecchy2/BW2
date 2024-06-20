@@ -11876,7 +11876,6 @@ textarea.form-control-lg {
 
 #tracksTable {
   width: 90%;
-  height: 100vh;
 }
 
 #BtnDropdown {
@@ -11984,4 +11983,15 @@ tr:hover {
   #btnInstall {
     display: inline;
   }
+}
+.hidden {
+  display: none;
+}
+
+.fixed-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: black;
+  z-index: 1000;
 }/*# sourceMappingURL=style.css.map */

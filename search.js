@@ -1,4 +1,5 @@
 const searchValue = new URLSearchParams(window.location.search).get("search");
+const row = document.querySelector("#searchZone");
 const options = {
   method: "GET",
   headers: {
@@ -9,13 +10,12 @@ const options = {
 };
 
 const searchInput = document.getElementById("searchInput");
+searchInput.value = searchValue;
 const form = document.getElementById("form");
 
 const creaCards = searchObj => {
   searchArray = searchObj.data;
   searchArray.forEach(song => {
-    const row = document.querySelector("#searchZone");
-
     const col = this.document.createElement("div");
     col.className = "col-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2   border border-0  ";
 
@@ -90,6 +90,8 @@ const creaCards = searchObj => {
 };
 
 window.addEventListener("DOMContentLoaded", function () {
+  // *************************** al submit del search sulla pagina home.html ***************************
+
   fetch("https://striveschool-api.herokuapp.com/api/deezer/search?q=" + searchValue, options)
     .then(resp => {
       if (resp.ok) {
@@ -104,4 +106,24 @@ window.addEventListener("DOMContentLoaded", function () {
       creaCards(searchObj);
     })
     .catch(err => alert(err));
+
+  // *************************** al submit del search sulla pagina search.html ***************************
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    row.innerHTML = "";
+    fetch("https://striveschool-api.herokuapp.com/api/deezer/search?q=" + searchInput.value, options)
+      .then(resp => {
+        if (resp.ok) {
+          // restituiamo il dato convertito in array da JSON
+          return resp.json();
+        } else {
+          throw `Errore ${resp.status} : ${resp.statusText} `;
+        }
+      })
+      .then(searchObj => {
+        console.log(searchObj);
+        creaCards(searchObj);
+      })
+      .catch(err => alert(err));
+  });
 });
