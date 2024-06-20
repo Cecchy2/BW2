@@ -5,7 +5,8 @@ const urlNickyJam = "https://deezerdevs-deezer.p.rapidapi.com/search?q=Nicky%20j
 const options2 = {
   method: "GET",
   headers: {
-    "x-rapidapi-key": "0f032eb218mshe7b959267e60906p1d3878jsnde7092ae2254",
+    "x-rapidapi-key": "4fa9bd0898msh965f020f8dcfd73p133487jsnd846f46b0f69",
+    /* "x-rapidapi-key": "0f032eb218mshe7b959267e60906p1d3878jsnde7092ae2254", */
     "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
   },
 };

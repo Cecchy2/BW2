@@ -21,14 +21,15 @@ const options = {
   method: "GET",
   headers: {
     /* "x-rapidapi-key": "163c72cf37msh7fb90cec4c02a73p1390b4jsn4594dd70494e", */
-    "x-rapidapi-key": "44dfc82985mshb524b82658ba23cp11349ejsn4ea0b006e13c",
-    /* "x-rapidapi-key": "0f032eb218mshe7b959267e60906p1d3878jsnde7092ae2254", */
+    /* "x-rapidapi-key": "44dfc82985mshb524b82658ba23cp11349ejsn4ea0b006e13c", */
+    "x-rapidapi-key": "4fa9bd0898msh965f020f8dcfd73p133487jsnd846f46b0f69",
     "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
   },
 };
 
 // funzione che crea le cards e viene chiamata nel fetch da dove prende come parametri la lista songs e il container dove verranno appese
 const creaCards = (artist, container, index) => {
+  const datiOggetto = artist;
   const row = document.querySelector(container);
   // decido di creare 6 cards
 
@@ -68,44 +69,71 @@ const creaCards = (artist, container, index) => {
     btnPlay.classList.add("d-none");
   }
 
-  const cardBody = document.createElement("div");
-  cardBody.className = "card-body text-start px-0 pb-0";
-  const h5 = document.createElement("h5");
-  h5.innerText = artist.name;
-  h5.className = "fs-5 text-truncate ";
-  h5.addEventListener("click", (event) => {
-    window.location.assign("./artists.html?artistId=" + artist.id);
-  });
-  const type = document.createElement("p");
-  type.className = "text-secondary";
-  type.innerText = artist.type;
-
-  imgContainer.append(img, btnPlay);
-  cardBody.append(h5, type);
-  card.append(imgContainer, cardBody);
-  col.append(card);
-  row.append(col);
-
-  // aggiungo classsi a cards specifiche grazie al index col-lg-4 col-xl-3 col-xxl-2
-  switch (index) {
-    case 1:
-      col.classList.add("d-none", "d-md-block");
-      break;
-    case 2:
-      col.classList.add("d-none", "d-lg-block");
-      break;
-    case 3:
-      col.classList.add("d-none", "d-xl-block");
-      break;
-    case 4:
-      col.classList.add("d-none", "d-xxl-block");
-      break;
-    case 5:
-      col.classList.add("d-none", "d-xxl-block");
-      break;
-  }
+  /* btnPlay.addEventListener("click", (event) => {
+    console.log("Button clicked");
+    console.log(datiOggetto);
+    // on click prende le informazioni del album o del artista e fa partire la prima canzone sulla barra play
+    const imgArtistaAlbum = document.getElementById("imgArtistaAlbum");
+    const footerTitolo = document.getElementById("footerTitolo");
+    const footerArtista = document.getElementById("footerArtista");
+    const image = document.createElement("img");
+    const h5 = document.createElement("h5");
+    if (imgArtistaAlbum.firstChild && imgArtistaAlbum.firstChild.src) {
+      imgArtistaAlbum.innerHTML = "";
+      footerTitolo.innerHTML = "";
+      footerArtista.innerHTML = "";
+      image.src = `${datiOggetto.cover_small}`;
+      imgArtistaAlbum.appendChild(image);
+      footerTitolo.appendChild(h5);
+      imgArtistaAlbum.classList.add("me-2");
+      h5.innerText = `${datiOggetto.title}`;
+      footerArtista.innerText = `${datiOggetto.artist.name}`;
+    } else {
+      image.src = `${datiOggetto.cover_small}`;
+      imgArtistaAlbum.appendChild(image);
+      footerTitolo.appendChild(h5);
+      imgArtistaAlbum.classList.add("me-2");
+      h5.innerText = `${datiOggetto.title}`;
+      footerArtista.innerText = `${datiOggetto.artist.name}`;
+    }
+  }) */
 };
+const cardBody = document.createElement("div");
+cardBody.className = "card-body text-start px-0 pb-0";
+const h5 = document.createElement("h5");
+h5.innerText = artist.name;
+h5.className = "fs-5 text-truncate ";
+h5.addEventListener("click", (event) => {
+  window.location.assign("./artists.html?artistId=" + artist.id);
+});
+const type = document.createElement("p");
+type.className = "text-secondary";
+type.innerText = artist.type;
 
+imgContainer.append(img, btnPlay);
+cardBody.append(h5, type);
+card.append(imgContainer, cardBody);
+col.append(card);
+row.append(col);
+
+// aggiungo classsi a cards specifiche grazie al index col-lg-4 col-xl-3 col-xxl-2
+switch (index) {
+  case 1:
+    col.classList.add("d-none", "d-md-block");
+    break;
+  case 2:
+    col.classList.add("d-none", "d-lg-block");
+    break;
+  case 3:
+    col.classList.add("d-none", "d-xl-block");
+    break;
+  case 4:
+    col.classList.add("d-none", "d-xxl-block");
+    break;
+  case 5:
+    col.classList.add("d-none", "d-xxl-block");
+    break;
+}
 // funzione che crea le colonne di cards (cambiando i parametri cambio canzoni e container dove appenderle)
 const cardsArtist = (arrArtists, container) => {
   arrArtists.forEach((artist, index) => {
@@ -179,7 +207,7 @@ const cardsAlbum = (arrAlbums, container) => {
           btnPlay.classList.add("d-none");
         }
 
-        btnPlay.addEventListener("click", (event) => {
+        /* btnPlay.addEventListener("click", (event) => {
           console.log("Button clicked");
           console.log(moTifrego);
           // on click prende le informazioni del album o del artista e fa partire la prima canzone sulla barra play
@@ -206,7 +234,7 @@ const cardsAlbum = (arrAlbums, container) => {
             h5.innerText = `${moTifrego.title}`;
             footerArtista.innerText = `${moTifrego.artist.name}`;
           }
-        });
+        }); */
 
         const cardBody = document.createElement("div");
         cardBody.className = "card-body text-start px-0 pb-0";
