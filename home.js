@@ -15,7 +15,7 @@ const albumsStorici = [96126, 47131362, 12047952, 104660202, 96001912, 1262014];
 const options = {
   method: "GET",
   headers: {
-    "x-rapidapi-key": "c1be13bc83msh01ed86504ac789ap14b677jsn4a8378e3cb43",
+    "x-rapidapi-key": "163c72cf37msh7fb90cec4c02a73p1390b4jsn4594dd70494e",
     /* "x-rapidapi-key": "c1be13bc83msh01ed86504ac789ap14b677jsn4a8378e3cb43", */
     "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
   },
@@ -27,13 +27,13 @@ const creaCards = (artist, container, index) => {
   // decido di creare 6 cards
 
   const col = this.document.createElement("div");
-  col.className = "col-sm-6 col-md-4 col-lg-3 col-xl-2  border border-0  ";
+  col.className = "col-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2   border border-0  ";
   // col.addEventListener("click", () => {
   //   window.location.assign("./dettaglio.html?productId=" + songs[i]._id);
   // });
   const card = document.createElement("div");
   card.className = "btn card mb-4 border border-0 bg-darkness contenitoreCard";
-  card.addEventListener("click", (event) => {
+  card.addEventListener("click", event => {
     window.location.assign("./artists.html?artistId=" + artist.id);
   });
   const imgContainer = document.createElement("div");
@@ -47,8 +47,7 @@ const creaCards = (artist, container, index) => {
   btnPlay.type = "button";
   btnPlay.setAttribute("style", "width: 50px; height:50px");
   // btnPlay.href = "./back-office.html?productId=" + songs.data[i]._id;
-  btnPlay.className =
-    "btn btn-success rounded-circle  position-absolute  bottom-0 end-0 me-2 mb-2 d-flex align-items-center justify-content-center d-none ";
+  btnPlay.className = "btn btn-success rounded-circle  position-absolute  bottom-0 end-0 me-2 mb-2 d-flex align-items-center justify-content-center d-none ";
   btnPlay.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="black" class="bi bi-play-fill" viewBox="0 0 16 16">
   <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"/></svg>`;
 
@@ -75,19 +74,22 @@ const creaCards = (artist, container, index) => {
   col.append(card);
   row.append(col);
 
-  // aggiungo classsi a cards specifiche grazie al index
+  // aggiungo classsi a cards specifiche grazie al index col-lg-4 col-xl-3 col-xxl-2
   switch (index) {
-    case 2:
+    case 1:
       col.classList.add("d-none", "d-md-block");
       break;
-    case 3:
+    case 2:
       col.classList.add("d-none", "d-lg-block");
       break;
-    case 4:
+    case 3:
       col.classList.add("d-none", "d-xl-block");
       break;
+    case 4:
+      col.classList.add("d-none", "d-xxl-block");
+      break;
     case 5:
-      col.classList.add("d-none", "d-xl-block");
+      col.classList.add("d-none", "d-xxl-block");
       break;
   }
 };
@@ -96,7 +98,7 @@ const creaCards = (artist, container, index) => {
 const cardsArtist = (arrArtists, container) => {
   arrArtists.forEach((artist, index) => {
     fetch("https://deezerdevs-deezer.p.rapidapi.com/artist/" + artist, options)
-      .then((resp) => {
+      .then(resp => {
         if (resp.ok) {
           // restituiamo il dato convertito in array da JSON
           return resp.json();
@@ -104,11 +106,11 @@ const cardsArtist = (arrArtists, container) => {
           throw `Errore ${resp.status} : ${resp.statusText} `;
         }
       })
-      .then((artistResp) => {
+      .then(artistResp => {
         // creo cards con le canzoni del url inserito e le appendo al container dato come parametro
         creaCards(artistResp, container, index);
       })
-      .catch((err) => alert(err));
+      .catch(err => alert(err));
   });
 };
 
@@ -116,7 +118,7 @@ const cardsArtist = (arrArtists, container) => {
 const cardsAlbum = (arrAlbums, container) => {
   arrAlbums.forEach((album, index) => {
     fetch("https://deezerdevs-deezer.p.rapidapi.com/album/" + album, options)
-      .then((resp) => {
+      .then(resp => {
         if (resp.ok) {
           // restituiamo il dato convertito in array da JSON
           return resp.json();
@@ -124,18 +126,18 @@ const cardsAlbum = (arrAlbums, container) => {
           throw `Errore ${resp.status} : ${resp.statusText} `;
         }
       })
-      .then((album) => {
+      .then(album => {
         // creo album con l'url inserito e le appendo al container dato come parametro
 
         const row = document.querySelector(container);
 
         const col = this.document.createElement("div");
-        col.className = "col-sm-6 col-md-4 col-lg-3 col-xl-2 border border-0";
+        col.className = "col-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2 border border-0";
 
         const card = document.createElement("div");
 
         card.className = "btn card mb-4 border border-0 bg-darkness contenitoreCard ";
-        card.addEventListener("click", (event) => {
+        card.addEventListener("click", event => {
           window.location.assign("./AlbumPage.html?albumId=" + album.id);
         });
 
@@ -149,8 +151,7 @@ const cardsAlbum = (arrAlbums, container) => {
         btnPlay.type = "button";
         btnPlay.setAttribute("style", "width: 50px; height:50px");
         // btnPlay.href = "./back-office.html?productId=" + songs.data[i]._id;
-        btnPlay.className =
-          "btn btn-success btnPlay  rounded-circle   position-absolute  bottom-0 end-0 me-2 mb-2 d-flex align-items-center justify-content-center d-none ";
+        btnPlay.className = "btn btn-success btnPlay  rounded-circle   position-absolute  bottom-0 end-0 me-2 mb-2 d-flex align-items-center justify-content-center d-none ";
         btnPlay.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="black" class="bi bi-play-fill" viewBox="0 0 16 16">
           <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"/></svg>`;
 
@@ -162,7 +163,7 @@ const cardsAlbum = (arrAlbums, container) => {
         function out() {
           btnPlay.classList.add("d-none");
         }
-        btnPlay.addEventListener("click", (event) => {
+        btnPlay.addEventListener("click", event => {
           window.location.assign("./home.html");
 
           // on click prende le informazioni del album o del artista e fa partire la prima canzone sulla barra play
@@ -175,8 +176,7 @@ const cardsAlbum = (arrAlbums, container) => {
         h5.className = "fs-5 text-truncate ";
         const name = document.createElement("a");
         name.innerText = album.artist.name;
-        name.className =
-          "z-2 link-underline-secondary link-underline-opacity-0 link-underline-opacity-75-hover text-secondary fw-bold";
+        name.className = "z-2 link-underline-secondary link-underline-opacity-0 link-underline-opacity-75-hover text-secondary fw-bold";
         name.href = "./artists.html?artistId=" + album.artist.id;
 
         imgContainer.append(img, btnPlay);
@@ -187,21 +187,24 @@ const cardsAlbum = (arrAlbums, container) => {
 
         // aggiungo classsi a cards specifiche grazie al index
         switch (index) {
-          case 2:
+          case 1:
             col.classList.add("d-none", "d-md-block");
             break;
-          case 3:
+          case 2:
             col.classList.add("d-none", "d-lg-block");
             break;
-          case 4:
+          case 3:
             col.classList.add("d-none", "d-xl-block");
             break;
+          case 4:
+            col.classList.add("d-none", "d-xxl-block");
+            break;
           case 5:
-            col.classList.add("d-none", "d-xl-block");
+            col.classList.add("d-none", "d-xxl-block");
             break;
         }
       })
-      .catch((err) => alert(err));
+      .catch(err => alert(err));
   });
 };
 // all caricamento del DOM creo la card di annuncio
@@ -211,7 +214,7 @@ window.addEventListener("DOMContentLoaded", function () {
   fetch("https://striveschool-api.herokuapp.com/api/deezer/artist/" + indexArtists[randomArtist] + "/top?limit=50", {
     method: "GET",
   })
-    .then((resp) => {
+    .then(resp => {
       if (resp.ok) {
         // restituiamo il dato convertito in array da JSON
         return resp.json();
@@ -219,7 +222,7 @@ window.addEventListener("DOMContentLoaded", function () {
         throw `Errore ${resp.status} : ${resp.statusText} `;
       }
     })
-    .then((artist) => {
+    .then(artist => {
       const annunci = document.getElementById("annunci");
       // dal array di canzoni prendo una a caso tra le prime 3 (non sappiamo se le top 50 canzoni sono veramente 50)
       const random = Math.round(Math.random() * 2);
@@ -257,7 +260,7 @@ window.addEventListener("DOMContentLoaded", function () {
       infoAnnunci.append(spanAnnunci, h2, p1, p2, containerBtn);
       annunci.appendChild(infoAnnunci);
     })
-    .catch((err) => alert(err));
+    .catch(err => alert(err));
 
   cardsArtist(artistiPopolari, "#perTe");
   cardsAlbum(albumsArtistaPref, "#artistaPref");
