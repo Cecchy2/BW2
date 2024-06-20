@@ -4,9 +4,8 @@ const artistiPopolari = [13, 66, 7543848, 12246, 384236, 1188];
 // array di artisti presi in modo casuale e messi come estensione del url per accedere alle top 50 canzoni
 // const indexArtists = [1, 2, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 19, 25, 21, 22, 24, 26, 27, 28, 29, 30];
 const albumAnnunci = [
-  400319947, 108938, 423368, 159826232, 10613684, 194246202, 8178950, 273367132, 591398592, 9410100, 303950837,
-  581531012, 580186491, 554390622, 597941372, 560398332, 6240279, 96126, 47131362, 12047952, 104660202, 96001912,
-  1262014, 299484812,
+  400319947, 108938, 423368, 159826232, 10613684, 194246202, 8178950, 273367132, 591398592, 9410100, 303950837, 581531012, 580186491, 554390622, 597941372, 560398332, 6240279, 96126, 47131362,
+  12047952, 104660202, 96001912, 1262014, 299484812,
 ];
 // array di album artista preferito (eminem)
 const albumsArtistaPref = [103248, 119606, 7090505, 595243, 72000342, 125748];
@@ -21,7 +20,7 @@ const options = {
   method: "GET",
   headers: {
     "x-rapidapi-key": "c1be13bc83msh01ed86504ac789ap14b677jsn4a8378e3cb43",
-    /* "x-rapidapi-key": "c1be13bc83msh01ed86504ac789ap14b677jsn4a8378e3cb43", */
+    /* "x-rapidapi-key": "c1be13bc83msh01ed86504ac789ap14b677jsn4a8378e3cb43", dfd3925d0amshafe029754eb961ap17f037jsn18e065c48a37*/
     "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
   },
 };
@@ -55,8 +54,7 @@ const creaCards = (artist, container, index) => {
   btnPlay.type = "button";
   btnPlay.setAttribute("style", "width: 50px; height:50px");
   // btnPlay.href = "./back-office.html?productId=" + songs.data[i]._id;
-  btnPlay.className =
-    "btn btn-success rounded-circle  position-absolute  bottom-0 end-0 me-2 mb-2 d-flex align-items-center justify-content-center d-none ";
+  btnPlay.className = "btn btn-success rounded-circle  position-absolute  bottom-0 end-0 me-2 mb-2 d-flex align-items-center justify-content-center d-none ";
   btnPlay.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="black" class="bi bi-play-fill" viewBox="0 0 16 16">
   <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"/></svg>`;
 
@@ -166,8 +164,7 @@ const cardsAlbum = (arrAlbums, container) => {
         btnPlay.type = "button";
         btnPlay.setAttribute("style", "width: 50px; height:50px");
         // btnPlay.href = "./back-office.html?productId=" + songs.data[i]._id;
-        btnPlay.className =
-          "btn btn-success btnPlay  rounded-circle   position-absolute  bottom-0 end-0 me-2 mb-2 d-flex align-items-center justify-content-center d-none ";
+        btnPlay.className = "btn btn-success btnPlay  rounded-circle   position-absolute  bottom-0 end-0 me-2 mb-2 d-flex align-items-center justify-content-center d-none ";
         btnPlay.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="black" class="bi bi-play-fill" viewBox="0 0 16 16">
           <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"/></svg>`;
 
@@ -182,8 +179,8 @@ const cardsAlbum = (arrAlbums, container) => {
         btnPlay.addEventListener("click", event => {
           window.location.assign("./home.html");
 
-          // on click prende le informazioni del album o del artista e fa partire la prima canzone sulla barra play
-        });
+        //   // on click prende le informazioni del album o del artista e fa partire la prima canzone sulla barra play
+        // });
 
         const cardBody = document.createElement("div");
         cardBody.className = "card-body text-start px-0 pb-0";
@@ -195,8 +192,7 @@ const cardsAlbum = (arrAlbums, container) => {
         });
         const name = document.createElement("a");
         name.innerText = album.artist.name;
-        name.className =
-          "link-underline-secondary link-underline-opacity-0 link-underline-opacity-75-hover text-secondary fw-bold";
+        name.className = "link-underline-secondary link-underline-opacity-0 link-underline-opacity-75-hover text-secondary fw-bold";
         name.href = "./artists.html?artistId=" + album.artist.id;
 
         imgContainer.append(img, btnPlay);
@@ -232,11 +228,9 @@ const cardsAlbum = (arrAlbums, container) => {
 
 // all caricamento del DOM creo la card di annuncio
 window.addEventListener("DOMContentLoaded", function () {
-  randomArtist = Math.round(Math.random() * indexArtists.length);
-
-  fetch("https://striveschool-api.herokuapp.com/api/deezer/artist/" + indexArtists[randomArtist] + "/top?limit=50", {
-    method: "GET",
-  })
+  randomAlbum = Math.round(Math.random() * (albumAnnunci.length - 1));
+  // ************************************album di annuncio del momento*******************************
+  fetch("https://deezerdevs-deezer.p.rapidapi.com/album/" + albumAnnunci[randomAlbum], options)
     .then(resp => {
       if (resp.ok) {
         // restituiamo il dato convertito in array da JSON
@@ -245,7 +239,8 @@ window.addEventListener("DOMContentLoaded", function () {
         throw `Errore ${resp.status} : ${resp.statusText} `;
       }
     })
-    .then(artist => {
+    .then(album => {
+      console.log(album);
       const annunci = document.getElementById("annunci");
       // dal array di canzoni prendo una a caso tra le prime 3 (non sappiamo se le top 50 canzoni sono veramente 50)
 
@@ -362,3 +357,14 @@ window.addEventListener("DOMContentLoaded", function () {
   cardsAlbum(albumsPopolari, "#popolari");
   cardsAlbum(albumsStorici, "#mixPref");
 });
+
+// ********** input search******************************************
+const searchInput = document.getElementById("searchInput");
+const form = document.getElementById("form");
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+  if (searchInput.value) {
+    window.location.assign("./search.html?search=" + searchInput.value);
+  }
+});}
