@@ -124,14 +124,23 @@ searchBtn.addEventListener("click", () => {
   const searchActivate = document.getElementById("searchActivate");
   const formSearch = document.getElementById("formSearch");
   const searchInput = document.getElementById("searchInput");
+  const btnAvanti = document.getElementById("btnAvanti");
+  const btnEsplora = document.getElementById("btnEsplora");
+  const btnInstall = document.getElementById("btnInstall");
   if (formSearch.classList.contains("d-none")) {
     searchDisable.classList.add("d-none");
     searchActivate.classList.remove("d-none");
     formSearch.classList.remove("d-none");
     searchInput.focus(); // Attiva il focus sull'input
+    btnAvanti.classList.add("d-none");
+    btnEsplora.classList.add("d-none");
+    btnInstall.classList.add("d-none");
   } else {
     searchDisable.classList.remove("d-none");
     searchActivate.classList.add("d-none");
     formSearch.classList.add("d-none");
+    btnAvanti.classList.remove("d-none");
+    btnEsplora.classList.remove("d-none");
+    btnInstall.classList.remove("d-none");
   }
 });
