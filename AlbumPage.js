@@ -101,7 +101,7 @@ window.addEventListener("DOMContentLoaded", function () {
         console.log(albumTop);
 
         const colonna = document.createElement("div");
-        colonna.className = "col-3";
+        colonna.className = "col-12 col-sm-6 col-xl-3";
 
         const cardAlbumTop = document.createElement("div");
         cardAlbumTop.className = "btn btn-secondary card mb-4 border border-0 bg-darkness ";
@@ -110,7 +110,7 @@ window.addEventListener("DOMContentLoaded", function () {
         divRelative.className = "position-relative";
 
         const coverImg = document.createElement("img");
-        coverImg.className = "bd-placeholder-img card-img-top object-fit-cover";
+        coverImg.className = "bd-placeholder-img card-img-top object-fit-cover img-responsive";
         coverImg.src = albumTop.album.cover_big;
 
         const buttonPlay = document.createElement("a");
