@@ -7,7 +7,7 @@ window.addEventListener("DOMContentLoaded", function () {
   fetch("https://deezerdevs-deezer.p.rapidapi.com/album/" + id, {
     method: "GET",
     headers: {
-      "x-rapidapi-key": "c1be13bc83msh01ed86504ac789ap14b677jsn4a8378e3cb43",
+      "x-rapidapi-key": "dfd3925d0amshafe029754eb961ap17f037jsn18e065c48a37",
       "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
     },
   })
@@ -35,6 +35,11 @@ window.addEventListener("DOMContentLoaded", function () {
       imgCurrentAlbum.src = albumObj.cover_big;
       titleAlbum.innerText = albumObj.title;
       artistAlbum.innerText = `${albumObj.artist.name} · ${year} · ${albumObj.nb_tracks} tracks`;
+
+      imgCurrentAlbum.onload = function () {
+        const avgColor = getAverageColor(imgCurrentAlbum);
+        document.main.style.backgroundColor = `rgb(${avgColor.r}, ${avgColor.g}, ${avgColor.b})`;
+      };
 
       const tracksTable = document.getElementById("tracksTable").querySelector("tbody");
       tracksTable.innerHTML = "";
@@ -170,3 +175,32 @@ window.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+function getAverageColor(imgElement) {
+  const canvas = document.createElement("canvas");
+  const context = canvas.getContext("2d");
+
+  canvas.width = imgElement.width;
+  canvas.height = imgElement.height;
+
+  context.drawImage(imgElement, 0, 0, canvas.width, canvas.height);
+
+  const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+  const data = imageData.data;
+
+  let r = 0,
+    g = 0,
+    b = 0;
+
+  for (let i = 0; i < data.length; i += 4) {
+    r += data[i];
+    g += data[i + 1];
+    b += data[i + 2];
+  }
+
+  r = Math.floor(r / (data.length / 4));
+  g = Math.floor(g / (data.length / 4));
+  b = Math.floor(b / (data.length / 4));
+
+  return { r, g, b };
+}

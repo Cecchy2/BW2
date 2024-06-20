@@ -21,7 +21,7 @@ const options = {
   method: "GET",
   headers: {
     "x-rapidapi-key": "dfd3925d0amshafe029754eb961ap17f037jsn18e065c48a37",
-    /* "x-rapidapi-key": "c1be13bc83msh01ed86504ac789ap14b677jsn4a8378e3cb43", */
+    /* "x-rapidapi-key": "dfd3925d0amshafe029754eb961ap17f037jsn18e065c48a37", */
     "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
   },
 };
