@@ -34,6 +34,31 @@ const creaList = (song) => {
       "align-items-center",
       "d-lg-block"
     );
+    branoArtistaAlbum.addEventListener("click", () => {
+      const imgArtistaAlbum = document.getElementById("imgArtistaAlbum");
+      const footerTitolo = document.getElementById("footerTitolo");
+      const footerArtista = document.getElementById("footerArtista");
+      const image = document.createElement("img");
+      const h5 = document.createElement("h5");
+      if (imgArtistaAlbum.firstChild && imgArtistaAlbum.firstChild.src) {
+        imgArtistaAlbum.innerHTML = "";
+        footerTitolo.innerHTML = "";
+        footerArtista.innerHTML = "";
+        image.src = element.album.cover_small;
+        imgArtistaAlbum.appendChild(image);
+        footerTitolo.appendChild(h5);
+        imgArtistaAlbum.classList.add("me-2");
+        h5.innerText = element.title;
+        footerArtista.innerText = element.artist.name;
+      } else {
+        image.src = element.album.cover_small;
+        imgArtistaAlbum.appendChild(image);
+        footerTitolo.appendChild(h5);
+        imgArtistaAlbum.classList.add("me-2");
+        h5.innerText = element.title;
+        footerArtista.innerText = element.artist.name;
+      }
+    });
     nomeArtista.innerText = `${element.artist.name}`;
     nomeArtista.classList.add("m-0");
     divTitolo.classList.add(
@@ -66,6 +91,34 @@ window.addEventListener("DOMContentLoaded", () => {
     })
     .then((songs) => {
       creaList(songs.data);
+
+      /* btnPlay.addEventListener("click", (event) => {
+        console.log("Button clicked");
+        console.log(moTifrego);
+        const imgArtistaAlbum = document.getElementById("imgArtistaAlbum");
+        const footerTitolo = document.getElementById("footerTitolo");
+        const footerArtista = document.getElementById("footerArtista");
+        const image = document.createElement("img");
+        const h5 = document.createElement("h5");
+        if (imgArtistaAlbum.firstChild && imgArtistaAlbum.firstChild.src) {
+          imgArtistaAlbum.innerHTML = "";
+          footerTitolo.innerHTML = "";
+          footerArtista.innerHTML = "";
+          image.src = moTifrego.cover_small;
+          imgArtistaAlbum.appendChild(image);
+          footerTitolo.appendChild(h5);
+          imgArtistaAlbum.classList.add("me-2");
+          h5.innerText = moTifrego.title;
+          footerArtista.innerText = moTifrego.artist.name;
+        } else {
+          image.src = moTifrego.cover_small;
+          imgArtistaAlbum.appendChild(image);
+          footerTitolo.appendChild(h5);
+          imgArtistaAlbum.classList.add("me-2");
+          h5.innerText = moTifrego.title;
+          footerArtista.innerText = moTifrego.artist.name;
+        }
+      }); */
     })
     .catch((err) => alert(err));
   fetch(urlQueen, options2)
