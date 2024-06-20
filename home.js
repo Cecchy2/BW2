@@ -172,7 +172,8 @@ const cardsAlbum = (arrAlbums, container) => {
           btnPlay.classList.add("d-none");
         }
         btnPlay.addEventListener("click", event => {
-          window.location.assign("./home.html");
+          const imgFooter = document.querySelector("img");
+          imgFooter.setAttribute("src", album.cover_big);
 
           // on click prende le informazioni del album o del artista e fa partire la prima canzone sulla barra play
         });
@@ -284,4 +285,15 @@ window.addEventListener("DOMContentLoaded", function () {
   cardsAlbum(albumsDiOggi, "#perOggi");
   cardsAlbum(albumsPopolari, "#popolari");
   cardsAlbum(albumsStorici, "#mixPref");
+});
+
+// ********** input search******************************************
+const searchInput = document.getElementById("searchInput");
+const form = document.getElementById("form");
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+  if (searchInput.value) {
+    window.location.assign("./search.html?search=" + searchInput.value);
+  }
 });

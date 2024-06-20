@@ -118,7 +118,7 @@
           <div class="bg-darkness rounded" style="height: 90vh">
             <div class="d-flex align-items-center pt-3 mx-3">
               <div class="me-auto d-flex">
-                <button id="HeaderBtnSearch" class="btn rounded-circle bg-black d-flex justify-content-center align-items-center me-3" style="width: 40px; height: 40px">
+                <button class="btn rounded-circle bg-black d-flex justify-content-center align-items-center me-3" style="width: 40px; height: 40px">
                   <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 20 20">
                     <path fill="#B3B3B3" d="M11.03.47a.75.75 0 0 1 0 1.06L4.56 8l6.47 6.47a.75.75 0 1 1-1.06 1.06L2.44 8 9.97.47a.75.75 0 0 1 1.06 0z"></path>
                   </svg>
@@ -132,6 +132,7 @@
                   <form id="form" role="search" class="d-flex justify-content-center align-items-center mx-3">
                     <input
                       id="searchInput"
+                      type="search"
                       class="rounded-pill border-0 py-1 px-4 z-1 bg-transparent text-white"
                       data-encore-id="text"
                       maxlength="800"
@@ -182,28 +183,8 @@
               </div>
             </div>
             <div class="scrollbar p-3" style="height: 78vh">
-              <div>
-                <div class="my-3 mx-3 pointer" style="background: linear-gradient(13deg, rgba(0, 0, 0, 1) 0%, rgba(18, 18, 18, 1) 90%)">
-                  <div id="annunci" class="d-flex align-items-center flex-column flex-lg-row p-3">
-                    <img src="" id="imgAnnunci" class="me-5 object-fit-cover" width="200" height="200" alt="cover album" />
-                  </div>
-                </div>
-              </div>
-              <div id="perTe" class="row g-0 bg-darkness">
-                <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover fs-3 py-4 ms-3" href="#">Artisti che ti piacciono</a>
-              </div>
-              <div id="artistaPref" class="row g-0 bg-darkness">
-                <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover fs-3 py-4 ms-3" href="#">Artista preferito</a>
-              </div>
-              <div id="perOggi" class="row g-0 bg-darkness">
-                <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover fs-3 py-4 ms-3" href="#">Consigliata per oggi</a>
-              </div>
-              <div id="popolari" class="row g-0 bg-darkness">
-                <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover fs-3 py-4 ms-3" href="#">Album più popolari</a>
-              </div>
-              <div id="mixPref" class="row g-0 bg-darkness">
-                <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover fs-3 py-4 ms-3" href="#">Uno sguardo al passato</a>
-              </div>
+              <!-- ************************************************************mid di spotify*************************************************************************************** -->
+              <div id="searchZone" class="row"></div>
               <section>
                 <div class="row">
                   <div class="col-2">
@@ -361,7 +342,7 @@
       integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
       crossorigin="anonymous"
     ></script>
-    <script src="./home.js"></script>
+    <script src="./search.js"></script>
     <script src="./lista.js"></script>
     <script src="./footer.js"></script>
   </body>
