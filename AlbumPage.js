@@ -135,8 +135,10 @@ window.addEventListener("DOMContentLoaded", function () {
         cardBodyAlbum.className = "card-body text-start px-0 pb-0";
 
         const titleAlbumBottom = document.createElement("h5");
-        titleAlbumBottom.className = "card-body text-start px-0 pb-0";
+        titleAlbumBottom.className = "card-body text-start px-0 pb-0 text-truncate";
         titleAlbumBottom.innerText = albumTop.album.title;
+
+        console.log(albumTop.album.title);
 
         const artistAlbumBottom = albumTop.artist.name;
 
