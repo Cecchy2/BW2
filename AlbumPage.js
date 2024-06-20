@@ -36,6 +36,12 @@ window.addEventListener("DOMContentLoaded", function () {
       titleAlbum.innerText = albumObj.title;
       artistAlbum.innerText = `${albumObj.artist.name} · ${year} · ${albumObj.nb_tracks} tracks`;
 
+      imgCurrentAlbum.onload = function () {
+        const avgColor = getAverageColor(imgCurrentAlbum);
+        const mainElement = document.querySelector("main");
+        mainElement.style.backgroundColor = `rgb(${avgColor.r}, ${avgColor.g}, ${avgColor.b})`;
+      };
+
       const tracksTable = document.getElementById("tracksTable").querySelector("tbody");
       tracksTable.innerHTML = "";
 
@@ -57,11 +63,13 @@ window.addEventListener("DOMContentLoaded", function () {
         const playCountCell = document.createElement("td");
         playCountCell.innerText = track.rank;
         trackRow.appendChild(playCountCell);
+        playCountCell.className = "d-none d-xxl-table-cell";
 
         // Track duration cell
         const trackDurationCell = document.createElement("td");
         const minutes = Math.floor(track.duration / 60);
         let seconds = track.duration % 60;
+        trackDurationCell.className = "d-none d-lg-table-cell";
 
         if (seconds < 10) {
           seconds = "0" + seconds;
@@ -101,7 +109,7 @@ window.addEventListener("DOMContentLoaded", function () {
         console.log(albumTop);
 
         const colonna = document.createElement("div");
-        colonna.className = "col-3";
+        colonna.className = "col-12 col-sm-6 col-xl-3";
 
         const cardAlbumTop = document.createElement("div");
         cardAlbumTop.className = "btn btn-secondary card mb-4 border border-0 bg-darkness ";
@@ -110,7 +118,7 @@ window.addEventListener("DOMContentLoaded", function () {
         divRelative.className = "position-relative";
 
         const coverImg = document.createElement("img");
-        coverImg.className = "bd-placeholder-img card-img-top object-fit-cover";
+        coverImg.className = "bd-placeholder-img card-img-top object-fit-cover img-responsive";
         coverImg.src = albumTop.album.cover_big;
 
         const buttonPlay = document.createElement("a");
@@ -135,8 +143,10 @@ window.addEventListener("DOMContentLoaded", function () {
         cardBodyAlbum.className = "card-body text-start px-0 pb-0";
 
         const titleAlbumBottom = document.createElement("h5");
-        titleAlbumBottom.className = "card-body text-start px-0 pb-0";
+        titleAlbumBottom.className = "card-body text-start px-0 pb-0 text-truncate";
         titleAlbumBottom.innerText = albumTop.album.title;
+
+        console.log(albumTop.album.title);
 
         const artistAlbumBottom = albumTop.artist.name;
 
@@ -155,4 +165,43 @@ window.addEventListener("DOMContentLoaded", function () {
     .catch((error) => {
       console.error("Fetch error:", error);
     });
+
+  window.addEventListener("scroll", function (event) {
+    console.log(event);
+    const table = document.getElementById("theadTable");
+    if (window.scrollY > 60) {
+      table.classList.remove("d-none");
+    } else {
+      table.classList.add("d-none");
+    }
+  });
 });
+
+function getAverageColor(imgElement) {
+  const canvas = document.createElement("canvas");
+  const context = canvas.getContext("2d");
+
+  canvas.width = imgElement.width;
+  canvas.height = imgElement.height;
+
+  context.drawImage(imgElement, 0, 0, canvas.width, canvas.height);
+
+  const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+  const data = imageData.data;
+
+  let r = 0,
+    g = 0,
+    b = 0;
+
+  for (let i = 0; i < data.length; i += 4) {
+    r += data[i];
+    g += data[i + 1];
+    b += data[i + 2];
+  }
+
+  r = Math.floor(r / (data.length / 4));
+  g = Math.floor(g / (data.length / 4));
+  b = Math.floor(b / (data.length / 4));
+
+  return { r, g, b };
+}

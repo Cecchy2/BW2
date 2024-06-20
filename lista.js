@@ -24,12 +24,18 @@ const creaList = (song) => {
     imgBranoArtista.setAttribute("src", `${element.album.cover_small}`);
     imgBranoArtista.classList.add("object-fit-contain");
     titolo.innerText = `${element.title}`;
-    titolo.classList.add("text-truncate");
+    titolo.classList.add("text-truncate", "d-none", "d-xl-block");
     divImg.classList.add("d-flex", "alig-items-center", "mb-3");
-    branoArtistaAlbum.classList.add("list-unstyled");
+    branoArtistaAlbum.classList.add(
+      "list-unstyled",
+      "d-flex",
+      "justify-content-center0",
+      "align-items-center",
+      "d-lg-block"
+    );
     nomeArtista.innerText = `${element.artist.name}`;
     nomeArtista.classList.add("m-0");
-    divTitolo.classList.add("d-flex", "flex-column", "ms-3", "justify-content-center");
+    divTitolo.classList.add("d-flex", "flex-column", "ms-3", "justify-content-center", "d-none", "d-xl-block");
 
     divImg.appendChild(imgBranoArtista);
 
@@ -93,6 +99,19 @@ window.addEventListener("DOMContentLoaded", () => {
       creaList(songs.data);
     })
     .catch((err) => alert(err));
+  fetch(urlEminem, options2)
+    .then((resp) => {
+      if (resp.ok) {
+        return resp.json();
+      } else {
+        throw `Errore ${resp.status} : ${resp.statusText} `;
+      }
+    })
+    .then((songs) => {
+      console.log(songs);
+      creaList(songs.data);
+    })
+    .catch((err) => alert(err));
 });
 
 const homeBtn = document.getElementById("homeBtn");
@@ -104,14 +123,24 @@ searchBtn.addEventListener("click", () => {
   const searchDisable = document.getElementById("searchDisable");
   const searchActivate = document.getElementById("searchActivate");
   const formSearch = document.getElementById("formSearch");
+  const searchInput = document.getElementById("searchInput");
+  const btnAvanti = document.getElementById("btnAvanti");
+  const btnEsplora = document.getElementById("btnEsplora");
+  const btnInstall = document.getElementById("btnInstall");
   if (formSearch.classList.contains("d-none")) {
     searchDisable.classList.add("d-none");
     searchActivate.classList.remove("d-none");
     formSearch.classList.remove("d-none");
     searchInput.focus(); // Attiva il focus sull'input
+    btnAvanti.classList.add("d-none");
+    btnEsplora.classList.add("d-none");
+    btnInstall.classList.add("d-none");
   } else {
     searchDisable.classList.remove("d-none");
     searchActivate.classList.add("d-none");
     formSearch.classList.add("d-none");
+    btnAvanti.classList.remove("d-none");
+    btnEsplora.classList.remove("d-none");
+    btnInstall.classList.remove("d-none");
   }
 });

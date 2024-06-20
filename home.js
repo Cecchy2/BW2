@@ -2,7 +2,12 @@
 
 const artistiPopolari = [13, 66, 7543848, 12246, 384236, 1188];
 // array di artisti presi in modo casuale e messi come estensione del url per accedere alle top 50 canzoni
-const indexArtists = [1, 2, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 19, 25, 21, 22, 24, 26, 27, 28, 29, 30];
+// const indexArtists = [1, 2, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 19, 25, 21, 22, 24, 26, 27, 28, 29, 30];
+const albumAnnunci = [
+  400319947, 108938, 423368, 159826232, 10613684, 194246202, 8178950, 273367132, 591398592, 9410100, 303950837,
+  581531012, 580186491, 554390622, 597941372, 560398332, 6240279, 96126, 47131362, 12047952, 104660202, 96001912,
+  1262014, 299484812,
+];
 // array di album artista preferito (eminem)
 const albumsArtistaPref = [103248, 119606, 7090505, 595243, 72000342, 125748];
 // array di album consigliati per oggi
@@ -27,7 +32,7 @@ const creaCards = (artist, container, index) => {
   // decido di creare 6 cards
 
   const col = this.document.createElement("div");
-  col.className = "col-sm-6 col-md-4 col-lg-3 col-xl-2  border border-0  ";
+  col.className = "col-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2   border border-0  ";
   // col.addEventListener("click", () => {
   //   window.location.assign("./dettaglio.html?productId=" + songs[i]._id);
   // });
@@ -42,8 +47,11 @@ const creaCards = (artist, container, index) => {
   const img = document.createElement("img");
   img.className = "bd-placeholder-img card-img-top object-fit-cover rounded-circle";
   img.setAttribute("src", artist.picture_big);
-  const btnPlay = document.createElement("a");
+  img.addEventListener("click", event => {
+    window.location.assign("./artists.html?artistId=" + artist.id);
+  });
 
+  const btnPlay = document.createElement("a");
   btnPlay.type = "button";
   btnPlay.setAttribute("style", "width: 50px; height:50px");
   // btnPlay.href = "./back-office.html?productId=" + songs.data[i]._id;
@@ -65,6 +73,9 @@ const creaCards = (artist, container, index) => {
   const h5 = document.createElement("h5");
   h5.innerText = artist.name;
   h5.className = "fs-5 text-truncate ";
+  h5.addEventListener("click", event => {
+    window.location.assign("./artists.html?artistId=" + artist.id);
+  });
   const type = document.createElement("p");
   type.className = "text-secondary";
   type.innerText = artist.type;
@@ -75,19 +86,22 @@ const creaCards = (artist, container, index) => {
   col.append(card);
   row.append(col);
 
-  // aggiungo classsi a cards specifiche grazie al index
+  // aggiungo classsi a cards specifiche grazie al index col-lg-4 col-xl-3 col-xxl-2
   switch (index) {
-    case 2:
+    case 1:
       col.classList.add("d-none", "d-md-block");
       break;
-    case 3:
+    case 2:
       col.classList.add("d-none", "d-lg-block");
       break;
-    case 4:
+    case 3:
       col.classList.add("d-none", "d-xl-block");
       break;
+    case 4:
+      col.classList.add("d-none", "d-xxl-block");
+      break;
     case 5:
-      col.classList.add("d-none", "d-xl-block");
+      col.classList.add("d-none", "d-xxl-block");
       break;
   }
 };
@@ -130,7 +144,7 @@ const cardsAlbum = (arrAlbums, container) => {
         const row = document.querySelector(container);
 
         const col = this.document.createElement("div");
-        col.className = "col-sm-6 col-md-4 col-lg-3 col-xl-2 border border-0";
+        col.className = "col-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2 border border-0";
 
         const card = document.createElement("div");
 
@@ -145,6 +159,9 @@ const cardsAlbum = (arrAlbums, container) => {
         const img = document.createElement("img");
         img.className = "bd-placeholder-img card-img-top object-fit-cover ";
         img.setAttribute("src", album.cover_big);
+        img.addEventListener("click", event => {
+          window.location.assign("./AlbumPage.html?albumId=" + album.id);
+        });
         const btnPlay = document.createElement("a");
         btnPlay.type = "button";
         btnPlay.setAttribute("style", "width: 50px; height:50px");
@@ -173,10 +190,13 @@ const cardsAlbum = (arrAlbums, container) => {
         const h5 = document.createElement("h5");
         h5.innerText = album.title;
         h5.className = "fs-5 text-truncate ";
+        h5.addEventListener("click", event => {
+          window.location.assign("./AlbumPage.html?albumId=" + album.id);
+        });
         const name = document.createElement("a");
         name.innerText = album.artist.name;
         name.className =
-          "z-2 link-underline-secondary link-underline-opacity-0 link-underline-opacity-75-hover text-secondary fw-bold";
+          "link-underline-secondary link-underline-opacity-0 link-underline-opacity-75-hover text-secondary fw-bold";
         name.href = "./artists.html?artistId=" + album.artist.id;
 
         imgContainer.append(img, btnPlay);
@@ -187,17 +207,20 @@ const cardsAlbum = (arrAlbums, container) => {
 
         // aggiungo classsi a cards specifiche grazie al index
         switch (index) {
-          case 2:
+          case 1:
             col.classList.add("d-none", "d-md-block");
             break;
-          case 3:
+          case 2:
             col.classList.add("d-none", "d-lg-block");
             break;
-          case 4:
+          case 3:
             col.classList.add("d-none", "d-xl-block");
             break;
+          case 4:
+            col.classList.add("d-none", "d-xxl-block");
+            break;
           case 5:
-            col.classList.add("d-none", "d-xl-block");
+            col.classList.add("d-none", "d-xxl-block");
             break;
         }
       })
@@ -225,26 +248,33 @@ window.addEventListener("DOMContentLoaded", function () {
     .then(artist => {
       const annunci = document.getElementById("annunci");
       // dal array di canzoni prendo una a caso tra le prime 3 (non sappiamo se le top 50 canzoni sono veramente 50)
-      const random = Math.round(Math.random() * 2);
-      const song = artist.data[random];
 
       const imgAnnunci = document.getElementById("imgAnnunci");
-      imgAnnunci.setAttribute("src", song.album.cover_big);
-
+      imgAnnunci.setAttribute("src", album.cover_big);
+      imgAnnunci.addEventListener("click", event => {
+        window.location.assign("./AlbumPage.html?albumId=" + album.id);
+      });
       const infoAnnunci = document.createElement("div");
       infoAnnunci.setAttribute("data-bs-theme", "dark");
       const spanAnnunci = document.createElement("span");
-      spanAnnunci.innerText = song.album.type;
-      spanAnnunci.className = "fs-6";
+      spanAnnunci.innerText = album.type;
+      spanAnnunci.className = "fs-6 text-secondary";
       const h2 = document.createElement("h2");
-      h2.innerText = song.title;
+      h2.innerText = album.title;
       h2.className = "text-truncate";
       h2.style.maxWidth = "300px";
+      h2.addEventListener("click", event => {
+        window.location.assign("./AlbumPage.html?albumId=" + album.id);
+      });
 
-      const p1 = document.createElement("p");
-      p1.innerText = song.artist.name;
+      const artistName = document.createElement("a");
+      artistName.className = "link-light link-underline-opacity-0 link-underline-opacity-75-hover text-white fw-bold";
+      artistName.href = "./artists.html?artistId=" + album.artist.id;
+      artistName.innerText = album.artist.name;
+
       const p2 = document.createElement("p");
-      p2.innerText = song.album.title;
+      p2.innerText = `Ascolta il nuovo album di ${album.artist.name}`;
+      p2.className = "text-secondary mt-3";
       const containerBtn = document.createElement("div");
       containerBtn.className = "d-flex";
       const buttonPlay = document.createElement("button");
