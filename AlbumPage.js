@@ -57,11 +57,13 @@ window.addEventListener("DOMContentLoaded", function () {
         const playCountCell = document.createElement("td");
         playCountCell.innerText = track.rank;
         trackRow.appendChild(playCountCell);
+        playCountCell.className = "d-none d-xxl-table-cell";
 
         // Track duration cell
         const trackDurationCell = document.createElement("td");
         const minutes = Math.floor(track.duration / 60);
         let seconds = track.duration % 60;
+        trackDurationCell.className = "d-none d-lg-table-cell";
 
         if (seconds < 10) {
           seconds = "0" + seconds;
@@ -101,7 +103,7 @@ window.addEventListener("DOMContentLoaded", function () {
         console.log(albumTop);
 
         const colonna = document.createElement("div");
-        colonna.className = "col-3";
+        colonna.className = "col-12 col-sm-6 col-xl-3";
 
         const cardAlbumTop = document.createElement("div");
         cardAlbumTop.className = "btn btn-secondary card mb-4 border border-0 bg-darkness ";
@@ -110,7 +112,7 @@ window.addEventListener("DOMContentLoaded", function () {
         divRelative.className = "position-relative";
 
         const coverImg = document.createElement("img");
-        coverImg.className = "bd-placeholder-img card-img-top object-fit-cover";
+        coverImg.className = "bd-placeholder-img card-img-top object-fit-cover img-responsive";
         coverImg.src = albumTop.album.cover_big;
 
         const buttonPlay = document.createElement("a");
@@ -135,8 +137,10 @@ window.addEventListener("DOMContentLoaded", function () {
         cardBodyAlbum.className = "card-body text-start px-0 pb-0";
 
         const titleAlbumBottom = document.createElement("h5");
-        titleAlbumBottom.className = "card-body text-start px-0 pb-0";
+        titleAlbumBottom.className = "card-body text-start px-0 pb-0 text-truncate";
         titleAlbumBottom.innerText = albumTop.album.title;
+
+        console.log(albumTop.album.title);
 
         const artistAlbumBottom = albumTop.artist.name;
 
@@ -155,4 +159,17 @@ window.addEventListener("DOMContentLoaded", function () {
     .catch((error) => {
       console.error("Fetch error:", error);
     });
+
+  let scrolPage = 0;
+  const theadTable = document.getElementById("theadTable");
+  theadTable.classList.add("hidden");
+
+  window.addEventListener("scroll", () => {
+    scrolPage = window.scrollY;
+    if (scrolPage >= 60) {
+      theadTable.classList.remove("hidden");
+    } else if (scrolPage < 60) {
+      theadTable.classList.add("hidden");
+    }
+  });
 });

@@ -11983,5 +11983,15 @@ tr:hover {
   }
   #btnInstall {
     display: inline;
-  }
+  }}
+#theadTable {
+  width: 100%;
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  z-index: 100;
+}
+
+.hidden {
+  display: none;
 }/*# sourceMappingURL=style.css.map */
