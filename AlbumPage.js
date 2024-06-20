@@ -7,7 +7,7 @@ window.addEventListener("DOMContentLoaded", function () {
   fetch("https://deezerdevs-deezer.p.rapidapi.com/album/" + id, {
     method: "GET",
     headers: {
-      "x-rapidapi-key": "c1be13bc83msh01ed86504ac789ap14b677jsn4a8378e3cb43",
+      "x-rapidapi-key": "dfd3925d0amshafe029754eb961ap17f037jsn18e065c48a37",
       "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
     },
   })
@@ -159,18 +159,4 @@ window.addEventListener("DOMContentLoaded", function () {
     .catch((error) => {
       console.error("Fetch error:", error);
     });
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-  const theadTable = document.getElementById("theadTable");
-
-  window.addEventListener("scroll", () => {
-    if (window.scrollY >= 60) {
-      theadTable.classList.remove("hidden");
-      theadTable.classList.add("fixed-header");
-    } else {
-      theadTable.classList.add("hidden");
-      theadTable.classList.remove("fixed-header");
-    }
-  });
 });
