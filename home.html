@@ -12,7 +12,10 @@
     <div class="">
       <div class="row justify-content-center p-2">
         <header class="col-2 rounded p-0">
-          <div class="rounded bg-darkness p-4 mb-2" style="height: 15vh">
+          <div
+            class="rounded bg-darkness p-4 mb-2 d-flex justify-content-center align-items-center d-xl-block"
+            style="height: 15vh"
+          >
             <ul class="list-unstyled d-flex flex-column gap-3 m-0">
               <li class="align-middle pointer" id="homeBtn">
                 <svg
@@ -77,11 +80,11 @@
                         d="M3 22a1 1 0 0 1-1-1V3a1 1 0 0 1 2 0v18a1 1 0 0 1-1 1zM15.5 2.134A1 1 0 0 0 14 3v18a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V6.464a1 1 0 0 0-.5-.866l-6-3.464zM9 2a1 1 0 0 0-1 1v18a1 1 0 1 0 2 0V3a1 1 0 0 0-1-1z"
                       ></path>
                     </svg>
-                    <span class="d-none d-xl-inline">La tua Libreria</span></span
+                    <span class="d-none d-lg-inline">La tua Libreria</span></span
                   >
                 </button>
-                <button class="btn text-white mx-2 bg-darkness" style="width: 40px; height: 40px">
-                  <span style="display: block"
+                <button class="btn text-white mx-2 bg-darkness d-none d-xl-inline" style="width: 40px; height: 40px">
+                  <span
                     ><svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16">
                       <path
                         fill="#B3B3B3"
@@ -90,8 +93,8 @@
                     </svg>
                   </span>
                 </button>
-                <button class="btn text-white mx-2 bg-darkness" style="width: 40px; height: 40px">
-                  <span style="display: block"
+                <button class="btn text-white mx-2 bg-darkness d-none d-xl-inline" style="width: 40px; height: 40px">
+                  <span
                     ><svg
                       data-encore-id="icon"
                       role="img"
@@ -107,27 +110,25 @@
                   </span>
                 </button>
               </div>
-              <div>
-                <div>
-                  <div>
-                    <div class="mb-2 d-none d-lg-block">
-                      <button class="rounded-pill border-0 bg-black text-white px-2">
-                        <span>Playlist</span>
-                      </button>
-                      <button class="rounded-pill border-0 bg-black text-white px-2">
-                        <span>Artisti</span>
-                      </button>
-                      <button class="rounded-pill border-0 bg-black text-white px-2">
-                        <span>Album</span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
+
+              <div class="mb-2 d-none d-lg-inline">
+                <button class="rounded-pill border-0 bg-black text-white px-2 d-none d-xl-inline">
+                  <span>Playlist</span>
+                </button>
+                <button class="rounded-pill border-0 bg-black text-white px-2 d-none d-xl-inline">
+                  <span>Artisti</span>
+                </button>
+                <button class="rounded-pill border-0 bg-black text-white px-2 d-none d-xl-inline">
+                  <span>Album</span>
+                </button>
               </div>
             </div>
-            <div class="scrollbar text-truncate" style="height: 60vh">
+            <div
+              class="scrollbar text-truncate d-flex justify-content-center align-items-center d-xl-block"
+              style="height: 60vh"
+            >
               <div class="d-flex justify-content-between">
-                <button class="btn">
+                <button class="btn d-none d-xl-inline">
                   <svg data-encore-id="icon" role="img" aria-hidden="true" style="width: 15px" viewBox="0 0 16 16">
                     <path
                       fill="#B3B3B3"
@@ -135,7 +136,7 @@
                     ></path>
                   </svg>
                 </button>
-                <button class="btn text-white d-flex align-items-center">
+                <button class="btn text-white d-flex align-items-center d-none d-xl-inline">
                   <span class="pe-2">Recenti</span>
                   <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16" style="width: 15px">
                     <path
@@ -152,7 +153,7 @@
           </div>
         </header>
 
-        <main class="col-8 rounded" data-bs-theme="dark">
+        <main class="col col-xl-8 rounded" data-bs-theme="dark">
           <div class="bg-darkness rounded" style="height: 90vh">
             <div class="d-flex align-items-center pt-3 mx-3">
               <div class="me-auto d-flex">
@@ -298,7 +299,7 @@
             </div>
           </div>
         </main>
-        <aside class="col-2 rounded bg-darkness scrollbar" style="height: 90vh"></aside>
+        <aside class="col-2 rounded bg-darkness scrollbar d-none d-xl-block" style="height: 90vh"></aside>
       </div>
       <footer class="fixed-bottom bg-black p-0 m-0 container-fluid" style="height: 10vh; width: 100wh">
         <div class="row p-2">
