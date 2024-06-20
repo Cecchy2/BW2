@@ -20,7 +20,7 @@ const creaCards = searchObj => {
     col.className = "col-12 col-md-6 col-lg-4 col-xl-3 col-xxl-2   border border-0  ";
 
     const card = document.createElement("div");
-    card.className = "btn card mb-4 border border-0 bg-darkness";
+    card.className = "btn card mb-4 border border-0 bg-darkness contenitoreCard";
 
     const imgContainer = document.createElement("div");
     imgContainer.className = "position-relative ";
@@ -56,12 +56,11 @@ const creaCards = searchObj => {
     h5.addEventListener("click", event => {
       window.location.assign("./AlbumPage.html?albumId=" + song.album.id);
     });
-    const artistName = document.createElement("p");
-    artistName.className = "text-secondary";
+    const artistName = document.createElement("a");
     artistName.innerText = song.artist.name;
-    artistName.addEventListener("click", event => {
-      window.location.assign("./artists.html?artistId=" + song.artist.id);
-    });
+    artistName.className = "link-underline-secondary link-underline-opacity-0 link-underline-opacity-75-hover text-secondary fw-bold";
+    artistName.href = "./artists.html?artistId=" + song.artist.id;
+
     imgContainer.append(img, btnPlay);
     cardBody.append(h5, artistName);
     card.append(imgContainer, cardBody);
