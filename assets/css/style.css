@@ -11947,14 +11947,41 @@ tr:hover {
   header {
     min-width: 60px;
   }
+  #btnAvanti {
+    display: none;
+  }
+  #btnEsplora {
+    display: none;
+  }
+  #btnInstall {
+    display: none;
+  }
 }
 @media (min-width: 600px) and (max-width: 1199px) {
   header {
     min-width: 70px;
   }
+  #btnAvanti {
+    display: none;
+  }
+  #btnEsplora {
+    display: none;
+  }
+  #btnInstall {
+    display: none;
+  }
 }
 @media (min-width: 1200px) {
   header {
     min-width: 300px;
+  }
+  #btnAvanti {
+    display: inline;
+  }
+  #btnEsplora {
+    display: inline;
+  }
+  #btnInstall {
+    display: inline;
   }
 }/*# sourceMappingURL=style.css.map */
