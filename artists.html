@@ -14,7 +14,7 @@
         <header class="col-2 rounded p-0" style="height: 90vh">
           <div class="rounded bg-darkness p-4 mb-2">
             <ul class="list-unstyled d-flex flex-column gap-3 m-0">
-              <li class="align-middle">
+              <li class="align-middle pointer" id="homeBtn">
                 <svg
                   data-encore-id="icon"
                   role="img"
@@ -30,9 +30,9 @@
                 </svg>
                 <span>Home</span>
               </li>
-              <li class="align-middle">
+              <li class="align-middle pointer" id="searchBtn">
                 <svg
-                  id="search"
+                  id="searchDisable"
                   data-encore-id="icon"
                   role="img"
                   aria-hidden="true"
@@ -180,6 +180,7 @@
                 <div class="position-relative">
                   <form role="search" class="d-flex justify-content-center align-items-center mx-3">
                     <input
+                      id="searchInput"
                       class="rounded-pill border-0 py-1 px-4 z-1 bg-transparent text-white"
                       data-encore-id="text"
                       maxlength="800"

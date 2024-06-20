@@ -5,7 +5,7 @@ const urlNickyJam = "https://deezerdevs-deezer.p.rapidapi.com/search?q=Nicky%20j
 const options2 = {
   method: "GET",
   headers: {
-    "x-rapidapi-key": "44dfc82985mshb524b82658ba23cp11349ejsn4ea0b006e13c",
+    "x-rapidapi-key": "0f032eb218mshe7b959267e60906p1d3878jsnde7092ae2254",
     "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
   },
 };
@@ -93,17 +93,25 @@ window.addEventListener("DOMContentLoaded", () => {
       creaList(songs.data);
     })
     .catch((err) => alert(err));
-  fetch(urlEminem, options2)
-    .then((resp) => {
-      if (resp.ok) {
-        return resp.json();
-      } else {
-        throw `Errore ${resp.status} : ${resp.statusText} `;
-      }
-    })
-    .then((songs) => {
-      console.log(songs);
-      creaList(songs.data);
-    })
-    .catch((err) => alert(err));
+});
+
+const homeBtn = document.getElementById("homeBtn");
+homeBtn.addEventListener("click", () => {
+  window.location.assign("./home.html");
+});
+const searchBtn = document.getElementById("searchBtn");
+searchBtn.addEventListener("click", () => {
+  const searchDisable = document.getElementById("searchDisable");
+  const searchActivate = document.getElementById("searchActivate");
+  const formSearch = document.getElementById("formSearch");
+  if (formSearch.classList.contains("d-none")) {
+    searchDisable.classList.add("d-none");
+    searchActivate.classList.remove("d-none");
+    formSearch.classList.remove("d-none");
+    searchInput.focus(); // Attiva il focus sull'input
+  } else {
+    searchDisable.classList.remove("d-none");
+    searchActivate.classList.add("d-none");
+    formSearch.classList.add("d-none");
+  }
 });

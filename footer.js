@@ -1,4 +1,5 @@
 window.addEventListener("DOMContentLoaded", () => {
+  let index = 0;
   fetch(urlMilkyChance, options2)
     .then((resp) => {
       if (resp.ok) {
