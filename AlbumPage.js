@@ -159,17 +159,18 @@ window.addEventListener("DOMContentLoaded", function () {
     .catch((error) => {
       console.error("Fetch error:", error);
     });
+});
 
-  let scrolPage = 0;
+document.addEventListener("DOMContentLoaded", function () {
   const theadTable = document.getElementById("theadTable");
-  theadTable.classList.add("hidden");
 
   window.addEventListener("scroll", () => {
-    scrolPage = window.scrollY;
-    if (scrolPage >= 60) {
+    if (window.scrollY >= 60) {
       theadTable.classList.remove("hidden");
-    } else if (scrolPage < 60) {
+      theadTable.classList.add("fixed-header");
+    } else {
       theadTable.classList.add("hidden");
+      theadTable.classList.remove("fixed-header");
     }
   });
 });
