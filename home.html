@@ -10,9 +10,9 @@
   <body class="bg-black text-white container-fluid m-0">
     <!-- style="max-height: 100vh" -->
     <div class="">
-      <div class="row justify-content-center p-2">
-        <header class="col-2 rounded p-0" style="min-width: 300px">
-          <div class="rounded bg-darkness p-4 mb-2" style="height: 15vh">
+      <div class="row p-2">
+        <header class="col-2 rounded p-0">
+          <div class="rounded bg-darkness p-4 mb-2 d-flex justify-content-center align-items-center d-xl-block" style="height: 15vh">
             <ul class="list-unstyled d-flex flex-column gap-3 m-0">
               <li class="align-middle pointer" id="homeBtn">
                 <svg data-encore-id="icon" role="img" aria-hidden="true" class="Svg-sc-ytk21e-0 bneLcE home-icon QbaKKdcHNA2x3_YJvpYu" viewBox="0 0 24 24" style="width: 30">
@@ -21,7 +21,7 @@
                     d="M12.5 3.247a1 1 0 0 0-1 0L4 7.577V20h4.5v-6a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v6H20V7.577l-7.5-4.33zm-2-1.732a3 3 0 0 1 3 0l7.5 4.33a2 2 0 0 1 1 1.732V21a1 1 0 0 1-1 1h-6.5a1 1 0 0 1-1-1v-6h-3v6a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.577a2 2 0 0 1 1-1.732l7.5-4.33z"
                   ></path>
                 </svg>
-                <span>Home</span>
+                <span class="d-none d-lg-inline">Home</span>
               </li>
               <li class="align-middle pointer" id="searchBtn">
                 <svg id="searchDisable" data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 24 24" style="width: 30">
@@ -37,32 +37,33 @@
                     d="M1.126 10.558c0-5.14 4.226-9.28 9.407-9.28 5.18 0 9.407 4.14 9.407 9.28a9.157 9.157 0 0 1-2.077 5.816l4.344 4.344a1 1 0 0 1-1.414 1.414l-4.353-4.353a9.454 9.454 0 0 1-5.907 2.058c-5.18 0-9.407-4.14-9.407-9.28zm9.407-7.28c-4.105 0-7.407 3.274-7.407 7.28s3.302 7.279 7.407 7.279 7.407-3.273 7.407-7.28c0-4.005-3.302-7.278-7.407-7.278z"
                   ></path>
                 </svg>
-                <span>Cerca</span>
+                <span class="d-none d-lg-inline">Cerca</span>
               </li>
             </ul>
           </div>
           <div class="bg-darkness rounded p-3">
             <div class="bg-darkness" style="height: 10vh">
               <div class="d-flex">
-                <button class="btn text-white me-auto bg-darkness mb-2 p-1 d-flex align-items-center" style="width: 150px">
+                <button class="btn text-white me-auto bg-darkness mb-2 p-1" style="width: 150px">
                   <span>
                     <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 24 24" style="width: 30px">
                       <path
                         fill="#B3B3B3"
                         d="M3 22a1 1 0 0 1-1-1V3a1 1 0 0 1 2 0v18a1 1 0 0 1-1 1zM15.5 2.134A1 1 0 0 0 14 3v18a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V6.464a1 1 0 0 0-.5-.866l-6-3.464zM9 2a1 1 0 0 0-1 1v18a1 1 0 1 0 2 0V3a1 1 0 0 0-1-1z"
                       ></path>
-                    </svg> </span
-                  >La tua Libreria
+                    </svg>
+                    <span class="d-none d-lg-inline">La tua Libreria</span></span
+                  >
                 </button>
-                <button class="btn text-white mx-1 bg-darkness" style="width: 40px; height: 40px">
-                  <span style="display: block"
+                <button class="btn text-white mx-2 bg-darkness d-none d-xl-inline" style="width: 40px; height: 40px">
+                  <span
                     ><svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16">
                       <path fill="#B3B3B3" d="M15.25 8a.75.75 0 0 1-.75.75H8.75v5.75a.75.75 0 0 1-1.5 0V8.75H1.5a.75.75 0 0 1 0-1.5h5.75V1.5a.75.75 0 0 1 1.5 0v5.75h5.75a.75.75 0 0 1 .75.75z"></path>
                     </svg>
                   </span>
                 </button>
-                <button class="btn text-white mx-1 bg-darkness" style="width: 40px; height: 40px">
-                  <span style="display: block"
+                <button class="btn text-white mx-2 bg-darkness d-none d-xl-inline" style="width: 40px; height: 40px">
+                  <span
                     ><svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16" class="Svg-sc-ytk21e-0 cAMMLk">
                       <path
                         fill="#B3B3B3"
@@ -72,25 +73,22 @@
                   </span>
                 </button>
               </div>
-              <!-- <div>
-                <div>
-                  <div>
-                    <div class="mb-2">
-                      <button class="rounded-pill border-0 bg-black text-white px-2">
-                        <span>Playlist</span>
-                      </button>
-                      <button class="rounded-pill border-0 bg-black text-white px-2">
-                        <span>Artisti</span>
-                      </button>
-                      <button class="rounded-pill border-0 bg-black text-white px-2">
-                        <span>Album</span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div> -->
+
+              <div class="mb-2 d-none d-lg-inline">
+                <button class="rounded-pill border-0 bg-black text-white px-2 d-none d-xl-inline">
+                  <span>Playlist</span>
+                </button>
+                <button class="rounded-pill border-0 bg-black text-white px-2 d-none d-xl-inline">
+                  <span>Artisti</span>
+                </button>
+                <button class="rounded-pill border-0 bg-black text-white px-2 d-none d-xl-inline">
+                  <span>Album</span>
+                </button>
+              </div>
+            </div>
+            <div class="scrollbar text-truncate d-flex justify-content-center align-items-center d-xl-block" style="height: 60vh">
               <div class="d-flex justify-content-between">
-                <button class="btn">
+                <button class="btn d-none d-xl-inline">
                   <svg data-encore-id="icon" role="img" aria-hidden="true" style="width: 15px" viewBox="0 0 16 16">
                     <path
                       fill="#B3B3B3"
@@ -98,32 +96,29 @@
                     ></path>
                   </svg>
                 </button>
-                <button class="btn text-white d-flex align-items-center">
+                <button class="btn text-white d-flex align-items-center d-none d-xl-inline">
                   <span class="pe-2">Recenti</span>
                   <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16" style="width: 15px">
                     <path fill="#B3B3B3" d="M15 14.5H5V13h10v1.5zm0-5.75H5v-1.5h10v1.5zM15 3H5V1.5h10V3zM3 3H1V1.5h2V3zm0 11.5H1V13h2v1.5zm0-5.75H1v-1.5h2v1.5z"></path>
                   </svg>
                 </button>
               </div>
-            </div>
-            <div class="scrollbar text-truncate mt-2" style="height: 60vh">
-              <div>
-                <ul id="listaBraniArtistiAlbum" class="p-0"></ul>
-              </div>
+              <ul id="listaBraniArtistiAlbum" class="p-0"></ul>
             </div>
           </div>
         </header>
 
-        <main class="col rounded" data-bs-theme="dark">
+        <main class="col col-xl-8 rounded" data-bs-theme="dark">
           <div class="bg-darkness rounded" style="height: 90vh">
-            <div class="d-flex align-items-center pt-3 mx-3">
+            <div class="d-flex align-items-center pt-3 mx-3 mb-3">
               <div class="me-auto d-flex">
-                <button id="HeaderBtnSearch" class="btn rounded-circle bg-black d-flex justify-content-center align-items-center me-3" style="width: 40px; height: 40px">
+                <button id="HeaderBtnSearch" class="btn rounded-circle bg-black d-flex justify-content-center align-items-center me-3" style="width: 40px; height: 40px"></button>
+                <button id="btnIndiestro" class="btn rounded-circle bg-black d-flex justify-content-center align-items-center me-3" style="width: 40px; height: 40px">
                   <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 20 20">
                     <path fill="#B3B3B3" d="M11.03.47a.75.75 0 0 1 0 1.06L4.56 8l6.47 6.47a.75.75 0 1 1-1.06 1.06L2.44 8 9.97.47a.75.75 0 0 1 1.06 0z"></path>
                   </svg>
                 </button>
-                <button class="btn rounded-circle bg-black d-flex justify-content-center align-items-center d-none d-lg-inline" style="width: 40px; height: 40px">
+                <button id="btnAvanti" class="btn rounded-circle bg-black d-flex justify-content-center align-items-center" style="width: 40px; height: 40px">
                   <svg data-encore-id="icon" role="img" aria-hidden="true" style="width: 21px" viewBox="0 0 20 20">
                     <path fill="#B3B3B3" d="M4.97.47a.75.75 0 0 0 0 1.06L11.44 8l-6.47 6.47a.75.75 0 1 0 1.06 1.06L13.56 8 6.03.47a.75.75 0 0 0-1.06 0z"></path>
                   </svg>
@@ -156,9 +151,11 @@
                   </div>
                 </div>
               </div>
-              <div class="d-flex mb-3">
-                <button class="btn bg-white rounded-pill text-black me-2 d-none d-lg-inline"><b>Esplora Premium</b></button>
-                <a class="btn rounded-pill bg-black rounded-pill text-white me-2" draggable="false" data-encore-id="buttonPrimary" href="#">
+              <div class="d-flex">
+                <button id="btnEsplora" class="btn bg-white rounded-pill text-black me-2">
+                  <b>Esplora Premium</b>
+                </button>
+                <a id="btnInstall" class="btn rounded-pill bg-black rounded-pill text-white me-2" draggable="false" data-encore-id="buttonPrimary" href="#">
                   <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16" style="width: 20px">
                     <path
                       fill="#FFFFFF"
@@ -183,7 +180,7 @@
             </div>
             <div class="scrollbar p-3" style="height: 78vh">
               <div>
-                <div class="my-3 mx-3 pointer" style="background: linear-gradient(13deg, rgba(0, 0, 0, 1) 0%, rgba(18, 18, 18, 1) 90%)">
+                <div class="my-3 mx-3" style="background: linear-gradient(13deg, rgba(0, 0, 0, 1) 0%, rgba(18, 18, 18, 1) 90%)">
                   <div id="annunci" class="d-flex align-items-center flex-column flex-lg-row p-3">
                     <img src="" id="imgAnnunci" class="me-5 object-fit-cover" width="200" height="200" alt="cover album" />
                   </div>
@@ -219,7 +216,7 @@
             </div>
           </div>
         </main>
-        <aside class="col-2 rounded bg-darkness scrollbar d-none d-xl-block" style="height: 90vh"></aside>
+        <aside class="col rounded bg-darkness scrollbar d-none d-xl-block" style="height: 90vh"></aside>
       </div>
       <footer class="fixed-bottom bg-black p-0 m-0 container-fluid" style="height: 10vh; width: 100wh">
         <div class="row p-2">
