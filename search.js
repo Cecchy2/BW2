@@ -66,25 +66,6 @@ const creaCards = searchObj => {
     card.append(imgContainer, cardBody);
     col.append(card);
     row.append(col);
-
-    // aggiungo classsi a cards specifiche grazie al index col-lg-4 col-xl-3 col-xxl-2
-    // switch (index) {
-    //   case 1:
-    //     col.classList.add("d-none", "d-md-block");
-    //     break;
-    //   case 2:
-    //     col.classList.add("d-none", "d-lg-block");
-    //     break;
-    //   case 3:
-    //     col.classList.add("d-none", "d-xl-block");
-    //     break;
-    //   case 4:
-    //     col.classList.add("d-none", "d-xxl-block");
-    //     break;
-    //   case 5:
-    //     col.classList.add("d-none", "d-xxl-block");
-    //     break;
-    // }
   });
 };
 
@@ -109,8 +90,9 @@ window.addEventListener("DOMContentLoaded", function () {
   // *************************** al submit del search sulla pagina search.html ***************************
   form.addEventListener("submit", function (e) {
     e.preventDefault();
-    row.innerHTML = "";
-    fetch("https://striveschool-api.herokuapp.com/api/deezer/search?q=" + searchInput.value, options)
+    window.location.assign("./search.html?search=" + searchInput.value);
+
+    fetch("https://striveschool-api.herokuapp.com/api/deezer/search?q=" + searchValue, options)
       .then(resp => {
         if (resp.ok) {
           // restituiamo il dato convertito in array da JSON
