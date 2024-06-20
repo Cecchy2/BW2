@@ -11832,6 +11832,10 @@ textarea.form-control-lg {
   overflow-y: auto;
 }
 
+#scrollThead {
+  overflow-x: hidden;
+}
+
 #albumPage {
   overflow: scroll;
   height: 100vh;
@@ -11876,7 +11880,6 @@ textarea.form-control-lg {
 
 #tracksTable {
   width: 90%;
-  height: 100vh;
 }
 
 #BtnDropdown {
@@ -11983,15 +11986,16 @@ tr:hover {
   }
   #btnInstall {
     display: inline;
-  }}
-#theadTable {
-  width: 100%;
-  background-color: #333;
-  color: white;
-  padding: 10px;
-  z-index: 100;
+  }
 }
-
 .hidden {
   display: none;
+}
+
+.fixed-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: black;
+  z-index: 1000;
 }/*# sourceMappingURL=style.css.map */
