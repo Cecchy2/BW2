@@ -64,6 +64,9 @@ $theme-colors: map-merge($theme-colors, $add-colors);
   height: 74vh;
   overflow-y: auto;
 }
+#scrollThead {
+  overflow-x: hidden;
+}
 #albumPage {
   overflow: scroll;
   height: 100vh;
