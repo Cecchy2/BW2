@@ -11,7 +11,7 @@ const options2 = {
   },
 };
 const listaBraniArtistiAlbum = document.getElementById("listaBraniArtistiAlbum");
-const creaList = (song) => {
+const creaList = song => {
   for (let index = 0; index < 6; index++) {
     const element = song[index];
     const branoArtistaAlbum = document.createElement("li");
@@ -27,13 +27,7 @@ const creaList = (song) => {
     titolo.innerText = `${element.title}`;
     titolo.classList.add("text-truncate", "d-none", "d-xl-block");
     divImg.classList.add("d-flex", "alig-items-center", "mb-3", "pointer");
-    branoArtistaAlbum.classList.add(
-      "list-unstyled",
-      "d-flex",
-      "justify-content-center0",
-      "align-items-center",
-      "d-lg-block"
-    );
+    branoArtistaAlbum.classList.add("list-unstyled", "d-flex", "justify-content-center0", "align-items-center", "d-lg-block");
     branoArtistaAlbum.addEventListener("click", () => {
       const imgArtistaAlbum = document.getElementById("imgArtistaAlbum");
       const footerTitolo = document.getElementById("footerTitolo");
@@ -61,15 +55,7 @@ const creaList = (song) => {
     });
     nomeArtista.innerText = `${element.artist.name}`;
     nomeArtista.classList.add("m-0");
-    divTitolo.classList.add(
-      "d-flex",
-      "flex-column",
-      "ms-3",
-      "justify-content-center",
-      "d-none",
-      "d-xl-block",
-      "pointer"
-    );
+    divTitolo.classList.add("d-flex", "flex-column", "ms-3", "justify-content-center", "d-none", "d-xl-block", "pointer");
 
     divImg.appendChild(imgBranoArtista);
 
@@ -82,14 +68,14 @@ const creaList = (song) => {
 };
 window.addEventListener("DOMContentLoaded", () => {
   fetch(urlMilkyChance, options2)
-    .then((resp) => {
+    .then(resp => {
       if (resp.ok) {
         return resp.json();
       } else {
         throw `Errore ${resp.status} : ${resp.statusText} `;
       }
     })
-    .then((songs) => {
+    .then(songs => {
       creaList(songs.data);
 
       /* btnPlay.addEventListener("click", (event) => {
@@ -120,56 +106,56 @@ window.addEventListener("DOMContentLoaded", () => {
         }
       }); */
     })
-    .catch((err) => alert(err));
+    .catch(err => alert(err));
   fetch(urlQueen, options2)
-    .then((resp) => {
+    .then(resp => {
       if (resp.ok) {
         return resp.json();
       } else {
         throw `Errore ${resp.status} : ${resp.statusText} `;
       }
     })
-    .then((songs) => {
+    .then(songs => {
       creaList(songs.data);
     })
-    .catch((err) => alert(err));
+    .catch(err => alert(err));
   fetch(urlDonOmar, options2)
-    .then((resp) => {
+    .then(resp => {
       if (resp.ok) {
         return resp.json();
       } else {
         throw `Errore ${resp.status} : ${resp.statusText} `;
       }
     })
-    .then((songs) => {
+    .then(songs => {
       creaList(songs.data);
     })
-    .catch((err) => alert(err));
+    .catch(err => alert(err));
   fetch(urlNickyJam, options2)
-    .then((resp) => {
+    .then(resp => {
       if (resp.ok) {
         return resp.json();
       } else {
         throw `Errore ${resp.status} : ${resp.statusText} `;
       }
     })
-    .then((songs) => {
+    .then(songs => {
       creaList(songs.data);
     })
-    .catch((err) => alert(err));
-  fetch(urlEminem, options2)
-    .then((resp) => {
+    .catch(err => alert(err));
+  fetch(urlNickyJam, options2)
+    .then(resp => {
       if (resp.ok) {
         return resp.json();
       } else {
         throw `Errore ${resp.status} : ${resp.statusText} `;
       }
     })
-    .then((songs) => {
+    .then(songs => {
       console.log(songs);
       creaList(songs.data);
     })
-    .catch((err) => alert(err));
+    .catch(err => alert(err));
 });
 
 const homeBtn = document.getElementById("homeBtn");

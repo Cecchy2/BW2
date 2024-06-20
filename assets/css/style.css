@@ -11962,8 +11962,8 @@ tr:hover {
   display: none;
 }
 
-header ul {
-  align-items: center;
+#home-cerca {
+  justify-content: center;
 }
 
 @media screen and (max-width: 599px) {
@@ -12007,9 +12007,6 @@ header ul {
   #btnInstall {
     display: inline;
   }
-  header ul {
-    align-items: unset;
-  }
 }
 .hidden {
   display: none;
@@ -12037,5 +12034,9 @@ header ul {
   }
   #btnInstall {
     display: inline;
+  }
+  #home-cerca {
+    justify-content: unset;
+    padding-left: 1rem;
   }
 }/*# sourceMappingURL=style.css.map */

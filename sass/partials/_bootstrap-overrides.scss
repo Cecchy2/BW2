@@ -180,8 +180,8 @@ tr:hover {
 
 #btnEsplora{display: none;}
 #btnInstall{display: none;}
-header ul{
-  align-items: center;
+#home-cerca{
+  justify-content: center;
 }
 @media screen and (max-width: 599px) {
   header {
@@ -224,10 +224,6 @@ header ul{
   #btnInstall {
     display: inline;
   }
-  header ul{
-    align-items: unset;
-  }
-  
 }
 .hidden {
   display: none;
@@ -255,4 +251,8 @@ header ul{
   
   #btnEsplora{display: inline;}
   #btnInstall{display: inline;}
+  #home-cerca{
+    justify-content: unset;
+    padding-left: 1rem;
+  }
  }
