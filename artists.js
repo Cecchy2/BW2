@@ -35,9 +35,9 @@ const createCards = () => {
 
       songs.data.forEach(song => {
         const col = document.createElement("div");
-        col.className = "col-sm-6 col-md-4 col-lg-3 col-xl-3  border border-0  ";
+        col.className = "col-sm-6 col-md-6 col-xl-3  border border-0  ";
         const card = document.createElement("div");
-        card.className = "btn card mb-4 border border-0 bg-darkness contenitoreCard";
+        card.className = "btn card mb-4 border border-0 bg-darkness";
         card.addEventListener("click", event => {
           window.location.assign("./artists.html?artistId=" + song.artist.id);
         });
@@ -71,7 +71,7 @@ const createCards = () => {
         h5.innerText = song.artist.name;
         h5.className = "fs-5 text-truncate ";
         const type = document.createElement("p");
-        type.className = "text-secondary";
+        type.className = "text-secondary text-truncate";
         type.innerText = song.album.title;
 
         imgContainer.append(img, btnPlay);
