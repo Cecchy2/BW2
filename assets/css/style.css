@@ -11943,40 +11943,27 @@ tr:hover {
   background-color: rgb(69, 69, 69);
 }
 
-@media (max-width: 599px) {
+#btnEsplora {
+  display: none;
+}
+
+#btnInstall {
+  display: none;
+}
+
+@media screen and (max-width: 599px) {
   header {
     min-width: 60px;
   }
-  #btnAvanti {
-    display: none;
-  }
-  #btnEsplora {
-    display: none;
-  }
-  #btnInstall {
-    display: none;
-  }
 }
-@media (min-width: 600px) and (max-width: 1199px) {
+@media screen and (min-width: 600px) {
   header {
     min-width: 70px;
   }
-  #btnAvanti {
-    display: none;
-  }
-  #btnEsplora {
-    display: none;
-  }
-  #btnInstall {
-    display: none;
-  }
 }
-@media (min-width: 1200px) {
+@media screen and (min-width: 1200px) {
   header {
     min-width: 300px;
-  }
-  #btnAvanti {
-    display: inline;
   }
   #btnEsplora {
     display: inline;
