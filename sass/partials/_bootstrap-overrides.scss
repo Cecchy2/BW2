@@ -162,7 +162,10 @@ tr:hover {
   cursor: pointer;
   background-color: rgb(69, 69, 69);
 }
-@media (max-width: 599px) {
+
+#btnEsplora{display: none;}
+#btnInstall{display: none;}
+@media screen and (max-width: 599px) {
   header {
     min-width: 60px;
   }
@@ -214,3 +217,20 @@ tr:hover {
   background-color: black;
   z-index: 1000;
 }
+  
+ 
+}
+@media screen and (min-width: 600px){
+ header {
+    min-width: 70px;
+  }
+ 
+}
+@media screen and (min-width:1200px){
+  header {
+     min-width: 300px;
+   }
+  
+  #btnEsplora{display: inline;}
+  #btnInstall{display: inline;}
+ }

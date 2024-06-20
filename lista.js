@@ -5,7 +5,8 @@ const urlNickyJam = "https://deezerdevs-deezer.p.rapidapi.com/search?q=Nicky%20j
 const options2 = {
   method: "GET",
   headers: {
-    "x-rapidapi-key": "c1be13bc83msh01ed86504ac789ap14b677jsn4a8378e3cb43",
+    "x-rapidapi-key": "4fa9bd0898msh965f020f8dcfd73p133487jsnd846f46b0f69",
+    /* "x-rapidapi-key": "0f032eb218mshe7b959267e60906p1d3878jsnde7092ae2254", */
     "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
   },
 };
@@ -25,7 +26,7 @@ const creaList = (song) => {
     imgBranoArtista.classList.add("object-fit-contain");
     titolo.innerText = `${element.title}`;
     titolo.classList.add("text-truncate", "d-none", "d-xl-block");
-    divImg.classList.add("d-flex", "alig-items-center", "mb-3");
+    divImg.classList.add("d-flex", "alig-items-center", "mb-3", "pointer");
     branoArtistaAlbum.classList.add(
       "list-unstyled",
       "d-flex",
@@ -35,7 +36,15 @@ const creaList = (song) => {
     );
     nomeArtista.innerText = `${element.artist.name}`;
     nomeArtista.classList.add("m-0");
-    divTitolo.classList.add("d-flex", "flex-column", "ms-3", "justify-content-center", "d-none", "d-xl-block");
+    divTitolo.classList.add(
+      "d-flex",
+      "flex-column",
+      "ms-3",
+      "justify-content-center",
+      "d-none",
+      "d-xl-block",
+      "pointer"
+    );
 
     divImg.appendChild(imgBranoArtista);
 
@@ -56,7 +65,6 @@ window.addEventListener("DOMContentLoaded", () => {
       }
     })
     .then((songs) => {
-      console.log(songs);
       creaList(songs.data);
     })
     .catch((err) => alert(err));
@@ -69,7 +77,6 @@ window.addEventListener("DOMContentLoaded", () => {
       }
     })
     .then((songs) => {
-      console.log(songs);
       creaList(songs.data);
     })
     .catch((err) => alert(err));
@@ -82,7 +89,6 @@ window.addEventListener("DOMContentLoaded", () => {
       }
     })
     .then((songs) => {
-      console.log(songs);
       creaList(songs.data);
     })
     .catch((err) => alert(err));
@@ -95,7 +101,6 @@ window.addEventListener("DOMContentLoaded", () => {
       }
     })
     .then((songs) => {
-      console.log(songs);
       creaList(songs.data);
     })
     .catch((err) => alert(err));
@@ -132,14 +137,12 @@ searchBtn.addEventListener("click", () => {
     searchActivate.classList.remove("d-none");
     formSearch.classList.remove("d-none");
     searchInput.focus(); // Attiva il focus sull'input
-    btnAvanti.classList.add("d-none");
     btnEsplora.classList.add("d-none");
     btnInstall.classList.add("d-none");
   } else {
     searchDisable.classList.remove("d-none");
     searchActivate.classList.add("d-none");
     formSearch.classList.add("d-none");
-    btnAvanti.classList.remove("d-none");
     btnEsplora.classList.remove("d-none");
     btnInstall.classList.remove("d-none");
   }
