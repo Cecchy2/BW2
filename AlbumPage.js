@@ -57,11 +57,13 @@ window.addEventListener("DOMContentLoaded", function () {
         const playCountCell = document.createElement("td");
         playCountCell.innerText = track.rank;
         trackRow.appendChild(playCountCell);
+        playCountCell.className = "d-none d-xxl-table-cell";
 
         // Track duration cell
         const trackDurationCell = document.createElement("td");
         const minutes = Math.floor(track.duration / 60);
         let seconds = track.duration % 60;
+        trackDurationCell.className = "d-none d-lg-table-cell";
 
         if (seconds < 10) {
           seconds = "0" + seconds;
