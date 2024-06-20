@@ -10,7 +10,7 @@ const options2 = {
   },
 };
 const listaBraniArtistiAlbum = document.getElementById("listaBraniArtistiAlbum");
-const creaList = (song) => {
+const creaList = song => {
   for (let index = 0; index < 6; index++) {
     const element = song[index];
     const branoArtistaAlbum = document.createElement("li");
@@ -48,70 +48,70 @@ const creaList = (song) => {
 };
 window.addEventListener("DOMContentLoaded", () => {
   fetch(urlMilkyChance, options2)
-    .then((resp) => {
+    .then(resp => {
       if (resp.ok) {
         return resp.json();
       } else {
         throw `Errore ${resp.status} : ${resp.statusText} `;
       }
     })
-    .then((songs) => {
+    .then(songs => {
       console.log(songs);
       creaList(songs.data);
     })
-    .catch((err) => alert(err));
+    .catch(err => alert(err));
   fetch(urlQueen, options2)
-    .then((resp) => {
+    .then(resp => {
       if (resp.ok) {
         return resp.json();
       } else {
         throw `Errore ${resp.status} : ${resp.statusText} `;
       }
     })
-    .then((songs) => {
+    .then(songs => {
       console.log(songs);
       creaList(songs.data);
     })
-    .catch((err) => alert(err));
+    .catch(err => alert(err));
   fetch(urlDonOmar, options2)
-    .then((resp) => {
+    .then(resp => {
       if (resp.ok) {
         return resp.json();
       } else {
         throw `Errore ${resp.status} : ${resp.statusText} `;
       }
     })
-    .then((songs) => {
+    .then(songs => {
       console.log(songs);
       creaList(songs.data);
     })
-    .catch((err) => alert(err));
+    .catch(err => alert(err));
   fetch(urlNickyJam, options2)
-    .then((resp) => {
+    .then(resp => {
       if (resp.ok) {
         return resp.json();
       } else {
         throw `Errore ${resp.status} : ${resp.statusText} `;
       }
     })
-    .then((songs) => {
+    .then(songs => {
       console.log(songs);
       creaList(songs.data);
     })
-    .catch((err) => alert(err));
-  fetch(urlEminem, options2)
-    .then((resp) => {
+    .catch(err => alert(err));
+  fetch(urlQueen, options2)
+    .then(resp => {
       if (resp.ok) {
         return resp.json();
       } else {
         throw `Errore ${resp.status} : ${resp.statusText} `;
       }
     })
-    .then((songs) => {
+    .then(songs => {
       console.log(songs);
       creaList(songs.data);
     })
-    .catch((err) => alert(err));
+    .catch(err => alert(err));
 });
 
 const homeBtn = document.getElementById("homeBtn");

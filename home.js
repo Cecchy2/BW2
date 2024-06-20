@@ -4,8 +4,9 @@ const artistiPopolari = [13, 66, 7543848, 12246, 384236, 1188];
 // array di artisti presi in modo casuale e messi come estensione del url per accedere alle top 50 canzoni
 // const indexArtists = [1, 2, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 18, 19, 25, 21, 22, 24, 26, 27, 28, 29, 30];
 const albumAnnunci = [
-  400319947, 108938, 423368, 159826232, 10613684, 194246202, 8178950, 273367132, 591398592, 9410100, 303950837, 581531012, 580186491, 554390622, 597941372, 560398332, 6240279, 96126, 47131362,
-  12047952, 104660202, 96001912, 1262014, 299484812,
+  400319947, 108938, 423368, 159826232, 10613684, 194246202, 8178950, 273367132, 591398592, 9410100, 303950837,
+  581531012, 580186491, 554390622, 597941372, 560398332, 6240279, 96126, 47131362, 12047952, 104660202, 96001912,
+  1262014, 299484812,
 ];
 // array di album artista preferito (eminem)
 const albumsArtistaPref = [103248, 119606, 7090505, 595243, 72000342, 125748];
@@ -54,7 +55,8 @@ const creaCards = (artist, container, index) => {
   btnPlay.type = "button";
   btnPlay.setAttribute("style", "width: 50px; height:50px");
   // btnPlay.href = "./back-office.html?productId=" + songs.data[i]._id;
-  btnPlay.className = "btn btn-success rounded-circle  position-absolute  bottom-0 end-0 me-2 mb-2 d-flex align-items-center justify-content-center d-none ";
+  btnPlay.className =
+    "btn btn-success rounded-circle  position-absolute  bottom-0 end-0 me-2 mb-2 d-flex align-items-center justify-content-center d-none ";
   btnPlay.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="black" class="bi bi-play-fill" viewBox="0 0 16 16">
   <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"/></svg>`;
 
@@ -164,7 +166,8 @@ const cardsAlbum = (arrAlbums, container) => {
         btnPlay.type = "button";
         btnPlay.setAttribute("style", "width: 50px; height:50px");
         // btnPlay.href = "./back-office.html?productId=" + songs.data[i]._id;
-        btnPlay.className = "btn btn-success btnPlay  rounded-circle   position-absolute  bottom-0 end-0 me-2 mb-2 d-flex align-items-center justify-content-center d-none ";
+        btnPlay.className =
+          "btn btn-success btnPlay  rounded-circle   position-absolute  bottom-0 end-0 me-2 mb-2 d-flex align-items-center justify-content-center d-none ";
         btnPlay.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="black" class="bi bi-play-fill" viewBox="0 0 16 16">
           <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"/></svg>`;
 
@@ -176,122 +179,124 @@ const cardsAlbum = (arrAlbums, container) => {
         function out() {
           btnPlay.classList.add("d-none");
         }
-        btnPlay.addEventListener("click", event => {
-          window.location.assign("./home.html");
+        btnPlay
+          .addEventListener("click", event => {
+            window.location.assign("./home.html");
 
-        //   // on click prende le informazioni del album o del artista e fa partire la prima canzone sulla barra play
-        // });
+            //   // on click prende le informazioni del album o del artista e fa partire la prima canzone sulla barra play
+            // });
 
-        const cardBody = document.createElement("div");
-        cardBody.className = "card-body text-start px-0 pb-0";
-        const h5 = document.createElement("h5");
-        h5.innerText = album.title;
-        h5.className = "fs-5 text-truncate ";
-        h5.addEventListener("click", event => {
-          window.location.assign("./AlbumPage.html?albumId=" + album.id);
-        });
-        const name = document.createElement("a");
-        name.innerText = album.artist.name;
-        name.className = "link-underline-secondary link-underline-opacity-0 link-underline-opacity-75-hover text-secondary fw-bold";
-        name.href = "./artists.html?artistId=" + album.artist.id;
+            const cardBody = document.createElement("div");
+            cardBody.className = "card-body text-start px-0 pb-0";
+            const h5 = document.createElement("h5");
+            h5.innerText = album.title;
+            h5.className = "fs-5 text-truncate ";
+            h5.addEventListener("click", event => {
+              window.location.assign("./AlbumPage.html?albumId=" + album.id);
+            });
+            const name = document.createElement("a");
+            name.innerText = album.artist.name;
+            name.className =
+              "link-underline-secondary link-underline-opacity-0 link-underline-opacity-75-hover text-secondary fw-bold";
+            name.href = "./artists.html?artistId=" + album.artist.id;
 
-        imgContainer.append(img, btnPlay);
-        cardBody.append(h5, name);
-        card.append(imgContainer, cardBody);
-        col.append(card);
-        row.append(col);
+            imgContainer.append(img, btnPlay);
+            cardBody.append(h5, name);
+            card.append(imgContainer, cardBody);
+            col.append(card);
+            row.append(col);
 
-        // aggiungo classsi a cards specifiche grazie al index
-        switch (index) {
-          case 1:
-            col.classList.add("d-none", "d-md-block");
-            break;
-          case 2:
-            col.classList.add("d-none", "d-lg-block");
-            break;
-          case 3:
-            col.classList.add("d-none", "d-xl-block");
-            break;
-          case 4:
-            col.classList.add("d-none", "d-xxl-block");
-            break;
-          case 5:
-            col.classList.add("d-none", "d-xxl-block");
-            break;
+            // aggiungo classsi a cards specifiche grazie al index
+            switch (index) {
+              case 1:
+                col.classList.add("d-none", "d-md-block");
+                break;
+              case 2:
+                col.classList.add("d-none", "d-lg-block");
+                break;
+              case 3:
+                col.classList.add("d-none", "d-xl-block");
+                break;
+              case 4:
+                col.classList.add("d-none", "d-xxl-block");
+                break;
+              case 5:
+                col.classList.add("d-none", "d-xxl-block");
+                break;
+            }
+          })
+          .catch(err => alert(err));
+      });
+  });
+
+  //funzione che prende il valore nell'input search
+
+  // all caricamento del DOM creo la card di annuncio
+  window.addEventListener("DOMContentLoaded", function () {
+    randomAlbum = Math.round(Math.random() * (albumAnnunci.length - 1));
+    // ************************************album di annuncio del momento*******************************
+    fetch("https://deezerdevs-deezer.p.rapidapi.com/album/" + albumAnnunci[randomAlbum], options)
+      .then(resp => {
+        if (resp.ok) {
+          // restituiamo il dato convertito in array da JSON
+          return resp.json();
+        } else {
+          throw `Errore ${resp.status} : ${resp.statusText} `;
         }
       })
-      .catch(err => alert(err));
-  });
-};
+      .then(album => {
+        console.log(album);
+        const annunci = document.getElementById("annunci");
+        // dal array di canzoni prendo una a caso tra le prime 3 (non sappiamo se le top 50 canzoni sono veramente 50)
 
-//funzione che prende il valore nell'input search
+        const imgAnnunci = document.getElementById("imgAnnunci");
+        imgAnnunci.setAttribute("src", album.cover_big);
+        imgAnnunci.addEventListener("click", event => {
+          window.location.assign("./AlbumPage.html?albumId=" + album.id);
+        });
+        const infoAnnunci = document.createElement("div");
+        infoAnnunci.setAttribute("data-bs-theme", "dark");
+        const spanAnnunci = document.createElement("span");
+        spanAnnunci.innerText = album.type;
+        spanAnnunci.className = "fs-6 text-secondary";
+        const h2 = document.createElement("h2");
+        h2.innerText = album.title;
+        h2.className = "text-truncate";
+        h2.style.maxWidth = "300px";
+        h2.addEventListener("click", event => {
+          window.location.assign("./AlbumPage.html?albumId=" + album.id);
+        });
 
-// all caricamento del DOM creo la card di annuncio
-window.addEventListener("DOMContentLoaded", function () {
-  randomAlbum = Math.round(Math.random() * (albumAnnunci.length - 1));
-  // ************************************album di annuncio del momento*******************************
-  fetch("https://deezerdevs-deezer.p.rapidapi.com/album/" + albumAnnunci[randomAlbum], options)
-    .then(resp => {
-      if (resp.ok) {
-        // restituiamo il dato convertito in array da JSON
-        return resp.json();
-      } else {
-        throw `Errore ${resp.status} : ${resp.statusText} `;
-      }
-    })
-    .then(album => {
-      console.log(album);
-      const annunci = document.getElementById("annunci");
-      // dal array di canzoni prendo una a caso tra le prime 3 (non sappiamo se le top 50 canzoni sono veramente 50)
+        const artistName = document.createElement("a");
+        artistName.className = "link-light link-underline-opacity-0 link-underline-opacity-75-hover text-white fw-bold";
+        artistName.href = "./artists.html?artistId=" + album.artist.id;
+        artistName.innerText = album.artist.name;
 
-      const imgAnnunci = document.getElementById("imgAnnunci");
-      imgAnnunci.setAttribute("src", album.cover_big);
-      imgAnnunci.addEventListener("click", event => {
-        window.location.assign("./AlbumPage.html?albumId=" + album.id);
-      });
-      const infoAnnunci = document.createElement("div");
-      infoAnnunci.setAttribute("data-bs-theme", "dark");
-      const spanAnnunci = document.createElement("span");
-      spanAnnunci.innerText = album.type;
-      spanAnnunci.className = "fs-6 text-secondary";
-      const h2 = document.createElement("h2");
-      h2.innerText = album.title;
-      h2.className = "text-truncate";
-      h2.style.maxWidth = "300px";
-      h2.addEventListener("click", event => {
-        window.location.assign("./AlbumPage.html?albumId=" + album.id);
-      });
+        const p2 = document.createElement("p");
+        p2.innerText = `Ascolta il nuovo album di ${album.artist.name}`;
+        p2.className = "text-secondary mt-3";
+        const containerBtn = document.createElement("div");
+        containerBtn.className = "d-flex";
+        const buttonPlay = document.createElement("button");
+        buttonPlay.innerText = "Play";
+        buttonPlay.className = "btn btn-success text-black rounded-pill px-4 me-4";
+        const buttonSalva = document.createElement("button");
+        buttonSalva.innerText = "Salva";
+        buttonSalva.className = "btn btn-outline-light rounded-pill  px-4 me-4";
+        const dropdown = document.createElement("div");
+        dropdown.className = " dropdown";
+        const buttonSettings = document.createElement("button");
+        buttonSettings.innerText = ". . .";
+        buttonSettings.setAttribute("type", "button");
+        buttonSettings.setAttribute("data-bs-toggle", "dropdown");
+        buttonSettings.className = "btn px-4 border-0";
+        dropdown.appendChild(buttonSettings);
+        const dotsMenu = document.createElement("ul");
+        dotsMenu.className = "dropdown-menu";
+        buttonSettings.appendChild(dotsMenu);
+        const listMenu = document.createElement("li");
 
-      const artistName = document.createElement("a");
-      artistName.className = "link-light link-underline-opacity-0 link-underline-opacity-75-hover text-white fw-bold";
-      artistName.href = "./artists.html?artistId=" + album.artist.id;
-      artistName.innerText = album.artist.name;
-
-      const p2 = document.createElement("p");
-      p2.innerText = `Ascolta il nuovo album di ${album.artist.name}`;
-      p2.className = "text-secondary mt-3";
-      const containerBtn = document.createElement("div");
-      containerBtn.className = "d-flex";
-      const buttonPlay = document.createElement("button");
-      buttonPlay.innerText = "Play";
-      buttonPlay.className = "btn btn-success text-black rounded-pill px-4 me-4";
-      const buttonSalva = document.createElement("button");
-      buttonSalva.innerText = "Salva";
-      buttonSalva.className = "btn btn-outline-light rounded-pill  px-4 me-4";
-      const dropdown = document.createElement("div");
-      dropdown.className = " dropdown";
-      const buttonSettings = document.createElement("button");
-      buttonSettings.innerText = ". . .";
-      buttonSettings.setAttribute("type", "button");
-      buttonSettings.setAttribute("data-bs-toggle", "dropdown");
-      buttonSettings.className = "btn px-4 border-0";
-      dropdown.appendChild(buttonSettings);
-      const dotsMenu = document.createElement("ul");
-      dotsMenu.className = "dropdown-menu";
-      buttonSettings.appendChild(dotsMenu);
-      const listMenu = document.createElement("li");
-
-      listMenu.innerHTML = `<a class="dropdown-item" href="#"
+        listMenu.innerHTML = `<a class="dropdown-item" href="#"
                             ><svg
                               xmlns="http://www.w3.org/2000/svg"
                               width="16"
@@ -309,10 +314,10 @@ window.addEventListener("DOMContentLoaded", function () {
                               /></svg
                             >Segui</a
                           >`;
-      dotsMenu.appendChild(listMenu);
-      const listMenu2 = document.createElement("li");
+        dotsMenu.appendChild(listMenu);
+        const listMenu2 = document.createElement("li");
 
-      listMenu2.innerHTML = ` <a class="dropdown-item border-bottom" href="#"
+        listMenu2.innerHTML = ` <a class="dropdown-item border-bottom" href="#"
                             ><svg
                               xmlns="http://www.w3.org/2000/svg"
                               width="16"
@@ -326,10 +331,10 @@ window.addEventListener("DOMContentLoaded", function () {
                               /></svg
                             >Vai a Radio dell'artista</a
                           >`;
-      dotsMenu.appendChild(listMenu2);
-      const listMenu3 = document.createElement("li");
+        dotsMenu.appendChild(listMenu2);
+        const listMenu3 = document.createElement("li");
 
-      listMenu3.innerHTML = ` <a class="dropdown-item" href="#"
+        listMenu3.innerHTML = ` <a class="dropdown-item" href="#"
                             ><svg
                               xmlns="http://www.w3.org/2000/svg"
                               width="16"
@@ -343,28 +348,29 @@ window.addEventListener("DOMContentLoaded", function () {
                               /></svg
                             >Apri l'app</a
                           >`;
-      dotsMenu.appendChild(listMenu3);
+        dotsMenu.appendChild(listMenu3);
 
-      containerBtn.append(buttonPlay, buttonSalva, dropdown);
-      infoAnnunci.append(spanAnnunci, h2, p1, p2, containerBtn);
-      annunci.appendChild(infoAnnunci);
-    })
-    .catch(err => alert(err));
+        containerBtn.append(buttonPlay, buttonSalva, dropdown);
+        infoAnnunci.append(spanAnnunci, h2, p1, p2, containerBtn);
+        annunci.appendChild(infoAnnunci);
+      })
+      .catch(err => alert(err));
 
-  cardsArtist(artistiPopolari, "#perTe");
-  cardsAlbum(albumsArtistaPref, "#artistaPref");
-  cardsAlbum(albumsDiOggi, "#perOggi");
-  cardsAlbum(albumsPopolari, "#popolari");
-  cardsAlbum(albumsStorici, "#mixPref");
-});
+    cardsArtist(artistiPopolari, "#perTe");
+    cardsAlbum(albumsArtistaPref, "#artistaPref");
+    cardsAlbum(albumsDiOggi, "#perOggi");
+    cardsAlbum(albumsPopolari, "#popolari");
+    cardsAlbum(albumsStorici, "#mixPref");
+  });
 
-// ********** input search******************************************
-const searchInput = document.getElementById("searchInput");
-const form = document.getElementById("form");
+  // ********** input search******************************************
+  const searchInput = document.getElementById("searchInput");
+  const form = document.getElementById("form");
 
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
-  if (searchInput.value) {
-    window.location.assign("./search.html?search=" + searchInput.value);
-  }
-});}
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (searchInput.value) {
+      window.location.assign("./search.html?search=" + searchInput.value);
+    }
+  });
+};
