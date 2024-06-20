@@ -11866,7 +11866,7 @@ textarea.form-control-lg {
 }
 
 #main {
-  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.768627451) 0%, #000000 46%, #ffcc70 100%);
+  /* background-image: linear-gradient(0deg, #000000c4 0%, #000000 46%, #ffcc70 100%); */
 }
 
 #playBtn {

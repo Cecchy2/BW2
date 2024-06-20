@@ -7,7 +7,7 @@ window.addEventListener("DOMContentLoaded", function () {
   fetch("https://deezerdevs-deezer.p.rapidapi.com/album/" + id, {
     method: "GET",
     headers: {
-      "x-rapidapi-key": "c1be13bc83msh01ed86504ac789ap14b677jsn4a8378e3cb43",
+      "x-rapidapi-key": "dfd3925d0amshafe029754eb961ap17f037jsn18e065c48a37",
       "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
     },
   })
@@ -32,14 +32,35 @@ window.addEventListener("DOMContentLoaded", function () {
       const titleAlbum = document.getElementById("albumTitle");
       const artistAlbum = document.getElementById("albumArtist");
 
+      imgCurrentAlbum.crossOrigin = "Anonymous";
+
+      imgCurrentAlbum.src = albumObj.cover_big;
+      titleAlbum.innerText = albumObj.title;
+      artistAlbum.innerText = `${albumObj.artist.name} · ${year} · ${albumObj.nb_tracks} tracks`;
+
+      /* Questa e´ la funzione per la media dei colori dell'immagine  ma non funziona */
+      /* imgCurrentAlbum.onload = function () {
+        const colorThief = new ColorThief();
+        const dominantColor = colorThief.getColor(imgCurrentAlbum);
+        const mainElement = document.querySelector("main");
+        console.log(`Dominant Color: rgb(${dominantColor[0]}, ${dominantColor[1]}, ${dominantColor[2]})`);
+        mainElement.style.backgroundColor = `rgb(${dominantColor[0]}, ${dominantColor[1]}, ${dominantColor[2]})`;
+      }; */
+
       imgCurrentAlbum.src = albumObj.cover_big;
       titleAlbum.innerText = albumObj.title;
       artistAlbum.innerText = `${albumObj.artist.name} · ${year} · ${albumObj.nb_tracks} tracks`;
 
       imgCurrentAlbum.onload = function () {
-        const avgColor = getAverageColor(imgCurrentAlbum);
-        const mainElement = document.querySelector("main");
-        mainElement.style.backgroundColor = `rgb(${avgColor.r}, ${avgColor.g}, ${avgColor.b})`;
+        const colorThief = new ColorThief();
+        const dominantColor = colorThief.getColor(imgCurrentAlbum);
+        console.log(`Dominant Color: rgb(${dominantColor[0]}, ${dominantColor[1]}, ${dominantColor[2]})`);
+        const mainElement = document.getElementById("main");
+        mainElement.style.backgroundColor = `rgb(${dominantColor[0]}, ${dominantColor[1]}, ${dominantColor[2]})`;
+      };
+
+      imgCurrentAlbum.onerror = function () {
+        console.error("Error loading the album image.");
       };
 
       const tracksTable = document.getElementById("tracksTable").querySelector("tbody");
@@ -48,24 +69,24 @@ window.addEventListener("DOMContentLoaded", function () {
       albumObj.tracks.data.forEach((track, index) => {
         const trackRow = document.createElement("tr");
 
-        // Track number cell
+        // Canzone
         const trackNumberCell = document.createElement("th");
         trackNumberCell.scope = "row";
         trackNumberCell.innerText = index + 1;
         trackRow.appendChild(trackNumberCell);
 
-        // Track title and artist cell
+        // Artista
         const trackTitleCell = document.createElement("td");
         trackTitleCell.innerHTML = `${track.title}<br><span style="font-size: 0.9em; color: rgb(159, 159, 159);">${track.artist.name}</span>`;
         trackRow.appendChild(trackTitleCell);
 
-        // Play count cell
+        // Riproduz.
         const playCountCell = document.createElement("td");
         playCountCell.innerText = track.rank;
         trackRow.appendChild(playCountCell);
         playCountCell.className = "d-none d-xxl-table-cell";
 
-        // Track duration cell
+        // Durata
         const trackDurationCell = document.createElement("td");
         const minutes = Math.floor(track.duration / 60);
         let seconds = track.duration % 60;
@@ -177,7 +198,7 @@ window.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-function getAverageColor(imgElement) {
+/* function getAverageColor(imgElement) {
   const canvas = document.createElement("canvas");
   const context = canvas.getContext("2d");
 
@@ -189,9 +210,9 @@ function getAverageColor(imgElement) {
   const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
   const data = imageData.data;
 
-  let r = 0,
-    g = 0,
-    b = 0;
+  let r = 0;
+  let g = 0;
+  let b = 0;
 
   for (let i = 0; i < data.length; i += 4) {
     r += data[i];
@@ -205,3 +226,4 @@ function getAverageColor(imgElement) {
 
   return { r, g, b };
 }
+ */

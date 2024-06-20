@@ -1,4 +1,4 @@
-const authKey = "1bf979bf4cmsh3a580f854a77993p1355dajsn876a815ada14";
+const authKey = "c1be13bc83msh01ed86504ac789ap14b677jsn4a8378e3cb43";
 const searchBar = document.getElementById("searchBar");
 const artistBanner = document.getElementById("artistBanner");
 const id = new URLSearchParams(window.location.search).get("artistId");
@@ -12,7 +12,7 @@ const popularArtist = [13, 66, 7543848, 12246];
 const options = {
   method: "GET",
   headers: {
-    "x-rapidapi-key": "1bf979bf4cmsh3a580f854a77993p1355dajsn876a815ada14",
+    "x-rapidapi-key": "c1be13bc83msh01ed86504ac789ap14b677jsn4a8378e3cb43",
     "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
   },
 };
