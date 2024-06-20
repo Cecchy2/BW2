@@ -103,7 +103,6 @@ $theme-colors: map-merge($theme-colors, $add-colors);
 }
 #tracksTable {
   width: 90%;
-  height: 100vh;
 }
 #BtnDropdown {
   background-color: rgba(66, 57, 24, 0.581);
@@ -201,4 +200,14 @@ tr:hover {
   #btnInstall {
     display: inline;
   }
+}
+.hidden {
+  display: none;
+}
+.fixed-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: black;
+  z-index: 1000;
 }
