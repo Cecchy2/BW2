@@ -155,4 +155,17 @@ window.addEventListener("DOMContentLoaded", function () {
     .catch((error) => {
       console.error("Fetch error:", error);
     });
+
+  let scrolPage = 0;
+  const theadTable = document.getElementById("theadTable");
+  theadTable.classList.add("hidden");
+
+  window.addEventListener("scroll", () => {
+    scrolPage = window.scrollY;
+    if (scrolPage >= 60) {
+      theadTable.classList.remove("hidden");
+    } else if (scrolPage < 60) {
+      theadTable.classList.add("hidden");
+    }
+  });
 });
