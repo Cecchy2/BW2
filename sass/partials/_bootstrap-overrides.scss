@@ -160,3 +160,18 @@ tr:hover {
   cursor: pointer;
   background-color: rgb(69, 69, 69);
 }
+@media (max-width: 599px) {
+  header {
+    min-width: 60px;
+  }
+}
+@media (min-width: 600px) and (max-width: 1199px){
+ header {
+    min-width: 70px;
+  }
+}
+@media (min-width:1200px){
+  header {
+     min-width: 300px;
+   }
+ }
