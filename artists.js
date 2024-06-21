@@ -275,34 +275,6 @@ const createSongList = () => {
             footerArtista.innerText = art.artist.name;
           }
         });
-        /*  const btnPlayArtist = document.getElementById("btnPlayArtist");
-        btnPlayArtist.addEventListener("click", (event) => {
-          console.log("Button clicked");
-
-          const imgArtistaAlbum = document.getElementById("imgArtistaAlbum");
-          const footerTitolo = document.getElementById("footerTitolo");
-          const footerArtista = document.getElementById("footerArtista");
-          const image = document.createElement("img");
-          const h5 = document.createElement("h5");
-          if (imgArtistaAlbum.firstChild && imgArtistaAlbum.firstChild.src) {
-            imgArtistaAlbum.innerHTML = "";
-            footerTitolo.innerHTML = "";
-            footerArtista.innerHTML = "";
-            image.src = art.album.cover_small;
-            imgArtistaAlbum.appendChild(image);
-            footerTitolo.appendChild(h5);
-            imgArtistaAlbum.classList.add("me-2");
-            h5.innerText = art.title;
-            footerArtista.innerText = art.artist.name;
-          } else {
-            image.src = art.album.cover_small;
-            imgArtistaAlbum.appendChild(image);
-            footerTitolo.appendChild(h5);
-            imgArtistaAlbum.classList.add("me-2");
-            h5.innerText = art.title;
-            footerArtista.innerText = art.artist.name;
-          }
-        }); */
       });
     })
     .catch((err) => console.log(err));
