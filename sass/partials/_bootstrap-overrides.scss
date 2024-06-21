@@ -232,11 +232,9 @@ tr:hover {
 .hidden {
   opacity: 0;
   transition: opacity 1s ease-in-out;
-  visibility: hidden;
 }
 .visibile {
   opacity: 1;
-  visibility: visible;
 }
 .fixed-header {
   position: fixed;
