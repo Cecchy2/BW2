@@ -20,6 +20,38 @@ window.addEventListener("DOMContentLoaded", function () {
     })
     .then((albumObj) => {
       console.log(albumObj);
+      /////EVENTO PLAYBTN SU ALLBUMPAGE
+
+      const btnPlayAlbum = document.getElementById("playBtn");
+      btnPlayAlbum.addEventListener("click", (event) => {
+        console.log("Button clicked");
+        const indexPazzo = Math.floor(Math.random() * 20);
+
+        const imgArtistaAlbum = document.getElementById("imgArtistaAlbum");
+        const footerTitolo = document.getElementById("footerTitolo");
+        const footerArtista = document.getElementById("footerArtista");
+        const image = document.createElement("img");
+        const h5 = document.createElement("h5");
+        if (imgArtistaAlbum.firstChild && imgArtistaAlbum.firstChild.src) {
+          imgArtistaAlbum.innerHTML = "";
+          footerTitolo.innerHTML = "";
+          footerArtista.innerHTML = "";
+          image.src = albumObj.cover_small;
+          imgArtistaAlbum.appendChild(image);
+          footerTitolo.appendChild(h5);
+          imgArtistaAlbum.classList.add("me-2");
+          h5.innerText = albumObj.tracks.data[indexPazzo].title;
+          footerArtista.innerText = albumObj.artist.name;
+        } else {
+          image.src = albumObj.cover_small;
+          imgArtistaAlbum.appendChild(image);
+          footerTitolo.appendChild(h5);
+          imgArtistaAlbum.classList.add("me-2");
+          h5.innerText = albumObj.tracks.data[indexPazzo].title;
+          footerArtista.innerText = albumObj.artist.name;
+        }
+      });
+      //////FINE EVENTO
 
       artistId = albumObj.artist.id;
       console.log(artistId);
@@ -92,6 +124,35 @@ window.addEventListener("DOMContentLoaded", function () {
         trackRow.appendChild(trackDurationCell);
 
         tracksTable.appendChild(trackRow);
+        ////EVENTO CLICK SULLA RIGA DELLA TABELLA
+        trackRow.addEventListener("click", (event) => {
+          console.log("Button clicked");
+          console.log(albumObj);
+
+          const imgArtistaAlbum = document.getElementById("imgArtistaAlbum");
+          const footerTitolo = document.getElementById("footerTitolo");
+          const footerArtista = document.getElementById("footerArtista");
+          const image = document.createElement("img");
+          const h5 = document.createElement("h5");
+          if (imgArtistaAlbum.firstChild && imgArtistaAlbum.firstChild.src) {
+            imgArtistaAlbum.innerHTML = "";
+            footerTitolo.innerHTML = "";
+            footerArtista.innerHTML = "";
+            image.src = albumObj.cover_small;
+            imgArtistaAlbum.appendChild(image);
+            footerTitolo.appendChild(h5);
+            imgArtistaAlbum.classList.add("me-2");
+            h5.innerText = track.title;
+            footerArtista.innerText = track.artist.name;
+          } else {
+            image.src = albumObj.cover_small;
+            imgArtistaAlbum.appendChild(image);
+            footerTitolo.appendChild(h5);
+            imgArtistaAlbum.classList.add("me-2");
+            h5.innerText = track.title;
+            footerArtista.innerText = track.artist.name;
+          }
+        });
       });
 
       return fetch(`https://striveschool-api.herokuapp.com/api/deezer/artist/${artistId}/top?limit=50`);
