@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Bootstrap demo</title>
+    <title>Spotify- AlbumPage</title>
     <link rel="stylesheet" href="./assets/dist/css/style.min.css" />
     <link rel="stylesheet" href="assets/css/circular-font.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.2/color-thief.umd.js"></script>
@@ -257,24 +257,28 @@
                 </button>
               </div>
             </div>
-            <div class="" id="theadTable"><div scope="col">#</th>
-              <div scope="col " class="d-inline-block pb-3 mt-3">Titolo</div>
-              <div scope="col" class="d-none d-xxl-table-cell">Riproduzioni</div>
-              <div scope="col" class="d-none d-lg-table-cell">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="white"
-                  class="bi bi-stopwatch"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M8.5 5.6a.5.5 0 1 0-1 0v2.9h-3a.5.5 0 0 0 0 1H8a.5.5 0 0 0 .5-.5z"></path>
-                  <path
-                    d="M6.5 1A.5.5 0 0 1 7 .5h2a.5.5 0 0 1 0 1v.57c1.36.196 2.594.78 3.584 1.64l.012-.013.354-.354-.354-.353a.5.5 0 0 1 .707-.708l1.414 1.415a.5.5 0 1 1-.707.707l-.353-.354-.354.354-.013.012A7 7 0 1 1 7 2.071V1.5a.5.5 0 0 1-.5-.5M8 3a6 6 0 1 0 .001 12A6 6 0 0 0 8 3"
-                  ></path>
-                </svg>
-              </div></div>
+            <div id="hiddenThead" class="hidden">
+              <div class="row w-100">
+                <div class="col ms-4 ps-3">#</div>
+                <div class="col-10 col-lg-9 col-xxl-5">Titolo</div>
+                <div class="d-none d-xxl-table-cell col-xxl-3 ps-5 ms-4">Riproduzioni</div>
+                <div class="d-none d-lg-table-cell col-2 col-lg-2 ps-xxl-5">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="white"
+                    class="bi bi-stopwatch"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M8.5 5.6a.5.5 0 1 0-1 0v2.9h-3a.5.5 0 0 0 0 1H8a.5.5 0 0 0 .5-.5z"></path>
+                    <path
+                      d="M6.5 1A.5.5 0 0 1 7 .5h2a.5.5 0 0 1 0 1v.57c1.36.196 2.594.78 3.584 1.64l.012-.013.354-.354-.354-.353a.5.5 0 0 1 .707-.708l1.414 1.415a.5.5 0 1 1-.707.707l-.353-.354-.354.354-.013.012A7 7 0 1 1 7 2.071V1.5a.5.5 0 0 1-.5-.5M8 3a6 6 0 1 0 .001 12A6 6 0 0 0 8 3"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
             <div class="scrollbar" style="height: 80vh" id="scrollThead">
               <!-- da qui parte il mio main -->
 

@@ -182,15 +182,15 @@ window.addEventListener("DOMContentLoaded", function () {
       console.error("Fetch error:", error);
     });
 
-  /* window.addEventListener("scroll", function (event) {
-    console.log(event);
-    const table = document.getElementById("theadTable");
-    if (window.scrollTop > 60) {
-      table.classList.remove("d-none");
-    } else {
-      table.classList.add("d-none");
-    }
-  }); */
+  const scrollPage = document.getElementById("scrollThead");
+  const hiddenThead = document.getElementById("hiddenThead");
 
-  /* non e il window e non e scrolly ma scrolltop */
+  scrollPage.addEventListener("scroll", function (event) {
+    if (scrollPage.scrollTop > 475) {
+      console.log(event);
+      hiddenThead.classList.remove("hidden");
+    } else {
+      hiddenThead.classList.add("hidden");
+    }
+  });
 });
