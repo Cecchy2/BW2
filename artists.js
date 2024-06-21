@@ -11,7 +11,7 @@ const staticLine = document.getElementById("line");
 const childLine = document.getElementById("lineChild");
 const timeCurrent = document.getElementById("currentTime");
 const totaleDuratione = document.getElementById("totaleDuratione");
-let counter = 0;
+const volumeControl = document.getElementById("volumeControl");
 
 const popularArtist = [13, 66, 7543848, 12246];
 
@@ -473,6 +473,12 @@ const related = () => {
 };
 
 window.addEventListener("DOMContentLoaded", function () {
+  audioPlayer.volume = volumeControl.value;
+
+  volumeControl.addEventListener("input", function (e) {
+    audioPlayer.volume = e.target.value;
+  });
+
   createBanner();
   createSongList();
   handlelikedSongs();
