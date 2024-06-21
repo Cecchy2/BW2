@@ -142,7 +142,7 @@ const createBanner = () => {
       banner.style.maxHeight = "45vh";
       artistBanner.appendChild(banner);
       artistName.className = "h1 mb-0 ms-3 position-absolute z-1 top-50 start-0"; // da capire
-      artistName.setAttribute("style", "font-size: 80px;");
+      artistName.setAttribute("id", "artistNameBanner");
       artistName.innerText = artist.name;
       artistBanner.appendChild(artistName);
       // artistBanner.style.backgroundImage = `url(${artist.picture_xl})`;
@@ -191,13 +191,14 @@ const createSongList = () => {
         songRow.appendChild(songImg);
 
         const songTitle = document.createElement("h6");
-        songTitle.className = "ps-3";
+        songTitle.className = "ps-3 text-truncate";
         songTitle.style = "font-size: 0.9rem";
         songTitle.innerText = art.title;
         songRow.appendChild(songTitle);
 
         const col2 = document.createElement("div");
-        col2.className = "col-2 ms-auto";
+        col2.className = "col-sm-0 col-md-2 ms-auto";
+        col2.setAttribute("id", "views");
         songsList.appendChild(col2);
         const views = document.createElement("p");
         views.className = "text-secondary p-2 ms-auto";

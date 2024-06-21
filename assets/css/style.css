@@ -11972,6 +11972,22 @@ tr:hover {
   justify-content: center;
 }
 
+@media screen and (min-width: 500px) {
+  header {
+    min-width: 25%;
+    height: 100%;
+  }
+  main {
+    min-width: 75%;
+    height: 100%;
+  }
+  main #artistNameBanner {
+    font-size: 50px;
+  }
+  main #views {
+    display: none;
+  }
+}
 @media screen and (max-width: 599px) {
   header {
     min-width: 60px;
@@ -12004,6 +12020,9 @@ tr:hover {
   header {
     min-width: 300px;
   }
+  main #artistNameBanner {
+    font-size: 80px;
+  }
   #btnAvanti {
     display: inline;
   }
@@ -12026,14 +12045,38 @@ tr:hover {
   z-index: 1000;
 }
 
+@media screen and (min-width: 900px) {
+  header {
+    min-width: 25%;
+    height: 100%;
+  }
+  main {
+    min-width: 75%;
+    height: 100%;
+  }
+  main #artistNameBanner {
+    font-size: 80px;
+  }
+  main #views {
+    display: block;
+  }
+}
 @media screen and (min-width: 600px) {
   header {
-    min-width: 70px;
+    min-width: 15%;
+    height: 100%;
+  }
+  main {
+    min-width: 75%;
+    height: 100%;
+  }
+  main .views {
+    display: none;
   }
 }
 @media screen and (min-width: 1200px) {
   header {
-    min-width: 300px;
+    min-width: 70px;
   }
   #btnEsplora {
     display: inline;
