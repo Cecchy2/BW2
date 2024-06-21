@@ -11844,6 +11844,10 @@ textarea.form-control-lg {
   overflow-y: auto;
 }
 
+#hiddenThead {
+  background-color: rgb(26, 26, 26);
+}
+
 #scrollThead {
   overflow-x: hidden;
 }
