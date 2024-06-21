@@ -18,17 +18,15 @@ $add-colors: (
 );
 $theme-colors: map-merge($theme-colors, $add-colors);
 
-
 // ****************** add font size****************************
 $h7-font-size: $font-size-base * 0.9;
 $h8-font-size: $font-size-base * 0.8;
 $h9-font-size: $font-size-base * 0.7;
 
-
 $custom-font-sizes: (
   7: $h7-font-size,
   8: $h8-font-size,
-  9: $h9-font-size
+  9: $h9-font-size,
 );
 
 $font-sizes: map-merge($font-sizes, $custom-font-sizes);
@@ -184,9 +182,13 @@ tr:hover {
   background-color: rgb(69, 69, 69);
 }
 
-#btnEsplora{display: none;}
-#btnInstall{display: none;}
-#home-cerca{
+#btnEsplora {
+  display: none;
+}
+#btnInstall {
+  display: none;
+}
+#home-cerca {
   justify-content: center;
 }
 @media screen and (max-width: 599px) {
@@ -241,24 +243,25 @@ tr:hover {
   background-color: black;
   z-index: 1000;
 }
-  
- 
 
-@media screen and (min-width: 600px){
- header {
+@media screen and (min-width: 600px) {
+  header {
     min-width: 70px;
   }
- 
 }
-@media screen and (min-width:1200px){
+@media screen and (min-width: 1200px) {
   header {
-     min-width: 300px;
-   }
-  
-  #btnEsplora{display: inline;}
-  #btnInstall{display: inline;}
-  #home-cerca{
+    min-width: 300px;
+  }
+
+  #btnEsplora {
+    display: inline;
+  }
+  #btnInstall {
+    display: inline;
+  }
+  #home-cerca {
     justify-content: unset;
     padding-left: 1rem;
   }
- }
+}
