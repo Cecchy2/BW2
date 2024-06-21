@@ -12,7 +12,9 @@ const popularArtist = [13, 66, 7543848, 12246];
 const options = {
   method: "GET",
   headers: {
-    "x-rapidapi-key": "c1be13bc83msh01ed86504ac789ap14b677jsn4a8378e3cb43",
+    "x-rapidapi-key": "0f032eb218mshe7b959267e60906p1d3878jsnde7092ae2254",
+    /* "x-rapidapi-key": "4fa9bd0898msh965f020f8dcfd73p133487jsnd846f46b0f69", */
+    /* "x-rapidapi-key": "c1be13bc83msh01ed86504ac789ap14b677jsn4a8378e3cb43", */
     "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
   },
 };
@@ -170,7 +172,38 @@ const createSongList = () => {
       } else console.log("Errore nel caricamento dei dati");
     })
     .then((artists) => {
-      const arrayArtist = artists.data;
+      const artistsOBJ = artists.data;
+      console.log(artistsOBJ);
+      const btnPlayArtist = document.getElementById("btnPlayArtist");
+      btnPlayArtist.addEventListener("click", (event) => {
+        console.log("Button clicked");
+        const indexPazzo = Math.floor(Math.random() * 5);
+
+        const imgArtistaAlbum = document.getElementById("imgArtistaAlbum");
+        const footerTitolo = document.getElementById("footerTitolo");
+        const footerArtista = document.getElementById("footerArtista");
+        const image = document.createElement("img");
+        const h5 = document.createElement("h5");
+        if (imgArtistaAlbum.firstChild && imgArtistaAlbum.firstChild.src) {
+          imgArtistaAlbum.innerHTML = "";
+          footerTitolo.innerHTML = "";
+          footerArtista.innerHTML = "";
+          image.src = artistsOBJ[indexPazzo].album.cover_small;
+          imgArtistaAlbum.appendChild(image);
+          footerTitolo.appendChild(h5);
+          imgArtistaAlbum.classList.add("me-2");
+          h5.innerText = artistsOBJ[indexPazzo].title;
+          footerArtista.innerText = artistsOBJ[indexPazzo].artist.name;
+        } else {
+          image.src = artistsOBJ[indexPazzo].album.cover_small;
+          imgArtistaAlbum.appendChild(image);
+          footerTitolo.appendChild(h5);
+          imgArtistaAlbum.classList.add("me-2");
+          h5.innerText = artistsOBJ[indexPazzo].title;
+          footerArtista.innerText = artistsOBJ[indexPazzo].artist.name;
+        }
+      });
+
       artists.data.forEach((art, index) => {
         const songsList = document.getElementById("songsList");
         const col = document.createElement("div");
@@ -215,9 +248,9 @@ const createSongList = () => {
 
         const viewsCont = document.getElementById("viewsCont");
 
-        /* col.addEventListener("click", (event) => {
+        col.addEventListener("click", (event) => {
           console.log("Button clicked");
-          console.log(arrayArtist);
+
           const imgArtistaAlbum = document.getElementById("imgArtistaAlbum");
           const footerTitolo = document.getElementById("footerTitolo");
           const footerArtista = document.getElementById("footerArtista");
@@ -227,19 +260,47 @@ const createSongList = () => {
             imgArtistaAlbum.innerHTML = "";
             footerTitolo.innerHTML = "";
             footerArtista.innerHTML = "";
-            image.src = arrayArtist.picture_small;
+            image.src = art.album.cover_small;
             imgArtistaAlbum.appendChild(image);
             footerTitolo.appendChild(h5);
             imgArtistaAlbum.classList.add("me-2");
-            h5.innerText = arrayArtist.name;
-            footerArtista.innerText = arrayArtist.type;
+            h5.innerText = art.title;
+            footerArtista.innerText = art.artist.name;
           } else {
-            image.src = arrayArtist.picture_small;
+            image.src = art.album.cover_small;
             imgArtistaAlbum.appendChild(image);
             footerTitolo.appendChild(h5);
             imgArtistaAlbum.classList.add("me-2");
-            h5.innerText = arrayArtist.title;
-            footerArtista.innerText = arrayArtist.artist.name;
+            h5.innerText = art.title;
+            footerArtista.innerText = art.artist.name;
+          }
+        });
+        /*  const btnPlayArtist = document.getElementById("btnPlayArtist");
+        btnPlayArtist.addEventListener("click", (event) => {
+          console.log("Button clicked");
+
+          const imgArtistaAlbum = document.getElementById("imgArtistaAlbum");
+          const footerTitolo = document.getElementById("footerTitolo");
+          const footerArtista = document.getElementById("footerArtista");
+          const image = document.createElement("img");
+          const h5 = document.createElement("h5");
+          if (imgArtistaAlbum.firstChild && imgArtistaAlbum.firstChild.src) {
+            imgArtistaAlbum.innerHTML = "";
+            footerTitolo.innerHTML = "";
+            footerArtista.innerHTML = "";
+            image.src = art.album.cover_small;
+            imgArtistaAlbum.appendChild(image);
+            footerTitolo.appendChild(h5);
+            imgArtistaAlbum.classList.add("me-2");
+            h5.innerText = art.title;
+            footerArtista.innerText = art.artist.name;
+          } else {
+            image.src = art.album.cover_small;
+            imgArtistaAlbum.appendChild(image);
+            footerTitolo.appendChild(h5);
+            imgArtistaAlbum.classList.add("me-2");
+            h5.innerText = art.title;
+            footerArtista.innerText = art.artist.name;
           }
         }); */
       });
