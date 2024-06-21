@@ -17,7 +17,7 @@ const options = {
   },
 };
 
-const getMinutes = duration => {
+const getMinutes = (duration) => {
   seconds = duration % 60;
   minutes = ((duration - seconds) / 60) % 60;
   if (seconds < 10) return `${minutes}:0${seconds}`;
@@ -26,19 +26,19 @@ const getMinutes = duration => {
 
 const createCards = () => {
   fetch(`https://striveschool-api.herokuapp.com/api/deezer/artist/${id}/top?limit=4`, options)
-    .then(resp => {
+    .then((resp) => {
       if (resp.ok) return resp.json();
       else console.log(`Errore: ${resp.status}, ${resp.text}`);
     })
-    .then(songs => {
+    .then((songs) => {
       console.log(songs);
 
-      songs.data.forEach(song => {
+      songs.data.forEach((song) => {
         const col = document.createElement("div");
         col.className = "col-sm-6 col-md-6 col-xl-3  border border-0  ";
         const card = document.createElement("div");
         card.className = "btn card mb-4 border border-0 bg-darkness";
-        card.addEventListener("click", event => {
+        card.addEventListener("click", (event) => {
           window.location.assign("./artists.html?artistId=" + song.artist.id);
         });
         const imgContainer = document.createElement("div");
@@ -81,17 +81,17 @@ const createCards = () => {
         correlati.append(col);
       });
     })
-    .catch(err => console.log(err));
+    .catch((err) => console.log(err));
 };
 
 const handlelikedSongs = () => {
   fetch("https://striveschool-api.herokuapp.com/api/deezer/artist/" + id, options)
-    .then(resp => {
+    .then((resp) => {
       if (resp.ok) {
         return resp.json();
       } else console.log(`Error ${resp.status}`);
     })
-    .then(artist => {
+    .then((artist) => {
       const row = document.createElement("div");
       row.className = "row";
       likedSongs.appendChild(row);
@@ -115,17 +115,17 @@ const handlelikedSongs = () => {
       artistTag.innerText = `Di ${artist.name}`;
       colDescritpion.appendChild(artistTag);
     })
-    .catch(err => console.log(err));
+    .catch((err) => console.log(err));
 };
 
 const createBanner = () => {
   fetch("https://striveschool-api.herokuapp.com/api/deezer/artist/" + id, options)
-    .then(resp => {
+    .then((resp) => {
       if (resp.ok) {
         return resp.json();
       } else console.log("Errore nel caricamento dei dati");
     })
-    .then(artist => {
+    .then((artist) => {
       const artistTitle = document.getElementById("artistTitle");
       const artistName = document.createElement("h1");
       artistBanner.classList.add(
@@ -164,16 +164,17 @@ const createBanner = () => {
 
 const createSongList = () => {
   fetch("https://striveschool-api.herokuapp.com/api/deezer/artist/" + id + "/top?limit=5", options)
-    .then(resp => {
+    .then((resp) => {
       if (resp.ok) {
         return resp.json();
       } else console.log("Errore nel caricamento dei dati");
     })
-    .then(artists => {
+    .then((artists) => {
+      const arrayArtist = artists.data;
       artists.data.forEach((art, index) => {
         const songsList = document.getElementById("songsList");
         const col = document.createElement("div");
-        col.className = "col-6";
+        col.className = "col-6 pointer";
 
         songsList.appendChild(col);
         const songRow = document.createElement("div");
@@ -213,21 +214,49 @@ const createSongList = () => {
         col3.appendChild(minutes);
 
         const viewsCont = document.getElementById("viewsCont");
+
+        /* col.addEventListener("click", (event) => {
+          console.log("Button clicked");
+          console.log(arrayArtist);
+          const imgArtistaAlbum = document.getElementById("imgArtistaAlbum");
+          const footerTitolo = document.getElementById("footerTitolo");
+          const footerArtista = document.getElementById("footerArtista");
+          const image = document.createElement("img");
+          const h5 = document.createElement("h5");
+          if (imgArtistaAlbum.firstChild && imgArtistaAlbum.firstChild.src) {
+            imgArtistaAlbum.innerHTML = "";
+            footerTitolo.innerHTML = "";
+            footerArtista.innerHTML = "";
+            image.src = arrayArtist.picture_small;
+            imgArtistaAlbum.appendChild(image);
+            footerTitolo.appendChild(h5);
+            imgArtistaAlbum.classList.add("me-2");
+            h5.innerText = arrayArtist.name;
+            footerArtista.innerText = arrayArtist.type;
+          } else {
+            image.src = arrayArtist.picture_small;
+            imgArtistaAlbum.appendChild(image);
+            footerTitolo.appendChild(h5);
+            imgArtistaAlbum.classList.add("me-2");
+            h5.innerText = arrayArtist.title;
+            footerArtista.innerText = arrayArtist.artist.name;
+          }
+        }); */
       });
     })
-    .catch(err => console.log(err));
+    .catch((err) => console.log(err));
 };
 
 const related = () => {
   fetch("https://striveschool-api.herokuapp.com/api/deezer/artist/" + id + "/top?limit=5", options)
-    .then(resp => {
+    .then((resp) => {
       if (resp.ok) return resp.json();
       else console.log(`Errore ${resp.status}`);
     })
-    .then(realetedItem => {
+    .then((realetedItem) => {
       console.log(realetedItem);
     })
-    .catch(err => console.log(err));
+    .catch((err) => console.log(err));
 };
 
 window.addEventListener("DOMContentLoaded", function () {
