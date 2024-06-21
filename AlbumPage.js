@@ -189,7 +189,9 @@ window.addEventListener("DOMContentLoaded", function () {
     if (scrollPage.scrollTop > 475) {
       console.log(event);
       hiddenThead.classList.remove("hidden");
+      hiddenThead.classList.add("visible");
     } else {
+      hiddenThead.classList.remove("visible");
       hiddenThead.classList.add("hidden");
     }
   });
