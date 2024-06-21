@@ -18,6 +18,21 @@ $add-colors: (
 );
 $theme-colors: map-merge($theme-colors, $add-colors);
 
+
+// ****************** add font size****************************
+$h7-font-size: $font-size-base * 0.9;
+$h8-font-size: $font-size-base * 0.8;
+$h9-font-size: $font-size-base * 0.7;
+
+
+$custom-font-sizes: (
+  7: $h7-font-size,
+  8: $h8-font-size,
+  9: $h9-font-size
+);
+
+$font-sizes: map-merge($font-sizes, $custom-font-sizes);
+
 // 5. Include remainder of required parts
 @import "../../bootstrap/scss/maps";
 @import "../../bootstrap/scss/mixins";
@@ -94,9 +109,9 @@ $theme-colors: map-merge($theme-colors, $add-colors);
   width: 15%;
   background-color: black;
 }
-#main {
-  /* background-image: linear-gradient(0deg, #000000c4 0%, #000000 46%, #ffcc70 100%); */
-}
+// #main {
+//   /* background-image: linear-gradient(0deg, #000000c4 0%, #000000 46%, #ffcc70 100%); */
+// }
 #playBtn {
   background-color: rgb(30, 215, 95);
 }
@@ -171,6 +186,9 @@ tr:hover {
 
 #btnEsplora{display: none;}
 #btnInstall{display: none;}
+#home-cerca{
+  justify-content: center;
+}
 @media screen and (max-width: 599px) {
   header {
     min-width: 60px;
@@ -225,7 +243,7 @@ tr:hover {
 }
   
  
-}
+
 @media screen and (min-width: 600px){
  header {
     min-width: 70px;
@@ -239,4 +257,8 @@ tr:hover {
   
   #btnEsplora{display: inline;}
   #btnInstall{display: inline;}
+  #home-cerca{
+    justify-content: unset;
+    padding-left: 1rem;
+  }
  }

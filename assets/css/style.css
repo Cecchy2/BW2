@@ -8164,6 +8164,18 @@ textarea.form-control-lg {
   font-size: 1rem !important;
 }
 
+.fs-7 {
+  font-size: 0.9rem !important;
+}
+
+.fs-8 {
+  font-size: 0.8rem !important;
+}
+
+.fs-9 {
+  font-size: 0.7rem !important;
+}
+
 .fst-italic {
   font-style: italic !important;
 }
@@ -11865,10 +11877,6 @@ textarea.form-control-lg {
   background-color: black;
 }
 
-#main {
-  /* background-image: linear-gradient(0deg, #000000c4 0%, #000000 46%, #ffcc70 100%); */
-}
-
 #playBtn {
   background-color: rgb(30, 215, 95);
 }
@@ -11960,19 +11968,44 @@ tr:hover {
   display: none;
 }
 
+#home-cerca {
+  justify-content: center;
+}
+
 @media screen and (max-width: 599px) {
   header {
     min-width: 60px;
   }
+  #btnAvanti {
+    display: none;
+  }
+  #btnEsplora {
+    display: none;
+  }
+  #btnInstall {
+    display: none;
+  }
 }
-@media screen and (min-width: 600px) {
+@media (min-width: 600px) and (max-width: 1199px) {
   header {
     min-width: 70px;
   }
+  #btnAvanti {
+    display: none;
+  }
+  #btnEsplora {
+    display: none;
+  }
+  #btnInstall {
+    display: none;
+  }
 }
-@media screen and (min-width: 1200px) {
+@media (min-width: 1200px) {
   header {
     min-width: 300px;
+  }
+  #btnAvanti {
+    display: inline;
   }
   #btnEsplora {
     display: inline;
@@ -11991,4 +12024,25 @@ tr:hover {
   width: 100%;
   background-color: black;
   z-index: 1000;
+}
+
+@media screen and (min-width: 600px) {
+  header {
+    min-width: 70px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  header {
+    min-width: 300px;
+  }
+  #btnEsplora {
+    display: inline;
+  }
+  #btnInstall {
+    display: inline;
+  }
+  #home-cerca {
+    justify-content: unset;
+    padding-left: 1rem;
+  }
 }/*# sourceMappingURL=style.css.map */

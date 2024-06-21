@@ -27,6 +27,8 @@ const options = {
 };
 // funzione che crea le cards e viene chiamata nel fetch da dove prende come parametri la lista songs e il container dove verranno appese
 const creaCards = (artist, container, index) => {
+  const arrayArtist = artist;
+  console.log(arrayArtist);
   const row = document.querySelector(container);
   // decido di creare 6 cards
 
@@ -67,6 +69,35 @@ const creaCards = (artist, container, index) => {
   function out() {
     btnPlay.classList.add("d-none");
   }
+
+  btnPlay.addEventListener("click", event => {
+    console.log("Button clicked");
+    console.log(arrayArtist);
+    const imgArtistaAlbum = document.getElementById("imgArtistaAlbum");
+    const footerTitolo = document.getElementById("footerTitolo");
+    const footerArtista = document.getElementById("footerArtista");
+    const image = document.createElement("img");
+    const h5 = document.createElement("h5");
+    if (imgArtistaAlbum.firstChild && imgArtistaAlbum.firstChild.src) {
+      imgArtistaAlbum.innerHTML = "";
+      footerTitolo.innerHTML = "";
+      footerArtista.innerHTML = "";
+      image.src = arrayArtist.picture_small;
+      imgArtistaAlbum.appendChild(image);
+      footerTitolo.appendChild(h5);
+      imgArtistaAlbum.classList.add("me-2");
+      h5.innerText = arrayArtist.name;
+      footerArtista.innerText = arrayArtist.type;
+    } else {
+      image.src = arrayArtist.picture_small;
+      imgArtistaAlbum.appendChild(image);
+      footerTitolo.appendChild(h5);
+      imgArtistaAlbum.classList.add("me-2");
+      h5.innerText = arrayArtist.title;
+      footerArtista.innerText = arrayArtist.artist.name;
+    }
+  });
+
   const cardBody = document.createElement("div");
   cardBody.className = "card-body text-start px-0 pb-0";
   const h5 = document.createElement("h5");
@@ -178,7 +209,7 @@ const cardsAlbum = (arrAlbums, container) => {
         function out() {
           btnPlay.classList.add("d-none");
         }
-        btnPlay.addEventListener("click", function () {
+        btnPlay.addEventListener("click", event => {
           console.log("Button clicked");
           console.log(moTifrego);
           const imgArtistaAlbum = document.getElementById("imgArtistaAlbum");

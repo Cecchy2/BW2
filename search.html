@@ -10,10 +10,10 @@
   <body class="bg-black text-white container-fluid m-0">
     <!-- style="max-height: 100vh" -->
     <div class="">
-      <div class="row justify-content-center p-2">
-        <header class="col-2 rounded p-0" style="min-width: 300px">
-          <div class="rounded bg-darkness p-4 mb-2" style="height: 15vh">
-            <ul class="list-unstyled d-flex flex-column gap-3 m-0">
+      <div class="row p-2">
+        <header class="col-2 rounded p-0">
+          <div class="rounded bg-darkness mb-2 d-lg-block" style="height: 15vh">
+            <ul class="list-unstyled d-flex pt-4 ps-2 justify-content-center flex-column gap-3 m-0">
               <li class="align-middle pointer" id="homeBtn">
                 <svg data-encore-id="icon" role="img" aria-hidden="true" class="Svg-sc-ytk21e-0 bneLcE home-icon QbaKKdcHNA2x3_YJvpYu" viewBox="0 0 24 24" style="width: 30">
                   <path
@@ -21,7 +21,7 @@
                     d="M12.5 3.247a1 1 0 0 0-1 0L4 7.577V20h4.5v-6a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v6H20V7.577l-7.5-4.33zm-2-1.732a3 3 0 0 1 3 0l7.5 4.33a2 2 0 0 1 1 1.732V21a1 1 0 0 1-1 1h-6.5a1 1 0 0 1-1-1v-6h-3v6a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V7.577a2 2 0 0 1 1-1.732l7.5-4.33z"
                   ></path>
                 </svg>
-                <span>Home</span>
+                <span class="d-none d-lg-inline">Home</span>
               </li>
               <li class="align-middle pointer" id="searchBtn">
                 <svg id="searchDisable" data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 24 24" style="width: 30">
@@ -37,32 +37,33 @@
                     d="M1.126 10.558c0-5.14 4.226-9.28 9.407-9.28 5.18 0 9.407 4.14 9.407 9.28a9.157 9.157 0 0 1-2.077 5.816l4.344 4.344a1 1 0 0 1-1.414 1.414l-4.353-4.353a9.454 9.454 0 0 1-5.907 2.058c-5.18 0-9.407-4.14-9.407-9.28zm9.407-7.28c-4.105 0-7.407 3.274-7.407 7.28s3.302 7.279 7.407 7.279 7.407-3.273 7.407-7.28c0-4.005-3.302-7.278-7.407-7.278z"
                   ></path>
                 </svg>
-                <span>Cerca</span>
+                <span class="d-none d-lg-inline">Cerca</span>
               </li>
             </ul>
           </div>
           <div class="bg-darkness rounded p-3">
-            <div class="bg-darkness" style="height: 10vh">
+            <div class="bg-darkness mb-3" style="height: 10vh">
               <div class="d-flex">
-                <button class="btn text-white me-auto bg-darkness mb-2 p-1 d-flex align-items-center" style="width: 150px">
+                <button class="btn text-white me-auto bg-darkness mb-2 p-1" style="width: 150px">
                   <span>
                     <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 24 24" style="width: 30px">
                       <path
                         fill="#B3B3B3"
                         d="M3 22a1 1 0 0 1-1-1V3a1 1 0 0 1 2 0v18a1 1 0 0 1-1 1zM15.5 2.134A1 1 0 0 0 14 3v18a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V6.464a1 1 0 0 0-.5-.866l-6-3.464zM9 2a1 1 0 0 0-1 1v18a1 1 0 1 0 2 0V3a1 1 0 0 0-1-1z"
                       ></path>
-                    </svg> </span
-                  >La tua Libreria
+                    </svg>
+                    <span class="d-none d-lg-inline">La tua Libreria</span></span
+                  >
                 </button>
-                <button class="btn text-white mx-1 bg-darkness" style="width: 40px; height: 40px">
-                  <span style="display: block"
+                <button class="btn text-white mx-2 bg-darkness d-none d-xl-inline" style="width: 40px; height: 40px">
+                  <span
                     ><svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16">
                       <path fill="#B3B3B3" d="M15.25 8a.75.75 0 0 1-.75.75H8.75v5.75a.75.75 0 0 1-1.5 0V8.75H1.5a.75.75 0 0 1 0-1.5h5.75V1.5a.75.75 0 0 1 1.5 0v5.75h5.75a.75.75 0 0 1 .75.75z"></path>
                     </svg>
                   </span>
                 </button>
-                <button class="btn text-white mx-1 bg-darkness" style="width: 40px; height: 40px">
-                  <span style="display: block"
+                <button class="btn text-white mx-2 bg-darkness d-none d-xl-inline" style="width: 40px; height: 40px">
+                  <span
                     ><svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16" class="Svg-sc-ytk21e-0 cAMMLk">
                       <path
                         fill="#B3B3B3"
@@ -72,25 +73,22 @@
                   </span>
                 </button>
               </div>
-              <!-- <div>
-                <div>
-                  <div>
-                    <div class="mb-2">
-                      <button class="rounded-pill border-0 bg-black text-white px-2">
-                        <span>Playlist</span>
-                      </button>
-                      <button class="rounded-pill border-0 bg-black text-white px-2">
-                        <span>Artisti</span>
-                      </button>
-                      <button class="rounded-pill border-0 bg-black text-white px-2">
-                        <span>Album</span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div> -->
+
+              <div class="mb-2 d-none d-lg-inline">
+                <button class="rounded-pill border-0 bg-black text-white px-2 d-none d-xl-inline">
+                  <span>Playlist</span>
+                </button>
+                <button class="rounded-pill border-0 bg-black text-white px-2 d-none d-xl-inline">
+                  <span>Artisti</span>
+                </button>
+                <button class="rounded-pill border-0 bg-black text-white px-2 d-none d-xl-inline">
+                  <span>Album</span>
+                </button>
+              </div>
+            </div>
+            <div class="scrollbar text-truncate d-flex justify-content-center align-items-center d-xl-block" style="height: 56vh">
               <div class="d-flex justify-content-between">
-                <button class="btn">
+                <button class="btn d-none d-xl-inline">
                   <svg data-encore-id="icon" role="img" aria-hidden="true" style="width: 15px" viewBox="0 0 16 16">
                     <path
                       fill="#B3B3B3"
@@ -98,41 +96,41 @@
                     ></path>
                   </svg>
                 </button>
-                <button class="btn text-white d-flex align-items-center">
+                <button class="btn text-white d-flex align-items-center d-none d-xl-inline">
                   <span class="pe-2">Recenti</span>
                   <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16" style="width: 15px">
                     <path fill="#B3B3B3" d="M15 14.5H5V13h10v1.5zm0-5.75H5v-1.5h10v1.5zM15 3H5V1.5h10V3zM3 3H1V1.5h2V3zm0 11.5H1V13h2v1.5zm0-5.75H1v-1.5h2v1.5z"></path>
                   </svg>
                 </button>
               </div>
-            </div>
-            <div class="scrollbar text-truncate mt-2" style="height: 60vh">
-              <div>
-                <ul id="listaBraniArtistiAlbum" class="p-0"></ul>
-              </div>
+              <ul id="listaBraniArtistiAlbum" class="p-0"></ul>
             </div>
           </div>
         </header>
 
-        <main class="col rounded" data-bs-theme="dark">
+        <main class="col col-xl-8 rounded" data-bs-theme="dark">
           <div class="bg-darkness rounded" style="height: 90vh">
-            <div class="d-flex align-items-center pt-3 mx-3">
+            <div class="d-flex align-items-center pt-3 mx-3 mb-3">
               <div class="me-auto d-flex">
-                <button class="btn rounded-circle bg-black d-flex justify-content-center align-items-center me-3" style="width: 40px; height: 40px">
+                <button onClick="history.back()" id="btnIndietro" class="btn rounded-circle bg-black d-flex justify-content-center align-items-center me-3" style="width: 40px; height: 40px">
                   <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 20 20">
                     <path fill="#B3B3B3" d="M11.03.47a.75.75 0 0 1 0 1.06L4.56 8l6.47 6.47a.75.75 0 1 1-1.06 1.06L2.44 8 9.97.47a.75.75 0 0 1 1.06 0z"></path>
                   </svg>
                 </button>
-                <button class="btn rounded-circle bg-black d-flex justify-content-center align-items-center d-none d-lg-inline" style="width: 40px; height: 40px">
+                <button
+                  onClick="history.forward()"
+                  id="btnAvanti"
+                  class="btn rounded-circle bg-black d-flex justify-content-center align-items-center d-none d-lg-inline"
+                  style="width: 40px; height: 40px"
+                >
                   <svg data-encore-id="icon" role="img" aria-hidden="true" style="width: 21px" viewBox="0 0 20 20">
                     <path fill="#B3B3B3" d="M4.97.47a.75.75 0 0 0 0 1.06L11.44 8l-6.47 6.47a.75.75 0 1 0 1.06 1.06L13.56 8 6.03.47a.75.75 0 0 0-1.06 0z"></path>
                   </svg>
                 </button>
-                <div class="position-relative" id="formSearch">
+                <div class="position-relative d-none" id="formSearch">
                   <form id="form" role="search" class="d-flex justify-content-center align-items-center mx-3">
                     <input
                       id="searchInput"
-                      type="search"
                       class="rounded-pill border-0 py-1 px-4 z-1 bg-transparent text-white"
                       data-encore-id="text"
                       maxlength="800"
@@ -157,9 +155,11 @@
                   </div>
                 </div>
               </div>
-              <div class="d-flex mb-3">
-                <button class="btn bg-white rounded-pill text-black me-2 d-none d-lg-inline"><b>Esplora Premium</b></button>
-                <a class="btn rounded-pill bg-black rounded-pill text-white me-2" draggable="false" data-encore-id="buttonPrimary" href="#">
+              <div class="d-flex">
+                <button id="btnEsplora" class="btn bg-white rounded-pill text-black me-2">
+                  <b>Esplora Premium</b>
+                </button>
+                <a id="btnInstall" class="btn rounded-pill bg-black rounded-pill text-white me-2" draggable="false" data-encore-id="buttonPrimary" href="#">
                   <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16" style="width: 20px">
                     <path
                       fill="#FFFFFF"
@@ -185,76 +185,76 @@
             <div class="scrollbar p-3" style="height: 78vh">
               <!-- ************************************************************mid di spotify*************************************************************************************** -->
               <div id="searchZone" class="row"></div>
-              <section class="mt-5 text-secondary">
+              <section class="mt-5 d-none d-md-block text-secondary">
                 <div class="container">
                   <div class="row align-items-top">
                     <div class="col-9">
                       <div class="row">
                         <div class="col-3">
                           <ul class="navbar-nav">
-                            <h5 class="text-white">Azienda</h5>
+                            <h6 class="text-white">Azienda</h6>
                             <li>
-                              <a class="nav-link" aria-current="page" href="#">Chi siamo</a>
+                              <a class="nav-link fs-7" aria-current="page" href="#">Chi siamo</a>
                             </li>
                             <li>
-                              <a class="nav-link" aria-current="page" href="#">Opportunità di lavoro</a>
+                              <a class="nav-link fs-7" aria-current="page" href="#">Opportunità di lavoro</a>
                             </li>
                             <li>
-                              <a class="nav-link" aria-current="page" href="#">For the Record</a>
-                            </li>
-                          </ul>
-                        </div>
-                        <div class="col-3">
-                          <h5 class="text-white">Community</h5>
-                          <ul class="navbar-nav" data-bs-theme="dark">
-                            <li>
-                              <a class="nav-link" aria-current="page" href="#">Per artisti</a>
-                            </li>
-                            <li>
-                              <a class="nav-link" aria-current="page" href="#">Sviluppatori</a>
-                            </li>
-                            <li>
-                              <a class="nav-link" aria-current="page" href="#">Pubblicità</a>
-                            </li>
-                            <li>
-                              <a class="nav-link" aria-current="page" href="#">Investitori</a>
-                            </li>
-                            <li>
-                              <a class="nav-link" aria-current="page" href="#">Venditori</a>
+                              <a class="nav-link fs-7" aria-current="page" href="#">For the Record</a>
                             </li>
                           </ul>
                         </div>
                         <div class="col-3">
-                          <h5 class="text-white">Link utili</h5>
+                          <h6 class="text-white">Community</h6>
                           <ul class="navbar-nav" data-bs-theme="dark">
                             <li>
-                              <a class="nav-link" aria-current="page" href="#">Assistenza</a>
+                              <a class="nav-link fs-7" aria-current="page" href="#">Per artisti</a>
                             </li>
                             <li>
-                              <a class="nav-link" aria-current="page" href="#">App per cellulare gratuita</a>
+                              <a class="nav-link fs-7" aria-current="page" href="#">Sviluppatori</a>
                             </li>
                             <li>
-                              <a class="nav-link" aria-current="page" href="#">Diritti del consumatore</a>
+                              <a class="nav-link fs-7" aria-current="page" href="#">Pubblicità</a>
+                            </li>
+                            <li>
+                              <a class="nav-link fs-7" aria-current="page" href="#">Investitori</a>
+                            </li>
+                            <li>
+                              <a class="nav-link fs-7" aria-current="page" href="#">Venditori</a>
                             </li>
                           </ul>
                         </div>
                         <div class="col-3">
-                          <h5 class="text-white">Piani Spotify</h5>
+                          <h6 class="text-white">Link utili</h6>
                           <ul class="navbar-nav" data-bs-theme="dark">
                             <li>
-                              <a class="nav-link" aria-current="page" href="#">Premium Individual</a>
+                              <a class="nav-link fs-7" aria-current="page" href="#">Assistenza</a>
                             </li>
                             <li>
-                              <a class="nav-link" aria-current="page" href="#">Premium Duo</a>
+                              <a class="nav-link fs-7" aria-current="page" href="#">App per cellulare gratuita</a>
                             </li>
                             <li>
-                              <a class="nav-link" aria-current="page" href="#">Premium Family</a>
+                              <a class="nav-link fs-7" aria-current="page" href="#">Diritti del consumatore</a>
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="col-3">
+                          <h6 class="text-white">Piani Spotify</h6>
+                          <ul class="navbar-nav" data-bs-theme="dark">
+                            <li>
+                              <a class="nav-link fs-7" aria-current="page" href="#">Premium Individual</a>
                             </li>
                             <li>
-                              <a class="nav-link" aria-current="page" href="#">Premium Student</a>
+                              <a class="nav-link fs-7" aria-current="page" href="#">Premium Duo</a>
                             </li>
                             <li>
-                              <a class="nav-link" aria-current="page" href="#">Spotify Free</a>
+                              <a class="nav-link fs-7" aria-current="page" href="#">Premium Family</a>
+                            </li>
+                            <li>
+                              <a class="nav-link fs-7" aria-current="page" href="#">Premium Student</a>
+                            </li>
+                            <li>
+                              <a class="nav-link fs-7" aria-current="page" href="#">Spotify Free</a>
                             </li>
                           </ul>
                         </div>
@@ -287,14 +287,14 @@
                     <hr class="text-secondary my-3" />
 
                     <div>
-                      <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover py-4 me-3 text-secondary" href="#">Informazioni legali</a>
-                      <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover py-4 me-3 text-secondary" href="#">Sicurezza e Centro sulla privacy</a>
-                      <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover py-4 me-3 text-secondary" href="#">Informativa sulla privacy</a>
-                      <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover py-4 me-3 text-secondary" href="#">Impostazioni cookie</a>
-                      <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover py-4 me-3 text-secondary" href="#">Info annunci</a>
-                      <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover py-4 me-5 text-secondary" href="#">Accessibilità</a>
+                      <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover py-4 me-3 text-secondary fs-7" href="#">Informazioni legali</a>
+                      <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover py-4 me-3 text-secondary fs-7" href="#">Sicurezza e Centro sulla privacy</a>
+                      <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover py-4 me-3 text-secondary fs-7" href="#">Informativa sulla privacy</a>
+                      <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover py-4 me-3 text-secondary fs-7" href="#">Impostazioni cookie</a>
+                      <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover py-4 me-3 text-secondary fs-7" href="#">Info annunci</a>
+                      <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover py-4 me-5 text-secondary fs-7" href="#">Accessibilità</a>
                       <br />
-                      <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover py-4 fs-5 text-secondary" href="#">© 2024 Apotify AB</a>
+                      <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover py-4 fs-6 text-secondary" href="#">© 2024 Apotify AB</a>
                     </div>
                   </div>
                 </div>
@@ -302,7 +302,7 @@
             </div>
           </div>
         </main>
-        <aside class="col-2 rounded bg-darkness scrollbar d-none d-xl-block" style="height: 90vh"></aside>
+        <aside class="col rounded bg-darkness scrollbar d-none d-xl-block" style="height: 90vh"></aside>
       </div>
       <footer class="fixed-bottom bg-black p-0 m-0 container-fluid" style="height: 10vh; width: 100wh">
         <div class="row p-2">

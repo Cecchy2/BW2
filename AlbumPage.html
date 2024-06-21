@@ -6,15 +6,14 @@
     <title>Bootstrap demo</title>
     <link rel="stylesheet" href="./assets/dist/css/style.min.css" />
     <link rel="stylesheet" href="assets/css/circular-font.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.2/color-thief.umd.js"></script>
   </head>
   <body class="bg-black text-white container-fluid m-0">
     <!-- style="max-height: 100vh" -->
     <div class="">
       <div class="row p-2">
         <header class="col-2 rounded p-0">
-          <div class="rounded bg-darkness p-4 mb-2 d-flex justify-content-center align-items-center d-xl-block" style="height: 15vh">
-            <ul class="list-unstyled d-flex flex-column gap-3 m-0">
+          <div class="rounded bg-darkness mb-2 d-lg-block" style="height: 15vh">
+            <ul class="list-unstyled d-flex pt-4 ps-2 justify-content-center flex-column gap-3 m-0">
               <li class="align-middle pointer" id="homeBtn">
                 <svg data-encore-id="icon" role="img" aria-hidden="true" class="Svg-sc-ytk21e-0 bneLcE home-icon QbaKKdcHNA2x3_YJvpYu" viewBox="0 0 24 24" style="width: 30">
                   <path
@@ -43,7 +42,7 @@
             </ul>
           </div>
           <div class="bg-darkness rounded p-3">
-            <div class="bg-darkness" style="height: 10vh">
+            <div class="bg-darkness mb-3" style="height: 10vh">
               <div class="d-flex">
                 <button class="btn text-white me-auto bg-darkness mb-2 p-1" style="width: 150px">
                   <span>
@@ -87,7 +86,7 @@
                 </button>
               </div>
             </div>
-            <div class="scrollbar text-truncate d-flex justify-content-center align-items-center d-xl-block" style="height: 60vh">
+            <div class="scrollbar text-truncate d-flex justify-content-center align-items-center d-xl-block" style="height: 56vh">
               <div class="d-flex justify-content-between">
                 <button class="btn d-none d-xl-inline">
                   <svg data-encore-id="icon" role="img" aria-hidden="true" style="width: 15px" viewBox="0 0 16 16">
@@ -113,12 +112,17 @@
           <div class="bg-darkness rounded" style="height: 90vh">
             <div class="d-flex align-items-center pt-3 mx-3 mb-3">
               <div class="me-auto d-flex">
-                <button id="btnIndiestro" class="btn rounded-circle bg-black d-flex justify-content-center align-items-center me-3" style="width: 40px; height: 40px">
+                <button onClick="history.back()" id="btnIndietro" class="btn rounded-circle bg-black d-flex justify-content-center align-items-center me-3" style="width: 40px; height: 40px">
                   <svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 20 20">
                     <path fill="#B3B3B3" d="M11.03.47a.75.75 0 0 1 0 1.06L4.56 8l6.47 6.47a.75.75 0 1 1-1.06 1.06L2.44 8 9.97.47a.75.75 0 0 1 1.06 0z"></path>
                   </svg>
                 </button>
-                <button id="btnAvanti" class="btn rounded-circle bg-black d-flex justify-content-center align-items-center" style="width: 40px; height: 40px">
+                <button
+                  onClick="history.forward()"
+                  id="btnAvanti"
+                  class="btn rounded-circle bg-black d-flex justify-content-center align-items-center d-none d-lg-inline"
+                  style="width: 40px; height: 40px"
+                >
                   <svg data-encore-id="icon" role="img" aria-hidden="true" style="width: 21px" viewBox="0 0 20 20">
                     <path fill="#B3B3B3" d="M4.97.47a.75.75 0 0 0 0 1.06L11.44 8l-6.47 6.47a.75.75 0 1 0 1.06 1.06L13.56 8 6.03.47a.75.75 0 0 0-1.06 0z"></path>
                   </svg>
@@ -178,6 +182,7 @@
                 </button>
               </div>
             </div>
+            <!-- **********************************************codice che cambia in base alla****************************************** -->
             <div class="scrollbar" style="height: calc(90vh - 80px)" id="scrollThead">
               <!-- da qui parte il mio main -->
 
@@ -250,76 +255,76 @@
                     <div class="row mb-5" id="altriAlbums"></div>
 
                     <!-- Altro Footer  -->
-                    <section class="my-5">
+                    <section class="mt-5 d-none d-md-block text-secondary">
                       <div class="container">
                         <div class="row align-items-top">
                           <div class="col-9">
                             <div class="row">
                               <div class="col-3">
                                 <ul class="navbar-nav">
-                                  <h5 class="text-white">Azienda</h5>
+                                  <h6 class="text-white">Azienda</h6>
                                   <li>
-                                    <a class="nav-link" aria-current="page" href="#">Chi siamo</a>
+                                    <a class="nav-link fs-7" aria-current="page" href="#">Chi siamo</a>
                                   </li>
                                   <li>
-                                    <a class="nav-link" aria-current="page" href="#">Opportunità di lavoro</a>
+                                    <a class="nav-link fs-7" aria-current="page" href="#">Opportunità di lavoro</a>
                                   </li>
                                   <li>
-                                    <a class="nav-link" aria-current="page" href="#">For the Record</a>
-                                  </li>
-                                </ul>
-                              </div>
-                              <div class="col-3">
-                                <h5 class="text-white">Community</h5>
-                                <ul class="navbar-nav" data-bs-theme="dark">
-                                  <li>
-                                    <a class="nav-link" aria-current="page" href="#">Per artisti</a>
-                                  </li>
-                                  <li>
-                                    <a class="nav-link" aria-current="page" href="#">Sviluppatori</a>
-                                  </li>
-                                  <li>
-                                    <a class="nav-link" aria-current="page" href="#">Pubblicità</a>
-                                  </li>
-                                  <li>
-                                    <a class="nav-link" aria-current="page" href="#">Investitori</a>
-                                  </li>
-                                  <li>
-                                    <a class="nav-link" aria-current="page" href="#">Venditori</a>
+                                    <a class="nav-link fs-7" aria-current="page" href="#">For the Record</a>
                                   </li>
                                 </ul>
                               </div>
                               <div class="col-3">
-                                <h5 class="text-white">Link utili</h5>
+                                <h6 class="text-white">Community</h6>
                                 <ul class="navbar-nav" data-bs-theme="dark">
                                   <li>
-                                    <a class="nav-link" aria-current="page" href="#">Assistenza</a>
+                                    <a class="nav-link fs-7" aria-current="page" href="#">Per artisti</a>
                                   </li>
                                   <li>
-                                    <a class="nav-link" aria-current="page" href="#">App per cellulare gratuita</a>
+                                    <a class="nav-link fs-7" aria-current="page" href="#">Sviluppatori</a>
                                   </li>
                                   <li>
-                                    <a class="nav-link" aria-current="page" href="#">Diritti del consumatore</a>
+                                    <a class="nav-link fs-7" aria-current="page" href="#">Pubblicità</a>
+                                  </li>
+                                  <li>
+                                    <a class="nav-link fs-7" aria-current="page" href="#">Investitori</a>
+                                  </li>
+                                  <li>
+                                    <a class="nav-link fs-7" aria-current="page" href="#">Venditori</a>
                                   </li>
                                 </ul>
                               </div>
                               <div class="col-3">
-                                <h5 class="text-white">Piani Spotify</h5>
+                                <h6 class="text-white">Link utili</h6>
                                 <ul class="navbar-nav" data-bs-theme="dark">
                                   <li>
-                                    <a class="nav-link" aria-current="page" href="#">Premium Individual</a>
+                                    <a class="nav-link fs-7" aria-current="page" href="#">Assistenza</a>
                                   </li>
                                   <li>
-                                    <a class="nav-link" aria-current="page" href="#">Premium Duo</a>
+                                    <a class="nav-link fs-7" aria-current="page" href="#">App per cellulare gratuita</a>
                                   </li>
                                   <li>
-                                    <a class="nav-link" aria-current="page" href="#">Premium Family</a>
+                                    <a class="nav-link fs-7" aria-current="page" href="#">Diritti del consumatore</a>
+                                  </li>
+                                </ul>
+                              </div>
+                              <div class="col-3">
+                                <h6 class="text-white">Piani Spotify</h6>
+                                <ul class="navbar-nav" data-bs-theme="dark">
+                                  <li>
+                                    <a class="nav-link fs-7" aria-current="page" href="#">Premium Individual</a>
                                   </li>
                                   <li>
-                                    <a class="nav-link" aria-current="page" href="#">Premium Student</a>
+                                    <a class="nav-link fs-7" aria-current="page" href="#">Premium Duo</a>
                                   </li>
                                   <li>
-                                    <a class="nav-link" aria-current="page" href="#">Spotify Free</a>
+                                    <a class="nav-link fs-7" aria-current="page" href="#">Premium Family</a>
+                                  </li>
+                                  <li>
+                                    <a class="nav-link fs-7" aria-current="page" href="#">Premium Student</a>
+                                  </li>
+                                  <li>
+                                    <a class="nav-link fs-7" aria-current="page" href="#">Spotify Free</a>
                                   </li>
                                 </ul>
                               </div>
@@ -349,17 +354,17 @@
                             </a>
                           </div>
 
-                          <hr class="my-3" />
+                          <hr class="text-secondary my-3" />
 
                           <div>
-                            <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover py-4 me-3" href="#">Informazioni legali</a>
-                            <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover py-4 me-3" href="#">Sicurezza e Centro sulla privacy</a>
-                            <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover py-4 me-3" href="#">Informativa sulla privacy</a>
-                            <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover py-4 me-3" href="#">Impostazioni cookie</a>
-                            <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover py-4 me-3" href="#">Info annunci</a>
-                            <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover py-4 me-5" href="#">Accessibilità</a>
+                            <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover py-4 me-3 text-secondary fs-7" href="#">Informazioni legali</a>
+                            <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover py-4 me-3 text-secondary fs-7" href="#">Sicurezza e Centro sulla privacy</a>
+                            <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover py-4 me-3 text-secondary fs-7" href="#">Informativa sulla privacy</a>
+                            <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover py-4 me-3 text-secondary fs-7" href="#">Impostazioni cookie</a>
+                            <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover py-4 me-3 text-secondary fs-7" href="#">Info annunci</a>
+                            <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover py-4 me-5 text-secondary fs-7" href="#">Accessibilità</a>
                             <br />
-                            <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover py-4 fs-5" href="#">© 2024 Apotify AB</a>
+                            <a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover py-4 fs-6 text-secondary" href="#">© 2024 Apotify AB</a>
                           </div>
                         </div>
                       </div>
