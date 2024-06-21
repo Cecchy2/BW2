@@ -64,6 +64,8 @@ const creaCards = searchObj => {
         footerTitolo.appendChild(h5);
         imgArtistaAlbum.classList.add("me-2");
         h5.innerText = song.title;
+        h5.className = "text-truncate";
+        h5.style.maxWidth = "250px";
         footerArtista.innerText = song.artist.name;
       } else {
         image.src = song.album.cover_small;
@@ -71,6 +73,8 @@ const creaCards = searchObj => {
         footerTitolo.appendChild(h5);
         imgArtistaAlbum.classList.add("me-2");
         h5.innerText = song.title;
+        h5.className = "text-truncate";
+        h5.style.maxWidth = "250px";
         footerArtista.innerText = song.artist.name;
       }
 

@@ -80,6 +80,8 @@ const creaCards = (artist, container, index) => {
       footerTitolo.appendChild(h5);
       imgArtistaAlbum.classList.add("me-2");
       h5.innerText = arrayArtist.name;
+      h5.className = "text-truncate";
+      h5.style.maxWidth = "250px";
       footerArtista.innerText = arrayArtist.type;
     } else {
       image.src = arrayArtist.picture_small;
@@ -87,6 +89,8 @@ const creaCards = (artist, container, index) => {
       footerTitolo.appendChild(h5);
       imgArtistaAlbum.classList.add("me-2");
       h5.innerText = arrayArtist.title;
+      h5.className = "text-truncate";
+      h5.style.maxWidth = "250px";
       footerArtista.innerText = arrayArtist.artist.name;
     }
     const aside = document.getElementById("asideContainer");
@@ -237,6 +241,8 @@ const creaAlbum = (album, container, index) => {
       footerTitolo.appendChild(h5);
       imgArtistaAlbum.classList.add("me-2");
       h5.innerText = moTifrego.tracks.data[indexPazzo].title;
+      h5.className = "text-truncate";
+      h5.style.maxWidth = "250px";
       footerArtista.innerText = moTifrego.artist.name;
     } else {
       const indexPazzo = Math.floor(Math.random() * 16);
@@ -245,6 +251,8 @@ const creaAlbum = (album, container, index) => {
       footerTitolo.appendChild(h5);
       imgArtistaAlbum.classList.add("me-2");
       h5.innerText = moTifrego.tracks.data[indexPazzo].title;
+      h5.className = "text-truncate";
+      h5.style.maxWidth = "250px";
       footerArtista.innerText = moTifrego.artist.name;
     }
 

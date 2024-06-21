@@ -44,6 +44,8 @@ window.addEventListener("DOMContentLoaded", function () {
           footerTitolo.appendChild(h5);
           imgArtistaAlbum.classList.add("me-2");
           h5.innerText = albumObj.tracks.data[indexPazzo].title;
+          h5.className = "text-truncate";
+          h5.style.maxWidth = "250px";
           footerArtista.innerText = albumObj.artist.name;
         } else {
           image.src = albumObj.cover_small;
@@ -51,6 +53,8 @@ window.addEventListener("DOMContentLoaded", function () {
           footerTitolo.appendChild(h5);
           imgArtistaAlbum.classList.add("me-2");
           h5.innerText = albumObj.tracks.data[indexPazzo].title;
+          h5.className = "text-truncate";
+          h5.style.maxWidth = "250px";
           footerArtista.innerText = albumObj.artist.name;
         }
         // ********************** creazione album card aside bar****************************************
@@ -217,6 +221,8 @@ window.addEventListener("DOMContentLoaded", function () {
             footerTitolo.appendChild(h5);
             imgArtistaAlbum.classList.add("me-2");
             h5.innerText = track.title;
+            h5.className = "text-truncate";
+            h5.style.maxWidth = "250px";
             footerArtista.innerText = track.artist.name;
           } else {
             image.src = albumObj.cover_small;
@@ -224,6 +230,8 @@ window.addEventListener("DOMContentLoaded", function () {
             footerTitolo.appendChild(h5);
             imgArtistaAlbum.classList.add("me-2");
             h5.innerText = track.title;
+            h5.className = "text-truncate";
+            h5.style.maxWidth = "250px";
             footerArtista.innerText = track.artist.name;
           }
           // ********************** creazione album card aside bar****************************************

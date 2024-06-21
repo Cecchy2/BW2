@@ -188,6 +188,8 @@ const createSongList = () => {
           footerTitolo.appendChild(h5);
           imgArtistaAlbum.classList.add("me-2");
           h5.innerText = artistsOBJ[indexPazzo].title;
+          h5.className = "text-truncate";
+          h5.style.maxWidth = "250px";
           footerArtista.innerText = artistsOBJ[indexPazzo].artist.name;
         } else {
           image.src = artistsOBJ[indexPazzo].album.cover_small;
@@ -195,6 +197,8 @@ const createSongList = () => {
           footerTitolo.appendChild(h5);
           imgArtistaAlbum.classList.add("me-2");
           h5.innerText = artistsOBJ[indexPazzo].title;
+          h5.className = "text-truncate";
+          h5.style.maxWidth = "250px";
           footerArtista.innerText = artistsOBJ[indexPazzo].artist.name;
         }
 
@@ -330,6 +334,8 @@ const createSongList = () => {
             footerTitolo.appendChild(h5);
             imgArtistaAlbum.classList.add("me-2");
             h5.innerText = art.title;
+            h5.className = "text-truncate";
+            h5.style.maxWidth = "250px";
             footerArtista.innerText = art.artist.name;
           } else {
             image.src = art.album.cover_small;
@@ -337,6 +343,8 @@ const createSongList = () => {
             footerTitolo.appendChild(h5);
             imgArtistaAlbum.classList.add("me-2");
             h5.innerText = art.title;
+            h5.className = "text-truncate";
+            h5.style.maxWidth = "250px";
             footerArtista.innerText = art.artist.name;
           }
           // ********************** creazione album card aside bar****************************************

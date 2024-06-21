@@ -44,6 +44,8 @@ const creaList = song => {
         footerTitolo.appendChild(h5);
         imgArtistaAlbum.classList.add("me-2");
         h5.innerText = element.title;
+        h5.className = "text-truncate";
+        h5.style.maxWidth = "250px";
         footerArtista.innerText = element.artist.name;
       } else {
         image.src = element.album.cover_small;
@@ -51,6 +53,8 @@ const creaList = song => {
         footerTitolo.appendChild(h5);
         imgArtistaAlbum.classList.add("me-2");
         h5.innerText = element.title;
+        h5.className = "text-truncate";
+        h5.style.maxWidth = "250px";
         footerArtista.innerText = element.artist.name;
       }
 
