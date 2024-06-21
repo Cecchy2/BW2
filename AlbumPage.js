@@ -11,14 +11,14 @@ window.addEventListener("DOMContentLoaded", function () {
       "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
     },
   })
-    .then(resp => {
+    .then((resp) => {
       if (resp.ok) {
         return resp.json();
       } else {
         throw new Error("Error fetching album data");
       }
     })
-    .then(albumObj => {
+    .then((albumObj) => {
       console.log(albumObj);
 
       artistId = albumObj.artist.id;
@@ -38,15 +38,6 @@ window.addEventListener("DOMContentLoaded", function () {
       imgCurrentAlbum.src = albumObj.cover_big;
       titleAlbum.innerText = albumObj.title;
       artistAlbum.innerText = `${albumObj.artist.name} · ${year} · ${albumObj.nb_tracks} tracks`;
-
-      /* Questa e´ la funzione per la media dei colori dell'immagine  ma non funziona */
-      /* imgCurrentAlbum.onload = function () {
-        const colorThief = new ColorThief();
-        const dominantColor = colorThief.getColor(imgCurrentAlbum);
-        const mainElement = document.querySelector("main");
-        console.log(`Dominant Color: rgb(${dominantColor[0]}, ${dominantColor[1]}, ${dominantColor[2]})`);
-        mainElement.style.backgroundColor = `rgb(${dominantColor[0]}, ${dominantColor[1]}, ${dominantColor[2]})`;
-      }; */
 
       imgCurrentAlbum.src = albumObj.cover_big;
       titleAlbum.innerText = albumObj.title;
@@ -105,14 +96,14 @@ window.addEventListener("DOMContentLoaded", function () {
 
       return fetch(`https://striveschool-api.herokuapp.com/api/deezer/artist/${artistId}/top?limit=50`);
     })
-    .then(resp => {
+    .then((resp) => {
       if (resp.ok) {
         return resp.json();
       } else {
         throw new Error(`Error ${resp.status}: ${resp.statusText}`);
       }
     })
-    .then(artistTop => {
+    .then((artistTop) => {
       const altriAlbums = document.getElementById("altriAlbums");
       altriAlbums.innerHTML = "";
 
@@ -140,7 +131,8 @@ window.addEventListener("DOMContentLoaded", function () {
         const buttonPlay = document.createElement("a");
         buttonPlay.type = "button";
         buttonPlay.style = "width: 50px; height: 50px";
-        buttonPlay.className = "btn btn-success rounded-circle position-absolute bottom-0 end-0 me-2 mb-2 d-flex align-items-center justify-content-center d-none";
+        buttonPlay.className =
+          "btn btn-success rounded-circle position-absolute bottom-0 end-0 me-2 mb-2 d-flex align-items-center justify-content-center d-none";
         buttonPlay.id = "btnPlay";
         buttonPlay.innerHTML = `<svg
         xmlns="http://www.w3.org/2000/svg"
@@ -177,7 +169,7 @@ window.addEventListener("DOMContentLoaded", function () {
       const titleAlbumB = document.getElementById("titleAlbumBottom");
       titleAlbumB.innerText = "Altri album di  " + albumTop.artist.name;
     })
-    .catch(error => {
+    .catch((error) => {
       console.error("Fetch error:", error);
     });
 
