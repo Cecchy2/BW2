@@ -63,6 +63,12 @@ const createCards = () => {
         btnPlay.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="black" class="bi bi-play-fill" viewBox="0 0 16 16">
   <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"/></svg>`;
 
+        btnPlay.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = e.target;
+          audioPlayer.src = song.preview;
+          audioPlayer.play();
+        });
         card.addEventListener("mouseover", ins, false);
         card.addEventListener("mouseout", out, false);
         function ins() {
@@ -252,11 +258,26 @@ const createSongList = () => {
           }
         });
         const btnGreenPlay = document.getElementById("btnGreenPlay");
+        const pauseBtn = document.getElementById("pause");
         btnGreenPlay.addEventListener("click", function (e) {
-          const target = e.target;
           audioPlayer.src = art.preview;
           audioPlayer.play();
         });
+        pauseBtn.addEventListener("click", function (e) {
+          audioPlayer.pause();
+        });
+        if (!audioPlayer.play) {
+          pauseBtn.innerHTML = `<svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16" style="width: 15px">
+                        <path
+                          fill="#000000"
+                          d="M3 1.713a.7.7 0 0 1 1.05-.607l10.89 6.288a.7.7 0 0 1 0 1.212L4.05 14.894A.7.7 0 0 1 3 14.288V1.713z"
+                        ></path>
+                      </svg>`;
+          pauseBtn.classList.add("d-none");
+        } else {
+          pauseBtn.innerHTML = `<svg data-encore-id="icon" role="img" aria-hidden="true" viewBox="0 0 16 16" class="Svg-sc-ytk21e-0 dYnaPI"><path d="M2.7 1a.7.7 0 0 0-.7.7v12.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7H2.7zm8 0a.7.7 0 0 0-.7.7v12.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7h-2.6z"></path></svg>`;
+          pauseBtn.classList.add("d-block");
+        }
       });
     })
     .catch(err => console.log(err));
