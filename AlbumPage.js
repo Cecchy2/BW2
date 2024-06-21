@@ -1,13 +1,15 @@
 const params = new URLSearchParams(window.location.search);
 const id = params.get("albumId");
 
+let averageColor = "";
+
 let artistId = 0;
 
 window.addEventListener("DOMContentLoaded", function () {
   fetch("https://deezerdevs-deezer.p.rapidapi.com/album/" + id, {
     method: "GET",
     headers: {
-      "x-rapidapi-key": "163c72cf37msh7fb90cec4c02a73p1390b4jsn4594dd70494e",
+      "x-rapidapi-key": "c1be13bc83msh01ed86504ac789ap14b677jsn4a8378e3cb43",
       "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
     },
   })
@@ -81,6 +83,8 @@ window.addEventListener("DOMContentLoaded", function () {
         console.log(`Dominant Color: rgb(${dominantColor[0]}, ${dominantColor[1]}, ${dominantColor[2]})`);
         const mainElement = document.getElementById("main");
         mainElement.style.backgroundColor = `rgb(${dominantColor[0]}, ${dominantColor[1]}, ${dominantColor[2]})`;
+
+        averageColor = `rgb(${dominantColor[0]}, ${dominantColor[1]}, ${dominantColor[2]})`;
       };
 
       imgCurrentAlbum.onerror = function () {
@@ -93,14 +97,15 @@ window.addEventListener("DOMContentLoaded", function () {
       albumObj.tracks.data.forEach((track, index) => {
         const trackRow = document.createElement("tr");
 
-        // Canzone
+        // Numero Track
         const trackNumberCell = document.createElement("th");
         trackNumberCell.scope = "row";
         trackNumberCell.innerText = index + 1;
         trackRow.appendChild(trackNumberCell);
 
-        // Artista
+        // Track
         const trackTitleCell = document.createElement("td");
+        trackTitleCell.className = "w-50 text-truncate";
         trackTitleCell.innerHTML = `${track.title}<br><span style="font-size: 0.9em; color: rgb(159, 159, 159);">${track.artist.name}</span>`;
         trackRow.appendChild(trackTitleCell);
 
@@ -255,21 +260,27 @@ window.addEventListener("DOMContentLoaded", function () {
   const scrollPage = document.getElementById("scrollThead");
   const hiddenThead = document.getElementById("hiddenThead");
 
+  constplayBtn2 = document.getElementById("playBtn2");
+  const navB = document.getElementById("coloredNavbar");
+
   scrollPage.addEventListener("scroll", function (event) {
     if (scrollPage.scrollTop > 475) {
       /* const bottonePlay = document.getElementById("playBtn"); */
       console.log(event);
       hiddenThead.classList.remove("hidden");
       hiddenThead.classList.add("visible");
-      /* playBtn.classList.add("fixed");
-      playBtn.classList.add("visible");
-      playBtn.classList.remove("hidden"); */
+      navB.style.backgroundColor = averageColor;
+
+      playBtn2.classList.add("visible");
+      playBtn2.classList.remove("hidden");
     } else {
+      navB.style.backgroundColor = 0;
+
       hiddenThead.classList.remove("visible");
       hiddenThead.classList.add("hidden");
-      /* playBtn.classList.remove("fixed");
-      playBtn.classList.remove("visible");
-      playBtn.classList.add("hidden"); */
+
+      playBtn2.classList.remove("visible");
+      playBtn2.classList.add("hidden");
     }
   });
 });
