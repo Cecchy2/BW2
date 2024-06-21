@@ -7,18 +7,18 @@ window.addEventListener("DOMContentLoaded", function () {
   fetch("https://deezerdevs-deezer.p.rapidapi.com/album/" + id, {
     method: "GET",
     headers: {
-      "x-rapidapi-key": "dfd3925d0amshafe029754eb961ap17f037jsn18e065c48a37",
+      "x-rapidapi-key": "c1be13bc83msh01ed86504ac789ap14b677jsn4a8378e3cb43",
       "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
     },
   })
-    .then(resp => {
+    .then((resp) => {
       if (resp.ok) {
         return resp.json();
       } else {
         throw new Error("Error fetching album data");
       }
     })
-    .then(albumObj => {
+    .then((albumObj) => {
       console.log(albumObj);
 
       artistId = albumObj.artist.id;
@@ -105,14 +105,14 @@ window.addEventListener("DOMContentLoaded", function () {
 
       return fetch(`https://striveschool-api.herokuapp.com/api/deezer/artist/${artistId}/top?limit=50`);
     })
-    .then(resp => {
+    .then((resp) => {
       if (resp.ok) {
         return resp.json();
       } else {
         throw new Error(`Error ${resp.status}: ${resp.statusText}`);
       }
     })
-    .then(artistTop => {
+    .then((artistTop) => {
       const altriAlbums = document.getElementById("altriAlbums");
       altriAlbums.innerHTML = "";
 
@@ -140,7 +140,8 @@ window.addEventListener("DOMContentLoaded", function () {
         const buttonPlay = document.createElement("a");
         buttonPlay.type = "button";
         buttonPlay.style = "width: 50px; height: 50px";
-        buttonPlay.className = "btn btn-success rounded-circle position-absolute bottom-0 end-0 me-2 mb-2 d-flex align-items-center justify-content-center d-none";
+        buttonPlay.className =
+          "btn btn-success rounded-circle position-absolute bottom-0 end-0 me-2 mb-2 d-flex align-items-center justify-content-center d-none";
         buttonPlay.id = "btnPlay";
         buttonPlay.innerHTML = `<svg
         xmlns="http://www.w3.org/2000/svg"
@@ -177,7 +178,7 @@ window.addEventListener("DOMContentLoaded", function () {
       const titleAlbumB = document.getElementById("titleAlbumBottom");
       titleAlbumB.innerText = "Altri album di  " + albumTop.artist.name;
     })
-    .catch(error => {
+    .catch((error) => {
       console.error("Fetch error:", error);
     });
 
