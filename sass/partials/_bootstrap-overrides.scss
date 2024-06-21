@@ -234,10 +234,24 @@ tr:hover {
 }
 .hidden {
   opacity: 0;
-  transition: opacity 1s ease-in-out;
+  visibility: hidden;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
 }
-.visibile {
+
+.visible {
   opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+.fixed {
+  position: fixed;
+  top: 75px;
+  left: 575px;
+
+  z-index: 2000;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
 }
 .fixed-header {
   position: fixed;
@@ -245,12 +259,6 @@ tr:hover {
   width: 100%;
   background-color: black;
   z-index: 1000;
-}
-.fixed {
-  position: fixed;
-  top: 70px;
-  left: 560px;
-  z-index: 2000;
 }
 
 @media screen and (min-width: 600px) {

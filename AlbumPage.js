@@ -196,15 +196,19 @@ window.addEventListener("DOMContentLoaded", function () {
 
   scrollPage.addEventListener("scroll", function (event) {
     if (scrollPage.scrollTop > 475) {
-      const bottonePlay = document.getElementById("playBtn");
+      /* const bottonePlay = document.getElementById("playBtn"); */
       console.log(event);
       hiddenThead.classList.remove("hidden");
       hiddenThead.classList.add("visible");
-      playBtn.classList.add("fixed");
+      /* playBtn.classList.add("fixed");
+      playBtn.classList.add("visible");
+      playBtn.classList.remove("hidden"); */
     } else {
       hiddenThead.classList.remove("visible");
       hiddenThead.classList.add("hidden");
-      playBtn.classList.remove("fixed");
+      /* playBtn.classList.remove("fixed");
+      playBtn.classList.remove("visible");
+      playBtn.classList.add("hidden"); */
     }
   });
 });
