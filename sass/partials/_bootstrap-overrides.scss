@@ -107,9 +107,8 @@ $font-sizes: map-merge($font-sizes, $custom-font-sizes);
   width: 15%;
   background-color: black;
 }
-#main {
-  /* background-image: linear-gradient(0deg, #000000c4 0%, #000000 46%, #ffcc70 100%); */
 
+#main {
   background-image: linear-gradient(359deg, #0a0b0bf9 0%, #000000 51%, #0e0e0e00 100%);
 }
 #playBtn {
@@ -173,6 +172,7 @@ $font-sizes: map-merge($font-sizes, $custom-font-sizes);
   border-radius: 0.2rem;
   padding: 0.4rem;
 }
+
 .pointer {
   cursor: pointer;
 }
