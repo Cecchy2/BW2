@@ -93,14 +93,15 @@ window.addEventListener("DOMContentLoaded", function () {
       albumObj.tracks.data.forEach((track, index) => {
         const trackRow = document.createElement("tr");
 
-        // Canzone
+        // Numero Track
         const trackNumberCell = document.createElement("th");
         trackNumberCell.scope = "row";
         trackNumberCell.innerText = index + 1;
         trackRow.appendChild(trackNumberCell);
 
-        // Artista
+        // Track
         const trackTitleCell = document.createElement("td");
+        trackTitleCell.className = "w-50 text-truncate";
         trackTitleCell.innerHTML = `${track.title}<br><span style="font-size: 0.9em; color: rgb(159, 159, 159);">${track.artist.name}</span>`;
         trackRow.appendChild(trackTitleCell);
 
