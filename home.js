@@ -171,14 +171,15 @@ const creaAlbum = (album, container, index) => {
   const img = document.createElement("img");
   img.className = "bd-placeholder-img card-img-top object-fit-cover ";
   img.setAttribute("src", album.cover_big);
-  img.addEventListener("click", event => {
+  img.addEventListener("click", (event) => {
     window.location.assign("./AlbumPage.html?albumId=" + album.id);
   });
   const btnPlay = document.createElement("a");
   btnPlay.type = "button";
   btnPlay.setAttribute("style", "width: 50px; height:50px");
   // btnPlay.href = "./back-office.html?productId=" + songs.data[i]._id;
-  btnPlay.className = "btn btn-success btnPlay  rounded-circle   position-absolute  bottom-0 end-0 me-2 mb-2 d-flex align-items-center justify-content-center d-none ";
+  btnPlay.className =
+    "btn btn-success btnPlay  rounded-circle   position-absolute  bottom-0 end-0 me-2 mb-2 d-flex align-items-center justify-content-center d-none ";
   btnPlay.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="black" class="bi bi-play-fill" viewBox="0 0 16 16">
             <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"/></svg>`;
 
@@ -218,13 +219,12 @@ const creaAlbum = (album, container, index) => {
       h5.innerText = moTifrego.tracks.data[indexPazzo].title;
       footerArtista.innerText = moTifrego.artist.name;
     }
-  });
 
     // ***************************creazione album card e info aside bar***************************
 
     const aside = document.getElementById("asideContainer");
     aside.innerHTML = "";
-    const asideAlbumCard = album => {
+    const asideAlbumCard = (album) => {
       const asideCol = this.document.createElement("div");
       asideCol.className = "col-12 border border-0";
       const asideCard = document.createElement("div");
@@ -233,7 +233,7 @@ const creaAlbum = (album, container, index) => {
       const asideImg = document.createElement("img");
       asideImg.className = "bd-placeholder-img card-img-top object-fit-cover ";
       asideImg.setAttribute("src", album.cover_big);
-      asideImg.addEventListener("click", event => {
+      asideImg.addEventListener("click", (event) => {
         window.location.assign("./AlbumPage.html?albumId=" + album.id);
       });
       const asideCardBody = document.createElement("div");
@@ -241,12 +241,13 @@ const creaAlbum = (album, container, index) => {
       const asideH5 = document.createElement("h5");
       asideH5.innerText = album.title;
       asideH5.className = "fs-5 text-truncate text-white";
-      asideH5.addEventListener("click", event => {
+      asideH5.addEventListener("click", (event) => {
         window.location.assign("./AlbumPage.html?albumId=" + album.id);
       });
       const asideName = document.createElement("a");
       asideName.innerText = album.artist.name;
-      asideName.className = "link-underline-secondary link-underline-opacity-0 link-underline-opacity-75-hover text-secondary fw-bold";
+      asideName.className =
+        "link-underline-secondary link-underline-opacity-0 link-underline-opacity-75-hover text-secondary fw-bold";
       asideName.href = "./artists.html?artistId=" + album.artist.id;
 
       asideImgContainer.append(asideImg);
@@ -258,7 +259,7 @@ const creaAlbum = (album, container, index) => {
     asideAlbumCard(album);
 
     // ***************************creazione album card e info aside bar***************************
-    const asideArtistCard = album => {
+    const asideArtistCard = (album) => {
       const asideCol = this.document.createElement("div");
       asideCol.className = "col-12 border border-0";
       const asideCard = document.createElement("div");
@@ -267,7 +268,7 @@ const creaAlbum = (album, container, index) => {
       const asideImg = document.createElement("img");
       asideImg.className = "bd-placeholder-img card-img-top object-fit-cover ";
       asideImg.setAttribute("src", album.artist.picture_big);
-      asideImg.addEventListener("click", event => {
+      asideImg.addEventListener("click", (event) => {
         window.location.assign("./artists.html?artistId=" + album.artist.id);
       });
       const asideCardBody = document.createElement("div");
@@ -275,12 +276,13 @@ const creaAlbum = (album, container, index) => {
       const asideH5 = document.createElement("h5");
       asideH5.innerText = album.artist.name;
       asideH5.className = "fs-5 text-truncate text-white";
-      asideH5.addEventListener("click", event => {
+      asideH5.addEventListener("click", (event) => {
         window.location.assign("./artists.html?artistId=" + album.artist.id);
       });
       const asideGenres = document.createElement("a");
       asideGenres.innerText = album.genres.data[0].name;
-      asideGenres.className = "link-underline-secondary link-underline-opacity-0 link-underline-opacity-75-hover text-secondary fw-bold";
+      asideGenres.className =
+        "link-underline-secondary link-underline-opacity-0 link-underline-opacity-75-hover text-secondary fw-bold";
 
       asideImgContainer.append(asideImg);
       asideCardBody.append(asideH5, asideGenres);
@@ -295,12 +297,13 @@ const creaAlbum = (album, container, index) => {
   const h5 = document.createElement("h5");
   h5.innerText = album.title;
   h5.className = "fs-5 text-truncate ";
-  h5.addEventListener("click", event => {
+  h5.addEventListener("click", (event) => {
     window.location.assign("./AlbumPage.html?albumId=" + album.id);
   });
   const name = document.createElement("a");
   name.innerText = album.artist.name;
-  name.className = "link-underline-secondary link-underline-opacity-0 link-underline-opacity-75-hover text-secondary fw-bold";
+  name.className =
+    "link-underline-secondary link-underline-opacity-0 link-underline-opacity-75-hover text-secondary fw-bold";
   name.href = "./artists.html?artistId=" + album.artist.id;
 
   imgContainer.append(img, btnPlay);
