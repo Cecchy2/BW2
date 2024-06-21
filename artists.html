@@ -12,8 +12,8 @@
     <div class="">
       <div class="row p-2">
         <header class="col-2 rounded p-0">
-          <div class="rounded bg-darkness mb-2 d-lg-block" style="height: 15vh">
-            <ul class="list-unstyled d-flex pt-4 ps-2 justify-content-center flex-column gap-3 m-0">
+          <div id="home-cerca" class="rounded bg-darkness d-flex align-items-center mb-2" style="height: 15vh">
+            <ul class="list-unstyled d-flex ps-2 justify-content-center flex-column gap-3 m-0">
               <li class="align-middle pointer" id="homeBtn">
                 <svg
                   data-encore-id="icon"
@@ -66,7 +66,7 @@
               </li>
             </ul>
           </div>
-          <div class="bg-darkness rounded p-3">
+          <div class="bg-darkness rounded p-3" style="height: 74vh">
             <div class="bg-darkness mb-3" style="height: 10vh">
               <div class="d-flex">
                 <button class="btn text-white me-auto bg-darkness mb-2 p-1" style="width: 150px">
@@ -90,8 +90,8 @@
                     </svg>
                   </span>
                 </button>
-                <button class="btn text-white mx-2 bg-darkness" style="width: 40px; height: 40px">
-                  <span style="display: block"
+                <button class="btn text-white mx-2 bg-darkness d-none d-xl-inline" style="width: 40px; height: 40px">
+                  <span
                     ><svg
                       data-encore-id="icon"
                       role="img"
@@ -122,7 +122,7 @@
             </div>
             <div
               class="scrollbar text-truncate d-flex justify-content-center align-items-center d-xl-block"
-              style="height: 56vh"
+              style="height: 58vh"
             >
               <div class="d-flex justify-content-between">
                 <button class="btn d-none d-xl-inline">
@@ -536,7 +536,9 @@
             </div>
           </div>
         </main>
-        <aside class="col rounded bg-darkness scrollbar d-none d-xl-block" style="height: 90vh"></aside>
+        <aside class="col rounded bg-darkness scrollbar d-none d-xl-block" style="height: 90vh">
+          <div id="asideContainer" class="row"></div>
+        </aside>
       </div>
       <footer class="fixed-bottom bg-black p-0 m-0 container-fluid" style="height: 10vh; width: 100wh">
         <div class="row p-2">

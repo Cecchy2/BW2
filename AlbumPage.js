@@ -1,13 +1,15 @@
 const params = new URLSearchParams(window.location.search);
 const id = params.get("albumId");
 
+let averageColor = "";
+
 let artistId = 0;
 
 window.addEventListener("DOMContentLoaded", function () {
   fetch("https://deezerdevs-deezer.p.rapidapi.com/album/" + id, {
     method: "GET",
     headers: {
-      "x-rapidapi-key": "dfd3925d0amshafe029754eb961ap17f037jsn18e065c48a37",
+      "x-rapidapi-key": "c1be13bc83msh01ed86504ac789ap14b677jsn4a8378e3cb43",
       "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
     },
   })
@@ -20,6 +22,111 @@ window.addEventListener("DOMContentLoaded", function () {
     })
     .then(albumObj => {
       console.log(albumObj);
+      /////EVENTO PLAYBTN SU ALLBUMPAGE
+
+      const btnPlayAlbum = document.getElementById("playBtn");
+      btnPlayAlbum.addEventListener("click", event => {
+        console.log("Button clicked");
+        console.log(albumObj);
+        const indexPazzo = Math.floor(Math.random() * 20);
+
+        const imgArtistaAlbum = document.getElementById("imgArtistaAlbum");
+        const footerTitolo = document.getElementById("footerTitolo");
+        const footerArtista = document.getElementById("footerArtista");
+        const image = document.createElement("img");
+        const h5 = document.createElement("h5");
+        if (imgArtistaAlbum.firstChild && imgArtistaAlbum.firstChild.src) {
+          imgArtistaAlbum.innerHTML = "";
+          footerTitolo.innerHTML = "";
+          footerArtista.innerHTML = "";
+          image.src = albumObj.cover_small;
+          imgArtistaAlbum.appendChild(image);
+          footerTitolo.appendChild(h5);
+          imgArtistaAlbum.classList.add("me-2");
+          h5.innerText = albumObj.tracks.data[indexPazzo].title;
+          h5.className = "text-truncate";
+          h5.style.maxWidth = "250px";
+          footerArtista.innerText = albumObj.artist.name;
+        } else {
+          image.src = albumObj.cover_small;
+          imgArtistaAlbum.appendChild(image);
+          footerTitolo.appendChild(h5);
+          imgArtistaAlbum.classList.add("me-2");
+          h5.innerText = albumObj.tracks.data[indexPazzo].title;
+          h5.className = "text-truncate";
+          h5.style.maxWidth = "250px";
+          footerArtista.innerText = albumObj.artist.name;
+        }
+        // ********************** creazione album card aside bar****************************************
+        const aside = document.getElementById("asideContainer");
+        aside.innerHTML = "";
+        const asideAlbumCard = albumObj => {
+          const asideCol = document.createElement("div");
+          asideCol.className = "col-12 border border-0";
+          const asideCard = document.createElement("div");
+          asideCard.className = "btn card mb-4 border border-0 bg-darkness contenitoreCard ";
+          const asideImgContainer = document.createElement("div");
+          const asideImg = document.createElement("img");
+          asideImg.className = "bd-placeholder-img card-img-top object-fit-cover ";
+          asideImg.setAttribute("src", albumObj.cover_big);
+          asideImg.addEventListener("click", event => {
+            window.location.assign("./AlbumPage.html?albumId=" + albumObj.id);
+          });
+          const asideCardBody = document.createElement("div");
+          asideCardBody.className = "card-body text-start px-0 pb-0";
+          const asideH5 = document.createElement("h5");
+          asideH5.innerText = albumObj.title;
+          asideH5.className = "fs-5 text-truncate text-white";
+          asideH5.addEventListener("click", event => {
+            window.location.assign("./AlbumPage.html?albumId=" + albumObj.id);
+          });
+          const asideName = document.createElement("a");
+          asideName.innerText = albumObj.artist.name;
+          asideName.className = "link-underline-secondary link-underline-opacity-0 link-underline-opacity-75-hover text-secondary fw-bold";
+          asideName.href = "./artists.html?artistId=" + albumObj.artist.id;
+
+          asideImgContainer.append(asideImg);
+          asideCardBody.append(asideH5, asideName);
+          asideCard.append(asideImgContainer, asideCardBody);
+          asideCol.append(asideCard);
+          aside.append(asideCol);
+        };
+        asideAlbumCard(albumObj);
+
+        // ************************* crazione artista card aside bar **********************************
+        const asideArtistCard = albumObj => {
+          const asideCol = this.document.createElement("div");
+          asideCol.className = "col-12 border border-0";
+          const asideCard = document.createElement("div");
+          asideCard.className = "btn card mb-4 border border-0 bg-darkness contenitoreCard ";
+          const asideImgContainer = document.createElement("div");
+          const asideImg = document.createElement("img");
+          asideImg.className = "bd-placeholder-img card-img-top object-fit-cover ";
+          asideImg.setAttribute("src", albumObj.artist.picture_big);
+          asideImg.addEventListener("click", event => {
+            window.location.assign("./artists.html?artistId=" + albumObj.artist.id);
+          });
+          const asideCardBody = document.createElement("div");
+          asideCardBody.className = "card-body text-start px-0 pb-0";
+          const asideH5 = document.createElement("h5");
+          asideH5.innerText = albumObj.artist.name;
+          asideH5.className = "fs-5 text-truncate text-white";
+          asideH5.addEventListener("click", event => {
+            window.location.assign("./artists.html?artistId=" + albumObj.artist.id);
+          });
+          const asideGenres = document.createElement("a");
+          asideGenres.innerText = albumObj.genres.data[0].name;
+          asideGenres.className = "link-underline-secondary link-underline-opacity-0 link-underline-opacity-75-hover text-secondary fw-bold";
+
+          asideImgContainer.append(asideImg);
+          asideCardBody.append(asideH5, asideGenres);
+          asideCard.append(asideImgContainer, asideCardBody);
+          asideCol.append(asideCard);
+          aside.append(asideCol);
+        };
+        asideArtistCard(albumObj);
+      });
+      //////FINE EVENTO
 
       artistId = albumObj.artist.id;
       console.log(artistId);
@@ -32,20 +139,12 @@ window.addEventListener("DOMContentLoaded", function () {
       const titleAlbum = document.getElementById("albumTitle");
       const artistAlbum = document.getElementById("albumArtist");
 
+      /* crossOrigin impostato ad Anonymous */
       imgCurrentAlbum.crossOrigin = "Anonymous";
 
       imgCurrentAlbum.src = albumObj.cover_big;
       titleAlbum.innerText = albumObj.title;
       artistAlbum.innerText = `${albumObj.artist.name} · ${year} · ${albumObj.nb_tracks} tracks`;
-
-      /* Questa e´ la funzione per la media dei colori dell'immagine  ma non funziona */
-      /* imgCurrentAlbum.onload = function () {
-        const colorThief = new ColorThief();
-        const dominantColor = colorThief.getColor(imgCurrentAlbum);
-        const mainElement = document.querySelector("main");
-        console.log(`Dominant Color: rgb(${dominantColor[0]}, ${dominantColor[1]}, ${dominantColor[2]})`);
-        mainElement.style.backgroundColor = `rgb(${dominantColor[0]}, ${dominantColor[1]}, ${dominantColor[2]})`;
-      }; */
 
       imgCurrentAlbum.src = albumObj.cover_big;
       titleAlbum.innerText = albumObj.title;
@@ -57,6 +156,8 @@ window.addEventListener("DOMContentLoaded", function () {
         console.log(`Dominant Color: rgb(${dominantColor[0]}, ${dominantColor[1]}, ${dominantColor[2]})`);
         const mainElement = document.getElementById("main");
         mainElement.style.backgroundColor = `rgb(${dominantColor[0]}, ${dominantColor[1]}, ${dominantColor[2]})`;
+
+        averageColor = `rgb(${dominantColor[0]}, ${dominantColor[1]}, ${dominantColor[2]})`;
       };
 
       imgCurrentAlbum.onerror = function () {
@@ -69,14 +170,15 @@ window.addEventListener("DOMContentLoaded", function () {
       albumObj.tracks.data.forEach((track, index) => {
         const trackRow = document.createElement("tr");
 
-        // Canzone
+        // Numero Track
         const trackNumberCell = document.createElement("th");
         trackNumberCell.scope = "row";
         trackNumberCell.innerText = index + 1;
         trackRow.appendChild(trackNumberCell);
 
-        // Artista
+        // Track
         const trackTitleCell = document.createElement("td");
+        trackTitleCell.className = "w-50 text-truncate";
         trackTitleCell.innerHTML = `${track.title}<br><span style="font-size: 0.9em; color: rgb(159, 159, 159);">${track.artist.name}</span>`;
         trackRow.appendChild(trackTitleCell);
 
@@ -100,6 +202,107 @@ window.addEventListener("DOMContentLoaded", function () {
         trackRow.appendChild(trackDurationCell);
 
         tracksTable.appendChild(trackRow);
+        ////EVENTO CLICK SULLA RIGA DELLA TABELLA
+        trackRow.addEventListener("click", event => {
+          console.log("Button clicked");
+          console.log(albumObj);
+
+          const imgArtistaAlbum = document.getElementById("imgArtistaAlbum");
+          const footerTitolo = document.getElementById("footerTitolo");
+          const footerArtista = document.getElementById("footerArtista");
+          const image = document.createElement("img");
+          const h5 = document.createElement("h5");
+          if (imgArtistaAlbum.firstChild && imgArtistaAlbum.firstChild.src) {
+            imgArtistaAlbum.innerHTML = "";
+            footerTitolo.innerHTML = "";
+            footerArtista.innerHTML = "";
+            image.src = albumObj.cover_small;
+            imgArtistaAlbum.appendChild(image);
+            footerTitolo.appendChild(h5);
+            imgArtistaAlbum.classList.add("me-2");
+            h5.innerText = track.title;
+            h5.className = "text-truncate";
+            h5.style.maxWidth = "250px";
+            footerArtista.innerText = track.artist.name;
+          } else {
+            image.src = albumObj.cover_small;
+            imgArtistaAlbum.appendChild(image);
+            footerTitolo.appendChild(h5);
+            imgArtistaAlbum.classList.add("me-2");
+            h5.innerText = track.title;
+            h5.className = "text-truncate";
+            h5.style.maxWidth = "250px";
+            footerArtista.innerText = track.artist.name;
+          }
+          // ********************** creazione album card aside bar****************************************
+          const aside = document.getElementById("asideContainer");
+          aside.innerHTML = "";
+          const asideAlbumCard = albumObj => {
+            const asideCol = document.createElement("div");
+            asideCol.className = "col-12 border border-0";
+            const asideCard = document.createElement("div");
+            asideCard.className = "btn card mb-4 border border-0 bg-darkness contenitoreCard ";
+            const asideImgContainer = document.createElement("div");
+            const asideImg = document.createElement("img");
+            asideImg.className = "bd-placeholder-img card-img-top object-fit-cover ";
+            asideImg.setAttribute("src", albumObj.cover_big);
+            asideImg.addEventListener("click", event => {
+              window.location.assign("./AlbumPage.html?albumId=" + albumObj.id);
+            });
+            const asideCardBody = document.createElement("div");
+            asideCardBody.className = "card-body text-start px-0 pb-0";
+            const asideH5 = document.createElement("h5");
+            asideH5.innerText = albumObj.title;
+            asideH5.className = "fs-5 text-truncate text-white";
+            asideH5.addEventListener("click", event => {
+              window.location.assign("./AlbumPage.html?albumId=" + albumObj.id);
+            });
+            const asideName = document.createElement("a");
+            asideName.innerText = albumObj.artist.name;
+            asideName.className = "link-underline-secondary link-underline-opacity-0 link-underline-opacity-75-hover text-secondary fw-bold";
+            asideName.href = "./artists.html?artistId=" + albumObj.artist.id;
+
+            asideImgContainer.append(asideImg);
+            asideCardBody.append(asideH5, asideName);
+            asideCard.append(asideImgContainer, asideCardBody);
+            asideCol.append(asideCard);
+            aside.append(asideCol);
+          };
+          asideAlbumCard(albumObj);
+
+          // ************************* crazione artista card aside bar **********************************
+          const asideArtistCard = albumObj => {
+            const asideCol = this.document.createElement("div");
+            asideCol.className = "col-12 border border-0";
+            const asideCard = document.createElement("div");
+            asideCard.className = "btn card mb-4 border border-0 bg-darkness contenitoreCard ";
+            const asideImgContainer = document.createElement("div");
+            const asideImg = document.createElement("img");
+            asideImg.className = "bd-placeholder-img card-img-top object-fit-cover ";
+            asideImg.setAttribute("src", albumObj.artist.picture_big);
+            asideImg.addEventListener("click", event => {
+              window.location.assign("./artists.html?artistId=" + albumObj.artist.id);
+            });
+            const asideCardBody = document.createElement("div");
+            asideCardBody.className = "card-body text-start px-0 pb-0";
+            const asideH5 = document.createElement("h5");
+            asideH5.innerText = albumObj.artist.name;
+            asideH5.className = "fs-5 text-truncate text-white";
+            asideH5.addEventListener("click", event => {
+              window.location.assign("./artists.html?artistId=" + albumObj.artist.id);
+            });
+            const asideGenres = document.createElement("a");
+            asideGenres.innerText = albumObj.genres.data[0].name;
+            asideGenres.className = "link-underline-secondary link-underline-opacity-0 link-underline-opacity-75-hover text-secondary fw-bold";
+
+            asideImgContainer.append(asideImg);
+            asideCardBody.append(asideH5, asideGenres);
+            asideCard.append(asideImgContainer, asideCardBody);
+            asideCol.append(asideCard);
+            aside.append(asideCol);
+          };
+          asideArtistCard(albumObj);
+        });
       });
 
       return fetch(`https://striveschool-api.herokuapp.com/api/deezer/artist/${artistId}/top?limit=50`);
@@ -117,13 +320,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
       console.log(artistTop);
 
-      /* const titleAlbumB = document.getElementById("titleAlbumBottom");
-      titleAlbumB.innerText = "altri album di:" + artistTop.data.artist.name; */
-
       let albumTop = "";
-
-      /* const titleAlbumB = document.getElementById("titleAlbumBottom");
-      titleAlbumB.innerText = "Altri album di:" + albumTop.artist.name; */
 
       for (let i = 0; i < 4; i++) {
         albumTop = artistTop.data[i];
@@ -141,6 +338,15 @@ window.addEventListener("DOMContentLoaded", function () {
         const coverImg = document.createElement("img");
         coverImg.className = "bd-placeholder-img card-img-top object-fit-cover img-responsive";
         coverImg.src = albumTop.album.cover_big;
+
+        /* creo funzione eventlistener al click che mi rimanda all'album */
+        coverImg.addEventListener("click", event => {
+          console.log(event);
+          const album_Id = albumTop.album.id;
+          /* ?albumId= */
+          console.log(album_Id);
+          window.location.assign("./AlbumPage.html?albumId=" + album_Id);
+        });
 
         const buttonPlay = document.createElement("a");
         buttonPlay.type = "button";
@@ -165,16 +371,25 @@ window.addEventListener("DOMContentLoaded", function () {
         const titleAlbumBottom = document.createElement("h5");
         titleAlbumBottom.className = "card-body text-start px-0 pb-0 text-truncate";
         titleAlbumBottom.innerText = albumTop.album.title;
-
         console.log(albumTop.album.title);
 
-        const artistAlbumBottom = albumTop.artist.name;
+        const anchor = document.createElement("a");
+        anchor.innerText = albumTop.artist.name;
+        anchor.setAttribute("id", "ancora");
+
+        /* creo funzione eventlistener al click che mi rimanda all'artista */
+        anchor.addEventListener("click", event => {
+          console.log(event);
+          console.log(albumTop.artist.id);
+          const artist_id = albumTop.artist.id;
+          window.location.assign("artists.html?artistId=" + artist_id);
+        });
 
         divRelative.appendChild(coverImg);
         divRelative.appendChild(buttonPlay);
         cardAlbumTop.appendChild(divRelative);
         cardBodyAlbum.appendChild(titleAlbumBottom);
-        cardBodyAlbum.append(artistAlbumBottom);
+        cardBodyAlbum.appendChild(anchor);
         cardAlbumTop.appendChild(cardBodyAlbum);
         colonna.append(cardAlbumTop);
         altriAlbums.appendChild(colonna);
@@ -186,43 +401,30 @@ window.addEventListener("DOMContentLoaded", function () {
       console.error("Fetch error:", error);
     });
 
-  window.addEventListener("scroll", function (event) {
-    console.log(event);
-    const table = document.getElementById("theadTable");
-    if (window.scrollY > 60) {
-      table.classList.remove("d-none");
+  const scrollPage = document.getElementById("scrollThead");
+  const hiddenThead = document.getElementById("hiddenThead");
+
+  constplayBtn2 = document.getElementById("playBtn2");
+  const navB = document.getElementById("coloredNavbar");
+
+  scrollPage.addEventListener("scroll", function (event) {
+    if (scrollPage.scrollTop > 475) {
+      /* const bottonePlay = document.getElementById("playBtn"); */
+      console.log(event);
+      hiddenThead.classList.remove("hidden");
+      hiddenThead.classList.add("visible");
+      navB.style.backgroundColor = averageColor;
+
+      playBtn2.classList.add("visible");
+      playBtn2.classList.remove("hidden");
     } else {
-      table.classList.add("d-none");
+      navB.style.backgroundColor = 0;
+
+      hiddenThead.classList.remove("visible");
+      hiddenThead.classList.add("hidden");
+
+      playBtn2.classList.remove("visible");
+      playBtn2.classList.add("hidden");
     }
   });
 });
-
-/* function getAverageColor(imgElement) {
-  const canvas = document.createElement("canvas");
-  const context = canvas.getContext("2d");
-
-  canvas.width = imgElement.width;
-  canvas.height = imgElement.height;
-
-  context.drawImage(imgElement, 0, 0, canvas.width, canvas.height);
-
-  const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-  const data = imageData.data;
-
-  let r = 0;
-  let g = 0;
-  let b = 0;
-
-  for (let i = 0; i < data.length; i += 4) {
-    r += data[i];
-    g += data[i + 1];
-    b += data[i + 2];
-  }
-
-  r = Math.floor(r / (data.length / 4));
-  g = Math.floor(g / (data.length / 4));
-  b = Math.floor(b / (data.length / 4));
-
-  return { r, g, b };
-}
- */
