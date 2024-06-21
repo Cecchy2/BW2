@@ -1,6 +1,8 @@
 const params = new URLSearchParams(window.location.search);
 const id = params.get("albumId");
 
+let averageColor = "";
+
 let artistId = 0;
 
 window.addEventListener("DOMContentLoaded", function () {
@@ -81,6 +83,8 @@ window.addEventListener("DOMContentLoaded", function () {
         console.log(`Dominant Color: rgb(${dominantColor[0]}, ${dominantColor[1]}, ${dominantColor[2]})`);
         const mainElement = document.getElementById("main");
         mainElement.style.backgroundColor = `rgb(${dominantColor[0]}, ${dominantColor[1]}, ${dominantColor[2]})`;
+
+        averageColor = `rgb(${dominantColor[0]}, ${dominantColor[1]}, ${dominantColor[2]})`;
       };
 
       imgCurrentAlbum.onerror = function () {
@@ -265,12 +269,12 @@ window.addEventListener("DOMContentLoaded", function () {
       console.log(event);
       hiddenThead.classList.remove("hidden");
       hiddenThead.classList.add("visible");
-      navB.classList.add("colorNav");
+      navB.style.backgroundColor = averageColor;
 
       playBtn2.classList.add("visible");
       playBtn2.classList.remove("hidden");
     } else {
-      navB.classList.remove("colorNav");
+      navB.style.backgroundColor = 0;
 
       hiddenThead.classList.remove("visible");
       hiddenThead.classList.add("hidden");
