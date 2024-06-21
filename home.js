@@ -219,6 +219,7 @@ const creaAlbum = (album, container, index) => {
     // ***************************creazione album card e info aside bar***************************
 
     const aside = document.getElementById("asideContainer");
+    aside.innerHTML = "";
     const asideAlbumCard = album => {
       const asideCol = this.document.createElement("div");
       asideCol.className = "col-12 border border-0";
