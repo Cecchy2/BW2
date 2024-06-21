@@ -7,7 +7,7 @@ window.addEventListener("DOMContentLoaded", function () {
   fetch("https://deezerdevs-deezer.p.rapidapi.com/album/" + id, {
     method: "GET",
     headers: {
-      "x-rapidapi-key": "c1be13bc83msh01ed86504ac789ap14b677jsn4a8378e3cb43",
+      "x-rapidapi-key": "dfd3925d0amshafe029754eb961ap17f037jsn18e065c48a37",
       "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
     },
   })
@@ -38,15 +38,6 @@ window.addEventListener("DOMContentLoaded", function () {
       imgCurrentAlbum.src = albumObj.cover_big;
       titleAlbum.innerText = albumObj.title;
       artistAlbum.innerText = `${albumObj.artist.name} · ${year} · ${albumObj.nb_tracks} tracks`;
-
-      /* Questa e´ la funzione per la media dei colori dell'immagine  ma non funziona */
-      /* imgCurrentAlbum.onload = function () {
-        const colorThief = new ColorThief();
-        const dominantColor = colorThief.getColor(imgCurrentAlbum);
-        const mainElement = document.querySelector("main");
-        console.log(`Dominant Color: rgb(${dominantColor[0]}, ${dominantColor[1]}, ${dominantColor[2]})`);
-        mainElement.style.backgroundColor = `rgb(${dominantColor[0]}, ${dominantColor[1]}, ${dominantColor[2]})`;
-      }; */
 
       imgCurrentAlbum.src = albumObj.cover_big;
       titleAlbum.innerText = albumObj.title;
@@ -136,6 +127,16 @@ window.addEventListener("DOMContentLoaded", function () {
         const coverImg = document.createElement("img");
         coverImg.className = "bd-placeholder-img card-img-top object-fit-cover img-responsive";
         coverImg.src = albumTop.album.cover_big;
+
+        /* creo funzione eventlistener al click che mi rimanda all'album */
+
+        coverImg.addEventListener("click", (event) => {
+          console.log(event);
+          const album_Id = albumTop.album.id;
+          /* ?albumId= */
+          console.log(album_Id);
+          window.location.assign("./AlbumPage.html?albumId=" + album_Id);
+        });
 
         const buttonPlay = document.createElement("a");
         buttonPlay.type = "button";
