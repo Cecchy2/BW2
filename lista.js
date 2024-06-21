@@ -27,7 +27,13 @@ const creaList = song => {
     titolo.innerText = `${element.title}`;
     titolo.classList.add("text-truncate", "d-none", "d-xl-block");
     divImg.classList.add("d-flex", "alig-items-center", "mb-3", "pointer");
-    branoArtistaAlbum.classList.add("list-unstyled", "d-flex", "justify-content-center0", "align-items-center", "d-lg-block");
+    branoArtistaAlbum.classList.add(
+      "list-unstyled",
+      "d-flex",
+      "justify-content-center0",
+      "align-items-center",
+      "d-lg-block"
+    );
     branoArtistaAlbum.addEventListener("click", () => {
       const imgArtistaAlbum = document.getElementById("imgArtistaAlbum");
       const footerTitolo = document.getElementById("footerTitolo");
@@ -55,7 +61,15 @@ const creaList = song => {
     });
     nomeArtista.innerText = `${element.artist.name}`;
     nomeArtista.classList.add("m-0");
-    divTitolo.classList.add("d-flex", "flex-column", "ms-3", "justify-content-center", "d-none", "d-xl-block", "pointer");
+    divTitolo.classList.add(
+      "d-flex",
+      "flex-column",
+      "ms-3",
+      "justify-content-center",
+      "d-none",
+      "d-xl-block",
+      "pointer"
+    );
 
     divImg.appendChild(imgBranoArtista);
 

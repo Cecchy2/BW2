@@ -167,6 +167,12 @@ $font-sizes: map-merge($font-sizes, $custom-font-sizes);
 .contenitoreCard:hover {
   background-color: #1b1b1b !important;
 }
+
+.dropdown-menu {
+  background-color: #1b1b1b !important;
+  border-radius: 0.2rem;
+  padding: 0.4rem;
+}
 .pointer {
   cursor: pointer;
 }

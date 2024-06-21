@@ -5,6 +5,9 @@ const id = new URLSearchParams(window.location.search).get("artistId");
 const songsList = document.getElementById("songsList");
 const containerList = document.getElementById("containerList");
 const likedSongs = document.getElementById("likedSongs");
+const correlati = document.getElementById("correlati");
+
+const popularArtist = [13, 66, 7543848, 12246];
 
 const options = {
   method: "GET",
@@ -14,27 +17,86 @@ const options = {
   },
 };
 
-const getMinutes = (duration) => {
+const getMinutes = duration => {
   seconds = duration % 60;
   minutes = ((duration - seconds) / 60) % 60;
   if (seconds < 10) return `${minutes}:0${seconds}`;
   else return minutes + ":" + seconds;
 };
 
+const createCards = () => {
+  fetch(`https://striveschool-api.herokuapp.com/api/deezer/artist/${id}/top?limit=4`, options)
+    .then(resp => {
+      if (resp.ok) return resp.json();
+      else console.log(`Errore: ${resp.status}, ${resp.text}`);
+    })
+    .then(songs => {
+      console.log(songs);
+
+      songs.data.forEach(song => {
+        const col = document.createElement("div");
+        col.className = "col-sm-6 col-md-6 col-xl-3  border border-0  ";
+        const card = document.createElement("div");
+        card.className = "btn card mb-4 border border-0 bg-darkness";
+        card.addEventListener("click", event => {
+          window.location.assign("./artists.html?artistId=" + song.artist.id);
+        });
+        const imgContainer = document.createElement("div");
+        imgContainer.className = "position-relative ";
+
+        const img = document.createElement("img");
+        img.className = "bd-placeholder-img card-img-top object-fit-cover";
+        img.setAttribute("src", song.album.cover_big);
+        const btnPlay = document.createElement("a");
+
+        btnPlay.type = "button";
+        btnPlay.setAttribute("style", "width: 50px; height:50px");
+        // btnPlay.href = "./back-office.html?productId=" + songs.data[i]._id;
+        btnPlay.className =
+          "btn btn-success rounded-circle  position-absolute  bottom-0 end-0 me-2 mb-2 d-flex align-items-center justify-content-center d-none ";
+        btnPlay.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="black" class="bi bi-play-fill" viewBox="0 0 16 16">
+  <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"/></svg>`;
+
+        card.addEventListener("mouseover", ins, false);
+        card.addEventListener("mouseout", out, false);
+        function ins() {
+          btnPlay.classList.remove("d-none");
+        }
+        function out() {
+          btnPlay.classList.add("d-none");
+        }
+        const cardBody = document.createElement("div");
+        cardBody.className = "card-body text-start px-0 pb-0";
+        const h5 = document.createElement("h5");
+        h5.innerText = song.artist.name;
+        h5.className = "fs-5 text-truncate ";
+        const type = document.createElement("p");
+        type.className = "text-secondary text-truncate";
+        type.innerText = song.album.title;
+
+        imgContainer.append(img, btnPlay);
+        cardBody.append(h5, type);
+        card.append(imgContainer, cardBody);
+        col.append(card);
+        correlati.append(col);
+      });
+    })
+    .catch(err => console.log(err));
+};
+
 const handlelikedSongs = () => {
-  fetch("https://deezerdevs-deezer.p.rapidapi.com/artist/" + id, options)
-    .then((resp) => {
+  fetch("https://striveschool-api.herokuapp.com/api/deezer/artist/" + id, options)
+    .then(resp => {
       if (resp.ok) {
         return resp.json();
       } else console.log(`Error ${resp.status}`);
     })
-    .then((artist) => {
-      console.log(artist);
+    .then(artist => {
       const row = document.createElement("div");
       row.className = "row";
       likedSongs.appendChild(row);
       const colImg = document.createElement("div");
-      colImg.className = "col-3 px-0";
+      colImg.className = "col-1 px-0";
       row.appendChild(colImg);
       const artistImg = document.createElement("img");
       artistImg.className = "rounded-circle img-fluid";
@@ -53,17 +115,17 @@ const handlelikedSongs = () => {
       artistTag.innerText = `Di ${artist.name}`;
       colDescritpion.appendChild(artistTag);
     })
-    .catch((err) => console.log(err));
+    .catch(err => console.log(err));
 };
 
 const createBanner = () => {
-  fetch("https://deezerdevs-deezer.p.rapidapi.com/artist/" + id, options)
-    .then((resp) => {
+  fetch("https://striveschool-api.herokuapp.com/api/deezer/artist/" + id, options)
+    .then(resp => {
       if (resp.ok) {
         return resp.json();
       } else console.log("Errore nel caricamento dei dati");
     })
-    .then((artist) => {
+    .then(artist => {
       const artistTitle = document.getElementById("artistTitle");
       const artistName = document.createElement("h1");
       artistBanner.classList.add(
@@ -102,12 +164,12 @@ const createBanner = () => {
 
 const createSongList = () => {
   fetch("https://striveschool-api.herokuapp.com/api/deezer/artist/" + id + "/top?limit=5", options)
-    .then((resp) => {
+    .then(resp => {
       if (resp.ok) {
         return resp.json();
       } else console.log("Errore nel caricamento dei dati");
     })
-    .then((artists) => {
+    .then(artists => {
       artists.data.forEach((art, index) => {
         const songsList = document.getElementById("songsList");
         const col = document.createElement("div");
@@ -153,11 +215,25 @@ const createSongList = () => {
         const viewsCont = document.getElementById("viewsCont");
       });
     })
-    .catch((err) => console.log(err));
+    .catch(err => console.log(err));
+};
+
+const related = () => {
+  fetch("https://striveschool-api.herokuapp.com/api/deezer/artist/" + id + "/top?limit=5", options)
+    .then(resp => {
+      if (resp.ok) return resp.json();
+      else console.log(`Errore ${resp.status}`);
+    })
+    .then(realetedItem => {
+      console.log(realetedItem);
+    })
+    .catch(err => console.log(err));
 };
 
 window.addEventListener("DOMContentLoaded", function () {
   createBanner();
   createSongList();
   handlelikedSongs();
+  related();
+  createCards();
 });
