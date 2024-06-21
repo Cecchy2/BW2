@@ -7,7 +7,7 @@ window.addEventListener("DOMContentLoaded", function () {
   fetch("https://deezerdevs-deezer.p.rapidapi.com/album/" + id, {
     method: "GET",
     headers: {
-      "x-rapidapi-key": "c1be13bc83msh01ed86504ac789ap14b677jsn4a8378e3cb43",
+      "x-rapidapi-key": "163c72cf37msh7fb90cec4c02a73p1390b4jsn4594dd70494e",
       "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
     },
   })
@@ -189,6 +189,15 @@ window.addEventListener("DOMContentLoaded", function () {
         coverImg.className = "bd-placeholder-img card-img-top object-fit-cover img-responsive";
         coverImg.src = albumTop.album.cover_big;
 
+        /* creo funzione eventlistener al click che mi rimanda all'album */
+        coverImg.addEventListener("click", (event) => {
+          console.log(event);
+          const album_Id = albumTop.album.id;
+          /* ?albumId= */
+          console.log(album_Id);
+          window.location.assign("./AlbumPage.html?albumId=" + album_Id);
+        });
+
         const buttonPlay = document.createElement("a");
         buttonPlay.type = "button";
         buttonPlay.style = "width: 50px; height: 50px";
@@ -213,16 +222,25 @@ window.addEventListener("DOMContentLoaded", function () {
         const titleAlbumBottom = document.createElement("h5");
         titleAlbumBottom.className = "card-body text-start px-0 pb-0 text-truncate";
         titleAlbumBottom.innerText = albumTop.album.title;
-
         console.log(albumTop.album.title);
 
-        const artistAlbumBottom = albumTop.artist.name;
+        const anchor = document.createElement("a");
+        anchor.innerText = albumTop.artist.name;
+        anchor.setAttribute("id", "ancora");
+
+        /* creo funzione eventlistener al click che mi rimanda all'artista */
+        anchor.addEventListener("click", (event) => {
+          console.log(event);
+          console.log(albumTop.artist.id);
+          const artist_id = albumTop.artist.id;
+          window.location.assign("artists.html?artistId=" + artist_id);
+        });
 
         divRelative.appendChild(coverImg);
         divRelative.appendChild(buttonPlay);
         cardAlbumTop.appendChild(divRelative);
         cardBodyAlbum.appendChild(titleAlbumBottom);
-        cardBodyAlbum.append(artistAlbumBottom);
+        cardBodyAlbum.appendChild(anchor);
         cardAlbumTop.appendChild(cardBodyAlbum);
         colonna.append(cardAlbumTop);
         altriAlbums.appendChild(colonna);
@@ -239,10 +257,19 @@ window.addEventListener("DOMContentLoaded", function () {
 
   scrollPage.addEventListener("scroll", function (event) {
     if (scrollPage.scrollTop > 475) {
+      /* const bottonePlay = document.getElementById("playBtn"); */
       console.log(event);
       hiddenThead.classList.remove("hidden");
+      hiddenThead.classList.add("visible");
+      /* playBtn.classList.add("fixed");
+      playBtn.classList.add("visible");
+      playBtn.classList.remove("hidden"); */
     } else {
+      hiddenThead.classList.remove("visible");
       hiddenThead.classList.add("hidden");
+      /* playBtn.classList.remove("fixed");
+      playBtn.classList.remove("visible");
+      playBtn.classList.add("hidden"); */
     }
   });
 });
