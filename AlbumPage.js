@@ -7,7 +7,7 @@ window.addEventListener("DOMContentLoaded", function () {
   fetch("https://deezerdevs-deezer.p.rapidapi.com/album/" + id, {
     method: "GET",
     headers: {
-      "x-rapidapi-key": "dfd3925d0amshafe029754eb961ap17f037jsn18e065c48a37",
+      "x-rapidapi-key": "163c72cf37msh7fb90cec4c02a73p1390b4jsn4594dd70494e",
       "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
     },
   })
@@ -129,7 +129,6 @@ window.addEventListener("DOMContentLoaded", function () {
         coverImg.src = albumTop.album.cover_big;
 
         /* creo funzione eventlistener al click che mi rimanda all'album */
-
         coverImg.addEventListener("click", (event) => {
           console.log(event);
           const album_Id = albumTop.album.id;
@@ -162,16 +161,25 @@ window.addEventListener("DOMContentLoaded", function () {
         const titleAlbumBottom = document.createElement("h5");
         titleAlbumBottom.className = "card-body text-start px-0 pb-0 text-truncate";
         titleAlbumBottom.innerText = albumTop.album.title;
-
         console.log(albumTop.album.title);
 
-        const artistAlbumBottom = albumTop.artist.name;
+        const anchor = document.createElement("a");
+        anchor.innerText = albumTop.artist.name;
+        anchor.setAttribute("id", "ancora");
+
+        /* creo funzione eventlistener al click che mi rimanda all'artista */
+        anchor.addEventListener("click", (event) => {
+          console.log(event);
+          console.log(albumTop.artist.id);
+          const artist_id = albumTop.artist.id;
+          window.location.assign("artists.html?artistId=" + artist_id);
+        });
 
         divRelative.appendChild(coverImg);
         divRelative.appendChild(buttonPlay);
         cardAlbumTop.appendChild(divRelative);
         cardBodyAlbum.appendChild(titleAlbumBottom);
-        cardBodyAlbum.append(artistAlbumBottom);
+        cardBodyAlbum.appendChild(anchor);
         cardAlbumTop.appendChild(cardBodyAlbum);
         colonna.append(cardAlbumTop);
         altriAlbums.appendChild(colonna);
@@ -188,12 +196,15 @@ window.addEventListener("DOMContentLoaded", function () {
 
   scrollPage.addEventListener("scroll", function (event) {
     if (scrollPage.scrollTop > 475) {
+      const bottonePlay = document.getElementById("playBtn");
       console.log(event);
       hiddenThead.classList.remove("hidden");
       hiddenThead.classList.add("visible");
+      playBtn.classList.add("fixed");
     } else {
       hiddenThead.classList.remove("visible");
       hiddenThead.classList.add("hidden");
+      playBtn.classList.remove("fixed");
     }
   });
 });

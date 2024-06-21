@@ -177,7 +177,10 @@ tr:hover {
   cursor: pointer;
   background-color: rgb(69, 69, 69);
 }
-
+#ancora:hover {
+  text-decoration: underline;
+  text-align: white;
+}
 #btnEsplora {
   display: none;
 }
@@ -242,6 +245,12 @@ tr:hover {
   width: 100%;
   background-color: black;
   z-index: 1000;
+}
+.fixed {
+  position: fixed;
+  top: 70px;
+  left: 560px;
+  z-index: 2000;
 }
 
 @media screen and (min-width: 600px) {
