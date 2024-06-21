@@ -338,13 +338,12 @@ window.addEventListener("DOMContentLoaded", function () {
       dropdown.className = " dropdown";
       const buttonSettings = document.createElement("button");
       buttonSettings.innerText = ". . .";
-      buttonSettings.setAttribute("type", "button");
-      buttonSettings.setAttribute("data-bs-toggle", "dropdown");
+      buttonSettings.setAttribute("type", "button", "data-bs-toggle", "dropdown");
       buttonSettings.className = "btn px-4 border-0";
-      dropdown.appendChild(buttonSettings);
+      // dropdown.appendChild(buttonSettings);
       const dotsMenu = document.createElement("ul");
       dotsMenu.className = "dropdown-menu";
-      buttonSettings.appendChild(dotsMenu);
+      // buttonSettings.appendChild(dotsMenu);
       const listMenu = document.createElement("li");
 
       listMenu.innerHTML = `<a class="dropdown-item" href="#"
@@ -365,7 +364,7 @@ window.addEventListener("DOMContentLoaded", function () {
                               /></svg
                             >Segui</a
                           >`;
-      dotsMenu.appendChild(listMenu);
+      // dotsMenu.appendChild(listMenu);
       const listMenu2 = document.createElement("li");
 
       listMenu2.innerHTML = ` <a class="dropdown-item border-bottom" href="#"
@@ -382,7 +381,7 @@ window.addEventListener("DOMContentLoaded", function () {
                               /></svg
                             >Vai a Radio dell'artista</a
                           >`;
-      dotsMenu.appendChild(listMenu2);
+      // dotsMenu.appendChild(listMenu2);
       const listMenu3 = document.createElement("li");
 
       listMenu3.innerHTML = ` <a class="dropdown-item" href="#"
@@ -399,10 +398,13 @@ window.addEventListener("DOMContentLoaded", function () {
                               /></svg
                             >Apri l'app</a
                           >`;
-      dotsMenu.appendChild(listMenu3);
+      // dotsMenu.appendChild(listMenu3);
 
+      dotsMenu.append(listMenu, listMenu2, listMenu3);
+      buttonSettings.append(dotsMenu);
+      dropdown.append(buttonSettings);
       containerBtn.append(buttonPlay, buttonSalva, dropdown);
-      infoAnnunci.append(spanAnnunci, h2, p1, p2, containerBtn);
+      infoAnnunci.append(spanAnnunci, h2, artistName, p2, containerBtn);
       annunci.appendChild(infoAnnunci);
     })
     .catch(err => alert(err));
