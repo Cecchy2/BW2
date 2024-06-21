@@ -226,6 +226,31 @@ const createSongList = () => {
           audioPlayer.src = art.preview;
           audioPlayer.play();
         });
+        songRow.addEventListener("click", () => {
+          const imgArtistaAlbum = document.getElementById("imgArtistaAlbum");
+          const footerTitolo = document.getElementById("footerTitolo");
+          const footerArtista = document.getElementById("footerArtista");
+          const image = document.createElement("img");
+          const h5 = document.createElement("h5");
+          if (imgArtistaAlbum.firstChild && imgArtistaAlbum.firstChild.src) {
+            imgArtistaAlbum.innerHTML = "";
+            footerTitolo.innerHTML = "";
+            footerArtista.innerHTML = "";
+            image.src = art.album.cover_small;
+            imgArtistaAlbum.appendChild(image);
+            footerTitolo.appendChild(h5);
+            imgArtistaAlbum.classList.add("me-2");
+            h5.innerText = art.title;
+            footerArtista.innerText = art.artist.name;
+          } else {
+            image.src = art.album.cover_small;
+            imgArtistaAlbum.appendChild(image);
+            footerTitolo.appendChild(h5);
+            imgArtistaAlbum.classList.add("me-2");
+            h5.innerText = art.title;
+            footerArtista.innerText = art.artist.name;
+          }
+        });
         const btnGreenPlay = document.getElementById("btnGreenPlay");
         btnGreenPlay.addEventListener("click", function (e) {
           const target = e.target;
