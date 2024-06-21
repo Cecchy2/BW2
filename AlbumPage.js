@@ -11,20 +11,21 @@ window.addEventListener("DOMContentLoaded", function () {
       "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
     },
   })
-    .then((resp) => {
+    .then(resp => {
       if (resp.ok) {
         return resp.json();
       } else {
         throw new Error("Error fetching album data");
       }
     })
-    .then((albumObj) => {
+    .then(albumObj => {
       console.log(albumObj);
       /////EVENTO PLAYBTN SU ALLBUMPAGE
 
       const btnPlayAlbum = document.getElementById("playBtn");
-      btnPlayAlbum.addEventListener("click", (event) => {
+      btnPlayAlbum.addEventListener("click", event => {
         console.log("Button clicked");
+        console.log(albumObj);
         const indexPazzo = Math.floor(Math.random() * 20);
 
         const imgArtistaAlbum = document.getElementById("imgArtistaAlbum");
@@ -50,6 +51,74 @@ window.addEventListener("DOMContentLoaded", function () {
           h5.innerText = albumObj.tracks.data[indexPazzo].title;
           footerArtista.innerText = albumObj.artist.name;
         }
+        // ********************** creazione album card aside bar****************************************
+        const aside = document.getElementById("asideContainer");
+        aside.innerHTML = "";
+        const asideAlbumCard = albumObj => {
+          const asideCol = document.createElement("div");
+          asideCol.className = "col-12 border border-0";
+          const asideCard = document.createElement("div");
+          asideCard.className = "btn card mb-4 border border-0 bg-darkness contenitoreCard ";
+          const asideImgContainer = document.createElement("div");
+          const asideImg = document.createElement("img");
+          asideImg.className = "bd-placeholder-img card-img-top object-fit-cover ";
+          asideImg.setAttribute("src", albumObj.cover_big);
+          asideImg.addEventListener("click", event => {
+            window.location.assign("./AlbumPage.html?albumId=" + albumObj.id);
+          });
+          const asideCardBody = document.createElement("div");
+          asideCardBody.className = "card-body text-start px-0 pb-0";
+          const asideH5 = document.createElement("h5");
+          asideH5.innerText = albumObj.title;
+          asideH5.className = "fs-5 text-truncate text-white";
+          asideH5.addEventListener("click", event => {
+            window.location.assign("./AlbumPage.html?albumId=" + albumObj.id);
+          });
+          const asideName = document.createElement("a");
+          asideName.innerText = albumObj.artist.name;
+          asideName.className = "link-underline-secondary link-underline-opacity-0 link-underline-opacity-75-hover text-secondary fw-bold";
+          asideName.href = "./artists.html?artistId=" + albumObj.artist.id;
+
+          asideImgContainer.append(asideImg);
+          asideCardBody.append(asideH5, asideName);
+          asideCard.append(asideImgContainer, asideCardBody);
+          asideCol.append(asideCard);
+          aside.append(asideCol);
+        };
+        asideAlbumCard(albumObj);
+
+        // ************************* crazione artista card aside bar **********************************
+        const asideArtistCard = albumObj => {
+          const asideCol = this.document.createElement("div");
+          asideCol.className = "col-12 border border-0";
+          const asideCard = document.createElement("div");
+          asideCard.className = "btn card mb-4 border border-0 bg-darkness contenitoreCard ";
+          const asideImgContainer = document.createElement("div");
+          const asideImg = document.createElement("img");
+          asideImg.className = "bd-placeholder-img card-img-top object-fit-cover ";
+          asideImg.setAttribute("src", albumObj.artist.picture_big);
+          asideImg.addEventListener("click", event => {
+            window.location.assign("./artists.html?artistId=" + albumObj.artist.id);
+          });
+          const asideCardBody = document.createElement("div");
+          asideCardBody.className = "card-body text-start px-0 pb-0";
+          const asideH5 = document.createElement("h5");
+          asideH5.innerText = albumObj.artist.name;
+          asideH5.className = "fs-5 text-truncate text-white";
+          asideH5.addEventListener("click", event => {
+            window.location.assign("./artists.html?artistId=" + albumObj.artist.id);
+          });
+          const asideGenres = document.createElement("a");
+          asideGenres.innerText = albumObj.genres.data[0].name;
+          asideGenres.className = "link-underline-secondary link-underline-opacity-0 link-underline-opacity-75-hover text-secondary fw-bold";
+
+          asideImgContainer.append(asideImg);
+          asideCardBody.append(asideH5, asideGenres);
+          asideCard.append(asideImgContainer, asideCardBody);
+          asideCol.append(asideCard);
+          aside.append(asideCol);
+        };
+        asideArtistCard(albumObj);
       });
       //////FINE EVENTO
 
@@ -125,7 +194,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
         tracksTable.appendChild(trackRow);
         ////EVENTO CLICK SULLA RIGA DELLA TABELLA
-        trackRow.addEventListener("click", (event) => {
+        trackRow.addEventListener("click", event => {
           console.log("Button clicked");
           console.log(albumObj);
 
@@ -152,19 +221,87 @@ window.addEventListener("DOMContentLoaded", function () {
             h5.innerText = track.title;
             footerArtista.innerText = track.artist.name;
           }
+          // ********************** creazione album card aside bar****************************************
+          const aside = document.getElementById("asideContainer");
+          aside.innerHTML = "";
+          const asideAlbumCard = albumObj => {
+            const asideCol = document.createElement("div");
+            asideCol.className = "col-12 border border-0";
+            const asideCard = document.createElement("div");
+            asideCard.className = "btn card mb-4 border border-0 bg-darkness contenitoreCard ";
+            const asideImgContainer = document.createElement("div");
+            const asideImg = document.createElement("img");
+            asideImg.className = "bd-placeholder-img card-img-top object-fit-cover ";
+            asideImg.setAttribute("src", albumObj.cover_big);
+            asideImg.addEventListener("click", event => {
+              window.location.assign("./AlbumPage.html?albumId=" + albumObj.id);
+            });
+            const asideCardBody = document.createElement("div");
+            asideCardBody.className = "card-body text-start px-0 pb-0";
+            const asideH5 = document.createElement("h5");
+            asideH5.innerText = albumObj.title;
+            asideH5.className = "fs-5 text-truncate text-white";
+            asideH5.addEventListener("click", event => {
+              window.location.assign("./AlbumPage.html?albumId=" + albumObj.id);
+            });
+            const asideName = document.createElement("a");
+            asideName.innerText = albumObj.artist.name;
+            asideName.className = "link-underline-secondary link-underline-opacity-0 link-underline-opacity-75-hover text-secondary fw-bold";
+            asideName.href = "./artists.html?artistId=" + albumObj.artist.id;
+
+            asideImgContainer.append(asideImg);
+            asideCardBody.append(asideH5, asideName);
+            asideCard.append(asideImgContainer, asideCardBody);
+            asideCol.append(asideCard);
+            aside.append(asideCol);
+          };
+          asideAlbumCard(albumObj);
+
+          // ************************* crazione artista card aside bar **********************************
+          const asideArtistCard = albumObj => {
+            const asideCol = this.document.createElement("div");
+            asideCol.className = "col-12 border border-0";
+            const asideCard = document.createElement("div");
+            asideCard.className = "btn card mb-4 border border-0 bg-darkness contenitoreCard ";
+            const asideImgContainer = document.createElement("div");
+            const asideImg = document.createElement("img");
+            asideImg.className = "bd-placeholder-img card-img-top object-fit-cover ";
+            asideImg.setAttribute("src", albumObj.artist.picture_big);
+            asideImg.addEventListener("click", event => {
+              window.location.assign("./artists.html?artistId=" + albumObj.artist.id);
+            });
+            const asideCardBody = document.createElement("div");
+            asideCardBody.className = "card-body text-start px-0 pb-0";
+            const asideH5 = document.createElement("h5");
+            asideH5.innerText = albumObj.artist.name;
+            asideH5.className = "fs-5 text-truncate text-white";
+            asideH5.addEventListener("click", event => {
+              window.location.assign("./artists.html?artistId=" + albumObj.artist.id);
+            });
+            const asideGenres = document.createElement("a");
+            asideGenres.innerText = albumObj.genres.data[0].name;
+            asideGenres.className = "link-underline-secondary link-underline-opacity-0 link-underline-opacity-75-hover text-secondary fw-bold";
+
+            asideImgContainer.append(asideImg);
+            asideCardBody.append(asideH5, asideGenres);
+            asideCard.append(asideImgContainer, asideCardBody);
+            asideCol.append(asideCard);
+            aside.append(asideCol);
+          };
+          asideArtistCard(albumObj);
         });
       });
 
       return fetch(`https://striveschool-api.herokuapp.com/api/deezer/artist/${artistId}/top?limit=50`);
     })
-    .then((resp) => {
+    .then(resp => {
       if (resp.ok) {
         return resp.json();
       } else {
         throw new Error(`Error ${resp.status}: ${resp.statusText}`);
       }
     })
-    .then((artistTop) => {
+    .then(artistTop => {
       const altriAlbums = document.getElementById("altriAlbums");
       altriAlbums.innerHTML = "";
 
@@ -190,7 +327,7 @@ window.addEventListener("DOMContentLoaded", function () {
         coverImg.src = albumTop.album.cover_big;
 
         /* creo funzione eventlistener al click che mi rimanda all'album */
-        coverImg.addEventListener("click", (event) => {
+        coverImg.addEventListener("click", event => {
           console.log(event);
           const album_Id = albumTop.album.id;
           /* ?albumId= */
@@ -201,8 +338,7 @@ window.addEventListener("DOMContentLoaded", function () {
         const buttonPlay = document.createElement("a");
         buttonPlay.type = "button";
         buttonPlay.style = "width: 50px; height: 50px";
-        buttonPlay.className =
-          "btn btn-success rounded-circle position-absolute bottom-0 end-0 me-2 mb-2 d-flex align-items-center justify-content-center d-none";
+        buttonPlay.className = "btn btn-success rounded-circle position-absolute bottom-0 end-0 me-2 mb-2 d-flex align-items-center justify-content-center d-none";
         buttonPlay.id = "btnPlay";
         buttonPlay.innerHTML = `<svg
         xmlns="http://www.w3.org/2000/svg"
@@ -229,7 +365,7 @@ window.addEventListener("DOMContentLoaded", function () {
         anchor.setAttribute("id", "ancora");
 
         /* creo funzione eventlistener al click che mi rimanda all'artista */
-        anchor.addEventListener("click", (event) => {
+        anchor.addEventListener("click", event => {
           console.log(event);
           console.log(albumTop.artist.id);
           const artist_id = albumTop.artist.id;
@@ -248,7 +384,7 @@ window.addEventListener("DOMContentLoaded", function () {
       const titleAlbumB = document.getElementById("titleAlbumBottom");
       titleAlbumB.innerText = "Altri album di  " + albumTop.artist.name;
     })
-    .catch((error) => {
+    .catch(error => {
       console.error("Fetch error:", error);
     });
 
