@@ -6,6 +6,12 @@ const songsList = document.getElementById("songsList");
 const containerList = document.getElementById("containerList");
 const likedSongs = document.getElementById("likedSongs");
 const correlati = document.getElementById("correlati");
+const audioPlayer = document.getElementById("audioPlayer");
+const staticLine = document.getElementById("line");
+const childLine = document.getElementById("lineChild");
+const timeCurrent = document.getElementById("currentTime");
+const totaleDuratione = document.getElementById("totaleDuratione");
+let counter = 0;
 
 const popularArtist = [13, 66, 7543848, 12246];
 
@@ -214,6 +220,18 @@ const createSongList = () => {
         col3.appendChild(minutes);
 
         const viewsCont = document.getElementById("viewsCont");
+
+        songImg.addEventListener("click", function (e) {
+          const target = e.target;
+          audioPlayer.src = art.preview;
+          audioPlayer.play();
+        });
+        const btnGreenPlay = document.getElementById("btnGreenPlay");
+        btnGreenPlay.addEventListener("click", function (e) {
+          const target = e.target;
+          audioPlayer.src = art.preview;
+          audioPlayer.play();
+        });
       });
     })
     .catch(err => console.log(err));

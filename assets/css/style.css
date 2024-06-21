@@ -11932,9 +11932,12 @@ textarea.form-control-lg {
   position: absolute;
   border-radius: 10px;
   background-color: #ffffff;
-  width: 50%;
   height: 100%;
   transition: width 0.1s;
+}
+
+.lineChild:hover {
+  background-color: green;
 }
 
 .contenitoreCard:hover {

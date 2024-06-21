@@ -263,6 +263,7 @@
               <div class="container-fluid">
                 <div id="containerList" class="d-flex align-items-center">
                   <button
+                    id="btnGreenPlay"
                     class="btn btn-success rounded-circle m-4 d-flex align-items-center justify-content-center"
                     style="width: 50px; height: 50px"
                   >
@@ -603,11 +604,14 @@
                   </div>
                 </div>
                 <div class="d-flex justify-content-between align-items-center">
-                  <div id="currentTime">0:00</div>
-                  <div class="line">
-                    <div class="lineChild"></div>
+                  <div id="currentTime"></div>
+                  <div id="line" class="line">
+                    <audio id="audioPlayer" class="d-none" controls>
+                      <source type="audio/mpeg" />
+                    </audio>
+                    <div id="lineChild" class="lineChild"></div>
                   </div>
-                  <div id="totalDuration">0:00</div>
+                  <div id="totalDuration"></div>
                 </div>
               </div>
               <div class="d-flex align-items-center">
