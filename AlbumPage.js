@@ -32,6 +32,7 @@ window.addEventListener("DOMContentLoaded", function () {
       const titleAlbum = document.getElementById("albumTitle");
       const artistAlbum = document.getElementById("albumArtist");
 
+      /* crossOrigin impostato ad Anonymous */
       imgCurrentAlbum.crossOrigin = "Anonymous";
 
       imgCurrentAlbum.src = albumObj.cover_big;
@@ -117,13 +118,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
       console.log(artistTop);
 
-      /* const titleAlbumB = document.getElementById("titleAlbumBottom");
-      titleAlbumB.innerText = "altri album di:" + artistTop.data.artist.name; */
-
       let albumTop = "";
-
-      /* const titleAlbumB = document.getElementById("titleAlbumBottom");
-      titleAlbumB.innerText = "Altri album di:" + albumTop.artist.name; */
 
       for (let i = 0; i < 4; i++) {
         albumTop = artistTop.data[i];
@@ -186,43 +181,15 @@ window.addEventListener("DOMContentLoaded", function () {
       console.error("Fetch error:", error);
     });
 
-  window.addEventListener("scroll", function (event) {
-    console.log(event);
-    const table = document.getElementById("theadTable");
-    if (window.scrollY > 60) {
-      table.classList.remove("d-none");
+  const scrollPage = document.getElementById("scrollThead");
+  const hiddenThead = document.getElementById("hiddenThead");
+
+  scrollPage.addEventListener("scroll", function (event) {
+    if (scrollPage.scrollTop > 475) {
+      console.log(event);
+      hiddenThead.classList.remove("hidden");
     } else {
-      table.classList.add("d-none");
+      hiddenThead.classList.add("hidden");
     }
   });
 });
-
-/* function getAverageColor(imgElement) {
-  const canvas = document.createElement("canvas");
-  const context = canvas.getContext("2d");
-
-  canvas.width = imgElement.width;
-  canvas.height = imgElement.height;
-
-  context.drawImage(imgElement, 0, 0, canvas.width, canvas.height);
-
-  const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-  const data = imageData.data;
-
-  let r = 0;
-  let g = 0;
-  let b = 0;
-
-  for (let i = 0; i < data.length; i += 4) {
-    r += data[i];
-    g += data[i + 1];
-    b += data[i + 2];
-  }
-
-  r = Math.floor(r / (data.length / 4));
-  g = Math.floor(g / (data.length / 4));
-  b = Math.floor(b / (data.length / 4));
-
-  return { r, g, b };
-}
- */
