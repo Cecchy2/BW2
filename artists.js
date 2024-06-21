@@ -19,7 +19,7 @@ const options = {
   },
 };
 
-const getMinutes = (duration) => {
+const getMinutes = duration => {
   seconds = duration % 60;
   minutes = ((duration - seconds) / 60) % 60;
   if (seconds < 10) return `${minutes}:0${seconds}`;
@@ -28,19 +28,19 @@ const getMinutes = (duration) => {
 
 const createCards = () => {
   fetch(`https://striveschool-api.herokuapp.com/api/deezer/artist/${id}/top?limit=4`, options)
-    .then((resp) => {
+    .then(resp => {
       if (resp.ok) return resp.json();
       else console.log(`Errore: ${resp.status}, ${resp.text}`);
     })
-    .then((songs) => {
+    .then(songs => {
       console.log(songs);
 
-      songs.data.forEach((song) => {
+      songs.data.forEach(song => {
         const col = document.createElement("div");
         col.className = "col-sm-6 col-md-6 col-xl-3  border border-0  ";
         const card = document.createElement("div");
         card.className = "btn card mb-4 border border-0 bg-darkness";
-        card.addEventListener("click", (event) => {
+        card.addEventListener("click", event => {
           window.location.assign("./artists.html?artistId=" + song.artist.id);
         });
         const imgContainer = document.createElement("div");
@@ -54,8 +54,7 @@ const createCards = () => {
         btnPlay.type = "button";
         btnPlay.setAttribute("style", "width: 50px; height:50px");
         // btnPlay.href = "./back-office.html?productId=" + songs.data[i]._id;
-        btnPlay.className =
-          "btn btn-success rounded-circle  position-absolute  bottom-0 end-0 me-2 mb-2 d-flex align-items-center justify-content-center d-none ";
+        btnPlay.className = "btn btn-success rounded-circle  position-absolute  bottom-0 end-0 me-2 mb-2 d-flex align-items-center justify-content-center d-none ";
         btnPlay.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="black" class="bi bi-play-fill" viewBox="0 0 16 16">
   <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"/></svg>`;
 
@@ -83,17 +82,17 @@ const createCards = () => {
         correlati.append(col);
       });
     })
-    .catch((err) => console.log(err));
+    .catch(err => console.log(err));
 };
 
 const handlelikedSongs = () => {
   fetch("https://striveschool-api.herokuapp.com/api/deezer/artist/" + id, options)
-    .then((resp) => {
+    .then(resp => {
       if (resp.ok) {
         return resp.json();
       } else console.log(`Error ${resp.status}`);
     })
-    .then((artist) => {
+    .then(artist => {
       const row = document.createElement("div");
       row.className = "row";
       likedSongs.appendChild(row);
@@ -117,26 +116,20 @@ const handlelikedSongs = () => {
       artistTag.innerText = `Di ${artist.name}`;
       colDescritpion.appendChild(artistTag);
     })
-    .catch((err) => console.log(err));
+    .catch(err => console.log(err));
 };
 
 const createBanner = () => {
   fetch("https://striveschool-api.herokuapp.com/api/deezer/artist/" + id, options)
-    .then((resp) => {
+    .then(resp => {
       if (resp.ok) {
         return resp.json();
       } else console.log("Errore nel caricamento dei dati");
     })
-    .then((artist) => {
+    .then(artist => {
       const artistTitle = document.getElementById("artistTitle");
       const artistName = document.createElement("h1");
-      artistBanner.classList.add(
-        "d-flex",
-        "position-relative",
-        "flex-column",
-        "justify-content-start",
-        "align-items-end"
-      );
+      artistBanner.classList.add("d-flex", "position-relative", "flex-column", "justify-content-start", "align-items-end");
       const banner = document.createElement("img");
       banner.src = artist.picture_xl;
       banner.className = " img-fluid w-100 opacity-25 overflow-hidden";
@@ -166,17 +159,19 @@ const createBanner = () => {
 
 const createSongList = () => {
   fetch("https://striveschool-api.herokuapp.com/api/deezer/artist/" + id + "/top?limit=5", options)
-    .then((resp) => {
+    .then(resp => {
       if (resp.ok) {
         return resp.json();
       } else console.log("Errore nel caricamento dei dati");
     })
-    .then((artists) => {
+    .then(artists => {
       const artistsOBJ = artists.data;
       console.log(artistsOBJ);
       const btnPlayArtist = document.getElementById("btnPlayArtist");
-      btnPlayArtist.addEventListener("click", (event) => {
+      btnPlayArtist.addEventListener("click", event => {
         console.log("Button clicked");
+        console.log(artistsOBJ);
+
         const indexPazzo = Math.floor(Math.random() * 5);
 
         const imgArtistaAlbum = document.getElementById("imgArtistaAlbum");
@@ -202,6 +197,75 @@ const createSongList = () => {
           h5.innerText = artistsOBJ[indexPazzo].title;
           footerArtista.innerText = artistsOBJ[indexPazzo].artist.name;
         }
+
+        // ********************** creazione album card aside bar****************************************
+        const aside = document.getElementById("asideContainer");
+        aside.innerHTML = "";
+        const asideAlbumCard = element => {
+          const asideCol = this.document.createElement("div");
+          asideCol.className = "col-12 border border-0";
+          const asideCard = document.createElement("div");
+          asideCard.className = "btn card mb-4 border border-0 bg-darkness contenitoreCard ";
+          const asideImgContainer = document.createElement("div");
+          const asideImg = document.createElement("img");
+          asideImg.className = "bd-placeholder-img card-img-top object-fit-cover ";
+          asideImg.setAttribute("src", element.album.cover_big);
+          asideImg.addEventListener("click", event => {
+            window.location.assign("./AlbumPage.html?albumId=" + element.album.id);
+          });
+          const asideCardBody = document.createElement("div");
+          asideCardBody.className = "card-body text-start px-0 pb-0";
+          const asideH5 = document.createElement("h5");
+          asideH5.innerText = element.album.title;
+          asideH5.className = "fs-5 text-truncate text-white";
+          asideH5.addEventListener("click", event => {
+            window.location.assign("./AlbumPage.html?albumId=" + element.album.id);
+          });
+          const asideName = document.createElement("a");
+          asideName.innerText = element.artist.name;
+          asideName.className = "link-underline-secondary link-underline-opacity-0 link-underline-opacity-75-hover text-secondary fw-bold";
+          asideName.href = "./artists.html?artistId=" + element.artist.id;
+
+          asideImgContainer.append(asideImg);
+          asideCardBody.append(asideH5, asideName);
+          asideCard.append(asideImgContainer, asideCardBody);
+          asideCol.append(asideCard);
+          aside.append(asideCol);
+        };
+        asideAlbumCard(artistsOBJ[indexPazzo]);
+
+        // ************************* crazione artista card aside bar **********************************
+        const asideArtistCard = element => {
+          const asideCol = this.document.createElement("div");
+          asideCol.className = "col-12 border border-0";
+          const asideCard = document.createElement("div");
+          asideCard.className = "btn card mb-4 border border-0 bg-darkness contenitoreCard ";
+          const asideImgContainer = document.createElement("div");
+          const asideImg = document.createElement("img");
+          asideImg.className = "bd-placeholder-img card-img-top object-fit-cover ";
+          asideImg.setAttribute("src", element.contributors[0].picture_big);
+          asideImg.addEventListener("click", event => {
+            window.location.assign("./artists.html?artistId=" + element.artist.id);
+          });
+          const asideCardBody = document.createElement("div");
+          asideCardBody.className = "card-body text-start px-0 pb-0";
+          const asideH5 = document.createElement("h5");
+          asideH5.innerText = element.artist.name;
+          asideH5.className = "fs-5 text-truncate text-white";
+          asideH5.addEventListener("click", event => {
+            window.location.assign("./artists.html?artistId=" + element.artist.id);
+          });
+          const asideGenres = document.createElement("a");
+          asideGenres.innerText = element.artist.type;
+          asideGenres.className = "link-underline-secondary link-underline-opacity-0 link-underline-opacity-75-hover text-secondary fw-bold";
+
+          asideImgContainer.append(asideImg);
+          asideCardBody.append(asideH5, asideGenres);
+          asideCard.append(asideImgContainer, asideCardBody);
+          asideCol.append(asideCard);
+          aside.append(asideCol);
+        };
+        asideArtistCard(artistsOBJ[indexPazzo]);
       });
 
       artists.data.forEach((art, index) => {
@@ -248,8 +312,9 @@ const createSongList = () => {
 
         const viewsCont = document.getElementById("viewsCont");
 
-        col.addEventListener("click", (event) => {
+        col.addEventListener("click", event => {
           console.log("Button clicked");
+          console.log(art);
 
           const imgArtistaAlbum = document.getElementById("imgArtistaAlbum");
           const footerTitolo = document.getElementById("footerTitolo");
@@ -274,22 +339,90 @@ const createSongList = () => {
             h5.innerText = art.title;
             footerArtista.innerText = art.artist.name;
           }
+          // ********************** creazione album card aside bar****************************************
+          const aside = document.getElementById("asideContainer");
+          aside.innerHTML = "";
+          const asideAlbumCard = art => {
+            const asideCol = document.createElement("div");
+            asideCol.className = "col-12 border border-0";
+            const asideCard = document.createElement("div");
+            asideCard.className = "btn card mb-4 border border-0 bg-darkness contenitoreCard ";
+            const asideImgContainer = document.createElement("div");
+            const asideImg = document.createElement("img");
+            asideImg.className = "bd-placeholder-img card-img-top object-fit-cover ";
+            asideImg.setAttribute("src", art.album.cover_big);
+            asideImg.addEventListener("click", event => {
+              window.location.assign("./AlbumPage.html?albumId=" + art.album.id);
+            });
+            const asideCardBody = document.createElement("div");
+            asideCardBody.className = "card-body text-start px-0 pb-0";
+            const asideH5 = document.createElement("h5");
+            asideH5.innerText = art.album.title;
+            asideH5.className = "fs-5 text-truncate text-white";
+            asideH5.addEventListener("click", event => {
+              window.location.assign("./AlbumPage.html?albumId=" + art.album.id);
+            });
+            const asideName = document.createElement("a");
+            asideName.innerText = art.artist.name;
+            asideName.className = "link-underline-secondary link-underline-opacity-0 link-underline-opacity-75-hover text-secondary fw-bold";
+            asideName.href = "./artists.html?artistId=" + art.artist.id;
+
+            asideImgContainer.append(asideImg);
+            asideCardBody.append(asideH5, asideName);
+            asideCard.append(asideImgContainer, asideCardBody);
+            asideCol.append(asideCard);
+            aside.append(asideCol);
+          };
+          asideAlbumCard(art);
+
+          // ************************* crazione artista card aside bar **********************************
+          const asideArtistCard = element => {
+            const asideCol = this.document.createElement("div");
+            asideCol.className = "col-12 border border-0";
+            const asideCard = document.createElement("div");
+            asideCard.className = "btn card mb-4 border border-0 bg-darkness contenitoreCard ";
+            const asideImgContainer = document.createElement("div");
+            const asideImg = document.createElement("img");
+            asideImg.className = "bd-placeholder-img card-img-top object-fit-cover ";
+            asideImg.setAttribute("src", element.contributors[0].picture_big);
+            asideImg.addEventListener("click", event => {
+              window.location.assign("./artists.html?artistId=" + element.artist.id);
+            });
+            const asideCardBody = document.createElement("div");
+            asideCardBody.className = "card-body text-start px-0 pb-0";
+            const asideH5 = document.createElement("h5");
+            asideH5.innerText = element.artist.name;
+            asideH5.className = "fs-5 text-truncate text-white";
+            asideH5.addEventListener("click", event => {
+              window.location.assign("./artists.html?artistId=" + element.artist.id);
+            });
+            const asideGenres = document.createElement("a");
+            asideGenres.innerText = element.artist.type;
+            asideGenres.className = "link-underline-secondary link-underline-opacity-0 link-underline-opacity-75-hover text-secondary fw-bold";
+
+            asideImgContainer.append(asideImg);
+            asideCardBody.append(asideH5, asideGenres);
+            asideCard.append(asideImgContainer, asideCardBody);
+            asideCol.append(asideCard);
+            aside.append(asideCol);
+          };
+          asideArtistCard(art);
         });
       });
     })
-    .catch((err) => console.log(err));
+    .catch(err => console.log(err));
 };
 
 const related = () => {
   fetch("https://striveschool-api.herokuapp.com/api/deezer/artist/" + id + "/top?limit=5", options)
-    .then((resp) => {
+    .then(resp => {
       if (resp.ok) return resp.json();
       else console.log(`Errore ${resp.status}`);
     })
-    .then((realetedItem) => {
+    .then(realetedItem => {
       console.log(realetedItem);
     })
-    .catch((err) => console.log(err));
+    .catch(err => console.log(err));
 };
 
 window.addEventListener("DOMContentLoaded", function () {
