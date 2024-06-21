@@ -150,7 +150,7 @@
 
         <main class="col col-xl-8 rounded" data-bs-theme="dark">
           <div class="bg-darkness rounded" style="height: 90vh">
-            <div class="d-flex align-items-center pt-3 mx-3 mb-3">
+            <div class="d-flex align-items-center p-3" id="coloredNavbar">
               <div class="me-auto d-flex">
                 <button
                   onClick="history.back()"
@@ -175,6 +175,20 @@
                     <path
                       fill="#B3B3B3"
                       d="M4.97.47a.75.75 0 0 0 0 1.06L11.44 8l-6.47 6.47a.75.75 0 1 0 1.06 1.06L13.56 8 6.03.47a.75.75 0 0 0-1.06 0z"
+                    ></path>
+                  </svg>
+                </button>
+                <button class="rounded-circle border border-dark ms-4 hidden" id="playBtn2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="25"
+                    height="25"
+                    fill="black"
+                    class="bi bi-play-fill"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"
                     ></path>
                   </svg>
                 </button>
@@ -259,7 +273,7 @@
               <thead>
                 <tr>
                   <th scope="col" class="ps-5">#</th>
-                  <th scope="col " class="d-table-cell mt-3 col-xxl-5 me-5 ps-1">Titolo</th>
+                  <th scope="col " class="d-table-cell mt-3 col-xxl-5 me-5 ps-3">Titolo</th>
                   <th scope="col" class="d-none d-xxl-table-cell col-xxl-3 ps-5">Riproduzioni</th>
                   <th scope="col" class="d-none d-lg-table-cell col-xxl-3" style="padding-left: 88px">
                     <svg

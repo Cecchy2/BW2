@@ -7,7 +7,7 @@ window.addEventListener("DOMContentLoaded", function () {
   fetch("https://deezerdevs-deezer.p.rapidapi.com/album/" + id, {
     method: "GET",
     headers: {
-      "x-rapidapi-key": "163c72cf37msh7fb90cec4c02a73p1390b4jsn4594dd70494e",
+      "x-rapidapi-key": "c1be13bc83msh01ed86504ac789ap14b677jsn4a8378e3cb43",
       "x-rapidapi-host": "deezerdevs-deezer.p.rapidapi.com",
     },
   })
@@ -256,21 +256,27 @@ window.addEventListener("DOMContentLoaded", function () {
   const scrollPage = document.getElementById("scrollThead");
   const hiddenThead = document.getElementById("hiddenThead");
 
+  constplayBtn2 = document.getElementById("playBtn2");
+  const navB = document.getElementById("coloredNavbar");
+
   scrollPage.addEventListener("scroll", function (event) {
     if (scrollPage.scrollTop > 475) {
       /* const bottonePlay = document.getElementById("playBtn"); */
       console.log(event);
       hiddenThead.classList.remove("hidden");
       hiddenThead.classList.add("visible");
-      /* playBtn.classList.add("fixed");
-      playBtn.classList.add("visible");
-      playBtn.classList.remove("hidden"); */
+      navB.classList.add("colorNav");
+
+      playBtn2.classList.add("visible");
+      playBtn2.classList.remove("hidden");
     } else {
+      navB.classList.remove("colorNav");
+
       hiddenThead.classList.remove("visible");
       hiddenThead.classList.add("hidden");
-      /* playBtn.classList.remove("fixed");
-      playBtn.classList.remove("visible");
-      playBtn.classList.add("hidden"); */
+
+      playBtn2.classList.remove("visible");
+      playBtn2.classList.add("hidden");
     }
   });
 });
